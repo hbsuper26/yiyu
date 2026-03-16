@@ -243,8 +243,8 @@
     <section id="management" class="py-24 bg-white relative overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-16 reveal">
-                <h2 class="text-4xl font-bold text-slate-900 mb-6">全链路租户与客户管理系统</h2>
-                <p class="text-lg text-slate-600">打破信息孤岛，实现多级代理、多租户资产的统一调度与实时监控。</p>
+                <h2 class="text-4xl font-bold text-slate-900 mb-6" x-text="t[lang].management.title">全链路租户与客户管理系统</h2>
+                <p class="text-lg text-slate-600" x-text="t[lang].management.subtitle">打破信息孤岛，实现多级代理、多租户资产的统一调度与实时监控。</p>
             </div>
             
             <div class="grid lg:grid-cols-2 gap-16 items-center">
@@ -255,8 +255,8 @@
                                 <i class="fas fa-users-cog"></i>
                             </div>
                             <div>
-                                <h3 class="text-xl font-bold text-slate-900 mb-2">多租户层级架构</h3>
-                                <p class="text-slate-500 leading-relaxed">支持多级代理商、子客户账户管理。自定义角色权限，实现资源的安全隔离与高效共享。</p>
+                                <h3 class="text-xl font-bold text-slate-900 mb-2" x-text="t[lang].management.f1_title">多租户层级架构</h3>
+                                <p class="text-slate-500 leading-relaxed" x-text="t[lang].management.f1_desc">支持多级代理商、子客户账户管理。自定义角色权限，实现资源的安全隔离与高效共享。</p>
                             </div>
                         </div>
                         <div class="flex gap-6">
@@ -264,8 +264,8 @@
                                 <i class="fas fa-eye"></i>
                             </div>
                             <div>
-                                <h3 class="text-xl font-bold text-slate-900 mb-2">实时消耗监控</h3>
-                                <p class="text-slate-500 leading-relaxed">实时拉取各媒体账户消耗数据，多维度看板展示租户余额、ROI及消耗趋势，异常波动自动预警。</p>
+                                <h3 class="text-xl font-bold text-slate-900 mb-2" x-text="t[lang].management.f2_title">实时消耗监控</h3>
+                                <p class="text-slate-500 leading-relaxed" x-text="t[lang].management.f2_desc">实时拉取各媒体账户消耗数据，多维度看板展示租户余额、ROI及消耗趋势，异常波动自动预警。</p>
                             </div>
                         </div>
                         <div class="flex gap-6">
@@ -273,8 +273,8 @@
                                 <i class="fas fa-file-invoice-dollar"></i>
                             </div>
                             <div>
-                                <h3 class="text-xl font-bold text-slate-900 mb-2">全生命周期需求受理</h3>
-                                <p class="text-slate-500 leading-relaxed">集成开户申请、充值流水、BM绑定申请、账户清零回收等全流程工单系统，极速响应客户需求。</p>
+                                <h3 class="text-xl font-bold text-slate-900 mb-2" x-text="t[lang].management.f3_title">全生命周期需求受理</h3>
+                                <p class="text-slate-500 leading-relaxed" x-text="t[lang].management.f3_desc">集成开户申请、充值流水、BM绑定申请、账户清零回收等全流程工单系统，极速响应客户需求。</p>
                             </div>
                         </div>
                     </div>
@@ -283,28 +283,28 @@
                     <div class="bg-slate-900 rounded-3xl p-2 shadow-2xl overflow-hidden">
                         <div class="bg-slate-800 rounded-2xl p-6">
                             <div class="flex justify-between items-center mb-6">
-                                <span class="text-white font-bold">租户消耗实时看板</span>
+                                <span class="text-white font-bold" x-text="t[lang].management.dashboard_title">租户消耗实时看板</span>
                                 <span class="text-xs text-blue-400 bg-blue-400/10 px-2 py-1 rounded">Live Data</span>
                             </div>
                             <div class="space-y-4">
                                 <div class="flex items-center justify-between p-3 bg-white/5 rounded-lg">
                                     <div class="flex items-center gap-3">
                                         <div class="w-2 h-2 rounded-full bg-green-500"></div>
-                                        <span class="text-slate-300 text-sm">租户 A (电商)</span>
+                                        <span class="text-slate-300 text-sm" x-text="t[lang].management.tenant_a">租户 A (电商)</span>
                                     </div>
                                     <span class="text-white font-mono text-sm">$8,240.50</span>
                                 </div>
                                 <div class="flex items-center justify-between p-3 bg-white/5 rounded-lg">
                                     <div class="flex items-center gap-3">
                                         <div class="w-2 h-2 rounded-full bg-blue-500"></div>
-                                        <span class="text-slate-300 text-sm">租户 B (游戏)</span>
+                                        <span class="text-slate-300 text-sm" x-text="t[lang].management.tenant_b">租户 B (游戏)</span>
                                     </div>
                                     <span class="text-white font-mono text-sm">$12,400.00</span>
                                 </div>
                                 <div class="flex items-center justify-between p-3 bg-white/5 rounded-lg">
                                     <div class="flex items-center gap-3">
                                         <div class="w-2 h-2 rounded-full bg-yellow-500"></div>
-                                        <span class="text-slate-300 text-sm">租户 C (工具)</span>
+                                        <span class="text-slate-300 text-sm" x-text="t[lang].management.tenant_c">租户 C (工具)</span>
                                     </div>
                                     <span class="text-white font-mono text-sm">$4,120.20</span>
                                 </div>
@@ -321,16 +321,16 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid lg:grid-cols-3 gap-12">
                 <div class="lg:col-span-1 reveal-left">
-                    <h2 class="text-3xl font-bold text-slate-900 mb-6">智能资金流转监控</h2>
-                    <p class="text-slate-600 mb-8">深度集成媒体底层API，实现广告账户收入、支出的实时对账与清算，确保每一分资金安全透明。</p>
+                    <h2 class="text-3xl font-bold text-slate-900 mb-6" x-text="t[lang].financial.title">智能资金流转监控</h2>
+                    <p class="text-slate-600 mb-8" x-text="t[lang].financial.desc">深度集成媒体底层API，实现广告账户收入、支出的实时对账与清算，确保每一分资金安全透明。</p>
                     <div class="grid grid-cols-2 gap-4">
                         <div class="p-4 bg-white rounded-xl shadow-sm border border-slate-100">
                             <div class="text-blue-600 font-bold text-2xl mb-1">99.9%</div>
-                            <div class="text-slate-400 text-xs uppercase tracking-wider">对账准确率</div>
+                            <div class="text-slate-400 text-xs uppercase tracking-wider" x-text="t[lang].financial.metric1">对账准确率</div>
                         </div>
                         <div class="p-4 bg-white rounded-xl shadow-sm border border-slate-100">
                             <div class="text-purple-600 font-bold text-2xl mb-1">< 1min</div>
-                            <div class="text-slate-400 text-xs uppercase tracking-wider">到账延迟</div>
+                            <div class="text-slate-400 text-xs uppercase tracking-wider" x-text="t[lang].financial.metric2">到账延迟</div>
                         </div>
                     </div>
                 </div>
@@ -338,23 +338,23 @@
                     <div class="grid md:grid-cols-2 gap-6">
                         <div class="bg-white p-6 rounded-2xl border border-slate-100 card-hover">
                             <div class="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center text-orange-600 mb-4"><i class="fas fa-link"></i></div>
-                            <h4 class="font-bold text-slate-900 mb-2">BM 资产绑定</h4>
-                            <p class="text-sm text-slate-500">支持批量绑定 Business Manager 资产，自动化配置像素与广告账户权限，一键开启投放。</p>
+                            <h4 class="font-bold text-slate-900 mb-2" x-text="t[lang].financial.c1_title">BM 资产绑定</h4>
+                            <p class="text-sm text-slate-500" x-text="t[lang].financial.c1_desc">支持批量绑定 Business Manager 资产，自动化配置像素与广告账户权限，一键开启投放。</p>
                         </div>
                         <div class="bg-white p-6 rounded-2xl border border-slate-100 card-hover">
                             <div class="w-10 h-10 bg-red-100 rounded-lg flex items-center justify-center text-red-600 mb-4"><i class="fas fa-eraser"></i></div>
-                            <h4 class="font-bold text-slate-900 mb-2">账户清零回收</h4>
-                            <p class="text-sm text-slate-500">针对封号或废弃账户，支持快速清空余额并回收至钱包，最大化减少资金沉淀损失。</p>
+                            <h4 class="font-bold text-slate-900 mb-2" x-text="t[lang].financial.c2_title">账户清零回收</h4>
+                            <p class="text-sm text-slate-500" x-text="t[lang].financial.c2_desc">针对封号或废弃账户，支持快速清空余额并回收至钱包，最大化减少资金沉淀损失。</p>
                         </div>
                         <div class="bg-white p-6 rounded-2xl border border-slate-100 card-hover">
                             <div class="w-10 h-10 bg-cyan-100 rounded-lg flex items-center justify-center text-cyan-600 mb-4"><i class="fas fa-chart-line"></i></div>
-                            <h4 class="font-bold text-slate-900 mb-2">收支实时审计</h4>
-                            <p class="text-sm text-slate-500">可视化展示账户流水，自动生成日/周/月度财务报表，每一笔充值与减款都有据可查。</p>
+                            <h4 class="font-bold text-slate-900 mb-2" x-text="t[lang].financial.c3_title">收支实时审计</h4>
+                            <p class="text-sm text-slate-500" x-text="t[lang].financial.c3_desc">可视化展示账户流水，自动生成日/周/月度财务报表，每一笔充值与减款都有据可查。</p>
                         </div>
                         <div class="bg-white p-6 rounded-2xl border border-slate-100 card-hover">
                             <div class="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center text-green-600 mb-4"><i class="fas fa-bolt"></i></div>
-                            <h4 class="font-bold text-slate-900 mb-2">自动化开户需求</h4>
-                            <p class="text-sm text-slate-500">集成各平台开户规范，智能校验开户资料，缩短审核路径，实现批量极速开户。</p>
+                            <h4 class="font-bold text-slate-900 mb-2" x-text="t[lang].financial.c4_title">自动化开户需求</h4>
+                            <p class="text-sm text-slate-500" x-text="t[lang].financial.c4_desc">集成各平台开户规范，智能校验开户资料，缩短审核路径，实现批量极速开户。</p>
                         </div>
                     </div>
                 </div>
@@ -488,7 +488,7 @@
                     <div class="bg-slate-50 rounded-2xl p-8 border border-slate-200 shadow-xl relative z-10">
                         <!-- Simulated Dashboard UI focusing on Funds -->
                         <div class="flex justify-between items-center mb-6 border-b border-slate-200 pb-4">
-                            <span class="font-bold text-slate-700">钱包余额</span>
+                            <span class="font-bold text-slate-700" x-text="t[lang].why_dashboard.balance">钱包余额</span>
                             <span class="text-2xl font-bold text-slate-900">$45,200.00</span>
                         </div>
                         <div class="space-y-4">
@@ -496,7 +496,7 @@
                                 <div class="flex items-center gap-3">
                                     <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center text-green-500"><i class="fas fa-plus"></i></div>
                                     <div>
-                                        <div class="text-sm font-bold">充值成功</div>
+                                        <div class="text-sm font-bold" x-text="t[lang].why_dashboard.recharge_success">充值成功</div>
                                         <div class="text-xs text-slate-400">USDT -> USD</div>
                                     </div>
                                 </div>
@@ -506,7 +506,7 @@
                                 <div class="flex items-center gap-3">
                                     <div class="w-8 h-8 bg-red-100 rounded-full flex items-center justify-center text-red-500"><i class="fas fa-arrow-right"></i></div>
                                     <div>
-                                        <div class="text-sm font-bold">划转至 Google Ads</div>
+                                        <div class="text-sm font-bold" x-text="t[lang].why_dashboard.transfer">划转至 Google Ads</div>
                                         <div class="text-xs text-slate-400">Account: 123-456-7890</div>
                                     </div>
                                 </div>
@@ -516,7 +516,7 @@
                                 <div class="flex items-center gap-3">
                                     <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-500"><i class="fas fa-undo"></i></div>
                                     <div>
-                                        <div class="text-sm font-bold">账户减款回收</div>
+                                        <div class="text-sm font-bold" x-text="t[lang].why_dashboard.refund">账户减款回收</div>
                                         <div class="text-xs text-slate-400">From TikTok Ads</div>
                                     </div>
                                 </div>
@@ -534,15 +534,15 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
             <div class="flex items-center gap-2">
                 <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo" class="w-8 h-8 rounded-lg object-cover">
-                <span class="font-bold text-xl">以渔数媒</span>
+                <span class="font-bold text-xl" x-text="t[lang].footer.brand">以渔数媒</span>
             </div>
-            <div class="text-slate-400 text-sm">
+            <div class="text-slate-400 text-sm" x-text="t[lang].footer.copyright">
                 &copy; 2024 Yiyu Digital. All rights reserved. 专注海外广告资金解决方案。
             </div>
             <div class="flex gap-6">
-                <a href="#" class="text-slate-400 hover:text-white">隐私政策</a>
-                <a href="#" class="text-slate-400 hover:text-white">服务条款</a>
-                <a href="#" class="text-slate-400 hover:text-white">联系客服</a>
+                <a href="#" class="text-slate-400 hover:text-white" x-text="t[lang].footer.privacy">隐私政策</a>
+                <a href="#" class="text-slate-400 hover:text-white" x-text="t[lang].footer.terms">服务条款</a>
+                <a href="#" class="text-slate-400 hover:text-white" x-text="t[lang].footer.contact">联系客服</a>
             </div>
         </div>
     </footer>
@@ -569,6 +569,34 @@
                     s2_desc: "7x24小时自助充值，资金实时到账。支持 USDT、美金银行转账、人民币公对公等多种支付方式。",
                     s3_title: "灵活减款/划转",
                     s3_desc: "不仅能充值，更能灵活调配资金。闲置预算一键提取回钱包，或在不同媒体账户间免费划转。"
+                },
+                management: {
+                    title: "全链路租户与客户管理系统",
+                    subtitle: "打破信息孤岛，实现多级代理、多租户资产的统一调度与实时监控。",
+                    f1_title: "多租户层级架构",
+                    f1_desc: "支持多级代理商、子客户账户管理。自定义角色权限，实现资源的安全隔离与高效共享。",
+                    f2_title: "实时消耗监控",
+                    f2_desc: "实时拉取各媒体账户消耗数据，多维度看板展示租户余额、ROI及消耗趋势，异常波动自动预警。",
+                    f3_title: "全生命周期需求受理",
+                    f3_desc: "集成开户申请、充值流水、BM绑定申请、账户清零回收等全流程工单系统，极速响应客户需求。",
+                    dashboard_title: "租户消耗实时看板",
+                    tenant_a: "租户 A (电商)",
+                    tenant_b: "租户 B (游戏)",
+                    tenant_c: "租户 C (工具)"
+                },
+                financial: {
+                    title: "智能资金流转监控",
+                    desc: "深度集成媒体底层API，实现广告账户收入、支出的实时对账与清算，确保每一分资金安全透明。",
+                    metric1: "对账准确率",
+                    metric2: "到账延迟",
+                    c1_title: "BM 资产绑定",
+                    c1_desc: "支持批量绑定 Business Manager 资产，自动化配置像素与广告账户权限，一键开启投放。",
+                    c2_title: "账户清零回收",
+                    c2_desc: "针对封号或废弃账户，支持快速清空余额并回收至钱包，最大化减少资金沉淀损失。",
+                    c3_title: "收支实时审计",
+                    c3_desc: "可视化展示账户流水，自动生成日/周/月度财务报表，每一笔充值与减款都有据可查。",
+                    c4_title: "自动化开户需求",
+                    c4_desc: "集成各平台开户规范，智能校验开户资料，缩短审核路径，实现批量极速开户。"
                 },
                 platforms: {
                     title: "全媒体渠道覆盖",
@@ -605,6 +633,19 @@
                     p2_desc: "极具竞争力的服务费率，远低于行业平均水平。充值汇率透明，拒绝隐形收费，最大化您的投放收益。",
                     p3_title: "高效系统支持",
                     p3_desc: "智能化资金管理平台，告别繁琐的人工对账。支持实时余额查询、一键充值与回收，资金流转效率提升 300%。"
+                },
+                why_dashboard: {
+                    balance: "钱包余额",
+                    recharge_success: "充值成功",
+                    transfer: "划转至 Google Ads",
+                    refund: "账户减款回收"
+                },
+                footer: {
+                    brand: "以渔数媒",
+                    copyright: "© 2024 Yiyu Digital. All rights reserved. 专注海外广告资金解决方案。",
+                    privacy: "隐私政策",
+                    terms: "服务条款",
+                    contact: "联系客服"
                 }
             },
             en: {
@@ -627,6 +668,34 @@
                     s2_desc: "24/7 self-service recharge. Support USDT, USD Bank Transfer, CNY Corporate Transfer.",
                     s3_title: "Flexible Deduction/Transfer",
                     s3_desc: "Manage funds flexibly. Withdraw unused budget back to wallet or transfer between accounts freely."
+                },
+                management: {
+                    title: "Full-link Tenant & Client Management",
+                    subtitle: "Break information silos. Unified scheduling and real-time monitoring of multi-level agency and multi-tenant assets.",
+                    f1_title: "Multi-tenant Architecture",
+                    f1_desc: "Support multi-level agency and sub-client account management. Custom role permissions for secure isolation and efficient sharing.",
+                    f2_title: "Real-time Spend Monitoring",
+                    f2_desc: "Real-time fetching of media account spend data. Multi-dimensional dashboard for tenant balance, ROI, and spend trends with anomaly alerts.",
+                    f3_title: "Full Lifecycle Request Handling",
+                    f3_desc: "Integrated ticket system for account opening, recharge, BM binding, and account clearing/recovery. Fast response to client needs.",
+                    dashboard_title: "Real-time Tenant Spend",
+                    tenant_a: "Tenant A (E-com)",
+                    tenant_b: "Tenant B (Game)",
+                    tenant_c: "Tenant C (Tool)"
+                },
+                financial: {
+                    title: "Smart Fund Flow Monitoring",
+                    desc: "Deep integration with media APIs. Real-time reconciliation and settlement of ad account income and expenses. Every penny is safe and transparent.",
+                    metric1: "Accuracy",
+                    metric2: "Latency",
+                    c1_title: "BM Asset Binding",
+                    c1_desc: "Batch binding of Business Manager assets. Automated configuration of pixel and ad account permissions. One-click launch.",
+                    c2_title: "Account Clearing & Recovery",
+                    c2_desc: "Quickly clear balances from banned or abandoned accounts and recover to wallet. Minimize fund stagnation losses.",
+                    c3_title: "Real-time Audit",
+                    c3_desc: "Visualized account flow. Auto-generate daily/weekly/monthly financial reports. Every recharge and deduction is traceable.",
+                    c4_title: "Automated Account Opening",
+                    c4_desc: "Integrated platform standards. Smart verification of opening materials. Shorten audit path for bulk fast opening."
                 },
                 platforms: {
                     title: "All Major Platforms",
@@ -665,6 +734,19 @@
                     p2_desc: "Industry-leading low service fees, far below average. Transparent exchange rates with no hidden costs to maximize your ROI.",
                     p3_title: "Efficient System",
                     p3_desc: "Intelligent fund management platform. Say goodbye to manual reconciliation. Support real-time tracking, one-click recharge & recovery."
+                },
+                why_dashboard: {
+                    balance: "Wallet Balance",
+                    recharge_success: "Recharge Success",
+                    transfer: "Transfer to Google Ads",
+                    refund: "Account Refund"
+                },
+                footer: {
+                    brand: "Yiyu Digital",
+                    copyright: "© 2024 Yiyu Digital. All rights reserved. Focus on Global Ad Fund Solutions.",
+                    privacy: "Privacy Policy",
+                    terms: "Terms of Service",
+                    contact: "Contact Support"
                 }
             }
         };
