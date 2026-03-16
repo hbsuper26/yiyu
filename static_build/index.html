@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="zh-CN" x-data="appData()">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title x-text="t[lang].title">以渔数媒 - 全球广告账户开户充值管理平台</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        [x-cloak] { display: none !important; }
+        .gradient-text {
+            background: linear-gradient(135deg, #0F172A 0%, #3B82F6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero-bg {
+            background-color: #ffffff;
+            background-image: radial-gradient(#eff6ff 1px, transparent 1px);
+            background-size: 32px 32px;
+        }
+        .card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .animate-marquee {
+            animation: marquee 30s linear infinite;
+        }
+        .animate-marquee:hover {
+            animation-play-state: paused;
+        }
+    </style>
+</head>
+<body class="font-sans text-slate-900 antialiased bg-white">
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 transition-all duration-300 bg-white/90 backdrop-blur-md border-b border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <a href="index.html" class="flex-shrink-0 flex items-center gap-3">
+                    <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center text-white font-bold text-xl">Y</div>
+                    <span class="font-bold text-2xl tracking-tight text-slate-900">以渔数媒</span>
+                </a>
+                
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#services" class="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors" x-text="t[lang].nav.services">核心业务</a>
+                    <a href="#platforms" class="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors" x-text="t[lang].nav.platforms">媒体平台</a>
+                    <a href="#advantages" class="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors" x-text="t[lang].nav.advantages">服务优势</a>
+                    
+                    <button @click="toggleLang()" class="flex items-center space-x-1 px-3 py-1.5 rounded-md border border-slate-200 hover:border-blue-400 hover:bg-slate-50 transition-all">
+                        <i class="fas fa-globe text-slate-500 text-xs"></i>
+                        <span class="text-xs font-bold text-slate-600" x-text="lang === 'zh' ? 'EN' : '中'"></span>
+                    </button>
+                    
+                    <div class="flex items-center gap-3 pl-4 border-l border-slate-200">
+                        <a href="login.html" class="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors" x-text="t[lang].nav.login">登录系统</a>
+                        <a href="register.html" class="px-5 py-2.5 rounded-lg bg-blue-600 text-white text-sm font-medium hover:bg-blue-700 transition-all shadow-md shadow-blue-500/20" x-text="t[lang].nav.register">立即开户</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 lg:pt-40 lg:pb-28 overflow-hidden hero-bg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-4xl mx-auto mb-16">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 border border-blue-100 text-blue-700 text-sm font-semibold mb-8">
+                    <span class="w-2 h-2 rounded-full bg-blue-600 animate-pulse"></span>
+                    <span x-text="t[lang].hero.badge">企业级海外广告资金管理系统</span>
+                </div>
+                <h1 class="text-5xl md:text-6xl font-extrabold tracking-tight text-slate-900 mb-6 leading-tight">
+                    <span x-text="t[lang].hero.title1">全球广告账户</span>
+                    <span class="text-blue-600" x-text="t[lang].hero.titleHighlight">开户 · 充值 · 减款</span>
+                </h1>
+                <p class="mt-6 text-xl text-slate-500 mb-10 leading-relaxed" x-text="t[lang].hero.subtitle">
+                    专为出海企业打造的资金流转中枢。支持 Google, Meta, TikTok 等主流媒体，实现账户秒级开通、余额实时划转、预算灵活调配。
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="register.html" class="px-8 py-4 rounded-lg bg-slate-900 text-white font-bold text-lg hover:bg-slate-800 transition-all shadow-xl hover:-translate-y-1 flex items-center justify-center gap-2">
+                        <span x-text="t[lang].hero.cta_primary">免费注册账户</span>
+                        <i class="fas fa-arrow-right text-sm"></i>
+                    </a>
+                    <a href="#services" class="px-8 py-4 rounded-lg bg-white text-slate-700 border border-slate-200 font-bold text-lg hover:bg-slate-50 transition-all shadow-sm hover:-translate-y-1">
+                        <span x-text="t[lang].hero.cta_secondary">查看业务详情</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Core Services Cards -->
+            <div class="grid md:grid-cols-3 gap-8 mt-12">
+                <!-- Service 1: Opening -->
+                <div class="bg-white p-8 rounded-2xl shadow-lg border border-slate-100 card-hover">
+                    <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center text-blue-600 text-2xl mb-6">
+                        <i class="fas fa-user-plus"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3" x-text="t[lang].services.s1_title">极速下户</h3>
+                    <p class="text-slate-500 leading-relaxed text-sm" x-text="t[lang].services.s1_desc">
+                        直连媒体API，提交资料最快 1 小时下户。支持企业户、白名单户、高返点户等多种账户类型。
+                    </p>
+                    <ul class="mt-4 space-y-2 text-sm text-slate-600">
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> 无开户费</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> 跨时区审核</li>
+                    </ul>
+                </div>
+
+                <!-- Service 2: Recharge -->
+                <div class="bg-white p-8 rounded-2xl shadow-lg border border-slate-100 card-hover">
+                    <div class="w-14 h-14 bg-green-100 rounded-xl flex items-center justify-center text-green-600 text-2xl mb-6">
+                        <i class="fas fa-wallet"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3" x-text="t[lang].services.s2_title">实时充值</h3>
+                    <p class="text-slate-500 leading-relaxed text-sm" x-text="t[lang].services.s2_desc">
+                        7x24小时自助充值，资金实时到账。支持 USDT、美金银行转账、人民币公对公等多种支付方式。
+                    </p>
+                    <ul class="mt-4 space-y-2 text-sm text-slate-600">
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> 实时汇率</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> 自动到账</li>
+                    </ul>
+                </div>
+
+                <!-- Service 3: Deduction/Transfer -->
+                <div class="bg-white p-8 rounded-2xl shadow-lg border border-slate-100 card-hover">
+                    <div class="w-14 h-14 bg-purple-100 rounded-xl flex items-center justify-center text-purple-600 text-2xl mb-6">
+                        <i class="fas fa-exchange-alt"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3" x-text="t[lang].services.s3_title">灵活减款/划转</h3>
+                    <p class="text-slate-500 leading-relaxed text-sm" x-text="t[lang].services.s3_desc">
+                        不仅能充值，更能灵活调配资金。闲置预算一键提取回钱包，或在不同媒体账户间免费划转。
+                    </p>
+                    <ul class="mt-4 space-y-2 text-sm text-slate-600">
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> 余额回收</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> 跨账户调拨</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Supported Platforms -->
+    <section id="platforms" class="py-20 bg-slate-50 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-slate-900" x-text="t[lang].platforms.title">全媒体渠道覆盖</h2>
+                <p class="mt-4 text-slate-500" x-text="t[lang].platforms.subtitle">一个后台，管理所有主流媒体资金流</p>
+            </div>
+            
+            <div class="relative w-full overflow-hidden">
+                <!-- Gradient Masks -->
+                <div class="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-slate-50 to-transparent z-10"></div>
+                <div class="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-slate-50 to-transparent z-10"></div>
+
+                <div class="flex animate-marquee whitespace-nowrap">
+                    <!-- Original Set -->
+                    <div class="flex items-center space-x-16 mx-8">
+                        <span class="text-2xl font-bold text-slate-400 flex items-center gap-2 hover:text-slate-600 transition-colors"><i class="fab fa-google"></i> Google</span>
+                        <span class="text-2xl font-bold text-slate-400 flex items-center gap-2 hover:text-slate-600 transition-colors"><i class="fab fa-facebook"></i> Facebook</span>
+                        <span class="text-2xl font-bold text-slate-400 flex items-center gap-2 hover:text-slate-600 transition-colors"><i class="fab fa-tiktok"></i> TikTok</span>
+                        <span class="text-2xl font-bold text-slate-400 flex items-center gap-2 hover:text-slate-600 transition-colors"><i class="fab fa-twitter"></i> Twitter</span>
+                        <span class="text-2xl font-bold text-slate-400 flex items-center gap-2 hover:text-slate-600 transition-colors"><i class="fab fa-snapchat"></i> Snapchat</span>
+                        <span class="text-2xl font-bold text-slate-400 flex items-center gap-2 hover:text-slate-600 transition-colors"><i class="fab fa-linkedin"></i> LinkedIn</span>
+                        <span class="text-2xl font-bold text-slate-400 flex items-center gap-2 hover:text-slate-600 transition-colors"><i class="fab fa-unity"></i> Unity</span>
+                        <span class="text-2xl font-bold text-slate-400 flex items-center gap-2 hover:text-slate-600 transition-colors"><i class="fab fa-reddit"></i> Reddit</span>
+                        <span class="text-2xl font-bold text-slate-400 flex items-center gap-2 hover:text-slate-600 transition-colors"><i class="fab fa-line"></i> LINE</span>
+                        <span class="text-2xl font-bold text-slate-400 flex items-center gap-2 hover:text-slate-600 transition-colors"><i class="fab fa-yandex"></i> Yandex</span>
+                        <span class="text-2xl font-bold text-slate-400 flex items-center gap-2 hover:text-slate-600 transition-colors"><i class="fab fa-vk"></i> VK</span>
+                        <span class="text-2xl font-bold text-slate-400 flex items-center gap-2 hover:text-slate-600 transition-colors"><i class="fab fa-microsoft"></i> Bing</span>
+                        <span class="text-2xl font-bold text-slate-400 flex items-center gap-2 hover:text-slate-600 transition-colors"><i class="fas fa-video"></i> KWAI</span>
+                        <span class="text-2xl font-bold text-slate-400 flex items-center gap-2 hover:text-slate-600 transition-colors"><i class="fas fa-ad"></i> Taboola</span>
+                    </div>
+                    <!-- Duplicate Set for Seamless Loop -->
+                    <div class="flex items-center space-x-16 mx-8">
+                        <span class="text-2xl font-bold text-slate-400 flex items-center gap-2 hover:text-slate-600 transition-colors"><i class="fab fa-google"></i> Google</span>
+                        <span class="text-2xl font-bold text-slate-400 flex items-center gap-2 hover:text-slate-600 transition-colors"><i class="fab fa-facebook"></i> Facebook</span>
+                        <span class="text-2xl font-bold text-slate-400 flex items-center gap-2 hover:text-slate-600 transition-colors"><i class="fab fa-tiktok"></i> TikTok</span>
+                        <span class="text-2xl font-bold text-slate-400 flex items-center gap-2 hover:text-slate-600 transition-colors"><i class="fab fa-twitter"></i> Twitter</span>
+                        <span class="text-2xl font-bold text-slate-400 flex items-center gap-2 hover:text-slate-600 transition-colors"><i class="fab fa-snapchat"></i> Snapchat</span>
+                        <span class="text-2xl font-bold text-slate-400 flex items-center gap-2 hover:text-slate-600 transition-colors"><i class="fab fa-linkedin"></i> LinkedIn</span>
+                        <span class="text-2xl font-bold text-slate-400 flex items-center gap-2 hover:text-slate-600 transition-colors"><i class="fab fa-unity"></i> Unity</span>
+                        <span class="text-2xl font-bold text-slate-400 flex items-center gap-2 hover:text-slate-600 transition-colors"><i class="fab fa-reddit"></i> Reddit</span>
+                        <span class="text-2xl font-bold text-slate-400 flex items-center gap-2 hover:text-slate-600 transition-colors"><i class="fab fa-line"></i> LINE</span>
+                        <span class="text-2xl font-bold text-slate-400 flex items-center gap-2 hover:text-slate-600 transition-colors"><i class="fab fa-yandex"></i> Yandex</span>
+                        <span class="text-2xl font-bold text-slate-400 flex items-center gap-2 hover:text-slate-600 transition-colors"><i class="fab fa-vk"></i> VK</span>
+                        <span class="text-2xl font-bold text-slate-400 flex items-center gap-2 hover:text-slate-600 transition-colors"><i class="fab fa-microsoft"></i> Bing</span>
+                        <span class="text-2xl font-bold text-slate-400 flex items-center gap-2 hover:text-slate-600 transition-colors"><i class="fas fa-video"></i> KWAI</span>
+                        <span class="text-2xl font-bold text-slate-400 flex items-center gap-2 hover:text-slate-600 transition-colors"><i class="fas fa-ad"></i> Taboola</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section id="advantages" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h2 class="text-3xl font-bold text-slate-900 mb-6" x-text="t[lang].why.title">为什么选择以渔数媒？</h2>
+                    <div class="space-y-8">
+                        <div class="flex">
+                            <div class="flex-shrink-0 w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 text-xl font-bold">1</div>
+                            <div class="ml-6">
+                                <h3 class="text-xl font-bold text-slate-900" x-text="t[lang].why.p1_title">资金安全保障</h3>
+                                <p class="mt-2 text-slate-500" x-text="t[lang].why.p1_desc">所有充值款项专款专用。支持随时申请退款提现，财务流程透明合规，让您无后顾之忧。</p>
+                            </div>
+                        </div>
+                        <div class="flex">
+                            <div class="flex-shrink-0 w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 text-xl font-bold">2</div>
+                            <div class="ml-6">
+                                <h3 class="text-xl font-bold text-slate-900" x-text="t[lang].why.p2_title">超低费率优势</h3>
+                                <p class="mt-2 text-slate-500" x-text="t[lang].why.p2_desc">开户0服务费，充值汇率优于市场平均水平。无隐藏费用，帮助企业最大化降低投放成本。</p>
+                            </div>
+                        </div>
+                        <div class="flex">
+                            <div class="flex-shrink-0 w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 text-xl font-bold">3</div>
+                            <div class="ml-6">
+                                <h3 class="text-xl font-bold text-slate-900" x-text="t[lang].why.p3_title">高效系统支持</h3>
+                                <p class="mt-2 text-slate-500" x-text="t[lang].why.p3_desc">自研资金管理系统，告别传统人工对账。API 接口支持，可与企业内部 ERP/财务系统无缝对接。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div class="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl transform rotate-3 opacity-10"></div>
+                    <div class="bg-slate-50 rounded-2xl p-8 border border-slate-200 shadow-xl relative z-10">
+                        <!-- Simulated Dashboard UI focusing on Funds -->
+                        <div class="flex justify-between items-center mb-6 border-b border-slate-200 pb-4">
+                            <span class="font-bold text-slate-700">钱包余额</span>
+                            <span class="text-2xl font-bold text-slate-900">$45,200.00</span>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between p-4 bg-white rounded-lg border border-slate-100">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center text-green-500"><i class="fas fa-plus"></i></div>
+                                    <div>
+                                        <div class="text-sm font-bold">充值成功</div>
+                                        <div class="text-xs text-slate-400">USDT -> USD</div>
+                                    </div>
+                                </div>
+                                <span class="font-bold text-green-600">+$5,000.00</span>
+                            </div>
+                            <div class="flex items-center justify-between p-4 bg-white rounded-lg border border-slate-100">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-8 h-8 bg-red-100 rounded-full flex items-center justify-center text-red-500"><i class="fas fa-arrow-right"></i></div>
+                                    <div>
+                                        <div class="text-sm font-bold">划转至 Google Ads</div>
+                                        <div class="text-xs text-slate-400">Account: 123-456-7890</div>
+                                    </div>
+                                </div>
+                                <span class="font-bold text-slate-900">-$2,000.00</span>
+                            </div>
+                            <div class="flex items-center justify-between p-4 bg-white rounded-lg border border-slate-100">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-500"><i class="fas fa-undo"></i></div>
+                                    <div>
+                                        <div class="text-sm font-bold">账户减款回收</div>
+                                        <div class="text-xs text-slate-400">From TikTok Ads</div>
+                                    </div>
+                                </div>
+                                <span class="font-bold text-blue-600">+$800.00</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-2">
+                <div class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center text-white font-bold">Y</div>
+                <span class="font-bold text-xl">以渔数媒</span>
+            </div>
+            <div class="text-slate-400 text-sm">
+                &copy; 2024 Yiyu Digital. All rights reserved. 专注海外广告资金解决方案。
+            </div>
+            <div class="flex gap-6">
+                <a href="#" class="text-slate-400 hover:text-white">隐私政策</a>
+                <a href="#" class="text-slate-400 hover:text-white">服务条款</a>
+                <a href="#" class="text-slate-400 hover:text-white">联系客服</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const translations = {
+            zh: {
+                title: "以渔数媒 - 全球广告账户开户充值管理平台",
+                nav: {
+                    services: "核心业务",
+                    platforms: "媒体平台",
+                    advantages: "服务优势",
+                    login: "登录系统",
+                    register: "立即开户"
+                },
+                hero: {
+                    badge: "企业级海外广告资金管理系统",
+                    title1: "全球广告账户",
+                    titleHighlight: "开户 · 充值 · 减款",
+                    subtitle: "专为出海企业打造的资金流转中枢。支持 Google, Meta, TikTok 等主流媒体，实现账户秒级开通、余额实时划转、预算灵活调配。",
+                    cta_primary: "免费注册账户",
+                    cta_secondary: "查看业务详情"
+                },
+                services: {
+                    s1_title: "极速下户",
+                    s1_desc: "直连媒体API，提交资料最快 1 小时下户。支持企业户、白名单户、高返点户等多种账户类型。",
+                    s2_title: "实时充值",
+                    s2_desc: "7x24小时自助充值，资金实时到账。支持 USDT、美金银行转账、人民币公对公等多种支付方式。",
+                    s3_title: "灵活减款/划转",
+                    s3_desc: "不仅能充值，更能灵活调配资金。闲置预算一键提取回钱包，或在不同媒体账户间免费划转。"
+                },
+                platforms: {
+                    title: "全媒体渠道覆盖",
+                    subtitle: "一个后台，管理所有主流媒体资金流"
+                },
+                why: {
+                    title: "为什么选择以渔数媒？",
+                    p1_title: "资金安全保障",
+                    p1_desc: "所有充值款项专款专用。支持随时申请退款提现，财务流程透明合规，让您无后顾之忧。",
+                    p2_title: "超低费率优势",
+                    p2_desc: "极具竞争力的服务费率，远低于行业平均水平。充值汇率透明，拒绝隐形收费，最大化您的投放收益。",
+                    p3_title: "高效系统支持",
+                    p3_desc: "智能化资金管理平台，告别繁琐的人工对账。支持实时余额查询、一键充值与回收，资金流转效率提升 300%。"
+                }
+            },
+            en: {
+                title: "Yiyu Digital - Global Ad Account & Fund Management",
+                nav: {
+                    services: "Services",
+                    platforms: "Platforms",
+                    advantages: "Why Us",
+                    login: "Login",
+                    register: "Get Started"
+                },
+                hero: {
+                    badge: "Enterprise Ad Fund Management System",
+                    title1: "Global Ad Accounts",
+                    titleHighlight: "Open · Recharge · Deduct",
+                    subtitle: "The fund hub for global business. Support Google, Meta, TikTok. Instant account opening, real-time transfers, and flexible budget allocation.",
+                    cta_primary: "Register Free",
+                    cta_secondary: "Learn More"
+                },
+                services: {
+                    s1_title: "Fast Account Opening",
+                    s1_desc: "Direct API connection, accounts ready in 1 hour. Support Enterprise, Whitelist, and Rebate accounts.",
+                    s2_title: "Real-time Recharge",
+                    s2_desc: "24/7 self-service recharge. Support USDT, USD Bank Transfer, CNY Corporate Transfer.",
+                    s3_title: "Flexible Deduction/Transfer",
+                    s3_desc: "Manage funds flexibly. Withdraw unused budget back to wallet or transfer between accounts freely."
+                },
+                platforms: {
+                    title: "All Major Platforms",
+                    subtitle: "One dashboard to manage funds across all media."
+                },
+                why: {
+                    title: "Why Choose Yiyu Digital?",
+                    p1_title: "Fund Security",
+                    p1_desc: "Dedicated funds. Support withdrawal anytime. Transparent and compliant financial processes.",
+                    p2_title: "Competitive Fees",
+                    p2_desc: "Industry-leading low service fees, far below average. Transparent exchange rates with no hidden costs to maximize your ROI.",
+                    p3_title: "Efficient System",
+                    p3_desc: "Intelligent fund management platform. Say goodbye to manual reconciliation. Support real-time tracking, one-click recharge & recovery."
+                }
+            }
+        };
+
+        function appData() {
+            return {
+                lang: 'zh',
+                scrolled: false,
+                t: translations,
+                toggleLang() {
+                    this.lang = this.lang === 'zh' ? 'en' : 'zh';
+                }
+            }
+        }
+    </script>
+</body>
+</html>
