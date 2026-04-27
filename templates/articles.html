@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="zh-CN" x-data="appData()">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title x-text="t[lang].title">以渔动态 - 全球广告账户开户充值管理平台</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'ui-sans-serif', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        [x-cloak] { display: none !important; }
+        .hero-bg {
+            background-color: #0f172a;
+            background-image: 
+                radial-gradient(circle at 15% 50%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 85% 30%, rgba(147, 51, 234, 0.15) 0%, transparent 50%);
+        }
+        .card-hover {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .article-card {
+            background: white;
+            border: 1px solid #f1f5f9;
+            border-radius: 1rem;
+            overflow: hidden;
+        }
+        .line-clamp-2 {
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;  
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body class="font-sans text-slate-900 antialiased bg-slate-50">
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 transition-all duration-300 bg-white/90 backdrop-blur-md border-b border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <a href="/" class="flex-shrink-0 flex items-center gap-3">
+                    <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo" class="w-10 h-10 rounded-lg object-cover" onerror="this.src='https://ui-avatars.com/api/?name=YY&background=0D8ABC&color=fff'">
+                    <span class="font-bold text-2xl tracking-tight text-slate-900">以渔数媒</span>
+                </a>
+                
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="/" class="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors" x-text="t[lang].nav.home">首页</a>
+                    <a href="/articles" class="text-sm font-medium text-blue-600 transition-colors" x-text="t[lang].nav.articles">行业动态</a>
+                    <a href="/pricing" class="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors" x-text="t[lang].nav.pricing">产品定价</a>
+                    
+                    <button @click="toggleLang()" class="flex items-center space-x-1 px-3 py-1.5 rounded-md border border-slate-200 hover:border-blue-400 hover:bg-slate-50 transition-all">
+                        <i class="fas fa-globe text-slate-500 text-xs"></i>
+                        <span class="text-xs font-bold text-slate-600" x-text="lang === 'zh' ? 'EN' : '中'"></span>
+                    </button>
+                    
+                    <div class="flex items-center gap-3 pl-4 border-l border-slate-200">
+                        <a href="https://t.me/yiyiyiads" target="_blank" class="px-5 py-2.5 rounded-lg bg-blue-600 text-white text-sm font-medium hover:bg-blue-700 transition-all shadow-md shadow-blue-500/20" x-text="t[lang].nav.contact">联系我们</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 lg:pt-40 lg:pb-24 overflow-hidden hero-bg">
+        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-sm font-semibold mb-6">
+                <i class="fas fa-newspaper"></i>
+                <span x-text="t[lang].hero.badge">以渔视界</span>
+            </div>
+            <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight text-white mb-6">
+                <span x-text="t[lang].hero.title">行业前沿资讯与</span><span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500" x-text="t[lang].hero.titleHighlight">深度洞察</span>
+            </h1>
+            <p class="mt-4 text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed" x-text="t[lang].hero.subtitle">
+                获取最新的全球广告开户政策、流量变现玩法以及以渔平台的最新功能发布。
+            </p>
+        </div>
+    </section>
+
+    <!-- Article List -->
+    <section class="py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Article Cards -->
+                {% for article in articles %}
+                    <article class="article-card card-hover flex flex-col h-full group cursor-pointer" onclick="window.location.href = '/article/{{ article.id }}'">
+                        <div class="relative h-56 overflow-hidden">
+                            <img src="{{ article.image }}" alt="{{ article.title }}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                            <div class="absolute top-4 left-4">
+                                <span class="px-3 py-1 bg-white/90 backdrop-blur-sm text-blue-600 text-xs font-bold rounded-lg shadow-sm">
+                                    <span x-show="lang === 'zh'">
+                                        {% if article.category_id == 'news' %}官方公告
+                                        {% elif article.category_id == 'insight' %}行业洞察
+                                        {% elif article.category_id == 'guide' %}投放指南
+                                        {% elif article.category_id == 'update' %}产品更新
+                                        {% else %}资讯{% endif %}
+                                    </span>
+                                    <span x-show="lang === 'en'" x-cloak>
+                                        {% if article.category_id == 'news' %}Official News
+                                        {% elif article.category_id == 'insight' %}Insights
+                                        {% elif article.category_id == 'guide' %}Ad Guide
+                                        {% elif article.category_id == 'update' %}Updates
+                                        {% else %}News{% endif %}
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <div class="flex items-center gap-3 text-xs text-slate-500 mb-3">
+                                <span class="flex items-center gap-1"><i class="far fa-calendar-alt"></i> <span>{{ article.date }}</span></span>
+                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span>{{ article.views }}</span></span>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
+                                <span x-show="lang === 'zh'">{{ article.get('title', '') }}</span>
+                                <span x-show="lang === 'en'" x-cloak>{{ article.get('title_en', article.get('title', '')) }}</span>
+                            </h3>
+                            <p class="text-slate-600 text-sm line-clamp-2 mb-6 flex-grow">
+                                <span x-show="lang === 'zh'">{{ article.get('summary', '') }}</span>
+                                <span x-show="lang === 'en'" x-cloak>{{ article.get('summary_en', article.get('summary', '')) }}</span>
+                            </p>
+                            
+                            <div class="flex items-center justify-between mt-auto pt-4 border-t border-slate-100">
+                                <span class="text-blue-600 font-medium text-sm flex items-center gap-1 group-hover:translate-x-1 transition-transform ml-auto">
+                                    <span x-text="t[lang].card.readMore">阅读全文</span> <i class="fas fa-arrow-right text-xs"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </article>
+                {% endfor %}
+            </div>
+            
+            <!-- Empty State -->
+            {% if not articles %}
+            <div class="text-center py-20" x-cloak>
+                <div class="w-24 h-24 bg-slate-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-inbox text-3xl text-slate-400"></i>
+                </div>
+                <h3 class="text-lg font-medium text-slate-900" x-text="t[lang].empty.title">暂无文章</h3>
+                <p class="text-slate-500 mt-1" x-text="t[lang].empty.desc">目前暂未发布任何内容</p>
+            </div>
+            {% endif %}
+        </div>
+    </section>
+
+    <script>
+        const translations = {
+            zh: {
+                title: "以渔动态 - 全球广告账户与资金管理平台",
+                nav: {
+                    home: "首页",
+                    pricing: "产品定价",
+                    articles: "行业动态",
+                    contact: "联系我们"
+                },
+                hero: { badge: "以渔视界", title: "行业前沿资讯与", titleHighlight: "深度洞察", subtitle: "获取最新的全球广告开户政策、流量变现玩法以及以渔平台的最新功能发布。" },
+                empty: { title: "暂无文章", desc: "目前暂未发布任何内容" },
+                card: { readMore: "阅读全文", team: "以渔官方团队" }
+            },
+            en: {
+                title: "Yiyu Insights - Global Ad Account Management",
+                nav: {
+                    home: "Home",
+                    pricing: "Pricing",
+                    articles: "Insights",
+                    contact: "Contact Us"
+                },
+                hero: { badge: "Yiyu Vision", title: "Industry News & ", titleHighlight: "Deep Insights", subtitle: "Get the latest global ad account policies, traffic monetization strategies, and Yiyu platform feature updates." },
+                empty: { title: "No Articles Yet", desc: "No content has been published here currently." },
+                card: { readMore: "Read More", team: "Yiyu Official Team" }
+            }
+        };
+
+        function appData() {
+            return {
+                lang: localStorage.getItem('yiyu_lang') || 'zh',
+                t: translations,
+                toggleLang() {
+                    this.lang = this.lang === 'zh' ? 'en' : 'zh';
+                    localStorage.setItem('yiyu_lang', this.lang);
+                }
+            }
+        }
+
+        // Simple entrance animation
+        document.addEventListener('DOMContentLoaded', () => {
+            // Set initial state to visible to prevent invisible cards if animation fails
+            gsap.set(".article-card", { opacity: 1, y: 0 });
+            
+            // Then animate from transparent/down
+            gsap.from(".article-card", {
+                y: 30,
+                opacity: 0,
+                duration: 0.6,
+                stagger: 0.1,
+                ease: "power2.out",
+                delay: 0.2,
+                clearProps: "all" // Remove inline styles after animation completes
+            });
+        });
+    </script>
+</body>
+</html>

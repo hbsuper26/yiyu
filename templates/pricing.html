@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="zh-CN" x-data="appData()">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title x-text="t[lang].title">产品定价 - 以渔数媒</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'ui-sans-serif', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        [x-cloak] { display: none !important; }
+        .pricing-hero-bg {
+            background-color: #f8fafc;
+            background-image: 
+                radial-gradient(circle at 20% 150%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% -50%, rgba(147, 51, 234, 0.1) 0%, transparent 50%);
+        }
+        .table-row-hover:hover {
+            background-color: #f1f5f9;
+        }
+        .check-icon {
+            color: #10b981;
+        }
+        .cross-icon {
+            color: #94a3b8;
+        }
+        
+        /* Animated Background Orbs */
+        .blob {
+            position: absolute;
+            filter: blur(80px);
+            z-index: 0;
+            opacity: 0.6;
+            animation: float 20s infinite ease-in-out alternate;
+        }
+        .blob-1 {
+            top: -10%;
+            left: -10%;
+            width: 500px;
+            height: 500px;
+            background: rgba(59, 130, 246, 0.4);
+            animation-delay: 0s;
+        }
+        .blob-2 {
+            bottom: -20%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: rgba(147, 51, 234, 0.3);
+            animation-delay: -5s;
+        }
+        .blob-3 {
+            top: 40%;
+            left: 40%;
+            width: 400px;
+            height: 400px;
+            background: rgba(16, 185, 129, 0.2);
+            animation-delay: -10s;
+        }
+        
+        @keyframes float {
+            0% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(30px, -50px) scale(1.1); }
+            66% { transform: translate(-20px, 20px) scale(0.9); }
+            100% { transform: translate(0, 0) scale(1); }
+        }
+        
+        /* Ensure content stays above the animated background */
+        .relative-content {
+            position: relative;
+            z-index: 10;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased text-slate-900 bg-slate-50 relative overflow-x-hidden min-h-screen">
+    <!-- Animated Background Elements -->
+    <div class="fixed inset-0 z-0 pointer-events-none overflow-hidden">
+        <div class="blob blob-1 rounded-full"></div>
+        <div class="blob blob-2 rounded-full"></div>
+        <div class="blob blob-3 rounded-full"></div>
+        <!-- Light grid overlay for tech feel -->
+        <div class="absolute inset-0" style="background-image: linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px); background-size: 40px 40px;"></div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 transition-all duration-300 bg-white/90 backdrop-blur-md border-b border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <a href="/" class="flex-shrink-0 flex items-center gap-3">
+                    <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo" class="w-10 h-10 rounded-lg object-cover" onerror="this.src='https://ui-avatars.com/api/?name=YY&background=0D8ABC&color=fff'">
+                    <span class="font-bold text-2xl tracking-tight text-slate-900">以渔数媒</span>
+                </a>
+                
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="/" class="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors" x-text="t[lang].nav.home">首页</a>
+                    <a href="/articles" class="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors" x-text="t[lang].nav.articles">行业动态</a>
+                    <a href="/pricing" class="text-sm font-medium text-blue-600 transition-colors" x-text="t[lang].nav.pricing">产品定价</a>
+                    
+                    <button @click="toggleLang()" class="flex items-center space-x-1 px-3 py-1.5 rounded-md border border-slate-200 hover:border-blue-400 hover:bg-slate-50 transition-all">
+                        <i class="fas fa-globe text-slate-500 text-xs"></i>
+                        <span class="text-xs font-bold text-slate-600" x-text="lang === 'zh' ? 'EN' : '中'"></span>
+                    </button>
+                    
+                    <div class="flex items-center gap-3 pl-4 border-l border-slate-200">
+                        <a href="https://t.me/yiyiyiads" target="_blank" class="px-5 py-2.5 rounded-lg bg-blue-600 text-white text-sm font-medium hover:bg-blue-700 transition-all shadow-md shadow-blue-500/20" x-text="t[lang].nav.contact">联系我们</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-16 pricing-hero-bg border-b border-slate-200 relative-content">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 mb-6">
+                <span x-text="t[lang].hero.title1">简单透明的</span>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600" x-text="t[lang].hero.titleHighlight">定价方案</span>
+            </h1>
+            <p class="mt-4 text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed" x-text="t[lang].hero.subtitle">
+                选择最适合您企业规模的版本，没有隐藏费用，随时可升级。
+            </p>
+        </div>
+    </section>
+
+    <!-- Pricing Table Section -->
+    <section class="py-20 relative-content">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white rounded-2xl shadow-xl shadow-slate-200/50 border border-slate-200 overflow-hidden">
+                <table class="w-full text-left border-collapse">
+                    <thead>
+                        <tr class="bg-slate-50 border-b border-slate-200">
+                            <th class="p-6 w-1/3 text-lg font-semibold text-slate-900"></th>
+                            <th class="p-6 w-1/3 text-center border-l border-slate-200">
+                                <div class="text-xl font-bold text-slate-900 mb-1" x-text="t[lang].plans.basic.name">基础版</div>
+                                <div class="text-sm text-slate-500 font-normal" x-text="t[lang].plans.basic.desc">适合初创出海团队</div>
+                            </th>
+                            <th class="p-6 w-1/3 text-center border-l border-slate-200 relative overflow-hidden">
+                                <div class="absolute top-0 right-0 bg-gradient-to-r from-blue-600 to-purple-600 text-white text-[10px] font-bold px-3 py-1 rounded-bl-lg">
+                                    <span x-text="t[lang].plans.pro.badge">推荐</span>
+                                </div>
+                                <div class="text-xl font-bold text-blue-600 mb-1" x-text="t[lang].plans.pro.name">满血版</div>
+                                <div class="text-sm text-slate-500 font-normal" x-text="t[lang].plans.pro.desc">适合成熟企业矩阵操作</div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-100">
+                        <!-- Pricing Rows -->
+                        <tr class="table-row-hover transition-colors">
+                            <td class="p-4 pl-6 font-medium text-slate-700" x-text="t[lang].features.monthly">月度</td>
+                            <td class="p-4 text-center border-l border-slate-100 font-bold text-slate-900">299$</td>
+                            <td class="p-4 text-center border-l border-slate-100 font-bold text-blue-600 bg-blue-50/30">499$</td>
+                        </tr>
+                        <tr class="table-row-hover transition-colors">
+                            <td class="p-4 pl-6 font-medium text-slate-700" x-text="t[lang].features.quarterly">季度</td>
+                            <td class="p-4 text-center border-l border-slate-100 font-bold text-slate-900">688$</td>
+                            <td class="p-4 text-center border-l border-slate-100 font-bold text-blue-600 bg-blue-50/30">1288$</td>
+                        </tr>
+                        <tr class="table-row-hover transition-colors">
+                            <td class="p-4 pl-6 font-medium text-slate-700" x-text="t[lang].features.yearly">年度</td>
+                            <td class="p-4 text-center border-l border-slate-100 font-bold text-slate-900">2188$</td>
+                            <td class="p-4 text-center border-l border-slate-100 font-bold text-blue-600 bg-blue-50/30">3688$</td>
+                        </tr>
+
+                        <!-- Section Header -->
+                        <tr class="bg-slate-50/80">
+                            <td colspan="3" class="p-4 pl-6 font-bold text-slate-900 border-y border-slate-200" x-text="t[lang].features.section_title">核心功能</td>
+                        </tr>
+
+                        <!-- Feature Rows -->
+                        <tr class="table-row-hover transition-colors">
+                            <td class="p-4 pl-6 text-sm text-slate-700" x-text="t[lang].features.f1">24小时自动收款费率</td>
+                            <td class="p-4 text-center border-l border-slate-100 text-sm font-medium text-slate-900">0.40%</td>
+                            <td class="p-4 text-center border-l border-slate-100 text-sm font-bold text-blue-600 bg-blue-50/30">0.20%</td>
+                        </tr>
+                        <tr class="table-row-hover transition-colors">
+                            <td class="p-4 pl-6 text-sm text-slate-700" x-text="t[lang].features.f2">一键发票生成</td>
+                            <td class="p-4 text-center border-l border-slate-100"><i class="fas fa-check-circle check-icon text-lg"></i></td>
+                            <td class="p-4 text-center border-l border-slate-100 bg-blue-50/30"><i class="fas fa-check-circle check-icon text-lg"></i></td>
+                        </tr>
+                        <tr class="table-row-hover transition-colors">
+                            <td class="p-4 pl-6 text-sm text-slate-700" x-text="t[lang].features.f3">账号席位限制</td>
+                            <td class="p-4 text-center border-l border-slate-100 text-sm font-medium text-slate-900">2000 / 个</td>
+                            <td class="p-4 text-center border-l border-slate-100 text-lg font-bold text-blue-600 bg-blue-50/30">∞</td>
+                        </tr>
+                        <tr class="table-row-hover transition-colors">
+                            <td class="p-4 pl-6 text-sm text-slate-700" x-text="t[lang].features.f4">中-英-越语言本地化</td>
+                            <td class="p-4 text-center border-l border-slate-100"><i class="fas fa-check-circle check-icon text-lg"></i></td>
+                            <td class="p-4 text-center border-l border-slate-100 bg-blue-50/30"><i class="fas fa-check-circle check-icon text-lg"></i></td>
+                        </tr>
+                        <tr class="table-row-hover transition-colors">
+                            <td class="p-4 pl-6 text-sm text-slate-700" x-text="t[lang].features.f5">无限量商户席位</td>
+                            <td class="p-4 text-center border-l border-slate-100"><i class="fas fa-check-circle check-icon text-lg"></i></td>
+                            <td class="p-4 text-center border-l border-slate-100 bg-blue-50/30"><i class="fas fa-check-circle check-icon text-lg"></i></td>
+                        </tr>
+                        <tr class="table-row-hover transition-colors">
+                            <td class="p-4 pl-6 text-sm text-slate-700" x-text="t[lang].features.f6">全站消息通知</td>
+                            <td class="p-4 text-center border-l border-slate-100"><i class="fas fa-check-circle check-icon text-lg"></i></td>
+                            <td class="p-4 text-center border-l border-slate-100 bg-blue-50/30"><i class="fas fa-check-circle check-icon text-lg"></i></td>
+                        </tr>
+                        <tr class="table-row-hover transition-colors">
+                            <td class="p-4 pl-6 text-sm text-slate-700" x-text="t[lang].features.f7">资金预警</td>
+                            <td class="p-4 text-center border-l border-slate-100"><i class="fas fa-check-circle check-icon text-lg"></i></td>
+                            <td class="p-4 text-center border-l border-slate-100 bg-blue-50/30"><i class="fas fa-check-circle check-icon text-lg"></i></td>
+                        </tr>
+                        <tr class="table-row-hover transition-colors">
+                            <td class="p-4 pl-6 text-sm text-slate-700" x-text="t[lang].features.f8">多媒体平台支持</td>
+                            <td class="p-4 text-center border-l border-slate-100"><i class="fas fa-check-circle check-icon text-lg"></i></td>
+                            <td class="p-4 text-center border-l border-slate-100 bg-blue-50/30"><i class="fas fa-check-circle check-icon text-lg"></i></td>
+                        </tr>
+                        <tr class="table-row-hover transition-colors">
+                            <td class="p-4 pl-6 text-sm text-slate-700" x-text="t[lang].features.f9">自定义品牌域名</td>
+                            <td class="p-4 text-center border-l border-slate-100"><i class="fas fa-check-circle check-icon text-lg"></i></td>
+                            <td class="p-4 text-center border-l border-slate-100 bg-blue-50/30"><i class="fas fa-check-circle check-icon text-lg"></i></td>
+                        </tr>
+                        <tr class="table-row-hover transition-colors">
+                            <td class="p-4 pl-6 text-sm text-slate-700" x-text="t[lang].features.f10">全定制皮肤</td>
+                            <td class="p-4 text-center border-l border-slate-100"><i class="fas fa-check-circle check-icon text-lg"></i></td>
+                            <td class="p-4 text-center border-l border-slate-100 bg-blue-50/30"><i class="fas fa-check-circle check-icon text-lg"></i></td>
+                        </tr>
+                        <tr class="table-row-hover transition-colors">
+                            <td class="p-4 pl-6 text-sm text-slate-700" x-text="t[lang].features.f11">全自动邮箱推送</td>
+                            <td class="p-4 text-center border-l border-slate-100"><i class="fas fa-times cross-icon"></i></td>
+                            <td class="p-4 text-center border-l border-slate-100 bg-blue-50/30"><i class="fas fa-check-circle check-icon text-lg"></i></td>
+                        </tr>
+                        
+                        <!-- Advanced APIs -->
+                        <tr class="bg-slate-50/80">
+                            <td colspan="3" class="p-4 pl-6 font-bold text-slate-900 border-y border-slate-200" x-text="t[lang].features.api_section">高级接口服务</td>
+                        </tr>
+                        <tr class="table-row-hover transition-colors">
+                            <td class="p-4 pl-6 text-sm text-slate-700" x-text="t[lang].features.a1">Meta 官方代理 API</td>
+                            <td class="p-4 text-center border-l border-slate-100"><i class="fas fa-times cross-icon"></i></td>
+                            <td class="p-4 text-center border-l border-slate-100 bg-blue-50/30"><i class="fas fa-check-circle check-icon text-lg"></i></td>
+                        </tr>
+                        <tr class="table-row-hover transition-colors">
+                            <td class="p-4 pl-6 text-sm text-slate-700" x-text="t[lang].features.a2">Meta 官方应用 API</td>
+                            <td class="p-4 text-center border-l border-slate-100"><i class="fas fa-times cross-icon"></i></td>
+                            <td class="p-4 text-center border-l border-slate-100 bg-blue-50/30"><i class="fas fa-check-circle check-icon text-lg"></i></td>
+                        </tr>
+                        <tr class="table-row-hover transition-colors">
+                            <td class="p-4 pl-6 text-sm text-slate-700" x-text="t[lang].features.a3">Google 官方代理 API</td>
+                            <td class="p-4 text-center border-l border-slate-100"><i class="fas fa-times cross-icon"></i></td>
+                            <td class="p-4 text-center border-l border-slate-100 bg-blue-50/30"><i class="fas fa-check-circle check-icon text-lg"></i></td>
+                        </tr>
+                        <tr class="table-row-hover transition-colors">
+                            <td class="p-4 pl-6 text-sm text-slate-700" x-text="t[lang].features.a4">TikTok 官方代理 API</td>
+                            <td class="p-4 text-center border-l border-slate-100"><i class="fas fa-times cross-icon"></i></td>
+                            <td class="p-4 text-center border-l border-slate-100 bg-blue-50/30"><i class="fas fa-check-circle check-icon text-lg"></i></td>
+                        </tr>
+                        <tr class="table-row-hover transition-colors">
+                            <td class="p-4 pl-6 text-sm text-slate-700" x-text="t[lang].features.a5">Telegram 机器人</td>
+                            <td class="p-4 text-center border-l border-slate-100"><i class="fas fa-times cross-icon"></i></td>
+                            <td class="p-4 text-center border-l border-slate-100 bg-blue-50/30"><i class="fas fa-check-circle check-icon text-lg"></i></td>
+                        </tr>
+                        <tr class="table-row-hover transition-colors">
+                            <td class="p-4 pl-6 text-sm text-slate-700 font-medium" x-text="t[lang].features.a6">专属客服支持</td>
+                            <td class="p-4 text-center border-l border-slate-100"><i class="fas fa-times cross-icon"></i></td>
+                            <td class="p-4 text-center border-l border-slate-100 bg-blue-50/30"><i class="fas fa-check-circle check-icon text-lg"></i></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="bg-slate-50 p-6 border-t border-slate-200 flex justify-between items-center">
+                    <p class="text-sm text-slate-500" x-text="t[lang].footer_note">* 所有方案均提供免费的初始技术接入指导</p>
+                    <a href="https://t.me/yiyiyiads" target="_blank" class="px-6 py-2 rounded-lg bg-blue-600 text-white text-sm font-medium hover:bg-blue-700 transition-all shadow-md shadow-blue-500/20" x-text="t[lang].cta">立即咨询购买</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="text-slate-400 text-sm">
+                &copy; 2026 以渔数媒 (YiYu Ads). All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        const translations = {
+            zh: {
+                title: "产品定价 - 以渔数媒",
+                nav: { home: "首页", pricing: "产品定价", articles: "行业动态", contact: "联系我们" },
+                hero: { title1: "简单透明的", titleHighlight: "定价方案", subtitle: "选择最适合您企业规模的版本，没有隐藏费用，随时可升级。" },
+                plans: {
+                    basic: { name: "基础版", desc: "适合初创出海团队" },
+                    pro: { name: "满血版", desc: "适合成熟企业矩阵操作", badge: "推荐" }
+                },
+                features: {
+                    monthly: "月度",
+                    quarterly: "季度",
+                    yearly: "年度",
+                    section_title: "核心功能",
+                    f1: "24小时自动收款费率",
+                    f2: "一键发票生成",
+                    f3: "账号席位限制",
+                    f4: "中-英-越语言本地化",
+                    f5: "无限量商户席位",
+                    f6: "全站消息通知",
+                    f7: "资金预警",
+                    f8: "多媒体平台支持",
+                    f9: "自定义品牌域名",
+                    f10: "全定制皮肤",
+                    f11: "全自动邮箱推送",
+                    api_section: "高级接口及专属服务",
+                    a1: "Meta 官方代理 API",
+                    a2: "Meta 官方应用 API",
+                    a3: "Google 官方代理 API",
+                    a4: "TikTok 官方代理 API",
+                    a5: "Telegram 机器人",
+                    a6: "专属客服支持"
+                },
+                footer_note: "* 所有方案均提供免费的初始技术接入指导",
+                cta: "立即咨询购买"
+            },
+            en: {
+                title: "Pricing - Yiyu Digital",
+                nav: { home: "Home", pricing: "Pricing", articles: "Insights", contact: "Contact Us" },
+                hero: { title1: "Simple & Transparent ", titleHighlight: "Pricing", subtitle: "Choose the best plan for your scale. No hidden fees, upgrade anytime." },
+                plans: {
+                    basic: { name: "Basic", desc: "For startup global teams" },
+                    pro: { name: "Pro", desc: "For enterprise matrix ops", badge: "Recommended" }
+                },
+                features: {
+                    monthly: "Monthly",
+                    quarterly: "Quarterly",
+                    yearly: "Yearly",
+                    section_title: "Core Features",
+                    f1: "24/7 Auto-collection Rate",
+                    f2: "1-Click Invoice Gen",
+                    f3: "Account Seat Limit",
+                    f4: "ZH-EN-VI Localization",
+                    f5: "Unlimited Merchant Seats",
+                    f6: "Site-wide Notifications",
+                    f7: "Fund Alerts",
+                    f8: "Multi-platform Support",
+                    f9: "Custom Brand Domain",
+                    f10: "Full Custom Theme",
+                    f11: "Auto Email Push",
+                    api_section: "Advanced APIs & Services",
+                    a1: "Meta Official Agency API",
+                    a2: "Meta Official App API",
+                    a3: "Google Official Agency API",
+                    a4: "TikTok Official Agency API",
+                    a5: "Telegram Bot",
+                    a6: "Dedicated Support"
+                },
+                footer_note: "* All plans include free initial technical integration guidance",
+                cta: "Contact to Buy"
+            }
+        };
+
+        function appData() {
+            return {
+                lang: localStorage.getItem('yiyu_lang') || 'zh',
+                t: translations,
+                toggleLang() {
+                    this.lang = this.lang === 'zh' ? 'en' : 'zh';
+                    localStorage.setItem('yiyu_lang', this.lang);
+                }
+            }
+        }
+    </script>
+</body>
+</html>
