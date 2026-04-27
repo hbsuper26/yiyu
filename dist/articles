@@ -105,9 +105,9 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Article Cards -->
                 
-                    <article class="article-card card-hover flex flex-col h-full group cursor-pointer" onclick="window.location.href = '/article/2'">
+                    <article class="article-card card-hover flex flex-col h-full group cursor-pointer" onclick="window.location.href = '/article/8'">
                         <div class="relative h-56 overflow-hidden">
-                            <img src="https://picsum.photos/seed/yiyu2/800/500" alt="2026 Q1 全球出海广告投放趋势报告" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                            <img src="https://picsum.photos/seed/yiyu9452/800/500" alt="企业级海外资金管理系统如何解决汇损问题" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
                             <div class="absolute top-4 left-4">
                                 <span class="px-3 py-1 bg-white/90 backdrop-blur-sm text-blue-600 text-xs font-bold rounded-lg shadow-sm">
                                     <span x-show="lang === 'zh'">
@@ -123,16 +123,16 @@
                         </div>
                         <div class="p-6 flex flex-col flex-grow">
                             <div class="flex items-center gap-3 text-xs text-slate-500 mb-3">
-                                <span class="flex items-center gap-1"><i class="far fa-calendar-alt"></i> <span>2026-04-20</span></span>
-                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span>3512</span></span>
+                                <span class="flex items-center gap-1"><i class="far fa-calendar-alt"></i> <span>2026-04-27</span></span>
+                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span>96</span></span>
                             </div>
                             <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
-                                <span x-show="lang === 'zh'">2026 Q1 全球出海广告投放趋势报告</span>
-                                <span x-show="lang === 'en'" x-cloak>2026 Q1 全球出海广告投放趋势报告</span>
+                                <span x-show="lang === 'zh'">企业级海外资金管理系统如何解决汇损问题</span>
+                                <span x-show="lang === 'en'" x-cloak>How Enterprise Global Fund Management Systems Solve FX Loss Issues</span>
                             </h3>
                             <p class="text-slate-600 text-sm line-clamp-2 mb-6 flex-grow">
-                                <span x-show="lang === 'zh'">结合以渔平台一季度的资金流水数据，我们为您深度解析 TikTok 与 Google 渠道的获客成本变化及爆款素材趋势。</span>
-                                <span x-show="lang === 'en'" x-cloak>结合以渔平台一季度的资金流水数据，我们为您深度解析 TikTok 与 Google 渠道的获客成本变化及爆款素材趋势。</span>
+                                <span x-show="lang === 'zh'">这是关于【企业级海外资金管理系统如何解决汇损问题】的自动生成测试摘要。</span>
+                                <span x-show="lang === 'en'" x-cloak>This is an auto-generated mock summary for [How Enterprise Global Fund Management Systems Solve FX Loss Issues].</span>
                             </p>
                             
                             <div class="flex items-center justify-between mt-auto pt-4 border-t border-slate-100">
@@ -143,9 +143,85 @@
                         </div>
                     </article>
                 
-                    <article class="article-card card-hover flex flex-col h-full group cursor-pointer" onclick="window.location.href = '/article/1'">
+                    <article class="article-card card-hover flex flex-col h-full group cursor-pointer" onclick="window.location.href = '/article/7'">
                         <div class="relative h-56 overflow-hidden">
-                            <img src="https://picsum.photos/seed/yiyu1/800/500" alt="Meta 广告账户充值通道全面升级，秒级到账体验" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                            <img src="https://picsum.photos/seed/yiyu4670/800/500" alt="出海电商独立站引流最新玩法与转化优化" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                            <div class="absolute top-4 left-4">
+                                <span class="px-3 py-1 bg-white/90 backdrop-blur-sm text-blue-600 text-xs font-bold rounded-lg shadow-sm">
+                                    <span x-show="lang === 'zh'">
+                                        投放指南
+                                        
+                                    </span>
+                                    <span x-show="lang === 'en'" x-cloak>
+                                        Ad Guide
+                                        
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <div class="flex items-center gap-3 text-xs text-slate-500 mb-3">
+                                <span class="flex items-center gap-1"><i class="far fa-calendar-alt"></i> <span>2026-04-27</span></span>
+                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span>47</span></span>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
+                                <span x-show="lang === 'zh'">出海电商独立站引流最新玩法与转化优化</span>
+                                <span x-show="lang === 'en'" x-cloak>Latest Traffic Acquisition Tactics &amp; Conversion Optimization for Global E-commerce</span>
+                            </h3>
+                            <p class="text-slate-600 text-sm line-clamp-2 mb-6 flex-grow">
+                                <span x-show="lang === 'zh'">这是关于【出海电商独立站引流最新玩法与转化优化】的自动生成测试摘要。</span>
+                                <span x-show="lang === 'en'" x-cloak>This is an auto-generated mock summary for [Latest Traffic Acquisition Tactics &amp; Conversion Optimization for Global E-commerce].</span>
+                            </p>
+                            
+                            <div class="flex items-center justify-between mt-auto pt-4 border-t border-slate-100">
+                                <span class="text-blue-600 font-medium text-sm flex items-center gap-1 group-hover:translate-x-1 transition-transform ml-auto">
+                                    <span x-text="t[lang].card.readMore">阅读全文</span> <i class="fas fa-arrow-right text-xs"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </article>
+                
+                    <article class="article-card card-hover flex flex-col h-full group cursor-pointer" onclick="window.location.href = '/article/6'">
+                        <div class="relative h-56 overflow-hidden">
+                            <img src="https://picsum.photos/seed/yiyu856/800/500" alt="海外游戏发行的买量成本(CAC)深度分析" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                            <div class="absolute top-4 left-4">
+                                <span class="px-3 py-1 bg-white/90 backdrop-blur-sm text-blue-600 text-xs font-bold rounded-lg shadow-sm">
+                                    <span x-show="lang === 'zh'">
+                                        行业洞察
+                                        
+                                    </span>
+                                    <span x-show="lang === 'en'" x-cloak>
+                                        Insights
+                                        
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <div class="flex items-center gap-3 text-xs text-slate-500 mb-3">
+                                <span class="flex items-center gap-1"><i class="far fa-calendar-alt"></i> <span>2026-04-27</span></span>
+                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span>90</span></span>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
+                                <span x-show="lang === 'zh'">海外游戏发行的买量成本(CAC)深度分析</span>
+                                <span x-show="lang === 'en'" x-cloak>In-depth Analysis of User Acquisition Costs (CAC) in Global Game Publishing</span>
+                            </h3>
+                            <p class="text-slate-600 text-sm line-clamp-2 mb-6 flex-grow">
+                                <span x-show="lang === 'zh'">这是关于【海外游戏发行的买量成本(CAC)深度分析】的自动生成测试摘要。</span>
+                                <span x-show="lang === 'en'" x-cloak>This is an auto-generated mock summary for [In-depth Analysis of User Acquisition Costs (CAC) in Global Game Publishing].</span>
+                            </p>
+                            
+                            <div class="flex items-center justify-between mt-auto pt-4 border-t border-slate-100">
+                                <span class="text-blue-600 font-medium text-sm flex items-center gap-1 group-hover:translate-x-1 transition-transform ml-auto">
+                                    <span x-text="t[lang].card.readMore">阅读全文</span> <i class="fas fa-arrow-right text-xs"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </article>
+                
+                    <article class="article-card card-hover flex flex-col h-full group cursor-pointer" onclick="window.location.href = '/article/5'">
+                        <div class="relative h-56 overflow-hidden">
+                            <img src="https://picsum.photos/seed/yiyu552/800/500" alt="Meta (Facebook) 广告高转化素材设计指南" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
                             <div class="absolute top-4 left-4">
                                 <span class="px-3 py-1 bg-white/90 backdrop-blur-sm text-blue-600 text-xs font-bold rounded-lg shadow-sm">
                                     <span x-show="lang === 'zh'">
@@ -161,16 +237,92 @@
                         </div>
                         <div class="p-6 flex flex-col flex-grow">
                             <div class="flex items-center gap-3 text-xs text-slate-500 mb-3">
-                                <span class="flex items-center gap-1"><i class="far fa-calendar-alt"></i> <span>2026-04-23</span></span>
-                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span>1240</span></span>
+                                <span class="flex items-center gap-1"><i class="far fa-calendar-alt"></i> <span>2026-04-27</span></span>
+                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span>33</span></span>
                             </div>
                             <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
-                                <span x-show="lang === 'zh'">Meta 广告账户充值通道全面升级，秒级到账体验</span>
-                                <span x-show="lang === 'en'" x-cloak>Meta 广告账户充值通道全面升级，秒级到账体验</span>
+                                <span x-show="lang === 'zh'">Meta (Facebook) 广告高转化素材设计指南</span>
+                                <span x-show="lang === 'en'" x-cloak>Meta (Facebook) High-Conversion Creative Design Guide</span>
                             </h3>
                             <p class="text-slate-600 text-sm line-clamp-2 mb-6 flex-grow">
-                                <span x-show="lang === 'zh'">为了提升出海企业的资金流转效率，以渔数媒今日正式完成对 Meta 广告充值通道的底层架构升级，现已支持7x24小时秒级到账。</span>
-                                <span x-show="lang === 'en'" x-cloak>为了提升出海企业的资金流转效率，以渔数媒今日正式完成对 Meta 广告充值通道的底层架构升级，现已支持7x24小时秒级到账。</span>
+                                <span x-show="lang === 'zh'">这是关于【Meta (Facebook) 广告高转化素材设计指南】的自动生成测试摘要。</span>
+                                <span x-show="lang === 'en'" x-cloak>This is an auto-generated mock summary for [Meta (Facebook) High-Conversion Creative Design Guide].</span>
+                            </p>
+                            
+                            <div class="flex items-center justify-between mt-auto pt-4 border-t border-slate-100">
+                                <span class="text-blue-600 font-medium text-sm flex items-center gap-1 group-hover:translate-x-1 transition-transform ml-auto">
+                                    <span x-text="t[lang].card.readMore">阅读全文</span> <i class="fas fa-arrow-right text-xs"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </article>
+                
+                    <article class="article-card card-hover flex flex-col h-full group cursor-pointer" onclick="window.location.href = '/article/4'">
+                        <div class="relative h-56 overflow-hidden">
+                            <img src="https://picsum.photos/seed/yiyu4026/800/500" alt="Google Ads 搜索广告账户防封技巧与申诉" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                            <div class="absolute top-4 left-4">
+                                <span class="px-3 py-1 bg-white/90 backdrop-blur-sm text-blue-600 text-xs font-bold rounded-lg shadow-sm">
+                                    <span x-show="lang === 'zh'">
+                                        行业洞察
+                                        
+                                    </span>
+                                    <span x-show="lang === 'en'" x-cloak>
+                                        Insights
+                                        
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <div class="flex items-center gap-3 text-xs text-slate-500 mb-3">
+                                <span class="flex items-center gap-1"><i class="far fa-calendar-alt"></i> <span>2026-04-27</span></span>
+                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span>57</span></span>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
+                                <span x-show="lang === 'zh'">Google Ads 搜索广告账户防封技巧与申诉</span>
+                                <span x-show="lang === 'en'" x-cloak>Google Ads Account Anti-ban Tips &amp; Appeal Guide</span>
+                            </h3>
+                            <p class="text-slate-600 text-sm line-clamp-2 mb-6 flex-grow">
+                                <span x-show="lang === 'zh'">这是关于【Google Ads 搜索广告账户防封技巧与申诉】的自动生成测试摘要。</span>
+                                <span x-show="lang === 'en'" x-cloak>This is an auto-generated mock summary for [Google Ads Account Anti-ban Tips &amp; Appeal Guide].</span>
+                            </p>
+                            
+                            <div class="flex items-center justify-between mt-auto pt-4 border-t border-slate-100">
+                                <span class="text-blue-600 font-medium text-sm flex items-center gap-1 group-hover:translate-x-1 transition-transform ml-auto">
+                                    <span x-text="t[lang].card.readMore">阅读全文</span> <i class="fas fa-arrow-right text-xs"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </article>
+                
+                    <article class="article-card card-hover flex flex-col h-full group cursor-pointer" onclick="window.location.href = '/article/3'">
+                        <div class="relative h-56 overflow-hidden">
+                            <img src="https://picsum.photos/seed/yiyu8473/800/500" alt="TikTok 短视频广告出海投放策略与ROI提升" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                            <div class="absolute top-4 left-4">
+                                <span class="px-3 py-1 bg-white/90 backdrop-blur-sm text-blue-600 text-xs font-bold rounded-lg shadow-sm">
+                                    <span x-show="lang === 'zh'">
+                                        行业洞察
+                                        
+                                    </span>
+                                    <span x-show="lang === 'en'" x-cloak>
+                                        Insights
+                                        
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <div class="flex items-center gap-3 text-xs text-slate-500 mb-3">
+                                <span class="flex items-center gap-1"><i class="far fa-calendar-alt"></i> <span>2026-04-27</span></span>
+                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span>60</span></span>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
+                                <span x-show="lang === 'zh'">TikTok 短视频广告出海投放策略与ROI提升</span>
+                                <span x-show="lang === 'en'" x-cloak>TikTok Short Video Ad Strategies &amp; ROI Boost for Global Expansion</span>
+                            </h3>
+                            <p class="text-slate-600 text-sm line-clamp-2 mb-6 flex-grow">
+                                <span x-show="lang === 'zh'">这是关于【TikTok 短视频广告出海投放策略与ROI提升】的自动生成测试摘要。</span>
+                                <span x-show="lang === 'en'" x-cloak>This is an auto-generated mock summary for [TikTok Short Video Ad Strategies &amp; ROI Boost for Global Expansion].</span>
                             </p>
                             
                             <div class="flex items-center justify-between mt-auto pt-4 border-t border-slate-100">

@@ -90,13 +90,28 @@ def article_detail(article_id):
         
     return render_template('article_detail.html', article=dict(article))
 
+def scheduled_job():
+    print("Running scheduled daily article generation...")
+    generate_daily_articles()
+    
+    print("Articles generated. Triggering static site build...")
+    try:
+        from build import freezer, app as build_app
+        build_app.config['FREEZER_DEFAULT_MIMETYPE'] = 'text/html'
+        build_app.config['FREEZER_REMOVE_EXTRA_FILES'] = False
+        print(f"Building static site to: {build_app.config['FREEZER_DESTINATION']}")
+        freezer.freeze()
+        print("Build complete! Static site updated.")
+    except Exception as e:
+        print(f"Error during static site build: {e}")
+
 def run_scheduler():
     """Background thread to run scheduled tasks"""
-    # Run the agent every day at 10:00 AM
-    schedule.every().day.at("10:00").do(generate_daily_articles)
+    # Run the agent and then build the static site every day at 08:00 AM
+    schedule.every().day.at("08:00").do(scheduled_job)
     
     # You can also run it every few minutes for testing if needed
-    # schedule.every(10).minutes.do(generate_daily_articles)
+    # schedule.every(10).minutes.do(scheduled_job)
     
     while True:
         schedule.run_pending()
