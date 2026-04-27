@@ -67,7 +67,7 @@
         </div>
         
         <div class="mt-8 pt-6 border-t border-slate-100 text-center">
-             <a href="index.html" class="text-slate-400 hover:text-slate-600 text-sm flex items-center justify-center gap-2 transition-colors">
+             <a href="/" class="text-slate-400 hover:text-slate-600 text-sm flex items-center justify-center gap-2 transition-colors">
                 <i class="fas fa-arrow-left"></i>
                 <span x-text="t[lang].backHome">返回首页</span>
              </a>

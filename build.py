@@ -9,8 +9,8 @@ sys.path.append(os.path.dirname(__file__))
 from app import app
 from db import get_db_connection
 
-# Configure the freezer to output to 'dist' folder
-app.config['FREEZER_DESTINATION'] = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'dist')
+# Configure the freezer to output to 'yiyu_digital_media/dist' folder
+app.config['FREEZER_DESTINATION'] = os.path.join(os.path.dirname(__file__), 'dist')
 app.config['FREEZER_RELATIVE_URLS'] = True
 
 freezer = Freezer(app)
@@ -35,6 +35,8 @@ def article_detail():
 if __name__ == '__main__':
     # Add .html extension to generated pages instead of directory index
     app.config['FREEZER_DEFAULT_MIMETYPE'] = 'text/html'
+    # Ensure the freezer completely overwrites/cleans the destination folder
+    app.config['FREEZER_REMOVE_EXTRA_FILES'] = False
     
     print(f"Building static site to: {app.config['FREEZER_DESTINATION']}")
     freezer.freeze()
