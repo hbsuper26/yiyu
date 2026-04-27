@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="zh-CN" x-data="appData()">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title x-text="t[lang].title">文章详情 - 以渔数媒</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        [x-cloak] { display: none !important; }
+        .prose img {
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+        }
+        .prose h2 {
+            color: #0f172a;
+            font-weight: 700;
+            font-size: 1.5rem;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .prose p {
+            color: #475569;
+            line-height: 1.8;
+            margin-bottom: 1.25rem;
+            font-size: 1.125rem;
+        }
+        .prose blockquote {
+            border-left: 4px solid #3b82f6;
+            padding-left: 1rem;
+            color: #334155;
+            font-style: italic;
+            background: #eff6ff;
+            padding: 1rem;
+            border-radius: 0 0.5rem 0.5rem 0;
+            margin: 2rem 0;
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #3B82F6 0%, #9333EA 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased bg-white">
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 transition-all duration-300 bg-white/90 backdrop-blur-md border-b border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <a href="/" class="flex-shrink-0 flex items-center gap-3">
+                    <img src="../static/images/logo.png" alt="Logo" class="w-10 h-10 rounded-lg object-cover" onerror="this.src='https://ui-avatars.com/api/?name=YY&background=0D8ABC&color=fff'">
+                    <span class="font-bold text-2xl tracking-tight text-slate-900">以渔数媒</span>
+                </a>
+                
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="/" class="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors" x-text="t[lang].nav.home">首页</a>
+                    <a href="/articles" class="text-sm font-medium text-blue-600 transition-colors" x-text="t[lang].nav.articles">行业动态</a>
+                    <a href="/pricing" class="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors" x-text="t[lang].nav.pricing">产品定价</a>
+                    
+                    <button @click="toggleLang()" class="flex items-center space-x-1 px-3 py-1.5 rounded-md border border-slate-200 hover:border-blue-400 hover:bg-slate-50 transition-all">
+                        <i class="fas fa-globe text-slate-500 text-xs"></i>
+                        <span class="text-xs font-bold text-slate-600" x-text="lang === 'zh' ? 'EN' : '中'"></span>
+                    </button>
+                    
+                    <div class="flex items-center gap-3 pl-4 border-l border-slate-200">
+                        <a href="https://t.me/yiyiyiads" target="_blank" class="px-5 py-2.5 rounded-lg bg-blue-600 text-white text-sm font-medium hover:bg-blue-700 transition-all shadow-md shadow-blue-500/20" x-text="t[lang].nav.contact">联系我们</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Article Content -->
+    <main class="pt-32 pb-24">
+        <!-- Back Button & Breadcrumb -->
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 mb-8">
+            <a href="/articles" class="inline-flex items-center gap-2 text-sm font-medium text-slate-500 hover:text-blue-600 transition-colors group">
+                <div class="w-8 h-8 rounded-full border border-slate-200 flex items-center justify-center group-hover:border-blue-500 group-hover:bg-blue-50 transition-all">
+                    <i class="fas fa-arrow-left text-xs group-hover:-translate-x-0.5 transition-transform"></i>
+                </div>
+                <span x-text="t[lang].back">返回动态列表</span>
+            </a>
+        </div>
+
+        <article class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Article Header -->
+            <header class="mb-10 text-center">
+                <div class="mb-6">
+                    <span class="px-3 py-1 bg-blue-50 text-blue-600 text-xs font-bold rounded-lg uppercase tracking-wider">
+                        <span x-show="lang === 'zh'">
+                            行业洞察
+                            
+                        </span>
+                        <span x-show="lang === 'en'" x-cloak>
+                            Insights
+                            
+                        </span>
+                    </span>
+                </div>
+                <h1 class="text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-900 leading-tight mb-8">
+                    <span x-show="lang === 'zh'">海外游戏发行的买量成本(CAC)深度分析</span>
+                    <span x-show="lang === 'en'" x-cloak>In-depth Analysis of User Acquisition Costs (CAC) in Global Game Publishing</span>
+                </h1>
+                
+                <!-- Author Meta -->
+                <div class="flex items-center justify-center gap-6 text-sm text-slate-500 border-t border-b border-slate-100 py-4">
+                    <div class="flex items-center gap-2">
+                        <i class="far fa-calendar-alt"></i>
+                        <span>2026-04-27</span>
+                    </div>
+                    <div class="h-8 w-px bg-slate-200"></div>
+                    <div class="flex items-center gap-2">
+                        <i class="far fa-eye"></i>
+                        <span>3488 <span x-text="t[lang].reads">阅读</span></span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Featured Image -->
+            <div class="rounded-2xl overflow-hidden mb-12 shadow-2xl shadow-slate-200/50">
+                <img src="https://picsum.photos/seed/yiyu3082/800/500" alt="Featured Image" class="w-full h-[400px] object-cover">
+            </div>
+
+            <!-- Rich Text Body -->
+            <div class="prose max-w-none" x-show="lang === 'zh'">
+                <h2>1. 游戏买量成本的严峻现状</h2>
+<p>2026年，全球手游市场的存量博弈愈演愈烈。特别是对于重度 SLG 和 RPG 游戏，北美和日韩等 T1 市场的单用户获取成本（CAC）已经突破了历史高点。<br />
+传统的“洗流量”模式已经失效，游戏发行商面临着巨大的利润压缩挑战。</p>
+<h2>2. LTV 与 CAC 的黄金比例</h2>
+<p>在买量发行的财务模型中，<strong>LTV（用户生命周期价值） &gt; CAC</strong> 是铁律。<br />
+但很多企业忽略了回收周期的问题。</p>
+<blockquote>
+<p>"如果你的 LTV 需要 12 个月才能覆盖 CAC，那你的现金流在第 3 个月就会断裂。"</p>
+</blockquote>
+<h3>优化策略：</h3>
+<ul>
+<li><strong>前置付费点</strong>：通过新手礼包、首充优惠等设计，将用户的首付时间压缩到前 3 天。</li>
+<li><strong>精细化事件归因</strong>：不要只优化“安装（Install）”，必须向广告平台回传“完成深度事件（如到达10级、首次购买）”的数据，利用 AEO/VO 跑出高价值大 R 玩家。</li>
+</ul>
+<h2>3. 破圈：跨界联动与达人营销</h2>
+<p>为了降低对传统买量渠道的依赖，越来越多的游戏厂商开始探索品效合一的破圈玩法。<br />
+通过与当地知名动漫 IP 联动，或是邀请 YouTube 游戏主播进行专场直播，虽然前期的品牌曝光成本较高，但随之而来的长尾自然量（Organic Traffic）能极大程度地摊薄整体的综合获客成本。</p>
+            </div>
+            <div class="prose max-w-none" x-show="lang === 'en'" x-cloak>
+                <h2>1. The Harsh Reality of Game UA Costs</h2>
+<p>In 2026, the zero-sum game in the global mobile gaming market has intensified. Particularly for mid-core and hardcore SLG and RPG titles, the Customer Acquisition Cost (CAC) in T1 markets like North America, Japan, and South Korea has broken historical highs.<br />
+The traditional "traffic washing" model is obsolete, leaving game publishers facing massive profit margin compression.</p>
+<h2>2. The Golden Ratio of LTV to CAC</h2>
+<p>In the financial modeling of UA publishing, <strong>LTV (Life Time Value) &gt; CAC</strong> is an unbreakable rule.<br />
+However, many companies ignore the payback period.</p>
+<blockquote>
+<p>"If your LTV takes 12 months to cover the CAC, your cash flow will break by month 3."</p>
+</blockquote>
+<h3>Optimization Strategies:</h3>
+<ul>
+<li><strong>Front-loaded Monetization</strong>: Compress the user's first payment window to the first 3 days through beginner packs and first-top-up discounts.</li>
+<li><strong>Granular Event Attribution</strong>: Don't just optimize for "Installs." You must pass back data for "Deep Funnel Events" (e.g., reaching level 10, first purchase) to the ad network, leveraging AEO/VO to find high-value whales.</li>
+</ul>
+<h2>3. Breaking Boundaries: Cross-overs and Influencer Marketing</h2>
+<p>To reduce reliance on traditional UA channels, more publishers are exploring brand-performance integrated strategies.<br />
+Collaborating with well-known local anime IPs, or inviting YouTube gaming influencers for dedicated livestreams, may incur high initial branding costs. However, the subsequent long-tail organic traffic significantly dilutes the overall blended acquisition cost.</p>
+            </div>
+
+            <!-- Social Share (Mock) -->
+            <div class="mt-12 pt-8 border-t border-slate-100 flex items-center justify-between">
+                <div class="text-sm font-medium text-slate-500" x-text="t[lang].share">分享这篇文章：</div>
+                <div class="flex gap-3">
+                    <button class="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-600 hover:bg-[#1DA1F2] hover:text-white transition-colors">
+                        <i class="fab fa-twitter"></i>
+                    </button>
+                    <button class="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-600 hover:bg-[#0077B5] hover:text-white transition-colors">
+                        <i class="fab fa-linkedin-in"></i>
+                    </button>
+                    <button class="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-600 hover:bg-[#00B489] hover:text-white transition-colors">
+                        <i class="fas fa-link"></i>
+                    </button>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 py-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="text-slate-400 text-sm">
+                &copy; 2026 以渔数媒 (YiYu Ads). All rights reserved.
+            </p>
+        </div>
+    </footer>
+</body>
+<script>
+    const translations = {
+        zh: {
+            title: "文章详情 - 以渔数媒",
+            nav: {
+                home: "首页",
+                pricing: "产品定价",
+                articles: "行业动态",
+                contact: "联系我们"
+            },
+            back: "返回动态列表",
+            share: "分享这篇文章：",
+            reads: "阅读"
+        },
+        en: {
+            title: "Article Detail - Yiyu Digital",
+            nav: {
+                home: "Home",
+                pricing: "Pricing",
+                articles: "Insights",
+                contact: "Contact Us"
+            },
+            back: "Back to Insights",
+            share: "Share this article:",
+            reads: "Reads"
+        }
+    };
+
+    function appData() {
+        return {
+            lang: localStorage.getItem('yiyu_lang') || 'zh',
+            t: translations,
+            toggleLang() {
+                this.lang = this.lang === 'zh' ? 'en' : 'zh';
+                localStorage.setItem('yiyu_lang', this.lang);
+            }
+        }
+    }
+</script>
+</html>
