@@ -116,11 +116,12 @@
 
         function loginData() {
             return {
-                lang: 'zh',
+                lang: localStorage.getItem('yiyu_lang') || 'zh',
                 isRegister: window.location.pathname.includes('register'),
                 t: translations,
                 toggleLang() {
                     this.lang = this.lang === 'zh' ? 'en' : 'zh';
+                    localStorage.setItem('yiyu_lang', this.lang);
                 },
                 handleLogin() {
                     // Simulate login

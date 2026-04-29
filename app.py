@@ -90,6 +90,24 @@ def article_detail(article_id):
         
     return render_template('article_detail.html', article=dict(article))
 
+@app.route('/api/articles.json')
+def api_articles():
+    """提供给外部拉取 Agent 每日生成文章数据的只读接口"""
+    from flask import jsonify
+    db = get_db()
+    cur = db.cursor()
+    # 默认返回最新生成的 10 篇文章
+    cur.execute('SELECT id, category_id, title, title_en, summary, summary_en, content, content_en, date, views, seo_keywords FROM articles ORDER BY id DESC LIMIT 10')
+    db_articles = cur.fetchall()
+    
+    articles_list = [dict(row) for row in db_articles]
+    
+    return jsonify({
+        "status": "success",
+        "count": len(articles_list),
+        "data": articles_list
+    })
+
 def scheduled_job():
     print("Running scheduled daily article generation...")
     generate_daily_articles()

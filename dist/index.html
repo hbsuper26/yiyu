@@ -88,9 +88,9 @@
     <nav class="fixed w-full z-50 transition-all duration-300 bg-white/90 backdrop-blur-md border-b border-slate-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-20 items-center">
-                <a href="/" class="flex-shrink-0 flex items-center gap-3">
-                    <img src="static/images/logo.png" alt="Logo" class="w-10 h-10 rounded-lg object-cover">
-                    <span class="font-bold text-2xl tracking-tight text-slate-900">以渔数媒</span>
+                <a href="/" class="flex-shrink-0 flex items-center gap-3 group">
+                    <img src="static/images/logo.png" alt="Logo" class="w-10 h-10 rounded-lg object-cover shadow-sm group-hover:shadow-md transition-shadow duration-300">
+                    <span class="font-extrabold text-2xl tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-violet-600 drop-shadow-sm">以渔数媒</span>
                 </a>
                 
                 <div class="hidden md:flex space-x-8 items-center">
@@ -771,11 +771,12 @@
 
         function appData() {
             return {
-                lang: 'zh',
+                lang: localStorage.getItem('yiyu_lang') || 'zh',
                 scrolled: false,
                 t: translations,
                 toggleLang() {
                     this.lang = this.lang === 'zh' ? 'en' : 'zh';
+                    localStorage.setItem('yiyu_lang', this.lang);
                 },
                 init() {
                     // Intersection Observer for scroll animations
