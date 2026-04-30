@@ -63,7 +63,7 @@
                     
                     <button @click="toggleLang()" class="flex items-center space-x-1 px-3 py-1.5 rounded-md border border-slate-200 hover:border-blue-400 hover:bg-slate-50 transition-all">
                         <i class="fas fa-globe text-slate-500 text-xs"></i>
-                        <span class="text-xs font-bold text-slate-600" x-text="lang === 'zh' ? 'EN' : '中'"></span>
+                        <span class="text-xs font-bold text-slate-600" x-text="lang === 'zh' ? 'EN' : (lang === 'en' ? 'VI' : '中')"></span>
                     </button>
                     
                     <div class="flex items-center gap-3 pl-4 border-l border-slate-200">
@@ -104,6 +104,7 @@
                 <h1 class="text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-900 leading-tight mb-8">
                     <span x-show="lang === 'zh'">Google Ads 搜索广告账户防封技巧与申诉</span>
                     <span x-show="lang === 'en'" x-cloak>Google Ads Account Anti-ban Tips &amp; Appeal Guide</span>
+                    <span x-show="lang === 'vi'" x-cloak></span>
                 </h1>
                 
                 <!-- Author Meta -->
@@ -172,6 +173,9 @@ This is often not due to malicious intent, but rather <strong>non-compliant acco
 The correct approach: <strong>Investigate first, gather evidence, and write a logically sound English appeal letter.</strong><br />
 Include your business license, a description of your business model, and screenshots of the specific changes you made to rectify the issue. A sincere, professional attitude is the only path to recovery.</p>
             </div>
+            <div class="prose max-w-none" x-show="lang === 'vi'" x-cloak>
+                
+            </div>
 
             <!-- Social Share (Mock) -->
             <div class="mt-12 pt-8 border-t border-slate-100 flex items-center justify-between">
@@ -225,6 +229,18 @@ Include your business license, a description of your business model, and screens
             back: "Back to Insights",
             share: "Share this article:",
             reads: "Reads"
+        },
+        vi: {
+            title: "Chi tiết bài viết - Yiyu Digital",
+            nav: {
+                home: "Trang chủ",
+                pricing: "Bảng giá",
+                articles: "Tin tức",
+                contact: "Liên hệ"
+            },
+            back: "Quay lại Tin tức",
+            share: "Chia sẻ bài viết này:",
+            reads: "Lượt đọc"
         }
     };
 
@@ -233,9 +249,11 @@ Include your business license, a description of your business model, and screens
             lang: localStorage.getItem('yiyu_lang') || 'zh',
             t: translations,
             toggleLang() {
-                this.lang = this.lang === 'zh' ? 'en' : 'zh';
-                localStorage.setItem('yiyu_lang', this.lang);
-            }
+                    if (this.lang === 'zh') this.lang = 'en';
+                    else if (this.lang === 'en') this.lang = 'vi';
+                    else this.lang = 'zh';
+                    localStorage.setItem('yiyu_lang', this.lang);
+                }
         }
     }
 </script>

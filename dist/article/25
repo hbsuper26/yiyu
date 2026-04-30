@@ -63,7 +63,7 @@
                     
                     <button @click="toggleLang()" class="flex items-center space-x-1 px-3 py-1.5 rounded-md border border-slate-200 hover:border-blue-400 hover:bg-slate-50 transition-all">
                         <i class="fas fa-globe text-slate-500 text-xs"></i>
-                        <span class="text-xs font-bold text-slate-600" x-text="lang === 'zh' ? 'EN' : '中'"></span>
+                        <span class="text-xs font-bold text-slate-600" x-text="lang === 'zh' ? 'EN' : (lang === 'en' ? 'VI' : '中')"></span>
                     </button>
                     
                     <div class="flex items-center gap-3 pl-4 border-l border-slate-200">
@@ -104,6 +104,7 @@
                 <h1 class="text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-900 leading-tight mb-8">
                     <span x-show="lang === 'zh'">出海电商独立站引流最新玩法与转化优化</span>
                     <span x-show="lang === 'en'" x-cloak>Latest Traffic Acquisition Tactics &amp; Conversion Optimization for Global E-commerce</span>
+                    <span x-show="lang === 'vi'" x-cloak></span>
                 </h1>
                 
                 <!-- Author Meta -->
@@ -164,6 +165,9 @@ The key to establishing a long-term mechanism is <strong>SEO (Search Engine Opti
 <p>Overseas consumers highly value shopping security.<br />
 Placing Trust Badges for payment gateways like PayPal and Visa prominently on the checkout page, and displaying photo and star-rated reviews from real customers, effectively dispels payment hesitations.</p>
             </div>
+            <div class="prose max-w-none" x-show="lang === 'vi'" x-cloak>
+                
+            </div>
 
             <!-- Social Share (Mock) -->
             <div class="mt-12 pt-8 border-t border-slate-100 flex items-center justify-between">
@@ -217,6 +221,18 @@ Placing Trust Badges for payment gateways like PayPal and Visa prominently on th
             back: "Back to Insights",
             share: "Share this article:",
             reads: "Reads"
+        },
+        vi: {
+            title: "Chi tiết bài viết - Yiyu Digital",
+            nav: {
+                home: "Trang chủ",
+                pricing: "Bảng giá",
+                articles: "Tin tức",
+                contact: "Liên hệ"
+            },
+            back: "Quay lại Tin tức",
+            share: "Chia sẻ bài viết này:",
+            reads: "Lượt đọc"
         }
     };
 
@@ -225,9 +241,11 @@ Placing Trust Badges for payment gateways like PayPal and Visa prominently on th
             lang: localStorage.getItem('yiyu_lang') || 'zh',
             t: translations,
             toggleLang() {
-                this.lang = this.lang === 'zh' ? 'en' : 'zh';
-                localStorage.setItem('yiyu_lang', this.lang);
-            }
+                    if (this.lang === 'zh') this.lang = 'en';
+                    else if (this.lang === 'en') this.lang = 'vi';
+                    else this.lang = 'zh';
+                    localStorage.setItem('yiyu_lang', this.lang);
+                }
         }
     }
 </script>

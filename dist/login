@@ -19,7 +19,7 @@
     <div class="absolute top-6 right-6">
         <button @click="toggleLang()" class="flex items-center space-x-1 px-3 py-1 rounded-full border border-slate-200 bg-white hover:border-blue-400 transition-colors">
             <i class="fas fa-globe text-slate-500"></i>
-            <span class="text-sm font-medium text-slate-600" x-text="lang === 'zh' ? 'EN' : '中'"></span>
+            <span class="text-sm font-medium text-slate-600" x-text="lang === 'zh' ? 'EN' : (lang === 'en' ? 'VI' : '中')"></span>
         </button>
     </div>
 
@@ -111,6 +111,24 @@
                 registerLink: "Sign up",
                 loginLink: "Sign in",
                 backHome: "Back to Home"
+            },
+            vi: {
+                loginTitle: "Đăng nhập",
+                loginSubtitle: "Chào mừng trở lại Yiyu Digital",
+                registerTitle: "Tạo tài khoản",
+                registerSubtitle: "Bắt đầu hành trình tiếp thị toàn cầu của bạn",
+                email: "Email công việc",
+                password: "Mật khẩu",
+                confirmPassword: "Xác nhận mật khẩu",
+                remember: "Nhớ tôi",
+                forgot: "Quên mật khẩu?",
+                loginBtn: "Đăng nhập",
+                registerBtn: "Đăng ký",
+                noAccount: "Chưa có tài khoản?",
+                haveAccount: "Đã có tài khoản?",
+                registerLink: "Đăng ký",
+                loginLink: "Đăng nhập",
+                backHome: "Về trang chủ"
             }
         };
 
@@ -120,7 +138,9 @@
                 isRegister: window.location.pathname.includes('register'),
                 t: translations,
                 toggleLang() {
-                    this.lang = this.lang === 'zh' ? 'en' : 'zh';
+                    if (this.lang === 'zh') this.lang = 'en';
+                    else if (this.lang === 'en') this.lang = 'vi';
+                    else this.lang = 'zh';
                     localStorage.setItem('yiyu_lang', this.lang);
                 },
                 handleLogin() {

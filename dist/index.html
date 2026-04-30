@@ -100,7 +100,7 @@
                     
                     <button @click="toggleLang()" class="flex items-center space-x-1 px-3 py-1.5 rounded-md border border-slate-200 hover:border-blue-400 hover:bg-slate-50 transition-all">
                         <i class="fas fa-globe text-slate-500 text-xs"></i>
-                        <span class="text-xs font-bold text-slate-600" x-text="lang === 'zh' ? 'EN' : '中'"></span>
+                        <span class="text-xs font-bold text-slate-600" x-text="lang === 'zh' ? 'EN' : (lang === 'en' ? 'VI' : '中')"></span>
                     </button>
                     
                     <div class="flex items-center gap-3 pl-4 border-l border-slate-200">
@@ -766,6 +766,114 @@
                     terms: "Terms of Service",
                     contact: "Contact Support"
                 }
+            },
+            vi: {
+                title: "Yiyu Digital - Quản lý Tài khoản & Quỹ Quảng cáo Toàn cầu",
+                nav: {
+                    home: "Trang chủ",
+                    pricing: "Bảng giá",
+                    articles: "Tin tức",
+                    contact: "Liên hệ"
+                },
+                hero: {
+                    badge: "Hệ thống Quản lý Quỹ Quảng cáo Doanh nghiệp",
+                    title1: "Tài khoản Quảng cáo Toàn cầu",
+                    titleHighlight: "Mở · Nạp · Trừ",
+                    subtitle: "Trung tâm quỹ cho kinh doanh toàn cầu. Hỗ trợ Google, Meta, TikTok. Mở tài khoản tức thì, chuyển tiền thời gian thực và phân bổ ngân sách linh hoạt.",
+                    cta_primary: "Dùng thử ngay",
+                    cta_secondary: "Liên hệ chúng tôi"
+                },
+                services: {
+                    s1_title: "Mở Tài khoản Nhanh",
+                    s1_desc: "Kết nối API trực tiếp, tài khoản sẵn sàng trong 1 giờ. Hỗ trợ tài khoản Doanh nghiệp, Whitelist và Hoàn tiền.",
+                    s2_title: "Nạp tiền Thời gian thực",
+                    s2_desc: "Nạp tiền tự phục vụ 24/7. Hỗ trợ USDT, Chuyển khoản ngân hàng USD, Chuyển khoản doanh nghiệp CNY.",
+                    s3_title: "Khấu trừ/Chuyển khoản Linh hoạt",
+                    s3_desc: "Quản lý quỹ linh hoạt. Rút ngân sách chưa sử dụng về ví hoặc chuyển giữa các tài khoản một cách tự do."
+                },
+                management: {
+                    title: "Quản lý Khách thuê & Khách hàng Toàn trình",
+                    subtitle: "Phá vỡ các silo thông tin. Lập lịch thống nhất và giám sát thời gian thực các tài sản đại lý và khách thuê nhiều cấp.",
+                    f1_title: "Kiến trúc Đa khách thuê",
+                    f1_desc: "Hỗ trợ quản lý tài khoản đại lý nhiều cấp và tài khoản khách hàng phụ. Tùy chỉnh quyền hạn vai trò để cách ly an toàn và chia sẻ hiệu quả.",
+                    f2_title: "Giám sát Chi tiêu Thời gian thực",
+                    f2_desc: "Lấy dữ liệu chi tiêu tài khoản truyền thông theo thời gian thực. Bảng điều khiển đa chiều cho số dư khách thuê, ROI và xu hướng chi tiêu với cảnh báo bất thường.",
+                    f3_title: "Xử lý Yêu cầu Toàn vòng đời",
+                    f3_desc: "Hệ thống vé tích hợp cho mở tài khoản, nạp tiền, liên kết BM và dọn dẹp/khôi phục tài khoản. Phản hồi nhanh chóng nhu cầu của khách hàng.",
+                    dashboard_title: "Chi tiêu Khách thuê Thời gian thực",
+                    tenant_a: "Khách thuê A (Thương mại điện tử)",
+                    tenant_b: "Khách thuê B (Trò chơi)",
+                    tenant_c: "Khách thuê C (Công cụ)"
+                },
+                financial: {
+                    title: "Giám sát Dòng tiền Thông minh",
+                    desc: "Tích hợp sâu với API truyền thông. Đối chiếu và thanh toán thu chi tài khoản quảng cáo theo thời gian thực. Mỗi đồng tiền đều an toàn và minh bạch.",
+                    metric1: "Độ chính xác",
+                    metric2: "Độ trễ",
+                    c1_title: "Liên kết Tài sản BM",
+                    c1_desc: "Liên kết hàng loạt tài sản Business Manager. Cấu hình tự động quyền hạn pixel và tài khoản quảng cáo. Khởi chạy bằng một cú nhấp chuột.",
+                    c2_title: "Dọn dẹp & Khôi phục Tài khoản",
+                    c2_desc: "Nhanh chóng dọn dẹp số dư từ các tài khoản bị cấm hoặc bị bỏ hoang và khôi phục về ví. Giảm thiểu tổn thất do đọng vốn.",
+                    c3_title: "Kiểm toán Thời gian thực",
+                    c3_desc: "Dòng tài khoản trực quan hóa. Tự động tạo báo cáo tài chính hàng ngày/tuần/tháng. Mỗi khoản nạp và khấu trừ đều có thể truy xuất.",
+                    c4_title: "Mở Tài khoản Tự động",
+                    c4_desc: "Tiêu chuẩn nền tảng tích hợp. Xác minh thông minh tài liệu mở. Rút ngắn đường dẫn kiểm toán cho việc mở nhanh hàng loạt."
+                },
+                platforms: {
+                    title: "Tất cả Nền tảng Chính",
+                    subtitle: "Một bảng điều khiển để quản lý quỹ trên tất cả phương tiện truyền thông."
+                },
+                process: {
+                    title: "Quy trình Làm việc Tiêu chuẩn",
+                    subtitle: "Mỗi bước đều rõ ràng và có thể kiểm soát, đảm bảo dòng tiền nhanh chóng và an toàn.",
+                    step1: "Đăng ký",
+                    step1_desc: "Gửi thông tin doanh nghiệp để nhanh chóng hoàn thành xác minh khách thuê.",
+                    step2: "Nạp tiền vào Ví",
+                    step2_desc: "Hỗ trợ nhiều loại tiền tệ và phương thức thanh toán. Tiền đến trong thời gian thực.",
+                    step3: "Gửi Yêu cầu",
+                    step3_desc: "Khởi tạo vé cho việc mở tài khoản, phân bổ ngân sách, liên kết BM, v.v.",
+                    step4: "Giám sát Dữ liệu",
+                    step4_desc: "Xem chi tiêu tài khoản, báo cáo tài chính và dòng tiền theo thời gian thực."
+                },
+                cases: {
+                    overline: "Câu chuyện Thành công",
+                    title: "Trao quyền cho Tăng trưởng Toàn cầu",
+                    case1_tag: "Thương hiệu DTC",
+                    case1_title: "Thương hiệu Thời trang Hàng đầu",
+                    case1_subtitle: "Tăng trưởng Đột phá với mức tăng ROI 150%",
+                    case1_desc: "Giải quyết các điểm nghẽn tại thị trường Bắc Mỹ, Yiyu Digital cung cấp giải pháp quản lý tài khoản một cửa. Thông qua cấu trúc tài khoản tinh chỉnh, chiến lược đa kênh (Google + Meta + TikTok) và giám sát sáng tạo thời gian thực, thương hiệu đã đạt được sự tăng trưởng bùng nổ trong 3 tháng.",
+                    case1_m1_val: "150%", case1_m1_lbl: "Tăng ROI",
+                    case1_m2_val: "3X", case1_m2_lbl: "Tăng trưởng GMV",
+                    
+                    case2_tag: "Ứng dụng Trò chơi",
+                    case2_title: "Bom tấn Nhập vai",
+                    case2_subtitle: "1 Triệu Người dùng Mới trong Tháng Đầu",
+                    case2_desc: "Tận dụng các kênh mở tài khoản và nạp tiền nhanh của Yiyu Digital, nhóm dự án đã chuẩn bị 50+ tài khoản quảng cáo trước khi ra mắt. Kết hợp với các quy tắc tự động và cảnh báo rủi ro của chúng tôi, sự ổn định của tài khoản được duy trì ngay cả khi chi tiêu cao, đảm bảo lưu lượng truy cập mượt mà trong quá trình ra mắt.",
+                    case2_m1_val: "1M+", case2_m1_lbl: "Người dùng Mới",
+                    case2_m2_val: "99.9%", case2_m2_lbl: "Thời gian hoạt động"
+                },
+                why: {
+                    title: "Tại sao chọn Yiyu Digital?",
+                    p1_title: "An toàn Quỹ",
+                    p1_desc: "Quỹ chuyên dụng. Hỗ trợ rút tiền bất cứ lúc nào. Quy trình tài chính minh bạch và tuân thủ.",
+                    p2_title: "Phí Cạnh tranh",
+                    p2_desc: "Phí dịch vụ thấp hàng đầu ngành, thấp hơn nhiều so với mức trung bình. Tỷ giá hối đoái minh bạch không có chi phí ẩn để tối đa hóa ROI của bạn.",
+                    p3_title: "Hệ thống Hiệu quả",
+                    p3_desc: "Nền tảng quản lý quỹ thông minh. Nói lời tạm biệt với đối chiếu thủ công. Hỗ trợ theo dõi thời gian thực, nạp tiền & khôi phục một chạm."
+                },
+                why_dashboard: {
+                    balance: "Số dư Ví",
+                    recharge_success: "Nạp tiền Thành công",
+                    transfer: "Chuyển đến Google Ads",
+                    refund: "Hoàn tiền Tài khoản"
+                },
+                footer: {
+                    brand: "Yiyu Digital",
+                    copyright: "© 2024 Yiyu Digital. Đã đăng ký Bản quyền. Tập trung vào Giải pháp Quỹ Quảng cáo Toàn cầu.",
+                    privacy: "Chính sách Bảo mật",
+                    terms: "Điều khoản Dịch vụ",
+                    contact: "Liên hệ Hỗ trợ"
+                }
             }
         };
 
@@ -775,7 +883,9 @@
                 scrolled: false,
                 t: translations,
                 toggleLang() {
-                    this.lang = this.lang === 'zh' ? 'en' : 'zh';
+                    if (this.lang === 'zh') this.lang = 'en';
+                    else if (this.lang === 'en') this.lang = 'vi';
+                    else this.lang = 'zh';
                     localStorage.setItem('yiyu_lang', this.lang);
                 },
                 init() {
