@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="zh-CN" x-data="appData()">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title x-text="t[lang].title">实用工具 - 全球广告账户与资金管理平台</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'ui-sans-serif', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        [x-cloak] { display: none !important; }
+        .hero-bg {
+            background-color: #0f172a;
+            background-image:
+                radial-gradient(circle at 15% 50%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 85% 30%, rgba(147, 51, 234, 0.15) 0%, transparent 50%);
+        }
+    </style>
+</head>
+<body class="font-sans text-slate-900 antialiased bg-slate-50">
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 transition-all duration-300 bg-white/90 backdrop-blur-md border-b border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <a href="/" class="flex-shrink-0 flex items-center gap-3 group">
+                    <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo" class="w-10 h-10 rounded-lg object-cover shadow-sm group-hover:shadow-md transition-shadow duration-300" onerror="this.src='https://ui-avatars.com/api/?name=YY&background=0D8ABC&color=fff'">
+                    <span class="font-extrabold text-2xl tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-violet-600 drop-shadow-sm">以渔数媒</span>
+                </a>
+
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="/" class="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors" x-text="t[lang].nav.home">首页</a>
+                    <a href="/articles" class="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors" x-text="t[lang].nav.articles">行业动态</a>
+                    <a href="/tools" class="text-sm font-medium text-blue-600 transition-colors" x-text="t[lang].nav.tools">实用工具</a>
+                    <a href="/pricing" class="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors" x-text="t[lang].nav.pricing">产品定价</a>
+
+                    <button @click="toggleLang()" class="flex items-center space-x-1 px-3 py-1.5 rounded-md border border-slate-200 hover:border-blue-400 hover:bg-slate-50 transition-all">
+                        <i class="fas fa-globe text-slate-500 text-xs"></i>
+                        <span class="text-xs font-bold text-slate-600" x-text="lang === 'zh' ? 'EN' : '中'"></span>
+                    </button>
+
+                    <div class="flex items-center gap-3 pl-4 border-l border-slate-200">
+                        <a href="https://t.me/yiyiyiads" target="_blank" class="px-5 py-2.5 rounded-lg bg-blue-600 text-white text-sm font-medium hover:bg-blue-700 transition-all shadow-md shadow-blue-500/20" x-text="t[lang].nav.contact">联系我们</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 lg:pt-40 lg:pb-24 overflow-hidden hero-bg">
+        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-sm font-semibold mb-6">
+                <i class="fas fa-tools"></i>
+                <span x-text="t[lang].hero.badge">高效赋能</span>
+            </div>
+            <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight text-white mb-6">
+                <span x-text="t[lang].hero.title">日常运营</span><span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500" x-text="t[lang].hero.titleHighlight">实用工具库</span>
+            </h1>
+            <p class="mt-4 text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed" x-text="t[lang].hero.subtitle">
+                我们正在为您准备一系列提升投放和素材处理效率的实用工具，敬请期待。
+            </p>
+        </div>
+    </section>
+
+    
+    <!-- Tools Grid -->
+    <section class="py-20 bg-slate-50 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Copywriting Tool Card -->
+                <a href="/tool_copywriting" class="group block relative bg-white rounded-2xl shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-slate-100 overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-br from-blue-600/5 to-purple-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1493612276216-ee3925520721?q=80&w=800&auto=format&fit=crop" alt="文案列表器" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-blue-600 shadow-sm flex items-center gap-1">
+                            <i class="fas fa-bolt"></i> <span x-text="t[lang].toolLabels.hot">热门</span>
+                        </div>
+                    </div>
+                    <div class="p-6 relative">
+                        <div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center text-xl mb-4 -mt-12 relative z-10 shadow-sm border border-white">
+                            <i class="fas fa-keyboard"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-2 group-hover:text-blue-600 transition-colors" x-text="t[lang].tools.copywriting.title">文案裂变神器</h3>
+                        <p class="text-sm text-slate-500 leading-relaxed mb-4" x-text="t[lang].tools.copywriting.desc">输入核心词汇，一键生成多平台（小红书、知乎、抖音等）爆款文案，支持变量裂变和情绪风格选择。</p>
+                        <div class="flex items-center text-blue-600 text-sm font-semibold">
+                            <span x-text="t[lang].useNow">立即使用</span>
+                            <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+                        </div>
+                    </div>
+                </a>
+                
+                <!-- Placeholder for future tools -->
+                <div class="group relative bg-slate-100/50 rounded-2xl border-2 border-dashed border-slate-200 flex flex-col items-center justify-center p-8 text-center h-[350px]">
+                    <div class="w-16 h-16 bg-slate-200 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-plus text-2xl text-slate-400"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-slate-600 mb-2" x-text="t[lang].moreTools.title">更多工具正在路上</h3>
+                    <p class="text-sm text-slate-400 max-w-[200px]" x-text="t[lang].moreTools.desc">敬请期待更多提效神器</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <script>
+        const translations = {
+            zh: {
+                title: "实用工具 - 以渔数媒",
+                nav: {
+                    home: "首页",
+                    pricing: "产品定价",
+                    articles: "行业动态",
+                    tools: "实用工具",
+                    contact: "联系我们"
+                },
+                hero: { badge: "高效赋能", title: "日常运营", titleHighlight: "实用工具库", subtitle: "聚合多维度核心能力，提供全面、高效的业务辅助方案，为您的每一次决策与执行赋能。" },
+                toolLabels: { hot: "热门" },
+                tools: {
+                    copywriting: {
+                        title: "文案裂变神器",
+                        desc: "输入核心词汇，一键生成多平台（小红书、知乎、抖音等）爆款文案，支持变量裂变和情绪风格选择。"
+                    }
+                },
+                useNow: "立即使用",
+                moreTools: { title: "更多工具正在路上", desc: "敬请期待更多提效神器" },
+                empty: { title: "工具上传中...", desc: "稍后您将可以在这里使用各种便捷的业务工具。" }
+            },
+            en: {
+                title: "Tools - Yiyu Digital",
+                nav: {
+                    home: "Home",
+                    pricing: "Pricing",
+                    articles: "Insights",
+                    tools: "Tools",
+                    contact: "Contact Us"
+                },
+                hero: { badge: "Empowerment", title: "Daily Operations ", titleHighlight: "Toolbox", subtitle: "Aggregating multi-dimensional core capabilities to provide comprehensive and efficient business assistance solutions, empowering every decision and execution." },
+                toolLabels: { hot: "Hot" },
+                tools: {
+                    copywriting: {
+                        title: "Copy Fission Tool",
+                        desc: "Input keywords to instantly generate viral copy for multiple platforms (XHS, TikTok, etc.) with variables and emotional styles."
+                    }
+                },
+                useNow: "Use Now",
+                moreTools: { title: "More Tools Coming Soon", desc: "Stay tuned for more efficiency tools" },
+                empty: { title: "Tools Uploading...", desc: "You will soon be able to access various convenient business tools right here." }
+            }
+        };
+
+        function appData() {
+            return {
+                lang: localStorage.getItem('yiyu_lang') || 'zh',
+                t: translations,
+                toggleLang() {
+                    this.lang = this.lang === 'zh' ? 'en' : 'zh';
+                    localStorage.setItem('yiyu_lang', this.lang);
+                }
+            }
+        }
+    </script>
+</body>
+</html>

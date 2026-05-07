@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+</head>
+<body x-data="{ t: { } }">
+    <div id="test1" x-text="t.process.title"></div>
+    <div id="test2" class="reveal">Should be visible</div>
+    <script>
+        document.addEventListener('alpine:init', () => {
+            console.log('Alpine initialized');
+        });
+    </script>
+</body>
+</html>

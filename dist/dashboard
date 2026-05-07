@@ -21,9 +21,9 @@
     <!-- Sidebar -->
     <aside class="w-64 bg-white border-r border-slate-200 flex flex-col hidden md:flex transition-all duration-300" :class="{'w-20': collapsed}">
         <div class="h-16 flex items-center justify-center border-b border-slate-100 group">
-            <img src="static/images/logo.png" alt="Logo" class="w-8 h-8 rounded-lg object-cover shadow-sm group-hover:shadow-md transition-shadow duration-300" x-show="!collapsed">
+            <img src="/static/images/logo.png" alt="Logo" class="w-8 h-8 rounded-lg object-cover shadow-sm group-hover:shadow-md transition-shadow duration-300" x-show="!collapsed">
             <span class="font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-violet-600 text-xl ml-2 drop-shadow-sm" x-show="!collapsed">以渔数媒</span>
-            <img src="static/images/logo.png" alt="Logo" class="w-8 h-8 rounded-lg object-cover shadow-sm" x-show="collapsed">
+            <img src="/static/images/logo.png" alt="Logo" class="w-8 h-8 rounded-lg object-cover shadow-sm" x-show="collapsed">
         </div>
         
         <nav class="flex-1 overflow-y-auto py-4">

@@ -60,18 +60,19 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-20 items-center">
                 <a href="/" class="flex-shrink-0 flex items-center gap-3 group">
-                    <img src="static/images/logo.png" alt="Logo" class="w-10 h-10 rounded-lg object-cover shadow-sm group-hover:shadow-md transition-shadow duration-300" onerror="this.src='https://ui-avatars.com/api/?name=YY&background=0D8ABC&color=fff'">
+                    <img src="/static/images/logo.png" alt="Logo" class="w-10 h-10 rounded-lg object-cover shadow-sm group-hover:shadow-md transition-shadow duration-300" onerror="this.src='https://ui-avatars.com/api/?name=YY&background=0D8ABC&color=fff'">
                     <span class="font-extrabold text-2xl tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-violet-600 drop-shadow-sm">以渔数媒</span>
                 </a>
                 
                 <div class="hidden md:flex space-x-8 items-center">
                     <a href="/" class="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors" x-text="t[lang].nav.home">首页</a>
                     <a href="/articles" class="text-sm font-medium text-blue-600 transition-colors" x-text="t[lang].nav.articles">行业动态</a>
-                    <a href="/pricing" class="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors" x-text="t[lang].nav.pricing">产品定价</a>
+                                        <a href="/tools" class="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors" x-text="t[lang].nav.tools">实用工具</a>
+<a href="/pricing" class="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors" x-text="t[lang].nav.pricing">产品定价</a>
                     
                     <button @click="toggleLang()" class="flex items-center space-x-1 px-3 py-1.5 rounded-md border border-slate-200 hover:border-blue-400 hover:bg-slate-50 transition-all">
                         <i class="fas fa-globe text-slate-500 text-xs"></i>
-                        <span class="text-xs font-bold text-slate-600" x-text="lang === 'zh' ? 'EN' : (lang === 'en' ? 'VI' : '中')"></span>
+                        <span class="text-xs font-bold text-slate-600" x-text="lang === 'zh' ? 'EN' : '中'"></span>
                     </button>
                     
                     <div class="flex items-center gap-3 pl-4 border-l border-slate-200">
@@ -129,12 +130,10 @@
                             <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
                                 <span x-show="lang === 'zh'">企业级海外资金管理系统如何解决汇损问题</span>
                                 <span x-show="lang === 'en'" x-cloak>How Enterprise Global Fund Management Systems Solve FX Loss Issues</span>
-                                <span x-show="lang === 'vi'" x-cloak></span>
                             </h3>
                             <p class="text-slate-600 text-sm line-clamp-2 mb-6 flex-grow">
                                 <span x-show="lang === 'zh'">剖析跨境支付中的隐形利润杀手，介绍以渔数媒虚拟卡矩阵与多币种账户的高效资金解决方案。</span>
                                 <span x-show="lang === 'en'" x-cloak>Analyze the hidden profit killers in cross-border payments and introduce Yiyu&#39;s virtual card and multi-currency solutions.</span>
-                                <span x-show="lang === 'vi'" x-cloak></span>
                             </p>
                             
                             <div class="flex items-center justify-between mt-auto pt-4 border-t border-slate-100">
@@ -169,12 +168,10 @@
                             <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
                                 <span x-show="lang === 'zh'">出海电商独立站引流最新玩法与转化优化</span>
                                 <span x-show="lang === 'en'" x-cloak>Latest Traffic Acquisition Tactics &amp; Conversion Optimization for Global E-commerce</span>
-                                <span x-show="lang === 'vi'" x-cloak></span>
                             </h3>
                             <p class="text-slate-600 text-sm line-clamp-2 mb-6 flex-grow">
                                 <span x-show="lang === 'zh'">摆脱平台内卷，构建独立站品牌私域。探讨SEO驱动、弃单挽回及邮件营销的实战技巧。</span>
                                 <span x-show="lang === 'en'" x-cloak>Escape platform competition by building independent brand domains. Explore SEO, cart abandonment, and email marketing.</span>
-                                <span x-show="lang === 'vi'" x-cloak></span>
                             </p>
                             
                             <div class="flex items-center justify-between mt-auto pt-4 border-t border-slate-100">
@@ -209,12 +206,10 @@
                             <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
                                 <span x-show="lang === 'zh'">海外游戏发行的买量成本(CAC)深度分析</span>
                                 <span x-show="lang === 'en'" x-cloak>In-depth Analysis of User Acquisition Costs (CAC) in Global Game Publishing</span>
-                                <span x-show="lang === 'vi'" x-cloak></span>
                             </h3>
                             <p class="text-slate-600 text-sm line-clamp-2 mb-6 flex-grow">
                                 <span x-show="lang === 'zh'">透视全球游戏市场买量现状，平衡LTV与CAC的黄金比例，探索低成本获客的新渠道。</span>
                                 <span x-show="lang === 'en'" x-cloak>Analyze global game UA markets, balance the LTV/CAC ratio, and explore low-cost acquisition channels.</span>
-                                <span x-show="lang === 'vi'" x-cloak></span>
                             </p>
                             
                             <div class="flex items-center justify-between mt-auto pt-4 border-t border-slate-100">
@@ -249,12 +244,10 @@
                             <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
                                 <span x-show="lang === 'zh'">Meta (Facebook) 广告高转化素材设计指南</span>
                                 <span x-show="lang === 'en'" x-cloak>Meta (Facebook) High-Conversion Creative Design Guide</span>
-                                <span x-show="lang === 'vi'" x-cloak></span>
                             </h3>
                             <p class="text-slate-600 text-sm line-clamp-2 mb-6 flex-grow">
                                 <span x-show="lang === 'zh'">掌握Meta视觉层级原理，克服素材疲劳，利用轮播图与视频广告提升点击率与转化率。</span>
                                 <span x-show="lang === 'en'" x-cloak>Master Meta&#39;s visual hierarchy to overcome ad fatigue and boost CTR and conversions.</span>
-                                <span x-show="lang === 'vi'" x-cloak></span>
                             </p>
                             
                             <div class="flex items-center justify-between mt-auto pt-4 border-t border-slate-100">
@@ -289,12 +282,10 @@
                             <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
                                 <span x-show="lang === 'zh'">Google Ads 搜索广告账户防封技巧与申诉</span>
                                 <span x-show="lang === 'en'" x-cloak>Google Ads Account Anti-ban Tips &amp; Appeal Guide</span>
-                                <span x-show="lang === 'vi'" x-cloak></span>
                             </h3>
                             <p class="text-slate-600 text-sm line-clamp-2 mb-6 flex-grow">
                                 <span x-show="lang === 'zh'">针对近期Google风控收紧，梳理常见的规避系统违规原因及详细的申诉流程与预防机制。</span>
                                 <span x-show="lang === 'en'" x-cloak>Address recent Google risk controls with reasons for system circumvention and a detailed appeal process.</span>
-                                <span x-show="lang === 'vi'" x-cloak></span>
                             </p>
                             
                             <div class="flex items-center justify-between mt-auto pt-4 border-t border-slate-100">
@@ -329,12 +320,10 @@
                             <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
                                 <span x-show="lang === 'zh'">TikTok 短视频广告出海投放策略与ROI提升</span>
                                 <span x-show="lang === 'en'" x-cloak>TikTok Short Video Ad Strategies &amp; ROI Boost for Global Expansion</span>
-                                <span x-show="lang === 'vi'" x-cloak></span>
                             </h3>
                             <p class="text-slate-600 text-sm line-clamp-2 mb-6 flex-grow">
                                 <span x-show="lang === 'zh'">解析TikTok算法推荐机制，利用本地化UGC内容与创意钩子，实现ROI的倍数级增长。</span>
                                 <span x-show="lang === 'en'" x-cloak>Analyze TikTok&#39;s algorithm to multiply ROI using localized UGC and creative hooks.</span>
-                                <span x-show="lang === 'vi'" x-cloak></span>
                             </p>
                             
                             <div class="flex items-center justify-between mt-auto pt-4 border-t border-slate-100">
@@ -358,6 +347,7 @@
                 title: "以渔动态 - 全球广告账户与资金管理平台",
                 nav: {
                     home: "首页",
+                    tools: "实用工具",
                     pricing: "产品定价",
                     articles: "行业动态",
                     contact: "联系我们"
@@ -370,6 +360,7 @@
                 title: "Yiyu Insights - Global Ad Account Management",
                 nav: {
                     home: "Home",
+                    tools: "Tools",
                     pricing: "Pricing",
                     articles: "Insights",
                     contact: "Contact Us"
@@ -377,18 +368,6 @@
                 hero: { badge: "Yiyu Vision", title: "Industry News & ", titleHighlight: "Deep Insights", subtitle: "Get the latest global ad account policies, traffic monetization strategies, and Yiyu platform feature updates." },
                 empty: { title: "No Articles Yet", desc: "No content has been published here currently." },
                 card: { readMore: "Read More", team: "Yiyu Official Team" }
-            },
-            vi: {
-                title: "Tin tức Yiyu - Quản lý Tài khoản Quảng cáo Toàn cầu",
-                nav: {
-                    home: "Trang chủ",
-                    pricing: "Bảng giá",
-                    articles: "Tin tức",
-                    contact: "Liên hệ"
-                },
-                hero: { badge: "Tầm nhìn Yiyu", title: "Tin tức Ngành & ", titleHighlight: "Góc nhìn Sâu sắc", subtitle: "Nhận các chính sách tài khoản quảng cáo toàn cầu mới nhất, chiến lược kiếm tiền từ lưu lượng truy cập và cập nhật tính năng của nền tảng Yiyu." },
-                empty: { title: "Chưa có bài viết", desc: "Hiện tại chưa có nội dung nào được xuất bản ở đây." },
-                card: { readMore: "Đọc thêm", team: "Đội ngũ Chính thức Yiyu" }
             }
         };
 
@@ -397,9 +376,7 @@
                 lang: localStorage.getItem('yiyu_lang') || 'zh',
                 t: translations,
                 toggleLang() {
-                    if (this.lang === 'zh') this.lang = 'en';
-                    else if (this.lang === 'en') this.lang = 'vi';
-                    else this.lang = 'zh';
+                    this.lang = this.lang === 'zh' ? 'en' : 'zh';
                     localStorage.setItem('yiyu_lang', this.lang);
                 }
             }

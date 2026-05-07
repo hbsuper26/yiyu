@@ -46,6 +46,16 @@ def add_header(response):
     response.headers['Cache-Control'] = 'public, max-age=0'
     return response
 
+
+
+@app.route('/tool_copywriting')
+def tools_copywriting():
+    return render_template('tools/copywriting.html')
+
+@app.route('/tools')
+def tools():
+    return render_template('tools.html')
+
 @app.route('/')
 def index():
     return render_template('index.html')

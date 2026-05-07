@@ -19,13 +19,13 @@
     <div class="absolute top-6 right-6">
         <button @click="toggleLang()" class="flex items-center space-x-1 px-3 py-1 rounded-full border border-slate-200 bg-white hover:border-blue-400 transition-colors">
             <i class="fas fa-globe text-slate-500"></i>
-            <span class="text-sm font-medium text-slate-600" x-text="lang === 'zh' ? 'EN' : (lang === 'en' ? 'VI' : '中')"></span>
+            <span class="text-sm font-medium text-slate-600" x-text="lang === 'zh' ? 'EN' : '中'"></span>
         </button>
     </div>
 
     <div class="bg-white p-8 rounded-2xl shadow-xl w-full max-w-md border border-slate-100">
         <div class="text-center mb-8">
-            <img src="static/images/logo.png" alt="Logo" class="w-16 h-16 rounded-xl mx-auto mb-4 object-cover">
+            <img src="/static/images/logo.png" alt="Logo" class="w-16 h-16 rounded-xl mx-auto mb-4 object-cover">
             <h2 class="text-2xl font-bold text-slate-900" x-text="isRegister ? t[lang].registerTitle : t[lang].loginTitle">欢迎回来</h2>
             <p class="text-slate-500 mt-2 text-sm" x-text="isRegister ? t[lang].registerSubtitle : t[lang].loginSubtitle">请输入您的账号信息</p>
         </div>
@@ -111,24 +111,6 @@
                 registerLink: "Sign up",
                 loginLink: "Sign in",
                 backHome: "Back to Home"
-            },
-            vi: {
-                loginTitle: "Đăng nhập",
-                loginSubtitle: "Chào mừng trở lại Yiyu Digital",
-                registerTitle: "Tạo tài khoản",
-                registerSubtitle: "Bắt đầu hành trình tiếp thị toàn cầu của bạn",
-                email: "Email công việc",
-                password: "Mật khẩu",
-                confirmPassword: "Xác nhận mật khẩu",
-                remember: "Nhớ tôi",
-                forgot: "Quên mật khẩu?",
-                loginBtn: "Đăng nhập",
-                registerBtn: "Đăng ký",
-                noAccount: "Chưa có tài khoản?",
-                haveAccount: "Đã có tài khoản?",
-                registerLink: "Đăng ký",
-                loginLink: "Đăng nhập",
-                backHome: "Về trang chủ"
             }
         };
 
@@ -138,9 +120,7 @@
                 isRegister: window.location.pathname.includes('register'),
                 t: translations,
                 toggleLang() {
-                    if (this.lang === 'zh') this.lang = 'en';
-                    else if (this.lang === 'en') this.lang = 'vi';
-                    else this.lang = 'zh';
+                    this.lang = this.lang === 'zh' ? 'en' : 'zh';
                     localStorage.setItem('yiyu_lang', this.lang);
                 },
                 handleLogin() {

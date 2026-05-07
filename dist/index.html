@@ -16,7 +16,7 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        .hero-bg {
+        .hero-bg { position: relative; 
             background-color: #0f172a;
             background-image: 
                 radial-gradient(circle at 15% 50%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
@@ -89,18 +89,19 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-20 items-center">
                 <a href="/" class="flex-shrink-0 flex items-center gap-3 group">
-                    <img src="static/images/logo.png" alt="Logo" class="w-10 h-10 rounded-lg object-cover shadow-sm group-hover:shadow-md transition-shadow duration-300">
+                    <img src="/static/images/logo.png" alt="Logo" class="w-10 h-10 rounded-lg object-cover shadow-sm group-hover:shadow-md transition-shadow duration-300">
                     <span class="font-extrabold text-2xl tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-violet-600 drop-shadow-sm">以渔数媒</span>
                 </a>
                 
                 <div class="hidden md:flex space-x-8 items-center">
                     <a href="/" class="text-sm font-medium text-blue-600 transition-colors" x-text="t[lang].nav.home">首页</a>
                     <a href="/articles" class="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors" x-text="t[lang].nav.articles">行业动态</a>
-                    <a href="/pricing" class="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors" x-text="t[lang].nav.pricing">产品定价</a>
+                                        <a href="/tools" class="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors" x-text="t[lang].nav.tools">实用工具</a>
+<a href="/pricing" class="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors" x-text="t[lang].nav.pricing">产品定价</a>
                     
                     <button @click="toggleLang()" class="flex items-center space-x-1 px-3 py-1.5 rounded-md border border-slate-200 hover:border-blue-400 hover:bg-slate-50 transition-all">
                         <i class="fas fa-globe text-slate-500 text-xs"></i>
-                        <span class="text-xs font-bold text-slate-600" x-text="lang === 'zh' ? 'EN' : (lang === 'en' ? 'VI' : '中')"></span>
+                        <span class="text-xs font-bold text-slate-600" x-text="lang === 'zh' ? 'EN' : '中'"></span>
                     </button>
                     
                     <div class="flex items-center gap-3 pl-4 border-l border-slate-200">
@@ -112,76 +113,95 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="relative pt-32 pb-20 lg:pt-40 lg:pb-32 overflow-hidden hero-bg">
+    <section class="relative pt-32 pb-20 lg:pt-40 lg:pb-32 min-h-screen flex items-center overflow-hidden hero-bg">
+        
+        
+        <!-- Giant Background Text Layers -->
+        <div class="absolute inset-0 flex items-center justify-center pointer-events-none z-0 overflow-hidden" id="giantTextContainer">
+            <div class="text-[15rem] md:text-[25rem] lg:text-[35rem] font-black text-blue-500/10 tracking-tighter whitespace-nowrap select-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 mix-blend-screen blur-sm" id="giantTextBack" style="z-index: 0;">
+                GLOBAL
+            </div>
+            <div class="text-[15rem] md:text-[25rem] lg:text-[35rem] font-black text-white/10 tracking-tighter whitespace-nowrap select-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 mix-blend-overlay" id="giantTextFront" style="z-index: 2;">
+                GLOBAL
+            </div>
+        </div>
+        <canvas id="heroCanvas" class="absolute inset-0 z-0"></canvas>
         <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="grid lg:grid-cols-2 gap-12 items-center">
-                <div class="text-left">
-                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-sm font-semibold mb-8">
-                        <span class="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></span>
-                        <span x-text="t[lang].hero.badge">企业级海外广告资金管理系统</span>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full" style="perspective: 1000px;">
+            
+            <div class="flex flex-col lg:flex-row items-center justify-center gap-16 relative w-full pointer-events-none" style="z-index: 10;">
+                <div class="text-center lg:text-left flex-1 max-w-3xl">
+                    <div class="inline-flex items-center justify-center lg:justify-start gap-2 px-5 py-2.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-sm font-bold mb-8 backdrop-blur-sm shadow-[0_0_15px_rgba(59,130,246,0.2)]">
+                        <span class="w-2.5 h-2.5 rounded-full bg-blue-500 animate-pulse shadow-[0_0_10px_rgba(59,130,246,0.8)]"></span>
+                        <span x-text="t[lang].hero.badge" class="tracking-wide uppercase">企业级海外广告资金管理系统</span>
                     </div>
-                    <h1 class="text-5xl md:text-6xl font-extrabold tracking-tight text-white mb-6 leading-tight">
-                        <span x-text="t[lang].hero.title1">全球广告账户</span><br>
-                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500" x-text="t[lang].hero.titleHighlight">开户 · 充值 · 减款</span>
+                    <h1 class="text-6xl md:text-7xl lg:text-8xl font-black tracking-tight text-white mb-6 leading-[1.1] drop-shadow-2xl">
+                        <span x-text="t[lang].hero.title1" class="inline-block relative z-20">全球广告账户</span><br>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-500 inline-block relative z-20 drop-shadow-2xl" x-text="t[lang].hero.titleHighlight">开户 · 充值 · 减款</span>
                     </h1>
-                    <p class="mt-6 text-xl text-slate-300 mb-10 leading-relaxed" x-text="t[lang].hero.subtitle">
+                    <p class="mt-8 text-xl md:text-2xl text-slate-300/90 mb-12 leading-relaxed max-w-2xl mx-auto lg:mx-0 font-medium backdrop-blur-sm drop-shadow-lg" x-text="t[lang].hero.subtitle">
                         专为出海企业打造的资金流转中枢。支持 Google, Meta, TikTok 等主流媒体，实现账户秒级开通、余额实时划转、预算灵活调配。
                     </p>
-                    <div class="flex flex-col sm:flex-row gap-4">
-                        <a href="https://t.me/yiyiyiads" target="_blank" class="px-8 py-4 rounded-lg bg-blue-600 text-white font-bold text-lg hover:bg-blue-500 transition-all shadow-xl shadow-blue-500/30 hover:-translate-y-1 flex items-center justify-center gap-2">
-                            <span x-text="t[lang].hero.cta_primary">现在试用</span>
+                    <div class="flex flex-col sm:flex-row justify-center lg:justify-start gap-6 pointer-events-auto relative z-30">
+                        <a href="https://t.me/yiyiyiads" target="_blank" class="px-10 py-5 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-bold text-lg hover:from-blue-500 hover:to-indigo-500 transition-all shadow-[0_0_30px_rgba(79,70,229,0.4)] hover:shadow-[0_0_40px_rgba(79,70,229,0.6)] hover:-translate-y-1 flex items-center justify-center gap-3 border border-white/10">
+                            <span x-text="t[lang].hero.cta_primary" class="tracking-wide">现在试用</span>
                             <i class="fas fa-arrow-right text-sm"></i>
                         </a>
-                        <a href="https://t.me/yiyiyiads" target="_blank" class="px-8 py-4 rounded-lg glass-panel text-white font-bold text-lg hover:bg-white/10 transition-all hover:-translate-y-1 flex items-center justify-center">
-                            <span x-text="t[lang].hero.cta_secondary">联系我们</span>
+                        <a href="https://t.me/yiyiyiads" target="_blank" class="px-10 py-5 rounded-xl glass-panel text-white font-bold text-lg hover:bg-white/10 transition-all hover:-translate-y-1 flex items-center justify-center border border-white/20 shadow-[0_0_20px_rgba(0,0,0,0.2)]">
+                            <span x-text="t[lang].hero.cta_secondary" class="tracking-wide">联系我们</span>
                         </a>
                     </div>
                 </div>
                 
                 <!-- 3D Dashboard Mockup -->
-                <div class="relative hidden lg:block floating">
-                    <div class="absolute -inset-0.5 bg-gradient-to-r from-blue-500 to-purple-600 rounded-2xl blur opacity-30"></div>
-                    <div class="relative glass-panel rounded-2xl p-4 shadow-2xl border border-white/10">
-                        <div class="flex items-center gap-2 mb-4 border-b border-white/10 pb-4">
-                            <div class="w-3 h-3 rounded-full bg-red-500"></div>
-                            <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
-                            <div class="w-3 h-3 rounded-full bg-green-500"></div>
-                            <div class="text-xs text-slate-400 ml-4">yiyu-dashboard.com</div>
+                <div class="relative hidden lg:block floating pointer-events-auto flex-1 max-w-2xl transform hover:scale-105 transition-transform duration-700">
+                    <div class="absolute -inset-1 bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-600 rounded-3xl blur-2xl opacity-40 animate-pulse"></div>
+                    <div class="relative glass-panel rounded-3xl p-6 shadow-[0_0_50px_rgba(0,0,0,0.5)] border border-white/10 backdrop-blur-xl bg-slate-900/40">
+                        <div class="flex items-center gap-2 mb-6 border-b border-white/10 pb-4">
+                            <div class="w-3.5 h-3.5 rounded-full bg-red-500 shadow-[0_0_10px_rgba(239,68,68,0.5)]"></div>
+                            <div class="w-3.5 h-3.5 rounded-full bg-yellow-500 shadow-[0_0_10px_rgba(234,179,8,0.5)]"></div>
+                            <div class="w-3.5 h-3.5 rounded-full bg-green-500 shadow-[0_0_10px_rgba(34,197,94,0.5)]"></div>
+                            <div class="text-xs text-slate-400/80 ml-4 font-mono tracking-wider">yiyu-dashboard.com</div>
                         </div>
-                        <div class="grid grid-cols-2 gap-4 mb-4">
-                            <div class="bg-white/5 p-4 rounded-xl border border-white/5">
-                                <div class="text-slate-400 text-xs mb-1">Total Balance</div>
-                                <div class="text-2xl font-bold text-white">$12,450.00</div>
-                                <div class="text-green-400 text-xs mt-2"><i class="fas fa-arrow-up"></i> 15% this week</div>
+                        <div class="grid grid-cols-2 gap-6 mb-6">
+                            <div class="bg-white/5 p-5 rounded-2xl border border-white/5 shadow-inner">
+                                <div class="text-slate-400 text-xs mb-2 uppercase tracking-wider font-bold">Total Balance</div>
+                                <div class="text-3xl font-black text-white drop-shadow-md">$12,450.00</div>
+                                <div class="text-emerald-400 text-xs mt-3 font-bold flex items-center gap-1"><i class="fas fa-arrow-up"></i> 15% this week</div>
                             </div>
-                            <div class="bg-white/5 p-4 rounded-xl border border-white/5">
-                                <div class="text-slate-400 text-xs mb-1">Active Accounts</div>
-                                <div class="text-2xl font-bold text-white">24</div>
-                                <div class="flex gap-2 mt-2">
-                                    <i class="fab fa-google text-slate-400"></i>
-                                    <i class="fab fa-facebook text-slate-400"></i>
-                                    <i class="fab fa-tiktok text-slate-400"></i>
+                            <div class="bg-white/5 p-5 rounded-2xl border border-white/5 shadow-inner">
+                                <div class="text-slate-400 text-xs mb-2 uppercase tracking-wider font-bold">Active Accounts</div>
+                                <div class="text-3xl font-black text-white drop-shadow-md">24</div>
+                                <div class="flex gap-3 mt-3">
+                                    <i class="fab fa-google text-blue-400 text-lg drop-shadow-md"></i>
+                                    <i class="fab fa-facebook text-blue-600 text-lg drop-shadow-md"></i>
+                                    <i class="fab fa-tiktok text-black bg-white rounded-full p-0.5 text-xs drop-shadow-md"></i>
                                 </div>
                             </div>
                         </div>
-                        <div class="bg-white/5 h-32 rounded-xl border border-white/5 p-4 relative overflow-hidden">
+                        <div class="bg-white/5 h-40 rounded-2xl border border-white/5 p-4 relative overflow-hidden shadow-inner">
                              <!-- Fake Chart -->
-                             <div class="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-blue-500/20 to-transparent"></div>
+                             <div class="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-blue-500/30 to-transparent"></div>
                              <svg class="absolute bottom-0 w-full h-full" preserveAspectRatio="none" viewBox="0 0 100 100">
-                                <path d="M0,100 L0,50 Q25,30 50,60 T100,20 L100,100 Z" fill="rgba(59, 130, 246, 0.2)" />
-                                <path d="M0,50 Q25,30 50,60 T100,20" fill="none" stroke="#3b82f6" stroke-width="2" />
+                                <path d="M0,100 L0,50 Q25,30 50,60 T100,20 L100,100 Z" fill="url(#grad)" />
+                                <path d="M0,50 Q25,30 50,60 T100,20" fill="none" stroke="#60a5fa" stroke-width="3" stroke-linecap="round" filter="drop-shadow(0px 0px 5px rgba(96,165,250,0.8))"/>
+                                <defs>
+                                    <linearGradient id="grad" x1="0%" y1="0%" x2="0%" y2="100%">
+                                        <stop offset="0%" style="stop-color:rgba(59,130,246,0.4);stop-opacity:1" />
+                                        <stop offset="100%" style="stop-color:rgba(59,130,246,0);stop-opacity:1" />
+                                    </linearGradient>
+                                </defs>
                              </svg>
                         </div>
                     </div>
                     
                     <!-- Floating Elements -->
-                    <div class="absolute -right-8 -top-8 glass-panel p-3 rounded-xl shadow-xl animate-pulse">
-                        <div class="flex items-center gap-3 text-white">
-                            <div class="w-8 h-8 bg-green-500/20 rounded-full flex items-center justify-center text-green-400"><i class="fas fa-check"></i></div>
+                    <div class="absolute -right-12 -top-12 glass-panel p-4 rounded-2xl shadow-[0_0_30px_rgba(34,197,94,0.3)] border border-green-500/30 animate-bounce backdrop-blur-xl bg-slate-900/60 z-20">
+                        <div class="flex items-center gap-4 text-white">
+                            <div class="w-10 h-10 bg-green-500/20 rounded-full flex items-center justify-center text-green-400 text-lg shadow-[0_0_15px_rgba(34,197,94,0.4)]"><i class="fas fa-check"></i></div>
                             <div>
-                                <div class="text-xs font-bold">充值成功</div>
-                                <div class="text-[10px] text-slate-400">+$5,000 USD</div>
+                                <div class="text-sm font-black tracking-wide">充值成功</div>
+                                <div class="text-xs text-green-400 font-mono mt-0.5">+$5,000 USD</div>
                             </div>
                         </div>
                     </div>
@@ -189,8 +209,7 @@
             </div>
         </div>
     </section>
-
-    <!-- Supported Platforms -->
+<!-- Supported Platforms -->
     <section id="platforms" class="py-20 bg-slate-50 overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12 reveal">
@@ -243,12 +262,166 @@
         </div>
     </section>
 
-    <!-- Client/Tenant Management Section -->
-    <section id="management" class="py-24 bg-white relative overflow-hidden">
+    
+    <!-- Pain Points vs Solutions -->
+    <section id="painpoints" class="py-24 bg-slate-900 relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full" style="perspective: 1000px;">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-4xl font-bold text-white mb-4"><span x-text="t[lang].painpoints.title">打破传统，</span><span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500" x-text="t[lang].painpoints.highlight">直击出海广告管理痛点</span></h2>
+                <p class="text-slate-400" x-text="t[lang].painpoints.subtitle">为什么选择以渔数媒？因为我们懂您的业务瓶颈</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Pain Points -->
+                <div class="bg-white/5 backdrop-blur-xl p-8 rounded-3xl border border-red-500/20 border-l-4 border-l-red-500 hover:-translate-y-2 transition-transform duration-300 reveal-left">
+                    <div class="flex items-center mb-8">
+                        <div class="w-12 h-12 rounded-xl bg-red-500/20 flex items-center justify-center text-red-400 text-xl mr-4 shadow-lg shadow-red-500/20">
+                            <i class="fas fa-times-circle"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white" x-text="t[lang].painpoints.bad_title">传统模式的痛点</h3>
+                    </div>
+                    <ul class="space-y-6 text-slate-300">
+                        <li class="flex items-start"><i class="fas fa-exclamation-triangle mt-1.5 mr-4 text-red-400"></i> <div><strong class="text-white block mb-1" x-text="t[lang].painpoints.b1_t">开户流程繁琐</strong> <span class="text-sm" x-text="t[lang].painpoints.b1_d">多渠道来回切换，人工沟通成本高，进度不透明。</span></div></li>
+                        <li class="flex items-start"><i class="fas fa-exclamation-triangle mt-1.5 mr-4 text-red-400"></i> <div><strong class="text-white block mb-1" x-text="t[lang].painpoints.b2_t">资金流转极慢</strong> <span class="text-sm" x-text="t[lang].painpoints.b2_d">充值减款依靠人工对账，容易出错且影响广告投放时效。</span></div></li>
+                        <li class="flex items-start"><i class="fas fa-exclamation-triangle mt-1.5 mr-4 text-red-400"></i> <div><strong class="text-white block mb-1" x-text="t[lang].painpoints.b3_t">资产管理混乱</strong> <span class="text-sm" x-text="t[lang].painpoints.b3_d">BM授权、解绑操作杂乱，坏账/封户资金退回困难。</span></div></li>
+                        <li class="flex items-start"><i class="fas fa-exclamation-triangle mt-1.5 mr-4 text-red-400"></i> <div><strong class="text-white block mb-1" x-text="t[lang].painpoints.b4_t">无据可查</strong> <span class="text-sm" x-text="t[lang].painpoints.b4_d">需求响应慢，缺乏操作日志，财务复盘极为困难。</span></div></li>
+                    </ul>
+                </div>
+
+                <!-- Solutions -->
+                <div class="bg-gradient-to-br from-blue-900/40 to-purple-900/40 backdrop-blur-xl p-8 rounded-3xl border border-blue-500/30 border-l-4 border-l-blue-500 hover:-translate-y-2 transition-transform duration-300 reveal-right shadow-2xl shadow-blue-900/20">
+                    <div class="flex items-center mb-8">
+                        <div class="w-12 h-12 rounded-xl bg-blue-500/20 flex items-center justify-center text-blue-400 text-xl mr-4 shadow-lg shadow-blue-500/20">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white" x-text="t[lang].painpoints.good_title">我们的解决方案</h3>
+                    </div>
+                    <ul class="space-y-6 text-slate-300">
+                        <li class="flex items-start"><i class="fas fa-check-circle mt-1.5 mr-4 text-blue-400"></i> <div><strong class="text-white block mb-1" x-text="t[lang].painpoints.g1_t">一站式自动化开户</strong> <span class="text-sm" x-text="t[lang].painpoints.g1_d">聚合全媒体平台，一键批量提交开户申请，全流程工单化追踪。</span></div></li>
+                        <li class="flex items-start"><i class="fas fa-check-circle mt-1.5 mr-4 text-blue-400"></i> <div><strong class="text-white block mb-1" x-text="t[lang].painpoints.g2_t">秒级资金调度系统</strong> <span class="text-sm" x-text="t[lang].painpoints.g2_d">充值/减款/清零一键直达，严格的钱包额度校验，保障资金安全。</span></div></li>
+                        <li class="flex items-start"><i class="fas fa-check-circle mt-1.5 mr-4 text-blue-400"></i> <div><strong class="text-white block mb-1" x-text="t[lang].painpoints.g3_t">安全的账户管家</strong> <span class="text-sm" x-text="t[lang].painpoints.g3_d">一对一授权机制，灵活的BM管理与解绑，封禁账户一键兜底清零。</span></div></li>
+                        <li class="flex items-start"><i class="fas fa-check-circle mt-1.5 mr-4 text-emerald-400"></i> <div><strong class="text-emerald-400 block mb-1" x-text="t[lang].painpoints.g4_t">人效指数级提升</strong> <span class="text-sm text-emerald-500/80" x-text="t[lang].painpoints.g4_d">赋能团队高效作业，化繁为简批量处理，全面加速业务运转。</span></div></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Features Section -->
+    <section id="features" class="py-24 bg-slate-50 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full" style="perspective: 1000px;">
+            <div class="text-center mb-16 reveal">
+                <div class="inline-block px-4 py-1.5 rounded-full bg-blue-100 text-sm font-bold text-blue-600 mb-4 tracking-wider uppercase" x-text="t[lang].features.badge">Core Features</div>
+                <h2 class="text-4xl font-bold text-slate-900 mb-4" x-text="t[lang].features.title">四大核心模块，驱动业务高速运转</h2>
+                <p class="text-slate-500 text-lg" x-text="t[lang].features.subtitle">将复杂的操作转化为简单的鼠标点击</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Feature 1 -->
+                <div class="bg-white p-8 rounded-3xl border border-slate-100 shadow-xl shadow-slate-200/50 hover:-translate-y-2 transition-all duration-300 group reveal" style="transition-delay: 0ms;">
+                    <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-400 rounded-2xl flex items-center justify-center text-white text-2xl mb-6 shadow-lg shadow-blue-500/30 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-slate-900 mb-4" x-text="t[lang].features.f1_title">极速开户流转</h3>
+                    <p class="text-slate-500 text-sm mb-6 leading-relaxed" x-text="t[lang].features.f1_desc">支持10+海外主流媒体。从申请提交 ➔ 运营认领 ➔ 审核下发，状态实时同步。支持单次批量添加账户。</p>
+                    <div class="mt-auto w-full pt-4 border-t border-slate-100 flex gap-2">
+                        <span class="text-xs font-bold text-blue-600 bg-blue-50 px-3 py-1 rounded-md" x-text="t[lang].features.tag_all_channel">全渠道覆盖</span>
+                        <span class="text-xs font-bold text-blue-600 bg-blue-50 px-3 py-1 rounded-md" x-text="t[lang].features.tag_batch">批量下发</span>
+                    </div>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="bg-white p-8 rounded-3xl border border-slate-100 shadow-xl shadow-slate-200/50 hover:-translate-y-2 transition-all duration-300 group reveal" style="transition-delay: 150ms;">
+                    <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center text-white text-2xl mb-6 shadow-lg shadow-purple-500/30 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-wallet"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-slate-900 mb-4" x-text="t[lang].features.f2_title">智能资金调度</h3>
+                    <p class="text-slate-500 text-sm mb-6 leading-relaxed" x-text="t[lang].features.f2_desc">告别错账漏账！支持账户批量充值与减款，子钱包余额精准校验。更支持封禁账户的“一键清零”兜底退款。</p>
+                    <div class="mt-auto w-full pt-4 border-t border-slate-100 flex gap-2">
+                        <span class="text-xs font-bold text-purple-600 bg-purple-50 px-3 py-1 rounded-md" x-text="t[lang].features.tag_fast_fund">秒级到账</span>
+                        <span class="text-xs font-bold text-purple-600 bg-purple-50 px-3 py-1 rounded-md" x-text="t[lang].features.tag_safe">一键清零兜底</span>
+                    </div>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="bg-white p-8 rounded-3xl border border-slate-100 shadow-xl shadow-slate-200/50 hover:-translate-y-2 transition-all duration-300 group reveal" style="transition-delay: 300ms;">
+                    <div class="w-16 h-16 bg-gradient-to-br from-orange-500 to-yellow-400 rounded-2xl flex items-center justify-center text-white text-2xl mb-6 shadow-lg shadow-orange-500/30 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-slate-900 mb-4" x-text="t[lang].features.f3_title">资产授权与闭环</h3>
+                    <p class="text-slate-500 text-sm mb-6 leading-relaxed" x-text="t[lang].features.f3_desc">严格的1对1账户授权机制，支持解绑与重新分配。所有工单（充减款、解绑等）均有专人认领审核，永久可查。</p>
+                    <div class="mt-auto w-full pt-4 border-t border-slate-100 flex gap-2">
+                        <span class="text-xs font-bold text-orange-600 bg-orange-50 px-3 py-1 rounded-md" x-text="t[lang].features.tag_bm">BM管理</span>
+                        <span class="text-xs font-bold text-orange-600 bg-orange-50 px-3 py-1 rounded-md" x-text="t[lang].features.tag_ticket">工单审核</span>
+                    </div>
+                </div>
+
+                <!-- Feature 4 -->
+                <div class="bg-gradient-to-b from-slate-900 to-slate-800 p-8 rounded-3xl border border-slate-700 shadow-2xl hover:-translate-y-2 transition-all duration-300 group reveal" style="transition-delay: 450ms;">
+                    <div class="w-16 h-16 bg-gradient-to-br from-emerald-400 to-teal-500 rounded-2xl flex items-center justify-center text-white text-2xl mb-6 shadow-lg shadow-emerald-500/30 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-tachometer-alt"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-4" x-text="t[lang].features.f4_title">人员增速提效</h3>
+                    <p class="text-slate-400 text-sm mb-6 leading-relaxed" x-text="t[lang].features.f4_desc">通过工单认领制与批量自动化流转，深度赋能运营与财务团队，化解机械重复劳动，大幅提升团队整体人效。</p>
+                    <div class="mt-auto w-full pt-4 border-t border-slate-700 flex gap-2">
+                        <span class="text-xs font-bold text-emerald-400 bg-emerald-400/10 px-3 py-1 rounded-md" x-text="t[lang].features.tag_hr">释放人力</span>
+                        <span class="text-xs font-bold text-emerald-400 bg-emerald-400/10 px-3 py-1 rounded-md" x-text="t[lang].features.tag_auto">批量自动化</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ticket Workflow Section -->
+    <section class="py-24 bg-white relative overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-16 reveal">
-                <h2 class="text-4xl font-bold text-slate-900 mb-6" x-text="t[lang].management.title">全链路租户与客户管理系统</h2>
-                <p class="text-lg text-slate-600" x-text="t[lang].management.subtitle">打破信息孤岛，实现多级代理、多租户资产的统一调度与实时监控。</p>
+                <div class="inline-block px-4 py-1.5 rounded-full bg-purple-100 text-sm font-bold text-purple-600 mb-4 tracking-wider uppercase" x-text="t[lang].workflow.badge">Service Loop</div>
+                <h2 class="text-4xl font-bold text-slate-900 mb-6" x-text="t[lang].workflow.title">客户工单闭环，打造极致服务体验</h2>
+                <p class="text-lg text-slate-500" x-text="t[lang].workflow.subtitle">充值、减款、解绑、清零等诉求统一收口，响应效率肉眼可见。</p>
+            </div>
+            
+            <div class="bg-slate-50 rounded-3xl p-8 md:p-12 relative overflow-hidden border border-slate-100 reveal">
+                <!-- Background decorative text -->
+                <div class="absolute -right-10 -top-10 text-9xl text-slate-200/50 font-bold italic select-none">WORKFLOW</div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center relative z-10">
+                    <div class="p-6 bg-white rounded-2xl shadow-sm border border-slate-100 hover:-translate-y-2 transition-all duration-300">
+                        <div class="w-20 h-20 mx-auto bg-emerald-50 rounded-full flex items-center justify-center text-3xl text-emerald-500 border-4 border-emerald-100 mb-6">
+                            <i class="fas fa-paper-plane"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3" x-text="t[lang].workflow.s1_title">1. 需求统一汇聚</h3>
+                        <p class="text-slate-500 text-sm" x-text="t[lang].workflow.s1_desc">客户在前端发起的任何资金变动、BM授权/解绑申请，瞬间直达后台任务池，等待响应。</p>
+                    </div>
+
+                    <div class="p-6 bg-white rounded-2xl shadow-sm border border-slate-100 hover:-translate-y-2 transition-all duration-300 relative">
+                        <div class="hidden md:block absolute top-1/3 -left-8 w-16 h-0.5 bg-gradient-to-r from-transparent via-blue-300 to-transparent"></div>
+                        <div class="hidden md:block absolute top-1/3 -right-8 w-16 h-0.5 bg-gradient-to-r from-transparent via-blue-300 to-transparent"></div>
+                        <div class="w-20 h-20 mx-auto bg-blue-50 rounded-full flex items-center justify-center text-3xl text-blue-500 border-4 border-blue-100 mb-6">
+                            <i class="fas fa-hand-pointer"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3" x-text="t[lang].workflow.s2_title">2. 批量极速认领</h3>
+                        <p class="text-slate-500 text-sm" x-text="t[lang].workflow.s2_desc">客服通过多维条件筛选待办任务，支持批量认领。明确操作人，杜绝推诿扯皮。</p>
+                    </div>
+
+                    <div class="p-6 bg-white rounded-2xl shadow-sm border border-slate-100 hover:-translate-y-2 transition-all duration-300">
+                        <div class="w-20 h-20 mx-auto bg-purple-50 rounded-full flex items-center justify-center text-3xl text-purple-500 border-4 border-purple-100 mb-6">
+                            <i class="fas fa-clipboard-check"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3" x-text="t[lang].workflow.s3_title">3. 严谨审核批复</h3>
+                        <p class="text-slate-500 text-sm" x-text="t[lang].workflow.s3_desc">财务核对金额与要求后批复。审核金额、时间、操作人、备注信息永久记录入库，不可篡改。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+        <section id="management" class="py-24 bg-white relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+                <h2 class="text-4xl font-bold text-slate-900 mb-6" x-text="t[lang].management.title">全链路客户管理系统</h2>
+                <p class="text-lg text-slate-600" x-text="t[lang].management.subtitle">打破信息孤岛，实现多级代理、多客户资产的统一调度与实时监控。</p>
             </div>
             
             <div class="grid lg:grid-cols-2 gap-16 items-center">
@@ -259,7 +432,7 @@
                                 <i class="fas fa-users-cog"></i>
                             </div>
                             <div>
-                                <h3 class="text-xl font-bold text-slate-900 mb-2" x-text="t[lang].management.f1_title">多租户层级架构</h3>
+                                <h3 class="text-xl font-bold text-slate-900 mb-2" x-text="t[lang].management.f1_title">多客户层级架构</h3>
                                 <p class="text-slate-500 leading-relaxed" x-text="t[lang].management.f1_desc">支持多级代理商、子客户账户管理。自定义角色权限，实现资源的安全隔离与高效共享。</p>
                             </div>
                         </div>
@@ -269,7 +442,7 @@
                             </div>
                             <div>
                                 <h3 class="text-xl font-bold text-slate-900 mb-2" x-text="t[lang].management.f2_title">实时消耗监控</h3>
-                                <p class="text-slate-500 leading-relaxed" x-text="t[lang].management.f2_desc">实时拉取各媒体账户消耗数据，多维度看板展示租户余额、ROI及消耗趋势，异常波动自动预警。</p>
+                                <p class="text-slate-500 leading-relaxed" x-text="t[lang].management.f2_desc">实时拉取各媒体账户消耗数据，多维度看板展示客户余额、ROI及消耗趋势，异常波动自动预警。</p>
                             </div>
                         </div>
                         <div class="flex gap-6">
@@ -287,28 +460,28 @@
                     <div class="bg-slate-900 rounded-3xl p-2 shadow-2xl overflow-hidden">
                         <div class="bg-slate-800 rounded-2xl p-6">
                             <div class="flex justify-between items-center mb-6">
-                                <span class="text-white font-bold" x-text="t[lang].management.dashboard_title">租户消耗实时看板</span>
+                                <span class="text-white font-bold" x-text="t[lang].management.dashboard_title">客户消耗实时看板</span>
                                 <span class="text-xs text-blue-400 bg-blue-400/10 px-2 py-1 rounded">Live Data</span>
                             </div>
                             <div class="space-y-4">
                                 <div class="flex items-center justify-between p-3 bg-white/5 rounded-lg">
                                     <div class="flex items-center gap-3">
                                         <div class="w-2 h-2 rounded-full bg-green-500"></div>
-                                        <span class="text-slate-300 text-sm" x-text="t[lang].management.tenant_a">租户 A (电商)</span>
+                                        <span class="text-slate-300 text-sm" x-text="t[lang].management.client_a">客户 A (电商)</span>
                                     </div>
                                     <span class="text-white font-mono text-sm">$8,240.50</span>
                                 </div>
                                 <div class="flex items-center justify-between p-3 bg-white/5 rounded-lg">
                                     <div class="flex items-center gap-3">
                                         <div class="w-2 h-2 rounded-full bg-blue-500"></div>
-                                        <span class="text-slate-300 text-sm" x-text="t[lang].management.tenant_b">租户 B (游戏)</span>
+                                        <span class="text-slate-300 text-sm" x-text="t[lang].management.client_b">客户 B (游戏)</span>
                                     </div>
                                     <span class="text-white font-mono text-sm">$12,400.00</span>
                                 </div>
                                 <div class="flex items-center justify-between p-3 bg-white/5 rounded-lg">
                                     <div class="flex items-center gap-3">
                                         <div class="w-2 h-2 rounded-full bg-yellow-500"></div>
-                                        <span class="text-slate-300 text-sm" x-text="t[lang].management.tenant_c">租户 C (工具)</span>
+                                        <span class="text-slate-300 text-sm" x-text="t[lang].management.client_c">客户 C (工具)</span>
                                     </div>
                                     <span class="text-white font-mono text-sm">$4,120.20</span>
                                 </div>
@@ -380,22 +553,22 @@
                     <div class="bg-white p-6 rounded-2xl shadow-lg border border-slate-100 text-center relative card-hover reveal" style="transition-delay: 0ms;">
                         <div class="w-16 h-16 bg-blue-600 rounded-full text-white flex items-center justify-center text-2xl font-bold mx-auto mb-4 border-4 border-white shadow-md">1</div>
                         <h4 class="font-bold text-lg mb-2" x-text="t[lang].process.step1">注册认证</h4>
-                        <p class="text-sm text-slate-500" x-text="t[lang].process.step1_desc">提交企业资质，快速完成租户认证与主体绑定。</p>
+                        <p class="text-sm text-slate-500">提交企业资质，快速完成客户认证与主体绑定。</p>
                     </div>
                     <div class="bg-white p-6 rounded-2xl shadow-lg border border-slate-100 text-center relative card-hover reveal" style="transition-delay: 200ms;">
                         <div class="w-16 h-16 bg-blue-600 rounded-full text-white flex items-center justify-center text-2xl font-bold mx-auto mb-4 border-4 border-white shadow-md">2</div>
                         <h4 class="font-bold text-lg mb-2" x-text="t[lang].process.step2">钱包充值</h4>
-                        <p class="text-sm text-slate-500" x-text="t[lang].process.step2_desc">支持多种币种与支付方式，资金实时进入平台钱包。</p>
+                        <p class="text-sm text-slate-500">支持多种币种与支付方式，资金实时进入平台钱包。</p>
                     </div>
                     <div class="bg-white p-6 rounded-2xl shadow-lg border border-slate-100 text-center relative card-hover reveal" style="transition-delay: 400ms;">
                         <div class="w-16 h-16 bg-blue-600 rounded-full text-white flex items-center justify-center text-2xl font-bold mx-auto mb-4 border-4 border-white shadow-md">3</div>
                         <h4 class="font-bold text-lg mb-2" x-text="t[lang].process.step3">需求提交</h4>
-                        <p class="text-sm text-slate-500" x-text="t[lang].process.step3_desc">发起开户、下发预算、BM绑定等工单，系统自动流转。</p>
+                        <p class="text-sm text-slate-500">发起开户、下发预算、BM绑定等工单，系统自动流转。</p>
                     </div>
                     <div class="bg-white p-6 rounded-2xl shadow-lg border border-slate-100 text-center relative card-hover reveal" style="transition-delay: 600ms;">
                         <div class="w-16 h-16 bg-blue-600 rounded-full text-white flex items-center justify-center text-2xl font-bold mx-auto mb-4 border-4 border-white shadow-md">4</div>
                         <h4 class="font-bold text-lg mb-2" x-text="t[lang].process.step4">数据监控</h4>
-                        <p class="text-sm text-slate-500" x-text="t[lang].process.step4_desc">实时查看账户消耗、财务报表与资金流向，一目了然。</p>
+                        <p class="text-sm text-slate-500">实时查看账户消耗、财务报表与资金流向，一目了然。</p>
                     </div>
                 </div>
             </div>
@@ -405,7 +578,7 @@
     <!-- Success Stories / Case Studies Section -->
     <section class="py-24 bg-slate-900 text-white relative overflow-hidden">
         <div class="absolute top-0 left-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5"></div>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full" style="perspective: 1000px;">
             <div class="text-center mb-16 reveal">
                 <span class="text-blue-400 font-bold tracking-wider uppercase text-sm mb-2 block" x-text="t[lang].cases.overline">成功案例</span>
                 <h2 class="text-4xl font-bold mb-6" x-text="t[lang].cases.title">赋能全球业务增长</h2>
@@ -537,7 +710,7 @@
     <footer class="bg-slate-900 text-white py-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
             <div class="flex items-center gap-2">
-                <img src="static/images/logo.png" alt="Logo" class="w-8 h-8 rounded-lg object-cover">
+                <img src="/static/images/logo.png" alt="Logo" class="w-8 h-8 rounded-lg object-cover">
                 <span class="font-bold text-xl" x-text="t[lang].footer.brand">以渔数媒</span>
             </div>
             <div class="text-slate-400 text-sm" x-text="t[lang].footer.copyright">
@@ -557,13 +730,54 @@
                 title: "以渔数媒 - 全球广告账户与资金管理平台",
                 nav: {
                     home: "首页",
+                    tools: "实用工具",
                     pricing: "产品定价",
                     articles: "行业动态",
                     contact: "联系我们"
                 },
-                hero: {
+                
+                painpoints: {
+                    title: "打破传统，",
+                    highlight: "直击出海广告管理痛点",
+                    subtitle: "为什么选择以渔数媒？因为我们懂您的业务瓶颈",
+                    bad_title: "传统模式的痛点",
+                    b1_t: "开户流程繁琐", b1_d: "多渠道来回切换，人工沟通成本高，进度不透明。",
+                    b2_t: "资金流转极慢", b2_d: "充值减款依靠人工对账，容易出错且影响广告投放时效。",
+                    b3_t: "资产管理混乱", b3_d: "BM授权、解绑操作杂乱，坏账/封户资金退回困难。",
+                    b4_t: "无据可查", b4_d: "需求响应慢，缺乏操作日志，财务复盘极为困难。",
+                    good_title: "我们的解决方案",
+                    g1_t: "一站式自动化开户", g1_d: "聚合全媒体平台，一键批量提交开户申请，全流程工单化追踪。",
+                    g2_t: "秒级资金调度系统", g2_d: "充值/减款/清零一键直达，严格的钱包额度校验，保障资金安全。",
+                    g3_t: "安全的账户管家", g3_d: "一对一授权机制，灵活的BM管理与解绑，封禁账户一键兜底清零。",
+                    g4_t: "人效指数级提升", g4_d: "赋能团队高效作业，化繁为简批量处理，全面加速业务运转。"
+                },
+                features: {
+                    badge: "核心能力",
+                    title: "四大核心模块，驱动业务高速运转",
+                    subtitle: "将复杂的操作转化为简单的鼠标点击",
+                    f1_title: "极速开户流转", f1_desc: "支持10+海外主流媒体。从申请提交 ➔ 运营认领 ➔ 审核下发，状态实时同步。支持单次批量添加账户。",
+                    f2_title: "智能资金调度", f2_desc: "告别错账漏账！支持账户批量充值与减款，子钱包余额精准校验。更支持封禁账户的“一键清零”兜底退款。",
+                    f3_title: "资产授权与闭环", f3_desc: "严格的1对1账户授权机制，支持解绑与重新分配。所有工单（充减款、解绑等）均有专人认领审核，永久可查。",
+                    f4_title: "人员增速提效", f4_desc: "通过工单认领制与批量自动化流转，深度赋能运营与财务团队，化解机械重复劳动，大幅提升团队整体人效。",
+                    tag_all_channel: "全渠道覆盖", tag_batch: "批量下发",
+                    tag_fast_fund: "秒级到账", tag_safe: "一键清零兜底",
+                    tag_bm: "BM管理", tag_ticket: "工单审核",
+                    tag_hr: "释放人力", tag_auto: "批量自动化"
+                },
+                workflow: {
+                    badge: "服务闭环",
+                    title: "客户工单闭环，打造极致服务体验",
+                    subtitle: "充值、减款、解绑、清零等诉求统一收口，响应效率肉眼可见。",
+                    s1_title: "1. 需求统一汇聚", s1_desc: "客户在前端发起的任何资金变动、BM授权/解绑申请，瞬间直达后台任务池，等待响应。",
+                    s2_title: "2. 批量极速认领", s2_desc: "客服通过多维条件筛选待办任务，支持批量认领。明确操作人，杜绝推诿扯皮。",
+                    s3_title: "3. 严谨审核批复", s3_desc: "财务核对金额与要求后批复。审核金额、时间、操作人、备注信息永久记录入库，不可篡改。"
+                },
+hero: {
                     badge: "企业级海外广告资金管理系统",
                     title1: "全球广告账户",
+                    title_full: "全球广告账户 开户·充值·减款",
+                    stat1: "极速开户与资金下发",
+                    stat2: "全球主流媒体渠道支持",
                     titleHighlight: "开户 · 充值 · 减款",
                     subtitle: "专为出海企业打造的资金流转中枢。支持 Google, Meta, TikTok 等主流媒体，实现账户秒级开通、余额实时划转、预算灵活调配。",
                     cta_primary: "现在试用",
@@ -578,18 +792,18 @@
                     s3_desc: "不仅能充值，更能灵活调配资金。闲置预算一键提取回钱包，或在不同媒体账户间免费划转。"
                 },
                 management: {
-                    title: "全链路租户与客户管理系统",
-                    subtitle: "打破信息孤岛，实现多级代理、多租户资产的统一调度与实时监控。",
-                    f1_title: "多租户层级架构",
+                    title: "全链路客户管理系统",
+                    subtitle: "打破信息孤岛，实现多级代理、多客户资产的统一调度与实时监控。",
+                    f1_title: "多客户层级架构",
                     f1_desc: "支持多级代理商、子客户账户管理。自定义角色权限，实现资源的安全隔离与高效共享。",
                     f2_title: "实时消耗监控",
-                    f2_desc: "实时拉取各媒体账户消耗数据，多维度看板展示租户余额、ROI及消耗趋势，异常波动自动预警。",
+                    f2_desc: "实时拉取各媒体账户消耗数据，多维度看板展示客户余额、ROI及消耗趋势，异常波动自动预警。",
                     f3_title: "全生命周期需求受理",
                     f3_desc: "集成开户申请、充值流水、BM绑定申请、账户清零回收等全流程工单系统，极速响应客户需求。",
-                    dashboard_title: "租户消耗实时看板",
-                    tenant_a: "租户 A (电商)",
-                    tenant_b: "租户 B (游戏)",
-                    tenant_c: "租户 C (工具)"
+                    dashboard_title: "客户消耗实时看板",
+                    client_a: "客户 A (电商)",
+                    client_b: "客户 B (游戏)",
+                    client_c: "客户 C (工具)"
                 },
                 financial: {
                     title: "智能资金流转监控",
@@ -613,7 +827,7 @@
                     title: "标准化的服务流程",
                     subtitle: "从入驻到投放，每一步都清晰可控，保障资金流转的极速与安全。",
                     step1: "注册认证",
-                    step1_desc: "提交企业资质，快速完成租户认证与主体绑定。",
+                    step1_desc: "提交企业资质，快速完成客户认证与主体绑定。",
                     step2: "钱包充值",
                     step2_desc: "支持多种币种与支付方式，资金实时进入平台钱包。",
                     step3: "需求提交",
@@ -663,13 +877,54 @@
                 title: "Yiyu Digital - Global Ad Account & Fund Management",
                 nav: {
                     home: "Home",
+                    tools: "Tools",
                     pricing: "Pricing",
                     articles: "Insights",
                     contact: "Contact Us"
                 },
-                hero: {
+                
+                painpoints: {
+                    title: "Break Traditions, ",
+                    highlight: "Solve Ad Pain Points",
+                    subtitle: "Why choose Yiyu Digital? Because we understand your bottlenecks.",
+                    bad_title: "Traditional Pain Points",
+                    b1_t: "Complex Opening", b1_d: "Switching between channels, high communication costs, opaque progress.",
+                    b2_t: "Slow Fund Transfer", b2_d: "Manual reconciliation causes errors and affects ad delivery timelines.",
+                    b3_t: "Chaotic Management", b3_d: "Messy BM binding/unbinding, difficult to recover funds from banned accounts.",
+                    b4_t: "Untraceable Operations", b4_d: "Slow response, no operation logs, making financial audits extremely difficult.",
+                    good_title: "Our Solutions",
+                    g1_t: "One-Stop Auto Opening", g1_d: "Aggregate all platforms, batch submit applications, full-process ticket tracking.",
+                    g2_t: "Second-Level Dispatch", g2_d: "One-click recharge/deduct/clear with strict wallet balance verification.",
+                    g3_t: "Secure Account Manager", g3_d: "1-on-1 binding mechanism, flexible BM management, one-click fund recovery.",
+                    g4_t: "Exponential Efficiency", g4_d: "Empower teams with batch processing, accelerating business operations comprehensively."
+                },
+                features: {
+                    badge: "Core Capabilities",
+                    title: "Four Core Modules to Drive High-Speed Operations",
+                    subtitle: "Turn complex operations into simple mouse clicks.",
+                    f1_title: "Fast Account Opening", f1_desc: "Support 10+ media platforms. Real-time sync from submission to approval. Support batch account addition.",
+                    f2_title: "Smart Fund Dispatch", f2_desc: "Say goodbye to errors! Batch recharge/deduction with precise balance checks. One-click clearing for banned accounts.",
+                    f3_title: "Asset Auth & Loop", f3_desc: "Strict 1-on-1 authorization mechanism. All tickets (recharge, unbind) are claimed, reviewed, and permanently traceable.",
+                    f4_title: "Team Efficiency Boost", f4_desc: "Through ticket claiming and automated flows, we empower ops and finance teams, eliminating repetitive tasks.",
+                    tag_all_channel: "All Channels", tag_batch: "Batch Delivery",
+                    tag_fast_fund: "Instant Arrival", tag_safe: "One-click Clear",
+                    tag_bm: "BM Management", tag_ticket: "Ticket Audit",
+                    tag_hr: "Free Up HR", tag_auto: "Batch Automation"
+                },
+                workflow: {
+                    badge: "Service Loop",
+                    title: "Customer Ticket Loop for Ultimate Experience",
+                    subtitle: "Unified intake for recharge, deduct, unbind, and clear requests. Visible response efficiency.",
+                    s1_title: "1. Unified Intake", s1_desc: "Any fund or BM request initiated by the client instantly reaches the backend task pool.",
+                    s2_title: "2. Fast Claiming", s2_desc: "Agents filter and batch claim tasks. Clear accountability eliminates buck-passing.",
+                    s3_title: "3. Strict Audit", s3_desc: "Finance verifies and approves. Amounts, times, operators, and notes are permanently recorded."
+                },
+hero: {
                     badge: "Enterprise Ad Fund Management System",
                     title1: "Global Ad Accounts",
+                    title_full: "Global Ad Accounts Open · Recharge · Deduct",
+                    stat1: "Fast Opening & Dispatch",
+                    stat2: "Global Media Channels",
                     titleHighlight: "Open · Recharge · Deduct",
                     subtitle: "The fund hub for global business. Support Google, Meta, TikTok. Instant account opening, real-time transfers, and flexible budget allocation.",
                     cta_primary: "Try Now",
@@ -684,18 +939,18 @@
                     s3_desc: "Manage funds flexibly. Withdraw unused budget back to wallet or transfer between accounts freely."
                 },
                 management: {
-                    title: "Full-link Tenant & Client Management",
-                    subtitle: "Break information silos. Unified scheduling and real-time monitoring of multi-level agency and multi-tenant assets.",
-                    f1_title: "Multi-tenant Architecture",
+                    title: "Full-link Client Management",
+                    subtitle: "Break information silos. Unified scheduling and real-time monitoring of multi-level agency and multi-client assets.",
+                    f1_title: "Multi-client Architecture",
                     f1_desc: "Support multi-level agency and sub-client account management. Custom role permissions for secure isolation and efficient sharing.",
                     f2_title: "Real-time Spend Monitoring",
-                    f2_desc: "Real-time fetching of media account spend data. Multi-dimensional dashboard for tenant balance, ROI, and spend trends with anomaly alerts.",
+                    f2_desc: "Real-time fetching of media account spend data. Multi-dimensional dashboard for client balance, ROI, and spend trends with anomaly alerts.",
                     f3_title: "Full Lifecycle Request Handling",
                     f3_desc: "Integrated ticket system for account opening, recharge, BM binding, and account clearing/recovery. Fast response to client needs.",
-                    dashboard_title: "Real-time Tenant Spend",
-                    tenant_a: "Tenant A (E-com)",
-                    tenant_b: "Tenant B (Game)",
-                    tenant_c: "Tenant C (Tool)"
+                    dashboard_title: "Real-time Client Spend",
+                    client_a: "Client A (E-com)",
+                    client_b: "Client B (Game)",
+                    client_c: "Client C (Tool)"
                 },
                 financial: {
                     title: "Smart Fund Flow Monitoring",
@@ -719,7 +974,7 @@
                     title: "Standardized Workflow",
                     subtitle: "Every step is clear and controllable, ensuring fast and secure fund flow.",
                     step1: "Registration",
-                    step1_desc: "Submit corporate credentials to quickly complete tenant verification.",
+                    step1_desc: "Submit corporate credentials to quickly complete client verification.",
                     step2: "Wallet Top-up",
                     step2_desc: "Support multiple currencies and payment methods. Real-time fund arrival.",
                     step3: "Submit Request",
@@ -766,114 +1021,6 @@
                     terms: "Terms of Service",
                     contact: "Contact Support"
                 }
-            },
-            vi: {
-                title: "Yiyu Digital - Quản lý Tài khoản & Quỹ Quảng cáo Toàn cầu",
-                nav: {
-                    home: "Trang chủ",
-                    pricing: "Bảng giá",
-                    articles: "Tin tức",
-                    contact: "Liên hệ"
-                },
-                hero: {
-                    badge: "Hệ thống Quản lý Quỹ Quảng cáo Doanh nghiệp",
-                    title1: "Tài khoản Quảng cáo Toàn cầu",
-                    titleHighlight: "Mở · Nạp · Trừ",
-                    subtitle: "Trung tâm quỹ cho kinh doanh toàn cầu. Hỗ trợ Google, Meta, TikTok. Mở tài khoản tức thì, chuyển tiền thời gian thực và phân bổ ngân sách linh hoạt.",
-                    cta_primary: "Dùng thử ngay",
-                    cta_secondary: "Liên hệ chúng tôi"
-                },
-                services: {
-                    s1_title: "Mở Tài khoản Nhanh",
-                    s1_desc: "Kết nối API trực tiếp, tài khoản sẵn sàng trong 1 giờ. Hỗ trợ tài khoản Doanh nghiệp, Whitelist và Hoàn tiền.",
-                    s2_title: "Nạp tiền Thời gian thực",
-                    s2_desc: "Nạp tiền tự phục vụ 24/7. Hỗ trợ USDT, Chuyển khoản ngân hàng USD, Chuyển khoản doanh nghiệp CNY.",
-                    s3_title: "Khấu trừ/Chuyển khoản Linh hoạt",
-                    s3_desc: "Quản lý quỹ linh hoạt. Rút ngân sách chưa sử dụng về ví hoặc chuyển giữa các tài khoản một cách tự do."
-                },
-                management: {
-                    title: "Quản lý Khách thuê & Khách hàng Toàn trình",
-                    subtitle: "Phá vỡ các silo thông tin. Lập lịch thống nhất và giám sát thời gian thực các tài sản đại lý và khách thuê nhiều cấp.",
-                    f1_title: "Kiến trúc Đa khách thuê",
-                    f1_desc: "Hỗ trợ quản lý tài khoản đại lý nhiều cấp và tài khoản khách hàng phụ. Tùy chỉnh quyền hạn vai trò để cách ly an toàn và chia sẻ hiệu quả.",
-                    f2_title: "Giám sát Chi tiêu Thời gian thực",
-                    f2_desc: "Lấy dữ liệu chi tiêu tài khoản truyền thông theo thời gian thực. Bảng điều khiển đa chiều cho số dư khách thuê, ROI và xu hướng chi tiêu với cảnh báo bất thường.",
-                    f3_title: "Xử lý Yêu cầu Toàn vòng đời",
-                    f3_desc: "Hệ thống vé tích hợp cho mở tài khoản, nạp tiền, liên kết BM và dọn dẹp/khôi phục tài khoản. Phản hồi nhanh chóng nhu cầu của khách hàng.",
-                    dashboard_title: "Chi tiêu Khách thuê Thời gian thực",
-                    tenant_a: "Khách thuê A (Thương mại điện tử)",
-                    tenant_b: "Khách thuê B (Trò chơi)",
-                    tenant_c: "Khách thuê C (Công cụ)"
-                },
-                financial: {
-                    title: "Giám sát Dòng tiền Thông minh",
-                    desc: "Tích hợp sâu với API truyền thông. Đối chiếu và thanh toán thu chi tài khoản quảng cáo theo thời gian thực. Mỗi đồng tiền đều an toàn và minh bạch.",
-                    metric1: "Độ chính xác",
-                    metric2: "Độ trễ",
-                    c1_title: "Liên kết Tài sản BM",
-                    c1_desc: "Liên kết hàng loạt tài sản Business Manager. Cấu hình tự động quyền hạn pixel và tài khoản quảng cáo. Khởi chạy bằng một cú nhấp chuột.",
-                    c2_title: "Dọn dẹp & Khôi phục Tài khoản",
-                    c2_desc: "Nhanh chóng dọn dẹp số dư từ các tài khoản bị cấm hoặc bị bỏ hoang và khôi phục về ví. Giảm thiểu tổn thất do đọng vốn.",
-                    c3_title: "Kiểm toán Thời gian thực",
-                    c3_desc: "Dòng tài khoản trực quan hóa. Tự động tạo báo cáo tài chính hàng ngày/tuần/tháng. Mỗi khoản nạp và khấu trừ đều có thể truy xuất.",
-                    c4_title: "Mở Tài khoản Tự động",
-                    c4_desc: "Tiêu chuẩn nền tảng tích hợp. Xác minh thông minh tài liệu mở. Rút ngắn đường dẫn kiểm toán cho việc mở nhanh hàng loạt."
-                },
-                platforms: {
-                    title: "Tất cả Nền tảng Chính",
-                    subtitle: "Một bảng điều khiển để quản lý quỹ trên tất cả phương tiện truyền thông."
-                },
-                process: {
-                    title: "Quy trình Làm việc Tiêu chuẩn",
-                    subtitle: "Mỗi bước đều rõ ràng và có thể kiểm soát, đảm bảo dòng tiền nhanh chóng và an toàn.",
-                    step1: "Đăng ký",
-                    step1_desc: "Gửi thông tin doanh nghiệp để nhanh chóng hoàn thành xác minh khách thuê.",
-                    step2: "Nạp tiền vào Ví",
-                    step2_desc: "Hỗ trợ nhiều loại tiền tệ và phương thức thanh toán. Tiền đến trong thời gian thực.",
-                    step3: "Gửi Yêu cầu",
-                    step3_desc: "Khởi tạo vé cho việc mở tài khoản, phân bổ ngân sách, liên kết BM, v.v.",
-                    step4: "Giám sát Dữ liệu",
-                    step4_desc: "Xem chi tiêu tài khoản, báo cáo tài chính và dòng tiền theo thời gian thực."
-                },
-                cases: {
-                    overline: "Câu chuyện Thành công",
-                    title: "Trao quyền cho Tăng trưởng Toàn cầu",
-                    case1_tag: "Thương hiệu DTC",
-                    case1_title: "Thương hiệu Thời trang Hàng đầu",
-                    case1_subtitle: "Tăng trưởng Đột phá với mức tăng ROI 150%",
-                    case1_desc: "Giải quyết các điểm nghẽn tại thị trường Bắc Mỹ, Yiyu Digital cung cấp giải pháp quản lý tài khoản một cửa. Thông qua cấu trúc tài khoản tinh chỉnh, chiến lược đa kênh (Google + Meta + TikTok) và giám sát sáng tạo thời gian thực, thương hiệu đã đạt được sự tăng trưởng bùng nổ trong 3 tháng.",
-                    case1_m1_val: "150%", case1_m1_lbl: "Tăng ROI",
-                    case1_m2_val: "3X", case1_m2_lbl: "Tăng trưởng GMV",
-                    
-                    case2_tag: "Ứng dụng Trò chơi",
-                    case2_title: "Bom tấn Nhập vai",
-                    case2_subtitle: "1 Triệu Người dùng Mới trong Tháng Đầu",
-                    case2_desc: "Tận dụng các kênh mở tài khoản và nạp tiền nhanh của Yiyu Digital, nhóm dự án đã chuẩn bị 50+ tài khoản quảng cáo trước khi ra mắt. Kết hợp với các quy tắc tự động và cảnh báo rủi ro của chúng tôi, sự ổn định của tài khoản được duy trì ngay cả khi chi tiêu cao, đảm bảo lưu lượng truy cập mượt mà trong quá trình ra mắt.",
-                    case2_m1_val: "1M+", case2_m1_lbl: "Người dùng Mới",
-                    case2_m2_val: "99.9%", case2_m2_lbl: "Thời gian hoạt động"
-                },
-                why: {
-                    title: "Tại sao chọn Yiyu Digital?",
-                    p1_title: "An toàn Quỹ",
-                    p1_desc: "Quỹ chuyên dụng. Hỗ trợ rút tiền bất cứ lúc nào. Quy trình tài chính minh bạch và tuân thủ.",
-                    p2_title: "Phí Cạnh tranh",
-                    p2_desc: "Phí dịch vụ thấp hàng đầu ngành, thấp hơn nhiều so với mức trung bình. Tỷ giá hối đoái minh bạch không có chi phí ẩn để tối đa hóa ROI của bạn.",
-                    p3_title: "Hệ thống Hiệu quả",
-                    p3_desc: "Nền tảng quản lý quỹ thông minh. Nói lời tạm biệt với đối chiếu thủ công. Hỗ trợ theo dõi thời gian thực, nạp tiền & khôi phục một chạm."
-                },
-                why_dashboard: {
-                    balance: "Số dư Ví",
-                    recharge_success: "Nạp tiền Thành công",
-                    transfer: "Chuyển đến Google Ads",
-                    refund: "Hoàn tiền Tài khoản"
-                },
-                footer: {
-                    brand: "Yiyu Digital",
-                    copyright: "© 2024 Yiyu Digital. Đã đăng ký Bản quyền. Tập trung vào Giải pháp Quỹ Quảng cáo Toàn cầu.",
-                    privacy: "Chính sách Bảo mật",
-                    terms: "Điều khoản Dịch vụ",
-                    contact: "Liên hệ Hỗ trợ"
-                }
             }
         };
 
@@ -883,9 +1030,7 @@
                 scrolled: false,
                 t: translations,
                 toggleLang() {
-                    if (this.lang === 'zh') this.lang = 'en';
-                    else if (this.lang === 'en') this.lang = 'vi';
-                    else this.lang = 'zh';
+                    this.lang = this.lang === 'zh' ? 'en' : 'zh';
                     localStorage.setItem('yiyu_lang', this.lang);
                 },
                 init() {
@@ -906,7 +1051,63 @@
                     }, observerOptions);
 
                     // Observe all reveal elements
-                    setTimeout(() => {
+                    
+            
+            
+            // GSAP Parallax for Hero Elements
+            if (typeof gsap !== 'undefined') {
+                const heroSection = document.querySelector('.hero-bg');
+                
+                // Text layers
+                const textFront = document.querySelector('.hero-bg .text-left h1');
+                const textMid = document.querySelector('.hero-bg .text-left p');
+                const buttons = document.querySelector('.hero-bg .text-left .flex');
+                
+                // 3D Mockup
+                const heroMockup = document.querySelector('.hero-bg .floating');
+                
+                // Giant Text
+                const giantTextBack = document.getElementById('giantTextBack');
+                const giantTextFront = document.getElementById('giantTextFront');
+                
+                if (heroSection) {
+                    heroSection.addEventListener('mousemove', (e) => {
+                        const rect = heroSection.getBoundingClientRect();
+                        const x = (e.clientX - rect.left) / rect.width - 0.5;
+                        const y = (e.clientY - rect.top) / rect.height - 0.5;
+                        
+                        // Text moves slightly opposite to mouse
+                        if (textFront) gsap.to(textFront, { x: x * -30, y: y * -30, duration: 1.5, ease: 'power2.out' });
+                        if (textMid) gsap.to(textMid, { x: x * -15, y: y * -15, duration: 1.5, ease: 'power2.out' });
+                        if (buttons) gsap.to(buttons, { x: x * -5, y: y * -5, duration: 1.5, ease: 'power2.out' });
+                        
+                        // Mockup rotates and moves with mouse
+                        if (heroMockup) gsap.to(heroMockup, {
+                            x: x * 40,
+                            y: y * 40,
+                            rotationY: x * 15,
+                            rotationX: y * -15,
+                            duration: 1.5,
+                            ease: 'power2.out'
+                        });
+                        
+                        // Giant Text Parallax Depth
+                        if (giantTextBack) gsap.to(giantTextBack, { x: x * 80, y: y * 40, duration: 2, ease: 'power2.out' });
+                        if (giantTextFront) gsap.to(giantTextFront, { x: x * 150, y: y * 80, duration: 2, ease: 'power2.out' });
+                    });
+                    
+                    // Reset on mouse leave
+                    heroSection.addEventListener('mouseleave', () => {
+                        if (textFront) gsap.to(textFront, { x: 0, y: 0, duration: 1.5, ease: 'power2.out' });
+                        if (textMid) gsap.to(textMid, { x: 0, y: 0, duration: 1.5, ease: 'power2.out' });
+                        if (buttons) gsap.to(buttons, { x: 0, y: 0, duration: 1.5, ease: 'power2.out' });
+                        if (heroMockup) gsap.to(heroMockup, { x: 0, y: 0, rotationY: 0, rotationX: 0, duration: 1.5, ease: 'power2.out' });
+                        if (giantTextBack) gsap.to(giantTextBack, { x: 0, y: 0, duration: 2, ease: 'power2.out' });
+                        if (giantTextFront) gsap.to(giantTextFront, { x: 0, y: 0, duration: 2, ease: 'power2.out' });
+                    });
+                }
+            }
+            setTimeout(() => {
                         document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => {
                             observer.observe(el);
                         });
@@ -915,5 +1116,167 @@
             }
         }
     </script>
+
+    <script>
+        // Immersive 3D Data Particle Network Animation
+        (function() {
+            const canvas = document.getElementById('heroCanvas');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+            let width, height;
+            let particles = [];
+            let time = 0;
+            const mouse = { x: window.innerWidth/2, y: window.innerHeight/2, radius: 300, targetX: window.innerWidth/2, targetY: window.innerHeight/2 };
+
+            function resize() {
+                const parent = canvas.parentElement;
+                width = canvas.width = parent.offsetWidth;
+                height = canvas.height = parent.offsetHeight;
+            }
+
+            window.addEventListener('resize', resize);
+            
+            canvas.parentElement.addEventListener('mousemove', (e) => {
+                const rect = canvas.getBoundingClientRect();
+                mouse.targetX = e.clientX - rect.left;
+                mouse.targetY = e.clientY - rect.top;
+            });
+            
+            class Particle {
+                constructor(isForeground) {
+                    this.x = Math.random() * width;
+                    this.y = Math.random() * height;
+                    this.z = Math.random() * 100; // Fake 3D depth
+                    this.isForeground = isForeground;
+                    this.size = isForeground ? (Math.random() * 3 + 2) : (Math.random() * 1.5 + 0.5);
+                    this.baseX = this.x;
+                    this.baseY = this.y;
+                    this.density = (Math.random() * 40) + 10;
+                    this.vx = (Math.random() - 0.5) * (isForeground ? 1 : 0.5);
+                    this.vy = (Math.random() - 0.5) * (isForeground ? 1 : 0.5);
+                    this.color = isForeground ? `rgba(96, 165, 250, ${Math.random() * 0.8 + 0.2})` : `rgba(167, 139, 250, ${Math.random() * 0.5 + 0.1})`;
+                }
+
+                draw() {
+                    let scale = 100 / (100 + this.z);
+                    let x2d = (this.x - width/2) * scale + width/2;
+                    let y2d = (this.y - height/2) * scale + height/2;
+                    let r2d = this.size * scale;
+
+                    ctx.shadowBlur = this.isForeground ? 15 : 5;
+                    ctx.shadowColor = this.isForeground ? '#3b82f6' : '#a855f7';
+                    ctx.fillStyle = this.color;
+                    ctx.beginPath();
+                    ctx.arc(x2d, y2d, Math.max(r2d, 0.1), 0, Math.PI * 2);
+                    ctx.closePath();
+                    ctx.fill();
+                    ctx.shadowBlur = 0; // reset
+                }
+
+                update() {
+                    // Smooth mouse follow
+                    mouse.x += (mouse.targetX - mouse.x) * 0.05;
+                    mouse.y += (mouse.targetY - mouse.y) * 0.05;
+
+                    this.x += this.vx + Math.sin(time * 0.001 + this.y * 0.01) * 0.5;
+                    this.y += this.vy + Math.cos(time * 0.001 + this.x * 0.01) * 0.5;
+                    this.z += Math.sin(time * 0.002) * 0.1;
+
+                    // Wrap around
+                    if (this.x < -100) this.x = width + 100;
+                    if (this.x > width + 100) this.x = -100;
+                    if (this.y < -100) this.y = height + 100;
+                    if (this.y > height + 100) this.y = -100;
+
+                    // Mouse interaction
+                    let dx = mouse.x - this.x;
+                    let dy = mouse.y - this.y;
+                    let distance = Math.sqrt(dx * dx + dy * dy);
+                    let forceDirectionX = dx / distance;
+                    let forceDirectionY = dy / distance;
+                    let maxDistance = mouse.radius;
+                    let force = (maxDistance - distance) / maxDistance;
+                    let directionX = forceDirectionX * force * this.density;
+                    let directionY = forceDirectionY * force * this.density;
+
+                    if (distance < mouse.radius) {
+                        this.x -= directionX * (this.isForeground ? 1.5 : 0.5);
+                        this.y -= directionY * (this.isForeground ? 1.5 : 0.5);
+                    }
+                }
+            }
+
+            function initParticles() {
+                resize();
+                particles = [];
+                let numberOfParticles = Math.min((width * height) / 4000, 250);
+                for (let i = 0; i < numberOfParticles; i++) {
+                    particles.push(new Particle(i < numberOfParticles * 0.3)); // 30% foreground
+                }
+            }
+
+            function animateParticles() {
+                time++;
+                // Dark background with slight trail
+                ctx.fillStyle = 'rgba(15, 23, 42, 0.4)';
+                ctx.fillRect(0, 0, width, height);
+                
+                // Draw background gradient to mimic deep space
+                let bgGradient = ctx.createRadialGradient(mouse.x, mouse.y, 0, width/2, height/2, width);
+                bgGradient.addColorStop(0, 'rgba(59, 130, 246, 0.05)');
+                bgGradient.addColorStop(1, 'rgba(15, 23, 42, 0)');
+                ctx.fillStyle = bgGradient;
+                ctx.fillRect(0, 0, width, height);
+                
+                for (let i = 0; i < particles.length; i++) {
+                    particles[i].update();
+                    particles[i].draw();
+                    
+                    // Connect nodes if they are close in 2D space
+                    if(particles[i].isForeground) {
+                        for (let j = i + 1; j < particles.length; j++) {
+                            if(!particles[j].isForeground) continue;
+                            
+                            let dx = particles[i].x - particles[j].x;
+                            let dy = particles[i].y - particles[j].y;
+                            let distance = Math.sqrt(dx * dx + dy * dy);
+                            
+                            if (distance < 120) {
+                                ctx.beginPath();
+                                let gradient = ctx.createLinearGradient(particles[i].x, particles[i].y, particles[j].x, particles[j].y);
+                                gradient.addColorStop(0, `rgba(96, 165, 250, ${0.5 - distance/240})`);
+                                gradient.addColorStop(1, `rgba(167, 139, 250, ${0.5 - distance/240})`);
+                                
+                                ctx.strokeStyle = gradient;
+                                ctx.lineWidth = 1.5;
+                                ctx.moveTo(particles[i].x, particles[i].y);
+                                ctx.lineTo(particles[j].x, particles[j].y);
+                                ctx.stroke();
+                                ctx.closePath();
+                            }
+                        }
+                    }
+                }
+
+                // Draw some abstract floating words
+                if(time % 60 === 0) {
+                    ctx.fillStyle = `rgba(255, 255, 255, 0.05)`;
+                    ctx.font = `bold ${Math.random() * 20 + 20}px sans-serif`;
+                    let text = ["FUNDS", "GLOBAL", "ADS", "ROI", "SPEED", "SECURE"][Math.floor(Math.random()*6)];
+                    ctx.fillText(text, Math.random() * width, Math.random() * height);
+                }
+
+                requestAnimationFrame(animateParticles);
+            }
+
+            setTimeout(() => {
+                initParticles();
+                animateParticles();
+            }, 100);
+        })();
+    </script>
+
+
+
 </body>
 </html>
