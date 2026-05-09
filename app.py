@@ -124,7 +124,7 @@ def scheduled_job():
     
     print("Articles generated. Triggering static site build...")
     try:
-        from build import freezer, app as build_app
+        from build_dist import freezer
         build_app.config['FREEZER_DEFAULT_MIMETYPE'] = 'text/html'
         build_app.config['FREEZER_REMOVE_EXTRA_FILES'] = False
         print(f"Building static site to: {build_app.config['FREEZER_DESTINATION']}")
@@ -135,8 +135,8 @@ def scheduled_job():
 
 def run_scheduler():
     """Background thread to run scheduled tasks"""
-    # Run the agent and then build the static site every day at 08:00 AM
-    schedule.every().day.at("08:00").do(scheduled_job)
+    # Run the agent and then build the static site every day at 00:00 (Midnight)
+    schedule.every().day.at("00:00").do(scheduled_job)
     
     # You can also run it every few minutes for testing if needed
     # schedule.every(10).minutes.do(scheduled_job)
