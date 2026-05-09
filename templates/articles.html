@@ -103,10 +103,46 @@
     <!-- Article List -->
     <section class="py-16">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Category Filters -->
+            <div class="flex flex-wrap justify-center gap-2 mb-12">
+                <button @click="currentFilter = 'all'" 
+                    :class="currentFilter === 'all' ? 'bg-blue-600 text-white shadow-md' : 'bg-white text-slate-600 hover:bg-slate-50 border border-slate-200'"
+                    class="px-5 py-2 rounded-full text-sm font-medium transition-all">
+                    <span x-show="lang === 'zh'">全部</span>
+                    <span x-show="lang === 'en'" x-cloak>All</span>
+                </button>
+                <button @click="currentFilter = 'news'" 
+                    :class="currentFilter === 'news' ? 'bg-blue-600 text-white shadow-md' : 'bg-white text-slate-600 hover:bg-slate-50 border border-slate-200'"
+                    class="px-5 py-2 rounded-full text-sm font-medium transition-all">
+                    <span x-show="lang === 'zh'">官方公告</span>
+                    <span x-show="lang === 'en'" x-cloak>Official News</span>
+                </button>
+                <button @click="currentFilter = 'insight'" 
+                    :class="currentFilter === 'insight' ? 'bg-blue-600 text-white shadow-md' : 'bg-white text-slate-600 hover:bg-slate-50 border border-slate-200'"
+                    class="px-5 py-2 rounded-full text-sm font-medium transition-all">
+                    <span x-show="lang === 'zh'">行业洞察</span>
+                    <span x-show="lang === 'en'" x-cloak>Insights</span>
+                </button>
+                <button @click="currentFilter = 'guide'" 
+                    :class="currentFilter === 'guide' ? 'bg-blue-600 text-white shadow-md' : 'bg-white text-slate-600 hover:bg-slate-50 border border-slate-200'"
+                    class="px-5 py-2 rounded-full text-sm font-medium transition-all">
+                    <span x-show="lang === 'zh'">投放指南</span>
+                    <span x-show="lang === 'en'" x-cloak>Ad Guide</span>
+                </button>
+                <button @click="currentFilter = 'update'" 
+                    :class="currentFilter === 'update' ? 'bg-blue-600 text-white shadow-md' : 'bg-white text-slate-600 hover:bg-slate-50 border border-slate-200'"
+                    class="px-5 py-2 rounded-full text-sm font-medium transition-all">
+                    <span x-show="lang === 'zh'">产品更新</span>
+                    <span x-show="lang === 'en'" x-cloak>Updates</span>
+                </button>
+            </div>
+
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Article Cards -->
                 {% for article in articles %}
-                    <article class="article-card card-hover flex flex-col h-full group cursor-pointer" onclick="window.location.href = '/article/{{ article.id }}'">
+                    <article x-show="currentFilter === 'all' || currentFilter === '{{ article.category_id }}'" x-transition
+                        class="article-card card-hover flex flex-col h-full group cursor-pointer" onclick="window.location.href = '/article/{{ article.id }}'">
                         <div class="relative h-56 overflow-hidden">
                             <img src="{{ article.image }}" alt="{{ article.title }}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
                             <div class="absolute top-4 left-4">
@@ -198,6 +234,7 @@
         function appData() {
             return {
                 lang: localStorage.getItem('yiyu_lang') || 'zh',
+                currentFilter: 'all',
                 t: translations,
                 toggleLang() {
                     this.lang = this.lang === 'zh' ? 'en' : 'zh';

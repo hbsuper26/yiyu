@@ -103,10 +103,85 @@
     <!-- Article List -->
     <section class="py-16">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Category Filters -->
+            <div class="flex flex-wrap justify-center gap-2 mb-12">
+                <button @click="currentFilter = 'all'" 
+                    :class="currentFilter === 'all' ? 'bg-blue-600 text-white shadow-md' : 'bg-white text-slate-600 hover:bg-slate-50 border border-slate-200'"
+                    class="px-5 py-2 rounded-full text-sm font-medium transition-all">
+                    <span x-show="lang === 'zh'">全部</span>
+                    <span x-show="lang === 'en'" x-cloak>All</span>
+                </button>
+                <button @click="currentFilter = 'news'" 
+                    :class="currentFilter === 'news' ? 'bg-blue-600 text-white shadow-md' : 'bg-white text-slate-600 hover:bg-slate-50 border border-slate-200'"
+                    class="px-5 py-2 rounded-full text-sm font-medium transition-all">
+                    <span x-show="lang === 'zh'">官方公告</span>
+                    <span x-show="lang === 'en'" x-cloak>Official News</span>
+                </button>
+                <button @click="currentFilter = 'insight'" 
+                    :class="currentFilter === 'insight' ? 'bg-blue-600 text-white shadow-md' : 'bg-white text-slate-600 hover:bg-slate-50 border border-slate-200'"
+                    class="px-5 py-2 rounded-full text-sm font-medium transition-all">
+                    <span x-show="lang === 'zh'">行业洞察</span>
+                    <span x-show="lang === 'en'" x-cloak>Insights</span>
+                </button>
+                <button @click="currentFilter = 'guide'" 
+                    :class="currentFilter === 'guide' ? 'bg-blue-600 text-white shadow-md' : 'bg-white text-slate-600 hover:bg-slate-50 border border-slate-200'"
+                    class="px-5 py-2 rounded-full text-sm font-medium transition-all">
+                    <span x-show="lang === 'zh'">投放指南</span>
+                    <span x-show="lang === 'en'" x-cloak>Ad Guide</span>
+                </button>
+                <button @click="currentFilter = 'update'" 
+                    :class="currentFilter === 'update' ? 'bg-blue-600 text-white shadow-md' : 'bg-white text-slate-600 hover:bg-slate-50 border border-slate-200'"
+                    class="px-5 py-2 rounded-full text-sm font-medium transition-all">
+                    <span x-show="lang === 'zh'">产品更新</span>
+                    <span x-show="lang === 'en'" x-cloak>Updates</span>
+                </button>
+            </div>
+
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Article Cards -->
                 
-                    <article class="article-card card-hover flex flex-col h-full group cursor-pointer" onclick="window.location.href = '/article/26'">
+                    <article x-show="currentFilter === 'all' || currentFilter === 'news'" x-transition
+                        class="article-card card-hover flex flex-col h-full group cursor-pointer" onclick="window.location.href = '/article/27'">
+                        <div class="relative h-56 overflow-hidden">
+                            <img src="https://picsum.photos/seed/yiyu7280/800/500" alt="【今日更新】以渔数媒发布最新智能分析引擎" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                            <div class="absolute top-4 left-4">
+                                <span class="px-3 py-1 bg-white/90 backdrop-blur-sm text-blue-600 text-xs font-bold rounded-lg shadow-sm">
+                                    <span x-show="lang === 'zh'">
+                                        官方公告
+                                        
+                                    </span>
+                                    <span x-show="lang === 'en'" x-cloak>
+                                        Official News
+                                        
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <div class="flex items-center gap-3 text-xs text-slate-500 mb-3">
+                                <span class="flex items-center gap-1"><i class="far fa-calendar-alt"></i> <span>2026-05-09</span></span>
+                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span>1341</span></span>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
+                                <span x-show="lang === 'zh'">【今日更新】以渔数媒发布最新智能分析引擎</span>
+                                <span x-show="lang === 'en'" x-cloak>Yiyu Digital Media Releases New Smart Analysis Engine</span>
+                            </h3>
+                            <p class="text-slate-600 text-sm line-clamp-2 mb-6 flex-grow">
+                                <span x-show="lang === 'zh'">以渔数媒今日正式上线了基于AI的广告数据智能分析引擎，助力出海企业精准提升ROI。</span>
+                                <span x-show="lang === 'en'" x-cloak>Yiyu Digital Media officially launched its AI-based ad data smart analysis engine today to help global enterprises accurately boost ROI.</span>
+                            </p>
+                            
+                            <div class="flex items-center justify-between mt-auto pt-4 border-t border-slate-100">
+                                <span class="text-blue-600 font-medium text-sm flex items-center gap-1 group-hover:translate-x-1 transition-transform ml-auto">
+                                    <span x-text="t[lang].card.readMore">阅读全文</span> <i class="fas fa-arrow-right text-xs"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </article>
+                
+                    <article x-show="currentFilter === 'all' || currentFilter === 'update'" x-transition
+                        class="article-card card-hover flex flex-col h-full group cursor-pointer" onclick="window.location.href = '/article/26'">
                         <div class="relative h-56 overflow-hidden">
                             <img src="https://picsum.photos/seed/yiyu1806/800/500" alt="企业级海外资金管理系统如何解决汇损问题" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
                             <div class="absolute top-4 left-4">
@@ -144,7 +219,8 @@
                         </div>
                     </article>
                 
-                    <article class="article-card card-hover flex flex-col h-full group cursor-pointer" onclick="window.location.href = '/article/25'">
+                    <article x-show="currentFilter === 'all' || currentFilter === 'update'" x-transition
+                        class="article-card card-hover flex flex-col h-full group cursor-pointer" onclick="window.location.href = '/article/25'">
                         <div class="relative h-56 overflow-hidden">
                             <img src="https://picsum.photos/seed/yiyu2676/800/500" alt="出海电商独立站引流最新玩法与转化优化" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
                             <div class="absolute top-4 left-4">
@@ -182,7 +258,8 @@
                         </div>
                     </article>
                 
-                    <article class="article-card card-hover flex flex-col h-full group cursor-pointer" onclick="window.location.href = '/article/24'">
+                    <article x-show="currentFilter === 'all' || currentFilter === 'insight'" x-transition
+                        class="article-card card-hover flex flex-col h-full group cursor-pointer" onclick="window.location.href = '/article/24'">
                         <div class="relative h-56 overflow-hidden">
                             <img src="https://picsum.photos/seed/yiyu3082/800/500" alt="海外游戏发行的买量成本(CAC)深度分析" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
                             <div class="absolute top-4 left-4">
@@ -220,7 +297,8 @@
                         </div>
                     </article>
                 
-                    <article class="article-card card-hover flex flex-col h-full group cursor-pointer" onclick="window.location.href = '/article/23'">
+                    <article x-show="currentFilter === 'all' || currentFilter === 'insight'" x-transition
+                        class="article-card card-hover flex flex-col h-full group cursor-pointer" onclick="window.location.href = '/article/23'">
                         <div class="relative h-56 overflow-hidden">
                             <img src="https://picsum.photos/seed/yiyu6387/800/500" alt="Meta (Facebook) 广告高转化素材设计指南" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
                             <div class="absolute top-4 left-4">
@@ -258,7 +336,8 @@
                         </div>
                     </article>
                 
-                    <article class="article-card card-hover flex flex-col h-full group cursor-pointer" onclick="window.location.href = '/article/22'">
+                    <article x-show="currentFilter === 'all' || currentFilter === 'news'" x-transition
+                        class="article-card card-hover flex flex-col h-full group cursor-pointer" onclick="window.location.href = '/article/22'">
                         <div class="relative h-56 overflow-hidden">
                             <img src="https://picsum.photos/seed/yiyu2245/800/500" alt="Google Ads 搜索广告账户防封技巧与申诉" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
                             <div class="absolute top-4 left-4">
@@ -296,7 +375,8 @@
                         </div>
                     </article>
                 
-                    <article class="article-card card-hover flex flex-col h-full group cursor-pointer" onclick="window.location.href = '/article/21'">
+                    <article x-show="currentFilter === 'all' || currentFilter === 'guide'" x-transition
+                        class="article-card card-hover flex flex-col h-full group cursor-pointer" onclick="window.location.href = '/article/21'">
                         <div class="relative h-56 overflow-hidden">
                             <img src="https://picsum.photos/seed/yiyu3236/800/500" alt="TikTok 短视频广告出海投放策略与ROI提升" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
                             <div class="absolute top-4 left-4">
@@ -374,6 +454,7 @@
         function appData() {
             return {
                 lang: localStorage.getItem('yiyu_lang') || 'zh',
+                currentFilter: 'all',
                 t: translations,
                 toggleLang() {
                     this.lang = this.lang === 'zh' ? 'en' : 'zh';
