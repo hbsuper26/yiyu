@@ -148,6 +148,7 @@ def generate_daily_articles():
     conn.commit()
     conn.close()
     print(f"\n[{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}] Batch generation complete. Successfully published {success_count}/6 articles.")
+    return success_count
 
 if __name__ == '__main__':
     generate_daily_articles()
