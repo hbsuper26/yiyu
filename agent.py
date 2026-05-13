@@ -1,6 +1,7 @@
 import sys
 import os
 import json
+import re
 from datetime import datetime
 import random
 import time
@@ -11,6 +12,7 @@ from minimax_utils import MiniMaxClient
 from db import get_db_connection
 
 DAILY_ARTICLE_COUNT = 3
+VALID_CATEGORY_IDS = {"news", "insight", "guide", "update"}
 
 def analyze_seo_performance():
     """
@@ -60,21 +62,106 @@ def generate_article(client, topic, seo_context):
     """
     
     user_prompt = f"请以《{topic}》为主题或灵感来源，生成一篇符合SEO标准的优质文章。"
-    
-    messages = [
-        {'role': 'system', 'content': system_prompt},
-        {'role': 'user', 'content': user_prompt}
+
+    last_error = None
+    for attempt in range(1, 4):
+        messages = [
+            {'role': 'system', 'content': system_prompt},
+            {'role': 'user', 'content': user_prompt}
+        ]
+
+        if attempt > 1:
+            messages.append({
+                'role': 'user',
+                'content': (
+                    "上一版输出未能被系统解析。请重新输出且务必满足："
+                    "1. 只返回一个合法 JSON 对象；"
+                    "2. 不要输出 ```json 代码块标记；"
+                    "3. 不要有任何前言、解释或结尾说明；"
+                    "4. 所有必填字段都要非空。"
+                )
+            })
+
+        response_text = client.text_chat(messages)
+        try:
+            return _parse_article_response(response_text)
+        except Exception as exc:
+            last_error = exc
+
+    raise RuntimeError(f"文章 JSON 解析失败，重试 3 次后仍未成功：{last_error}") from last_error
+
+
+def _strip_code_fence(text: str) -> str:
+    stripped = text.strip()
+    if stripped.startswith("```json"):
+        stripped = stripped[7:]
+    elif stripped.startswith("```"):
+        stripped = stripped[3:]
+    if stripped.endswith("```"):
+        stripped = stripped[:-3]
+    return stripped.strip()
+
+
+def _extract_json_object(text: str) -> str:
+    stripped = _strip_code_fence(text)
+    if not stripped:
+        raise ValueError("模型返回了空内容")
+
+    if stripped.startswith("{") and stripped.endswith("}"):
+        return stripped
+
+    match = re.search(r"\{[\s\S]*\}", stripped)
+    if not match:
+        raise ValueError(f"未在模型输出中找到 JSON 对象，输出前 200 字符：{stripped[:200]}")
+    return match.group(0)
+
+
+def _normalize_article_data(article_data: dict) -> dict:
+    required_fields = [
+        "title",
+        "title_en",
+        "summary",
+        "summary_en",
+        "category_id",
+        "content",
+        "content_en",
+        "seo_keywords",
     ]
-    
-    response_text = client.text_chat(messages, model='MiniMax-M2.7')
-    
-    # Clean up JSON formatting
-    if response_text.startswith("```json"):
-        response_text = response_text[7:-3].strip()
-    elif response_text.startswith("```"):
-        response_text = response_text[3:-3].strip()
-        
-    return json.loads(response_text)
+    for field in required_fields:
+        value = article_data.get(field)
+        if isinstance(value, str):
+            article_data[field] = value.strip()
+        if not article_data.get(field):
+            raise ValueError(f"字段 {field} 为空")
+
+    category_id = article_data["category_id"].strip().lower()
+    if category_id not in VALID_CATEGORY_IDS:
+        category_map = {
+            "official": "news",
+            "announcement": "news",
+            "analysis": "insight",
+            "insights": "insight",
+            "tutorial": "guide",
+            "howto": "guide",
+            "product": "update",
+        }
+        category_id = category_map.get(category_id, "insight")
+    article_data["category_id"] = category_id
+
+    if isinstance(article_data["seo_keywords"], list):
+        article_data["seo_keywords"] = ",".join(
+            str(item).strip() for item in article_data["seo_keywords"] if str(item).strip()
+        )
+
+    return article_data
+
+
+def _parse_article_response(response_text: str) -> dict:
+    json_text = _extract_json_object(response_text)
+    article_data = json.loads(json_text)
+    if not isinstance(article_data, dict):
+        raise ValueError("模型返回的 JSON 不是对象")
+    return _normalize_article_data(article_data)
 
 def generate_daily_articles():
     """
