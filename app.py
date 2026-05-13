@@ -1,4 +1,4 @@
-from flask import Flask, render_template, g
+from flask import Flask, render_template, g, request
 import os
 import sqlite3
 
@@ -106,8 +106,13 @@ def api_articles():
     from flask import jsonify
     db = get_db()
     cur = db.cursor()
-    # 默认返回最新生成的 10 篇文章
-    cur.execute('SELECT id, category_id, title, title_en, summary, summary_en, content, content_en, date, views, seo_keywords FROM articles ORDER BY id DESC LIMIT 10')
+    # 默认返回较完整的历史列表，避免静态导出后只剩最新几篇。
+    limit = request.args.get('limit', default=50, type=int) or 50
+    limit = max(1, min(limit, 200))
+    cur.execute(
+        'SELECT id, category_id, title, title_en, summary, summary_en, content, content_en, date, views, seo_keywords FROM articles ORDER BY id DESC LIMIT ?',
+        (limit,)
+    )
     db_articles = cur.fetchall()
     
     articles_list = [dict(row) for row in db_articles]
@@ -125,9 +130,9 @@ def scheduled_job():
     print("Articles generated. Triggering static site build...")
     try:
         from build_dist import freezer
-        build_app.config['FREEZER_DEFAULT_MIMETYPE'] = 'text/html'
-        build_app.config['FREEZER_REMOVE_EXTRA_FILES'] = False
-        print(f"Building static site to: {build_app.config['FREEZER_DESTINATION']}")
+        freezer.app.config['FREEZER_DEFAULT_MIMETYPE'] = 'text/html'
+        freezer.app.config['FREEZER_REMOVE_EXTRA_FILES'] = False
+        print(f"Building static site to: {freezer.app.config['FREEZER_DESTINATION']}")
         freezer.freeze()
         print("Build complete! Static site updated.")
     except Exception as e:

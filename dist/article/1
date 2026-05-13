@@ -93,77 +93,67 @@
                 <div class="mb-6">
                     <span class="px-3 py-1 bg-blue-50 text-blue-600 text-xs font-bold rounded-lg uppercase tracking-wider">
                         <span x-show="lang === 'zh'">
-                            行业洞察
+                            官方公告
                             
                         </span>
                         <span x-show="lang === 'en'" x-cloak>
-                            Insights
+                            Official News
                             
                         </span>
                     </span>
                 </div>
                 <h1 class="text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-900 leading-tight mb-8">
-                    <span x-show="lang === 'zh'">海外游戏发行的买量成本(CAC)深度分析</span>
-                    <span x-show="lang === 'en'" x-cloak>In-depth Analysis of User Acquisition Costs (CAC) in Global Game Publishing</span>
+                    <span x-show="lang === 'zh'">Meta 广告账户充值通道全面升级，秒级到账体验</span>
+                    <span x-show="lang === 'en'" x-cloak>Meta 广告账户充值通道全面升级，秒级到账体验</span>
                 </h1>
                 
                 <!-- Author Meta -->
                 <div class="flex items-center justify-center gap-6 text-sm text-slate-500 border-t border-b border-slate-100 py-4">
                     <div class="flex items-center gap-2">
                         <i class="far fa-calendar-alt"></i>
-                        <span>2026-04-27</span>
+                        <span>2026-04-23</span>
                     </div>
                     <div class="h-8 w-px bg-slate-200"></div>
                     <div class="flex items-center gap-2">
                         <i class="far fa-eye"></i>
-                        <span>3488 <span x-text="t[lang].reads">阅读</span></span>
+                        <span>1240 <span x-text="t[lang].reads">阅读</span></span>
                     </div>
                 </div>
             </header>
 
             <!-- Featured Image -->
             <div class="rounded-2xl overflow-hidden mb-12 shadow-2xl shadow-slate-200/50">
-                <img src="https://picsum.photos/seed/yiyu3082/800/500" alt="Featured Image" class="w-full h-[400px] object-cover">
+                <img src="https://picsum.photos/seed/yiyu1/800/500" alt="Featured Image" class="w-full h-[400px] object-cover">
             </div>
 
             <!-- Rich Text Body -->
             <div class="prose max-w-none" x-show="lang === 'zh'">
-                <h2>1. 游戏买量成本的严峻现状</h2>
-<p>2026年，全球手游市场的存量博弈愈演愈烈。特别是对于重度 SLG 和 RPG 游戏，北美和日韩等 T1 市场的单用户获取成本（CAC）已经突破了历史高点。<br />
-传统的“洗流量”模式已经失效，游戏发行商面临着巨大的利润压缩挑战。</p>
-<h2>2. LTV 与 CAC 的黄金比例</h2>
-<p>在买量发行的财务模型中，<strong>LTV（用户生命周期价值） > CAC</strong> 是铁律。<br />
-但很多企业忽略了回收周期的问题。</p>
+                <p>为了提升出海企业的资金流转效率，以渔数媒今日正式完成对 Meta 广告充值通道的底层架构升级。新系统采用全新的直连 API 方案，彻底告别人工审核与网关延迟，现已全面支持7x24小时秒级到账。</p>
+<h2>升级背景：跨境广告资金的效率痛点</h2>
+<p>在过去的两年里，我们收到了大量出海广告主的反馈。由于时差、网关结算周期以及传统代理商的人工审核流程，企业在投放关键节点（如大促、爆量期）往往会面临"有钱充不进去"的尴尬局面。资金链的卡顿，直接导致了广告组掉量、甚至错失市场机会。</p>
 <blockquote>
-<p>"如果你的 LTV 需要 12 个月才能覆盖 CAC，那你的现金流在第 3 个月就会断裂。"</p>
+<p>"时间就是ROI。当我们的 TikTok 素材跑出 1:5 的回报时，我们最怕的就是账户突然余额不足，而代理商恰好下班了。" —— 某头部出海游戏发行负责人</p>
 </blockquote>
-<h3>优化策略：</h3>
-<ul>
-<li><strong>前置付费点</strong>：通过新手礼包、首充优惠等设计，将用户的首付时间压缩到前 3 天。</li>
-<li><strong>精细化事件归因</strong>：不要只优化“安装（Install）”，必须向广告平台回传“完成深度事件（如到达10级、首次购买）”的数据，利用 AEO/VO 跑出高价值大 R 玩家。</li>
-</ul>
-<h2>3. 破圈：跨界联动与达人营销</h2>
-<p>为了降低对传统买量渠道的依赖，越来越多的游戏厂商开始探索品效合一的破圈玩法。<br />
-通过与当地知名动漫 IP 联动，或是邀请 YouTube 游戏主播进行专场直播，虽然前期的品牌曝光成本较高，但随之而来的长尾自然量（Organic Traffic）能极大程度地摊薄整体的综合获客成本。</p>
+<h2>本次升级的三大核心优势</h2>
+<p>针对上述痛点，以渔技术团队耗时 3 个月，重构了与海外清算银行及媒体方（Meta, Google, TikTok等）的对接链路。</p>
+<p><strong>1. 秒级极速到账</strong><br />
+资金划转指令毫秒级处理，充值成功后账户余额实时更新，不再等待。</p>
+<p><strong>2. 7x24小时服务</strong><br />
+完全自动化的充值链路，打破周末和节假日限制，深夜爆量也能随时补足弹药。</p>
             </div>
             <div class="prose max-w-none" x-show="lang === 'en'" x-cloak>
-                <h2>1. The Harsh Reality of Game UA Costs</h2>
-<p>In 2026, the zero-sum game in the global mobile gaming market has intensified. Particularly for mid-core and hardcore SLG and RPG titles, the Customer Acquisition Cost (CAC) in T1 markets like North America, Japan, and South Korea has broken historical highs.<br />
-The traditional "traffic washing" model is obsolete, leaving game publishers facing massive profit margin compression.</p>
-<h2>2. The Golden Ratio of LTV to CAC</h2>
-<p>In the financial modeling of UA publishing, <strong>LTV (Life Time Value) > CAC</strong> is an unbreakable rule.<br />
-However, many companies ignore the payback period.</p>
+                <p>为了提升出海企业的资金流转效率，以渔数媒今日正式完成对 Meta 广告充值通道的底层架构升级。新系统采用全新的直连 API 方案，彻底告别人工审核与网关延迟，现已全面支持7x24小时秒级到账。</p>
+<h2>升级背景：跨境广告资金的效率痛点</h2>
+<p>在过去的两年里，我们收到了大量出海广告主的反馈。由于时差、网关结算周期以及传统代理商的人工审核流程，企业在投放关键节点（如大促、爆量期）往往会面临"有钱充不进去"的尴尬局面。资金链的卡顿，直接导致了广告组掉量、甚至错失市场机会。</p>
 <blockquote>
-<p>"If your LTV takes 12 months to cover the CAC, your cash flow will break by month 3."</p>
+<p>"时间就是ROI。当我们的 TikTok 素材跑出 1:5 的回报时，我们最怕的就是账户突然余额不足，而代理商恰好下班了。" —— 某头部出海游戏发行负责人</p>
 </blockquote>
-<h3>Optimization Strategies:</h3>
-<ul>
-<li><strong>Front-loaded Monetization</strong>: Compress the user's first payment window to the first 3 days through beginner packs and first-top-up discounts.</li>
-<li><strong>Granular Event Attribution</strong>: Don't just optimize for "Installs." You must pass back data for "Deep Funnel Events" (e.g., reaching level 10, first purchase) to the ad network, leveraging AEO/VO to find high-value whales.</li>
-</ul>
-<h2>3. Breaking Boundaries: Cross-overs and Influencer Marketing</h2>
-<p>To reduce reliance on traditional UA channels, more publishers are exploring brand-performance integrated strategies.<br />
-Collaborating with well-known local anime IPs, or inviting YouTube gaming influencers for dedicated livestreams, may incur high initial branding costs. However, the subsequent long-tail organic traffic significantly dilutes the overall blended acquisition cost.</p>
+<h2>本次升级的三大核心优势</h2>
+<p>针对上述痛点，以渔技术团队耗时 3 个月，重构了与海外清算银行及媒体方（Meta, Google, TikTok等）的对接链路。</p>
+<p><strong>1. 秒级极速到账</strong><br />
+资金划转指令毫秒级处理，充值成功后账户余额实时更新，不再等待。</p>
+<p><strong>2. 7x24小时服务</strong><br />
+完全自动化的充值链路，打破周末和节假日限制，深夜爆量也能随时补足弹药。</p>
             </div>
 
             <!-- Social Share (Mock) -->

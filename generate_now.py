@@ -23,8 +23,10 @@ def main():
         print("✅ 打包完成！最新的页面已生成在 dist 目录下。")
         
         print("\n🎉 全部操作成功！您现在可以打开 Sourcetree 提交变更了。")
+        return 0
     except Exception as e:
         print(f"\n❌ 发生错误: {e}")
+        raise
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())
