@@ -10,6 +10,8 @@ sys.path.append(os.path.dirname(__file__))
 from minimax_utils import MiniMaxClient
 from db import get_db_connection
 
+DAILY_ARTICLE_COUNT = 3
+
 def analyze_seo_performance():
     """
     Analyzes the database for high-performing articles (by views)
@@ -76,9 +78,12 @@ def generate_article(client, topic, seo_context):
 
 def generate_daily_articles():
     """
-    Generates a batch of 6 articles, utilizing SEO feedback from previous runs.
+    Generates a smaller daily batch to keep scheduled runs stable.
     """
-    print(f"[{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}] Starting AI Agent to generate 6 daily articles...")
+    print(
+        f"[{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}] "
+        f"Starting AI Agent to generate {DAILY_ARTICLE_COUNT} daily articles..."
+    )
     
     client = MiniMaxClient()
     seo_context = analyze_seo_performance()
@@ -97,15 +102,14 @@ def generate_daily_articles():
         "如何通过精细化账户架构提升投放效率"
     ]
     
-    # Select 6 unique topics for today's batch
-    daily_topics = random.sample(base_topics, 6)
+    daily_topics = random.sample(base_topics, DAILY_ARTICLE_COUNT)
     
     conn = get_db_connection()
     c = conn.cursor()
     
     success_count = 0
     for i, topic in enumerate(daily_topics):
-        print(f"\nGenerating article {i+1}/6: {topic}")
+        print(f"\nGenerating article {i+1}/{DAILY_ARTICLE_COUNT}: {topic}")
         try:
             article_data = generate_article(client, topic, seo_context)
             
@@ -137,7 +141,7 @@ def generate_daily_articles():
             success_count += 1
             print(f"Success: {article_data['title']}")
             
-            # Sleep slightly to avoid rate limiting
+            # Briefly pause between requests to reduce throttling risk in scheduled runs.
             time.sleep(2)
             
         except Exception as e:
@@ -145,7 +149,10 @@ def generate_daily_articles():
             
     conn.commit()
     conn.close()
-    print(f"\n[{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}] Batch generation complete. Successfully published {success_count}/6 articles.")
+    print(
+        f"\n[{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}] Batch generation complete. "
+        f"Successfully published {success_count}/{DAILY_ARTICLE_COUNT} articles."
+    )
     return success_count
 
 if __name__ == '__main__':
