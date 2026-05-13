@@ -142,6 +142,123 @@
                 <!-- Article Cards -->
                 
                     <article x-show="currentFilter === 'all' || currentFilter === 'insight'" x-transition
+                        class="article-card card-hover flex flex-col h-full group cursor-pointer" onclick="window.location.href = '/article/47'">
+                        <div class="relative h-56 overflow-hidden">
+                            <img src="https://picsum.photos/seed/yiyu4629/800/500" alt="出海合规：Meta、Google、TikTok三大平台最新广告政策深度解读" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                            <div class="absolute top-4 left-4">
+                                <span class="px-3 py-1 bg-white/90 backdrop-blur-sm text-blue-600 text-xs font-bold rounded-lg shadow-sm">
+                                    <span x-show="lang === 'zh'">
+                                        行业洞察
+                                        
+                                    </span>
+                                    <span x-show="lang === 'en'" x-cloak>
+                                        Insights
+                                        
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <div class="flex items-center gap-3 text-xs text-slate-500 mb-3">
+                                <span class="flex items-center gap-1"><i class="far fa-calendar-alt"></i> <span>2026-05-13</span></span>
+                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span>89</span></span>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
+                                <span x-show="lang === 'zh'">出海合规：Meta、Google、TikTok三大平台最新广告政策深度解读</span>
+                                <span x-show="lang === 'en'" x-cloak>Compliance in Overseas Markets: In-Depth Analysis of Latest Advertising Policies Across Meta, Google, and TikTok</span>
+                            </h3>
+                            <p class="text-slate-600 text-sm line-clamp-2 mb-6 flex-grow">
+                                <span x-show="lang === 'zh'">深度解析Meta、Google、TikTok三大主流出海广告平台的最新合规政策，涵盖数据隐私、广告审核、资金流转等关键领域，助力出海企业规避风险、提升投放效率。</span>
+                                <span x-show="lang === 'en'" x-cloak>An in-depth analysis of the latest compliance policies across Meta, Google, and TikTok—the three major overseas advertising platforms—covering data privacy, ad review, and fund management to help global businesses mitigate risks and improve ad performance.</span>
+                            </p>
+                            
+                            <div class="flex items-center justify-between mt-auto pt-4 border-t border-slate-100">
+                                <span class="text-blue-600 font-medium text-sm flex items-center gap-1 group-hover:translate-x-1 transition-transform ml-auto">
+                                    <span x-text="t[lang].card.readMore">阅读全文</span> <i class="fas fa-arrow-right text-xs"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </article>
+                
+                    <article x-show="currentFilter === 'all' || currentFilter === 'guide'" x-transition
+                        class="article-card card-hover flex flex-col h-full group cursor-pointer" onclick="window.location.href = '/article/46'">
+                        <div class="relative h-56 overflow-hidden">
+                            <img src="https://picsum.photos/seed/yiyu261/800/500" alt="2024 Meta广告素材设计全攻略：提升转化率的实战技巧与案例分析" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                            <div class="absolute top-4 left-4">
+                                <span class="px-3 py-1 bg-white/90 backdrop-blur-sm text-blue-600 text-xs font-bold rounded-lg shadow-sm">
+                                    <span x-show="lang === 'zh'">
+                                        投放指南
+                                        
+                                    </span>
+                                    <span x-show="lang === 'en'" x-cloak>
+                                        Ad Guide
+                                        
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <div class="flex items-center gap-3 text-xs text-slate-500 mb-3">
+                                <span class="flex items-center gap-1"><i class="far fa-calendar-alt"></i> <span>2026-05-13</span></span>
+                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span>45</span></span>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
+                                <span x-show="lang === 'zh'">2024 Meta广告素材设计全攻略：提升转化率的实战技巧与案例分析</span>
+                                <span x-show="lang === 'en'" x-cloak>Complete Meta Ads Creative Design Guide 2024:实战 Tips and Case Studies to Boost Conversion Rates</span>
+                            </h3>
+                            <p class="text-slate-600 text-sm line-clamp-2 mb-6 flex-grow">
+                                <span x-show="lang === 'zh'">深度解析Meta广告素材设计从0到1的全流程，涵盖视觉设计、文案策略、受众匹配、A/B测试等核心环节，提供可落地的优化建议与真实案例数据，帮助出海营销人员显著提升广告ROI。</span>
+                                <span x-show="lang === 'en'" x-cloak>A comprehensive guide covering the full process of Meta ads creative design, including visual design, copywriting strategies, audience targeting, and A/B testing. Includes actionable optimization tips and real case data to help marketers significantly improve ad ROI.</span>
+                            </p>
+                            
+                            <div class="flex items-center justify-between mt-auto pt-4 border-t border-slate-100">
+                                <span class="text-blue-600 font-medium text-sm flex items-center gap-1 group-hover:translate-x-1 transition-transform ml-auto">
+                                    <span x-text="t[lang].card.readMore">阅读全文</span> <i class="fas fa-arrow-right text-xs"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </article>
+                
+                    <article x-show="currentFilter === 'all' || currentFilter === 'guide'" x-transition
+                        class="article-card card-hover flex flex-col h-full group cursor-pointer" onclick="window.location.href = '/article/45'">
+                        <div class="relative h-56 overflow-hidden">
+                            <img src="https://picsum.photos/seed/yiyu7484/800/500" alt="TikTok广告出海投放策略与ROI提升实战指南（2024版）" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                            <div class="absolute top-4 left-4">
+                                <span class="px-3 py-1 bg-white/90 backdrop-blur-sm text-blue-600 text-xs font-bold rounded-lg shadow-sm">
+                                    <span x-show="lang === 'zh'">
+                                        投放指南
+                                        
+                                    </span>
+                                    <span x-show="lang === 'en'" x-cloak>
+                                        Ad Guide
+                                        
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <div class="flex items-center gap-3 text-xs text-slate-500 mb-3">
+                                <span class="flex items-center gap-1"><i class="far fa-calendar-alt"></i> <span>2026-05-13</span></span>
+                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span>17</span></span>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
+                                <span x-show="lang === 'zh'">TikTok广告出海投放策略与ROI提升实战指南（2024版）</span>
+                                <span x-show="lang === 'en'" x-cloak>TikTok Advertising Overseas Strategy &amp; ROI Optimization Guide 2024</span>
+                            </h3>
+                            <p class="text-slate-600 text-sm line-clamp-2 mb-6 flex-grow">
+                                <span x-show="lang === 'zh'">本文深入解析TikTok出海广告投放的全链路策略，从账户搭建、受众定向、素材创作到数据优化，提供可落地的实战方法和真实案例数据，帮助出海企业实现广告ROI的显著提升。</span>
+                                <span x-show="lang === 'en'" x-cloak>This comprehensive guide explores TikTok overseas advertising strategies, covering account setup, audience targeting, creative production, and performance optimization with actionable insights and real case data to help brands maximize their ROI.</span>
+                            </p>
+                            
+                            <div class="flex items-center justify-between mt-auto pt-4 border-t border-slate-100">
+                                <span class="text-blue-600 font-medium text-sm flex items-center gap-1 group-hover:translate-x-1 transition-transform ml-auto">
+                                    <span x-text="t[lang].card.readMore">阅读全文</span> <i class="fas fa-arrow-right text-xs"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </article>
+                
+                    <article x-show="currentFilter === 'all' || currentFilter === 'insight'" x-transition
                         class="article-card card-hover flex flex-col h-full group cursor-pointer" onclick="window.location.href = '/article/44'">
                         <div class="relative h-56 overflow-hidden">
                             <img src="https://picsum.photos/seed/yiyu-manual-106/800/500" alt="拉美本地支付与广告合规新趋势：如何降低拒付、汇损与代理链条风险" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
