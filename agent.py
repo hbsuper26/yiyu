@@ -2,7 +2,7 @@ import sys
 import os
 import json
 import re
-from datetime import datetime
+from datetime import datetime, timedelta, timezone
 import random
 import time
 
@@ -13,6 +13,10 @@ from db import get_db_connection
 
 DAILY_ARTICLE_COUNT = 3
 VALID_CATEGORY_IDS = {"news", "insight", "guide", "update"}
+BEIJING_TZ = timezone(timedelta(hours=8))
+
+def beijing_now():
+    return datetime.now(BEIJING_TZ)
 
 def analyze_seo_performance():
     """
@@ -168,7 +172,7 @@ def generate_daily_articles():
     Generates a smaller daily batch to keep scheduled runs stable.
     """
     print(
-        f"[{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}] "
+        f"[{beijing_now().strftime('%Y-%m-%d %H:%M:%S')}] "
         f"Starting AI Agent to generate {DAILY_ARTICLE_COUNT} daily articles..."
     )
     
@@ -204,7 +208,7 @@ def generate_daily_articles():
             seed = random.randint(100, 9999)
             image_url = f"https://picsum.photos/seed/yiyu{seed}/800/500"
             
-            date_str = datetime.now().strftime('%Y-%m-%d')
+            date_str = beijing_now().strftime('%Y-%m-%d')
             # Initial views, might be updated later by user traffic
             views = random.randint(10, 100) 
             
@@ -237,7 +241,7 @@ def generate_daily_articles():
     conn.commit()
     conn.close()
     print(
-        f"\n[{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}] Batch generation complete. "
+        f"\n[{beijing_now().strftime('%Y-%m-%d %H:%M:%S')}] Batch generation complete. "
         f"Successfully published {success_count}/{DAILY_ARTICLE_COUNT} articles."
     )
     return success_count
