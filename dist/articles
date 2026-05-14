@@ -142,6 +142,123 @@
                 <!-- Article Cards -->
                 
                     <article x-show="currentFilter === 'all' || currentFilter === 'guide'" x-transition
+                        class="article-card card-hover flex flex-col h-full group cursor-pointer" onclick="window.location.href = '/article/53'">
+                        <div class="relative h-56 overflow-hidden">
+                            <img src="https://picsum.photos/seed/yiyu1925/800/500" alt="海外游戏发行买量成本(CAC)深度分析：2024年最新优化策略与实战数据" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                            <div class="absolute top-4 left-4">
+                                <span class="px-3 py-1 bg-white/90 backdrop-blur-sm text-blue-600 text-xs font-bold rounded-lg shadow-sm">
+                                    <span x-show="lang === 'zh'">
+                                        投放指南
+                                        
+                                    </span>
+                                    <span x-show="lang === 'en'" x-cloak>
+                                        Ad Guide
+                                        
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <div class="flex items-center gap-3 text-xs text-slate-500 mb-3">
+                                <span class="flex items-center gap-1"><i class="far fa-calendar-alt"></i> <span>2026-05-15</span></span>
+                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span>64</span></span>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
+                                <span x-show="lang === 'zh'">海外游戏发行买量成本(CAC)深度分析：2024年最新优化策略与实战数据</span>
+                                <span x-show="lang === 'en'" x-cloak>Deep Dive into Customer Acquisition Cost (CAC) for Mobile Game Publishing: 2024 Optimization Strategies with Real-World Data</span>
+                            </h3>
+                            <p class="text-slate-600 text-sm line-clamp-2 mb-6 flex-grow">
+                                <span x-show="lang === 'zh'">本文深入分析2024年海外游戏发行买量成本（CAC）的最新趋势，涵盖不同区域市场、不同游戏类型的CAC差异，并提供基于实战数据的优化策略，帮助游戏厂商降低获客成本、提升ROI。</span>
+                                <span x-show="lang === 'en'" x-cloak>This comprehensive guide analyzes the 2024 mobile game CAC trends across different markets and genres, providing data-driven optimization strategies to help game publishers reduce acquisition costs and maximize ROI.</span>
+                            </p>
+                            
+                            <div class="flex items-center justify-between mt-auto pt-4 border-t border-slate-100">
+                                <span class="text-blue-600 font-medium text-sm flex items-center gap-1 group-hover:translate-x-1 transition-transform ml-auto">
+                                    <span x-text="t[lang].card.readMore">阅读全文</span> <i class="fas fa-arrow-right text-xs"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </article>
+                
+                    <article x-show="currentFilter === 'all' || currentFilter === 'guide'" x-transition
+                        class="article-card card-hover flex flex-col h-full group cursor-pointer" onclick="window.location.href = '/article/52'">
+                        <div class="relative h-56 overflow-hidden">
+                            <img src="https://picsum.photos/seed/yiyu4913/800/500" alt="Google Ads搜索广告账户防封指南：2024年最新防护策略与高效申诉技巧" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                            <div class="absolute top-4 left-4">
+                                <span class="px-3 py-1 bg-white/90 backdrop-blur-sm text-blue-600 text-xs font-bold rounded-lg shadow-sm">
+                                    <span x-show="lang === 'zh'">
+                                        投放指南
+                                        
+                                    </span>
+                                    <span x-show="lang === 'en'" x-cloak>
+                                        Ad Guide
+                                        
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <div class="flex items-center gap-3 text-xs text-slate-500 mb-3">
+                                <span class="flex items-center gap-1"><i class="far fa-calendar-alt"></i> <span>2026-05-15</span></span>
+                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span>26</span></span>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
+                                <span x-show="lang === 'zh'">Google Ads搜索广告账户防封指南：2024年最新防护策略与高效申诉技巧</span>
+                                <span x-show="lang === 'en'" x-cloak>Google Ads Search Account Suspension Prevention: 2024 Latest Protection Strategies and Effective Appeal Techniques</span>
+                            </h3>
+                            <p class="text-slate-600 text-sm line-clamp-2 mb-6 flex-grow">
+                                <span x-show="lang === 'zh'">深度解析Google Ads账户被封的常见原因，提供系统性防护策略与高效申诉实操指南，涵盖政策合规检查、支付安全设置、账户健康监控及申诉文案模板，帮助出海企业降低账户风险，提升广告投放稳定性。</span>
+                                <span x-show="lang === 'en'" x-cloak>In-depth analysis of common causes for Google Ads account suspension, providing systematic prevention strategies and practical appeal techniques, covering policy compliance checks, payment security settings, account health monitoring, and appeal template guides.</span>
+                            </p>
+                            
+                            <div class="flex items-center justify-between mt-auto pt-4 border-t border-slate-100">
+                                <span class="text-blue-600 font-medium text-sm flex items-center gap-1 group-hover:translate-x-1 transition-transform ml-auto">
+                                    <span x-text="t[lang].card.readMore">阅读全文</span> <i class="fas fa-arrow-right text-xs"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </article>
+                
+                    <article x-show="currentFilter === 'all' || currentFilter === 'insight'" x-transition
+                        class="article-card card-hover flex flex-col h-full group cursor-pointer" onclick="window.location.href = '/article/51'">
+                        <div class="relative h-56 overflow-hidden">
+                            <img src="https://picsum.photos/seed/yiyu8031/800/500" alt="企业级海外资金管理系统如何解决汇损问题：出海企业的核心痛点与解决方案" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                            <div class="absolute top-4 left-4">
+                                <span class="px-3 py-1 bg-white/90 backdrop-blur-sm text-blue-600 text-xs font-bold rounded-lg shadow-sm">
+                                    <span x-show="lang === 'zh'">
+                                        行业洞察
+                                        
+                                    </span>
+                                    <span x-show="lang === 'en'" x-cloak>
+                                        Insights
+                                        
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <div class="flex items-center gap-3 text-xs text-slate-500 mb-3">
+                                <span class="flex items-center gap-1"><i class="far fa-calendar-alt"></i> <span>2026-05-15</span></span>
+                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span>89</span></span>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
+                                <span x-show="lang === 'zh'">企业级海外资金管理系统如何解决汇损问题：出海企业的核心痛点与解决方案</span>
+                                <span x-show="lang === 'en'" x-cloak>How Enterprise Overseas Fund Management Systems Solve Foreign Exchange Loss Problems: Core Pain Points and Solutions for Global Businesses</span>
+                            </h3>
+                            <p class="text-slate-600 text-sm line-clamp-2 mb-6 flex-grow">
+                                <span x-show="lang === 'zh'">深度解析出海企业在跨境资金管理中面临的汇损挑战，探讨企业级海外资金管理系统如何通过智能汇率对冲、实时监控、统一结算等核心功能帮助企业有效降低汇损成本，提升资金使用效率。</span>
+                                <span x-show="lang === 'en'" x-cloak>An in-depth analysis of the foreign exchange loss challenges faced by global businesses in cross-border fund management, exploring how enterprise-level overseas fund management systems help businesses effectively reduce exchange losses through intelligent currency hedging, real-time monitoring, and unified settlement.</span>
+                            </p>
+                            
+                            <div class="flex items-center justify-between mt-auto pt-4 border-t border-slate-100">
+                                <span class="text-blue-600 font-medium text-sm flex items-center gap-1 group-hover:translate-x-1 transition-transform ml-auto">
+                                    <span x-text="t[lang].card.readMore">阅读全文</span> <i class="fas fa-arrow-right text-xs"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </article>
+                
+                    <article x-show="currentFilter === 'all' || currentFilter === 'guide'" x-transition
                         class="article-card card-hover flex flex-col h-full group cursor-pointer" onclick="window.location.href = '/article/50'">
                         <div class="relative h-56 overflow-hidden">
                             <img src="https://picsum.photos/seed/yiyu8761/800/500" alt="Google Ads搜索广告账户防封指南：2024年最新防护策略与申诉实操详解" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
