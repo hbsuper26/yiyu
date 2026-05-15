@@ -3,6 +3,9 @@ import re
 with open('templates/index.html', 'r', encoding='utf-8') as f:
     html = f.read()
 
+
+    
+
 # Make the elements inside hero section relative so they stay above the canvas
 html = html.replace('<div class="grid lg:grid-cols-2 gap-12 items-center">', '<div class="grid lg:grid-cols-2 gap-12 items-center relative z-10 pointer-events-none">')
 
