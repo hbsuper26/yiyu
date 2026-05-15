@@ -116,7 +116,7 @@
                     <div class="h-8 w-px bg-slate-200"></div>
                     <div class="flex items-center gap-2">
                         <i class="far fa-eye"></i>
-                        <span>1649 <span x-text="t[lang].reads">阅读</span></span>
+                        <span><span id="article-view-count" data-article-id="16" data-base-views="1649">1649</span> <span x-text="t[lang].reads">阅读</span></span>
                     </div>
                 </div>
             </header>
@@ -245,5 +245,33 @@
             }
         }
     }
+
+    async function incrementArticleView() {
+        const counter = document.getElementById('article-view-count');
+        if (!counter) return;
+
+        const articleId = counter.dataset.articleId;
+        const baseViews = Number.parseInt(counter.dataset.baseViews || counter.textContent, 10) || 0;
+        if (!articleId) return;
+
+        try {
+            const response = await fetch(`/api/article-view/${encodeURIComponent(articleId)}`, {
+                method: 'POST',
+                headers: { 'content-type': 'application/json' },
+                body: JSON.stringify({ baseViews }),
+                cache: 'no-store'
+            });
+            if (!response.ok) return;
+            const payload = await response.json();
+            const views = Number.parseInt(payload.views, 10);
+            if (Number.isInteger(views) && views > baseViews) {
+                counter.textContent = views.toLocaleString();
+            }
+        } catch (error) {
+            console.debug('Article view increment skipped:', error);
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', incrementArticleView);
 </script>
 </html>

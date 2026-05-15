@@ -161,7 +161,7 @@
                         <div class="p-6 flex flex-col flex-grow">
                             <div class="flex items-center gap-3 text-xs text-slate-500 mb-3">
                                 <span class="flex items-center gap-1"><i class="far fa-calendar-alt"></i> <span>2026-05-15</span></span>
-                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span>64</span></span>
+                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span class="article-view-count" data-article-id="53" data-base-views="64">64</span></span>
                             </div>
                             <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
                                 <span x-show="lang === 'zh'">海外游戏发行买量成本(CAC)深度分析：2024年最新优化策略与实战数据</span>
@@ -200,7 +200,7 @@
                         <div class="p-6 flex flex-col flex-grow">
                             <div class="flex items-center gap-3 text-xs text-slate-500 mb-3">
                                 <span class="flex items-center gap-1"><i class="far fa-calendar-alt"></i> <span>2026-05-15</span></span>
-                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span>26</span></span>
+                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span class="article-view-count" data-article-id="52" data-base-views="26">26</span></span>
                             </div>
                             <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
                                 <span x-show="lang === 'zh'">Google Ads搜索广告账户防封指南：2024年最新防护策略与高效申诉技巧</span>
@@ -239,7 +239,7 @@
                         <div class="p-6 flex flex-col flex-grow">
                             <div class="flex items-center gap-3 text-xs text-slate-500 mb-3">
                                 <span class="flex items-center gap-1"><i class="far fa-calendar-alt"></i> <span>2026-05-15</span></span>
-                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span>89</span></span>
+                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span class="article-view-count" data-article-id="51" data-base-views="89">89</span></span>
                             </div>
                             <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
                                 <span x-show="lang === 'zh'">企业级海外资金管理系统如何解决汇损问题：出海企业的核心痛点与解决方案</span>
@@ -278,7 +278,7 @@
                         <div class="p-6 flex flex-col flex-grow">
                             <div class="flex items-center gap-3 text-xs text-slate-500 mb-3">
                                 <span class="flex items-center gap-1"><i class="far fa-calendar-alt"></i> <span>2026-05-14</span></span>
-                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span>52</span></span>
+                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span class="article-view-count" data-article-id="50" data-base-views="52">52</span></span>
                             </div>
                             <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
                                 <span x-show="lang === 'zh'">Google Ads搜索广告账户防封指南：2024年最新防护策略与申诉实操详解</span>
@@ -317,7 +317,7 @@
                         <div class="p-6 flex flex-col flex-grow">
                             <div class="flex items-center gap-3 text-xs text-slate-500 mb-3">
                                 <span class="flex items-center gap-1"><i class="far fa-calendar-alt"></i> <span>2026-05-14</span></span>
-                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span>94</span></span>
+                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span class="article-view-count" data-article-id="49" data-base-views="94">94</span></span>
                             </div>
                             <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
                                 <span x-show="lang === 'zh'">Meta广告高转化素材设计完整指南：2024-2025创意优化实战手册</span>
@@ -356,7 +356,7 @@
                         <div class="p-6 flex flex-col flex-grow">
                             <div class="flex items-center gap-3 text-xs text-slate-500 mb-3">
                                 <span class="flex items-center gap-1"><i class="far fa-calendar-alt"></i> <span>2026-05-14</span></span>
-                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span>47</span></span>
+                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span class="article-view-count" data-article-id="48" data-base-views="47">47</span></span>
                             </div>
                             <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
                                 <span x-show="lang === 'zh'">如何通过精细化账户架构提升海外广告投放效率：实战指南与优化策略</span>
@@ -395,7 +395,7 @@
                         <div class="p-6 flex flex-col flex-grow">
                             <div class="flex items-center gap-3 text-xs text-slate-500 mb-3">
                                 <span class="flex items-center gap-1"><i class="far fa-calendar-alt"></i> <span>2026-05-13</span></span>
-                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span>89</span></span>
+                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span class="article-view-count" data-article-id="47" data-base-views="89">89</span></span>
                             </div>
                             <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
                                 <span x-show="lang === 'zh'">出海合规：Meta、Google、TikTok三大平台最新广告政策深度解读</span>
@@ -434,7 +434,7 @@
                         <div class="p-6 flex flex-col flex-grow">
                             <div class="flex items-center gap-3 text-xs text-slate-500 mb-3">
                                 <span class="flex items-center gap-1"><i class="far fa-calendar-alt"></i> <span>2026-05-13</span></span>
-                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span>45</span></span>
+                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span class="article-view-count" data-article-id="46" data-base-views="45">45</span></span>
                             </div>
                             <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
                                 <span x-show="lang === 'zh'">2024 Meta广告素材设计全攻略：提升转化率的实战技巧与案例分析</span>
@@ -473,7 +473,7 @@
                         <div class="p-6 flex flex-col flex-grow">
                             <div class="flex items-center gap-3 text-xs text-slate-500 mb-3">
                                 <span class="flex items-center gap-1"><i class="far fa-calendar-alt"></i> <span>2026-05-13</span></span>
-                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span>17</span></span>
+                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span class="article-view-count" data-article-id="45" data-base-views="17">17</span></span>
                             </div>
                             <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
                                 <span x-show="lang === 'zh'">TikTok广告出海投放策略与ROI提升实战指南（2024版）</span>
@@ -512,7 +512,7 @@
                         <div class="p-6 flex flex-col flex-grow">
                             <div class="flex items-center gap-3 text-xs text-slate-500 mb-3">
                                 <span class="flex items-center gap-1"><i class="far fa-calendar-alt"></i> <span>2026-05-11</span></span>
-                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span>2297</span></span>
+                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span class="article-view-count" data-article-id="44" data-base-views="2297">2297</span></span>
                             </div>
                             <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
                                 <span x-show="lang === 'zh'">拉美本地支付与广告合规新趋势：如何降低拒付、汇损与代理链条风险</span>
@@ -551,7 +551,7 @@
                         <div class="p-6 flex flex-col flex-grow">
                             <div class="flex items-center gap-3 text-xs text-slate-500 mb-3">
                                 <span class="flex items-center gap-1"><i class="far fa-calendar-alt"></i> <span>2026-05-11</span></span>
-                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span>3122</span></span>
+                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span class="article-view-count" data-article-id="43" data-base-views="3122">3122</span></span>
                             </div>
                             <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
                                 <span x-show="lang === 'zh'">以渔数媒多账户资金看板升级说明：预算预警、批量充值与异常留痕全面增强</span>
@@ -590,7 +590,7 @@
                         <div class="p-6 flex flex-col flex-grow">
                             <div class="flex items-center gap-3 text-xs text-slate-500 mb-3">
                                 <span class="flex items-center gap-1"><i class="far fa-calendar-alt"></i> <span>2026-05-11</span></span>
-                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span>2534</span></span>
+                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span class="article-view-count" data-article-id="42" data-base-views="2534">2534</span></span>
                             </div>
                             <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
                                 <span x-show="lang === 'zh'">Google Ads 搜索 + Performance Max 协同投放：高客单出海品牌的漏斗重构</span>
@@ -629,7 +629,7 @@
                         <div class="p-6 flex flex-col flex-grow">
                             <div class="flex items-center gap-3 text-xs text-slate-500 mb-3">
                                 <span class="flex items-center gap-1"><i class="far fa-calendar-alt"></i> <span>2026-05-11</span></span>
-                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span>2879</span></span>
+                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span class="article-view-count" data-article-id="41" data-base-views="2879">2879</span></span>
                             </div>
                             <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
                                 <span x-show="lang === 'zh'">TikTok Shop 冷启动投放作战手册：账户矩阵、预算节奏与素材迭代</span>
@@ -668,7 +668,7 @@
                         <div class="p-6 flex flex-col flex-grow">
                             <div class="flex items-center gap-3 text-xs text-slate-500 mb-3">
                                 <span class="flex items-center gap-1"><i class="far fa-calendar-alt"></i> <span>2026-05-11</span></span>
-                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span>2416</span></span>
+                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span class="article-view-count" data-article-id="40" data-base-views="2416">2416</span></span>
                             </div>
                             <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
                                 <span x-show="lang === 'zh'">东南亚与拉美广告账户资金效率基准：从充值成功率到回款周期的经营视角</span>
@@ -707,7 +707,7 @@
                         <div class="p-6 flex flex-col flex-grow">
                             <div class="flex items-center gap-3 text-xs text-slate-500 mb-3">
                                 <span class="flex items-center gap-1"><i class="far fa-calendar-alt"></i> <span>2026-05-11</span></span>
-                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span>2680</span></span>
+                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span class="article-view-count" data-article-id="39" data-base-views="2680">2680</span></span>
                             </div>
                             <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
                                 <span x-show="lang === 'zh'">2026 下半年 Meta 与 TikTok 开户政策变化：账户、资金、素材三线应对指南</span>
@@ -746,7 +746,7 @@
                         <div class="p-6 flex flex-col flex-grow">
                             <div class="flex items-center gap-3 text-xs text-slate-500 mb-3">
                                 <span class="flex items-center gap-1"><i class="far fa-calendar-alt"></i> <span>2026-05-11</span></span>
-                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span>1153</span></span>
+                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span class="article-view-count" data-article-id="38" data-base-views="1153">1153</span></span>
                             </div>
                             <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
                                 <span x-show="lang === 'zh'">企业级海外资金管理系统如何解决汇损问题</span>
@@ -785,7 +785,7 @@
                         <div class="p-6 flex flex-col flex-grow">
                             <div class="flex items-center gap-3 text-xs text-slate-500 mb-3">
                                 <span class="flex items-center gap-1"><i class="far fa-calendar-alt"></i> <span>2026-05-11</span></span>
-                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span>4161</span></span>
+                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span class="article-view-count" data-article-id="37" data-base-views="4161">4161</span></span>
                             </div>
                             <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
                                 <span x-show="lang === 'zh'">出海电商独立站引流最新玩法与转化优化</span>
@@ -824,7 +824,7 @@
                         <div class="p-6 flex flex-col flex-grow">
                             <div class="flex items-center gap-3 text-xs text-slate-500 mb-3">
                                 <span class="flex items-center gap-1"><i class="far fa-calendar-alt"></i> <span>2026-05-11</span></span>
-                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span>4302</span></span>
+                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span class="article-view-count" data-article-id="36" data-base-views="4302">4302</span></span>
                             </div>
                             <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
                                 <span x-show="lang === 'zh'">海外游戏发行的买量成本(CAC)深度分析</span>
@@ -863,7 +863,7 @@
                         <div class="p-6 flex flex-col flex-grow">
                             <div class="flex items-center gap-3 text-xs text-slate-500 mb-3">
                                 <span class="flex items-center gap-1"><i class="far fa-calendar-alt"></i> <span>2026-05-11</span></span>
-                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span>3010</span></span>
+                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span class="article-view-count" data-article-id="35" data-base-views="3010">3010</span></span>
                             </div>
                             <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
                                 <span x-show="lang === 'zh'">Meta (Facebook) 广告高转化素材设计指南</span>
@@ -902,7 +902,7 @@
                         <div class="p-6 flex flex-col flex-grow">
                             <div class="flex items-center gap-3 text-xs text-slate-500 mb-3">
                                 <span class="flex items-center gap-1"><i class="far fa-calendar-alt"></i> <span>2026-05-11</span></span>
-                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span>2825</span></span>
+                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span class="article-view-count" data-article-id="34" data-base-views="2825">2825</span></span>
                             </div>
                             <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
                                 <span x-show="lang === 'zh'">Google Ads 搜索广告账户防封技巧与申诉</span>
@@ -941,7 +941,7 @@
                         <div class="p-6 flex flex-col flex-grow">
                             <div class="flex items-center gap-3 text-xs text-slate-500 mb-3">
                                 <span class="flex items-center gap-1"><i class="far fa-calendar-alt"></i> <span>2026-05-11</span></span>
-                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span>4380</span></span>
+                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span class="article-view-count" data-article-id="33" data-base-views="4380">4380</span></span>
                             </div>
                             <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
                                 <span x-show="lang === 'zh'">TikTok 短视频广告出海投放策略与ROI提升</span>
@@ -980,7 +980,7 @@
                         <div class="p-6 flex flex-col flex-grow">
                             <div class="flex items-center gap-3 text-xs text-slate-500 mb-3">
                                 <span class="flex items-center gap-1"><i class="far fa-calendar-alt"></i> <span>2026-05-09</span></span>
-                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span>1002</span></span>
+                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span class="article-view-count" data-article-id="32" data-base-views="1002">1002</span></span>
                             </div>
                             <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
                                 <span x-show="lang === 'zh'">AI赋能出海：如何利用大模型批量生成多语种广告文案</span>
@@ -1019,7 +1019,7 @@
                         <div class="p-6 flex flex-col flex-grow">
                             <div class="flex items-center gap-3 text-xs text-slate-500 mb-3">
                                 <span class="flex items-center gap-1"><i class="far fa-calendar-alt"></i> <span>2026-05-09</span></span>
-                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span>819</span></span>
+                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span class="article-view-count" data-article-id="31" data-base-views="819">819</span></span>
                             </div>
                             <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
                                 <span x-show="lang === 'zh'">以渔数媒虚拟卡系统新增批量发卡功能</span>
@@ -1058,7 +1058,7 @@
                         <div class="p-6 flex flex-col flex-grow">
                             <div class="flex items-center gap-3 text-xs text-slate-500 mb-3">
                                 <span class="flex items-center gap-1"><i class="far fa-calendar-alt"></i> <span>2026-05-09</span></span>
-                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span>1707</span></span>
+                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span class="article-view-count" data-article-id="30" data-base-views="1707">1707</span></span>
                             </div>
                             <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
                                 <span x-show="lang === 'zh'">Google Performance Max (PMax) 广告爆量投放指南</span>
@@ -1097,7 +1097,7 @@
                         <div class="p-6 flex flex-col flex-grow">
                             <div class="flex items-center gap-3 text-xs text-slate-500 mb-3">
                                 <span class="flex items-center gap-1"><i class="far fa-calendar-alt"></i> <span>2026-05-09</span></span>
-                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span>1346</span></span>
+                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span class="article-view-count" data-article-id="29" data-base-views="1346">1346</span></span>
                             </div>
                             <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
                                 <span x-show="lang === 'zh'">东南亚电商市场：TikTok Shop 与 Shopee 流量对比</span>
@@ -1136,7 +1136,7 @@
                         <div class="p-6 flex flex-col flex-grow">
                             <div class="flex items-center gap-3 text-xs text-slate-500 mb-3">
                                 <span class="flex items-center gap-1"><i class="far fa-calendar-alt"></i> <span>2026-05-09</span></span>
-                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span>864</span></span>
+                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span class="article-view-count" data-article-id="28" data-base-views="864">864</span></span>
                             </div>
                             <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
                                 <span x-show="lang === 'zh'">2026年Meta官方代理商政策调整解读</span>
@@ -1175,7 +1175,7 @@
                         <div class="p-6 flex flex-col flex-grow">
                             <div class="flex items-center gap-3 text-xs text-slate-500 mb-3">
                                 <span class="flex items-center gap-1"><i class="far fa-calendar-alt"></i> <span>2026-05-09</span></span>
-                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span>1341</span></span>
+                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span class="article-view-count" data-article-id="27" data-base-views="1341">1341</span></span>
                             </div>
                             <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
                                 <span x-show="lang === 'zh'">【今日更新】以渔数媒发布最新智能分析引擎</span>
@@ -1214,7 +1214,7 @@
                         <div class="p-6 flex flex-col flex-grow">
                             <div class="flex items-center gap-3 text-xs text-slate-500 mb-3">
                                 <span class="flex items-center gap-1"><i class="far fa-calendar-alt"></i> <span>2026-04-27</span></span>
-                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span>3721</span></span>
+                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span class="article-view-count" data-article-id="26" data-base-views="3721">3721</span></span>
                             </div>
                             <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
                                 <span x-show="lang === 'zh'">企业级海外资金管理系统如何解决汇损问题</span>
@@ -1253,7 +1253,7 @@
                         <div class="p-6 flex flex-col flex-grow">
                             <div class="flex items-center gap-3 text-xs text-slate-500 mb-3">
                                 <span class="flex items-center gap-1"><i class="far fa-calendar-alt"></i> <span>2026-04-27</span></span>
-                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span>4267</span></span>
+                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span class="article-view-count" data-article-id="25" data-base-views="4267">4267</span></span>
                             </div>
                             <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
                                 <span x-show="lang === 'zh'">出海电商独立站引流最新玩法与转化优化</span>
@@ -1292,7 +1292,7 @@
                         <div class="p-6 flex flex-col flex-grow">
                             <div class="flex items-center gap-3 text-xs text-slate-500 mb-3">
                                 <span class="flex items-center gap-1"><i class="far fa-calendar-alt"></i> <span>2026-04-27</span></span>
-                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span>3488</span></span>
+                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span class="article-view-count" data-article-id="24" data-base-views="3488">3488</span></span>
                             </div>
                             <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
                                 <span x-show="lang === 'zh'">海外游戏发行的买量成本(CAC)深度分析</span>
@@ -1331,7 +1331,7 @@
                         <div class="p-6 flex flex-col flex-grow">
                             <div class="flex items-center gap-3 text-xs text-slate-500 mb-3">
                                 <span class="flex items-center gap-1"><i class="far fa-calendar-alt"></i> <span>2026-04-27</span></span>
-                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span>3600</span></span>
+                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span class="article-view-count" data-article-id="23" data-base-views="3600">3600</span></span>
                             </div>
                             <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
                                 <span x-show="lang === 'zh'">Meta (Facebook) 广告高转化素材设计指南</span>
@@ -1370,7 +1370,7 @@
                         <div class="p-6 flex flex-col flex-grow">
                             <div class="flex items-center gap-3 text-xs text-slate-500 mb-3">
                                 <span class="flex items-center gap-1"><i class="far fa-calendar-alt"></i> <span>2026-04-27</span></span>
-                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span>1069</span></span>
+                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span class="article-view-count" data-article-id="22" data-base-views="1069">1069</span></span>
                             </div>
                             <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
                                 <span x-show="lang === 'zh'">Google Ads 搜索广告账户防封技巧与申诉</span>
@@ -1409,7 +1409,7 @@
                         <div class="p-6 flex flex-col flex-grow">
                             <div class="flex items-center gap-3 text-xs text-slate-500 mb-3">
                                 <span class="flex items-center gap-1"><i class="far fa-calendar-alt"></i> <span>2026-04-27</span></span>
-                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span>3289</span></span>
+                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span class="article-view-count" data-article-id="21" data-base-views="3289">3289</span></span>
                             </div>
                             <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
                                 <span x-show="lang === 'zh'">TikTok 短视频广告出海投放策略与ROI提升</span>
@@ -1448,7 +1448,7 @@
                         <div class="p-6 flex flex-col flex-grow">
                             <div class="flex items-center gap-3 text-xs text-slate-500 mb-3">
                                 <span class="flex items-center gap-1"><i class="far fa-calendar-alt"></i> <span>2026-04-27</span></span>
-                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span>565</span></span>
+                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span class="article-view-count" data-article-id="20" data-base-views="565">565</span></span>
                             </div>
                             <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
                                 <span x-show="lang === 'zh'">企业级海外资金管理系统如何解决汇损问题</span>
@@ -1487,7 +1487,7 @@
                         <div class="p-6 flex flex-col flex-grow">
                             <div class="flex items-center gap-3 text-xs text-slate-500 mb-3">
                                 <span class="flex items-center gap-1"><i class="far fa-calendar-alt"></i> <span>2026-04-27</span></span>
-                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span>945</span></span>
+                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span class="article-view-count" data-article-id="19" data-base-views="945">945</span></span>
                             </div>
                             <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
                                 <span x-show="lang === 'zh'">出海电商独立站引流最新玩法与转化优化</span>
@@ -1526,7 +1526,7 @@
                         <div class="p-6 flex flex-col flex-grow">
                             <div class="flex items-center gap-3 text-xs text-slate-500 mb-3">
                                 <span class="flex items-center gap-1"><i class="far fa-calendar-alt"></i> <span>2026-04-27</span></span>
-                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span>3288</span></span>
+                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span class="article-view-count" data-article-id="18" data-base-views="3288">3288</span></span>
                             </div>
                             <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
                                 <span x-show="lang === 'zh'">海外游戏发行的买量成本(CAC)深度分析</span>
@@ -1565,7 +1565,7 @@
                         <div class="p-6 flex flex-col flex-grow">
                             <div class="flex items-center gap-3 text-xs text-slate-500 mb-3">
                                 <span class="flex items-center gap-1"><i class="far fa-calendar-alt"></i> <span>2026-04-27</span></span>
-                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span>4966</span></span>
+                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span class="article-view-count" data-article-id="17" data-base-views="4966">4966</span></span>
                             </div>
                             <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
                                 <span x-show="lang === 'zh'">Meta (Facebook) 广告高转化素材设计指南</span>
@@ -1604,7 +1604,7 @@
                         <div class="p-6 flex flex-col flex-grow">
                             <div class="flex items-center gap-3 text-xs text-slate-500 mb-3">
                                 <span class="flex items-center gap-1"><i class="far fa-calendar-alt"></i> <span>2026-04-27</span></span>
-                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span>1649</span></span>
+                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span class="article-view-count" data-article-id="16" data-base-views="1649">1649</span></span>
                             </div>
                             <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
                                 <span x-show="lang === 'zh'">Google Ads 搜索广告账户防封技巧与申诉</span>
@@ -1643,7 +1643,7 @@
                         <div class="p-6 flex flex-col flex-grow">
                             <div class="flex items-center gap-3 text-xs text-slate-500 mb-3">
                                 <span class="flex items-center gap-1"><i class="far fa-calendar-alt"></i> <span>2026-04-27</span></span>
-                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span>1741</span></span>
+                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span class="article-view-count" data-article-id="15" data-base-views="1741">1741</span></span>
                             </div>
                             <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
                                 <span x-show="lang === 'zh'">TikTok 短视频广告出海投放策略与ROI提升</span>
@@ -1682,7 +1682,7 @@
                         <div class="p-6 flex flex-col flex-grow">
                             <div class="flex items-center gap-3 text-xs text-slate-500 mb-3">
                                 <span class="flex items-center gap-1"><i class="far fa-calendar-alt"></i> <span>2026-04-27</span></span>
-                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span>1877</span></span>
+                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span class="article-view-count" data-article-id="14" data-base-views="1877">1877</span></span>
                             </div>
                             <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
                                 <span x-show="lang === 'zh'">企业级海外资金管理系统如何解决汇损问题</span>
@@ -1721,7 +1721,7 @@
                         <div class="p-6 flex flex-col flex-grow">
                             <div class="flex items-center gap-3 text-xs text-slate-500 mb-3">
                                 <span class="flex items-center gap-1"><i class="far fa-calendar-alt"></i> <span>2026-04-27</span></span>
-                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span>2495</span></span>
+                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span class="article-view-count" data-article-id="13" data-base-views="2495">2495</span></span>
                             </div>
                             <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
                                 <span x-show="lang === 'zh'">出海电商独立站引流最新玩法与转化优化</span>
@@ -1760,7 +1760,7 @@
                         <div class="p-6 flex flex-col flex-grow">
                             <div class="flex items-center gap-3 text-xs text-slate-500 mb-3">
                                 <span class="flex items-center gap-1"><i class="far fa-calendar-alt"></i> <span>2026-04-27</span></span>
-                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span>1857</span></span>
+                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span class="article-view-count" data-article-id="12" data-base-views="1857">1857</span></span>
                             </div>
                             <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
                                 <span x-show="lang === 'zh'">海外游戏发行的买量成本(CAC)深度分析</span>
@@ -1799,7 +1799,7 @@
                         <div class="p-6 flex flex-col flex-grow">
                             <div class="flex items-center gap-3 text-xs text-slate-500 mb-3">
                                 <span class="flex items-center gap-1"><i class="far fa-calendar-alt"></i> <span>2026-04-27</span></span>
-                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span>2316</span></span>
+                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span class="article-view-count" data-article-id="11" data-base-views="2316">2316</span></span>
                             </div>
                             <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
                                 <span x-show="lang === 'zh'">Meta (Facebook) 广告高转化素材设计指南</span>
@@ -1838,7 +1838,7 @@
                         <div class="p-6 flex flex-col flex-grow">
                             <div class="flex items-center gap-3 text-xs text-slate-500 mb-3">
                                 <span class="flex items-center gap-1"><i class="far fa-calendar-alt"></i> <span>2026-04-27</span></span>
-                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span>3053</span></span>
+                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span class="article-view-count" data-article-id="10" data-base-views="3053">3053</span></span>
                             </div>
                             <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
                                 <span x-show="lang === 'zh'">Google Ads 搜索广告账户防封技巧与申诉</span>
@@ -1877,7 +1877,7 @@
                         <div class="p-6 flex flex-col flex-grow">
                             <div class="flex items-center gap-3 text-xs text-slate-500 mb-3">
                                 <span class="flex items-center gap-1"><i class="far fa-calendar-alt"></i> <span>2026-04-27</span></span>
-                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span>491</span></span>
+                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span class="article-view-count" data-article-id="9" data-base-views="491">491</span></span>
                             </div>
                             <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
                                 <span x-show="lang === 'zh'">TikTok 短视频广告出海投放策略与ROI提升</span>
@@ -1916,7 +1916,7 @@
                         <div class="p-6 flex flex-col flex-grow">
                             <div class="flex items-center gap-3 text-xs text-slate-500 mb-3">
                                 <span class="flex items-center gap-1"><i class="far fa-calendar-alt"></i> <span>2026-04-27</span></span>
-                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span>96</span></span>
+                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span class="article-view-count" data-article-id="8" data-base-views="96">96</span></span>
                             </div>
                             <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
                                 <span x-show="lang === 'zh'">企业级海外资金管理系统如何解决汇损问题</span>
@@ -1955,7 +1955,7 @@
                         <div class="p-6 flex flex-col flex-grow">
                             <div class="flex items-center gap-3 text-xs text-slate-500 mb-3">
                                 <span class="flex items-center gap-1"><i class="far fa-calendar-alt"></i> <span>2026-04-27</span></span>
-                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span>47</span></span>
+                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span class="article-view-count" data-article-id="7" data-base-views="47">47</span></span>
                             </div>
                             <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
                                 <span x-show="lang === 'zh'">出海电商独立站引流最新玩法与转化优化</span>
@@ -1994,7 +1994,7 @@
                         <div class="p-6 flex flex-col flex-grow">
                             <div class="flex items-center gap-3 text-xs text-slate-500 mb-3">
                                 <span class="flex items-center gap-1"><i class="far fa-calendar-alt"></i> <span>2026-04-27</span></span>
-                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span>90</span></span>
+                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span class="article-view-count" data-article-id="6" data-base-views="90">90</span></span>
                             </div>
                             <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
                                 <span x-show="lang === 'zh'">海外游戏发行的买量成本(CAC)深度分析</span>
@@ -2033,7 +2033,7 @@
                         <div class="p-6 flex flex-col flex-grow">
                             <div class="flex items-center gap-3 text-xs text-slate-500 mb-3">
                                 <span class="flex items-center gap-1"><i class="far fa-calendar-alt"></i> <span>2026-04-27</span></span>
-                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span>33</span></span>
+                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span class="article-view-count" data-article-id="5" data-base-views="33">33</span></span>
                             </div>
                             <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
                                 <span x-show="lang === 'zh'">Meta (Facebook) 广告高转化素材设计指南</span>
@@ -2072,7 +2072,7 @@
                         <div class="p-6 flex flex-col flex-grow">
                             <div class="flex items-center gap-3 text-xs text-slate-500 mb-3">
                                 <span class="flex items-center gap-1"><i class="far fa-calendar-alt"></i> <span>2026-04-27</span></span>
-                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span>57</span></span>
+                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span class="article-view-count" data-article-id="4" data-base-views="57">57</span></span>
                             </div>
                             <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
                                 <span x-show="lang === 'zh'">Google Ads 搜索广告账户防封技巧与申诉</span>
@@ -2111,7 +2111,7 @@
                         <div class="p-6 flex flex-col flex-grow">
                             <div class="flex items-center gap-3 text-xs text-slate-500 mb-3">
                                 <span class="flex items-center gap-1"><i class="far fa-calendar-alt"></i> <span>2026-04-27</span></span>
-                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span>60</span></span>
+                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span class="article-view-count" data-article-id="3" data-base-views="60">60</span></span>
                             </div>
                             <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
                                 <span x-show="lang === 'zh'">TikTok 短视频广告出海投放策略与ROI提升</span>
@@ -2150,7 +2150,7 @@
                         <div class="p-6 flex flex-col flex-grow">
                             <div class="flex items-center gap-3 text-xs text-slate-500 mb-3">
                                 <span class="flex items-center gap-1"><i class="far fa-calendar-alt"></i> <span>2026-04-20</span></span>
-                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span>3512</span></span>
+                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span class="article-view-count" data-article-id="2" data-base-views="3512">3512</span></span>
                             </div>
                             <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
                                 <span x-show="lang === 'zh'">2026 Q1 全球出海广告投放趋势报告</span>
@@ -2189,7 +2189,7 @@
                         <div class="p-6 flex flex-col flex-grow">
                             <div class="flex items-center gap-3 text-xs text-slate-500 mb-3">
                                 <span class="flex items-center gap-1"><i class="far fa-calendar-alt"></i> <span>2026-04-23</span></span>
-                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span>1240</span></span>
+                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span class="article-view-count" data-article-id="1" data-base-views="1240">1240</span></span>
                             </div>
                             <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
                                 <span x-show="lang === 'zh'">Meta 广告账户充值通道全面升级，秒级到账体验</span>
@@ -2257,8 +2257,36 @@
             }
         }
 
+        async function syncArticleViews() {
+            const counters = Array.from(document.querySelectorAll('.article-view-count'));
+            const ids = counters.map((counter) => counter.dataset.articleId).filter(Boolean);
+            if (!ids.length) return;
+
+            try {
+                const response = await fetch(`/api/article-views?ids=${encodeURIComponent(ids.join(','))}`, {
+                    cache: 'no-store'
+                });
+                if (!response.ok) return;
+                const payload = await response.json();
+                const views = payload.views || {};
+
+                counters.forEach((counter) => {
+                    const articleId = counter.dataset.articleId;
+                    const baseViews = Number.parseInt(counter.dataset.baseViews || counter.textContent, 10) || 0;
+                    const remoteViews = Number.parseInt(views[articleId], 10);
+                    if (Number.isInteger(remoteViews) && remoteViews > baseViews) {
+                        counter.textContent = remoteViews.toLocaleString();
+                    }
+                });
+            } catch (error) {
+                console.debug('Article view sync skipped:', error);
+            }
+        }
+
         // Simple entrance animation
         document.addEventListener('DOMContentLoaded', () => {
+            syncArticleViews();
+
             // Set initial state to visible to prevent invisible cards if animation fails
             gsap.set(".article-card", { opacity: 1, y: 0 });
             

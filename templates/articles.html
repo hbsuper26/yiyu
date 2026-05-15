@@ -167,7 +167,7 @@
                         <div class="p-6 flex flex-col flex-grow">
                             <div class="flex items-center gap-3 text-xs text-slate-500 mb-3">
                                 <span class="flex items-center gap-1"><i class="far fa-calendar-alt"></i> <span>{{ article.date }}</span></span>
-                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span>{{ article.views }}</span></span>
+                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span class="article-view-count" data-article-id="{{ article.id }}" data-base-views="{{ article.views }}">{{ article.views }}</span></span>
                             </div>
                             <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
                                 <span x-show="lang === 'zh'">{{ article.get('title', '') }}</span>
@@ -243,8 +243,36 @@
             }
         }
 
+        async function syncArticleViews() {
+            const counters = Array.from(document.querySelectorAll('.article-view-count'));
+            const ids = counters.map((counter) => counter.dataset.articleId).filter(Boolean);
+            if (!ids.length) return;
+
+            try {
+                const response = await fetch(`/api/article-views?ids=${encodeURIComponent(ids.join(','))}`, {
+                    cache: 'no-store'
+                });
+                if (!response.ok) return;
+                const payload = await response.json();
+                const views = payload.views || {};
+
+                counters.forEach((counter) => {
+                    const articleId = counter.dataset.articleId;
+                    const baseViews = Number.parseInt(counter.dataset.baseViews || counter.textContent, 10) || 0;
+                    const remoteViews = Number.parseInt(views[articleId], 10);
+                    if (Number.isInteger(remoteViews) && remoteViews > baseViews) {
+                        counter.textContent = remoteViews.toLocaleString();
+                    }
+                });
+            } catch (error) {
+                console.debug('Article view sync skipped:', error);
+            }
+        }
+
         // Simple entrance animation
         document.addEventListener('DOMContentLoaded', () => {
+            syncArticleViews();
+
             // Set initial state to visible to prevent invisible cards if animation fails
             gsap.set(".article-card", { opacity: 1, y: 0 });
             
