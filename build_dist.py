@@ -11,6 +11,10 @@ app.config['FREEZER_REMOVE_EXTRA_FILES'] = False
 freezer = Freezer(app)
 
 @freezer.register_generator
+def index():
+    yield {}
+
+@freezer.register_generator
 def article_detail():
     with app.app_context():
         db = get_db()

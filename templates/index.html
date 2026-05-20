@@ -6,8 +6,6 @@
     <title x-text="t[lang].title">以渔数媒 - 全球广告账户开户充值管理平台</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         [x-cloak] { display: none !important; }
@@ -80,6 +78,177 @@
             opacity: 1;
             transform: translateX(0);
         }
+        :root {
+            --yiyu-ink: #07111f;
+            --yiyu-muted: #5b6472;
+            --yiyu-line: rgba(15, 23, 42, 0.1);
+            --yiyu-cyan: #06b6d4;
+            --yiyu-blue: #2563eb;
+            --yiyu-green: #10b981;
+            --yiyu-amber: #f59e0b;
+        }
+        html { scroll-behavior: smooth; }
+        body {
+            background:
+                linear-gradient(180deg, #f8fbff 0%, #ffffff 38%, #f4f7fb 100%);
+            letter-spacing: 0;
+        }
+        nav {
+            background: transparent !important;
+            border-bottom: 0 !important;
+            padding: 12px 0;
+        }
+        nav > div {
+            background: rgba(255, 255, 255, 0.78);
+            border: 1px solid rgba(148, 163, 184, 0.22);
+            border-radius: 24px;
+            box-shadow: 0 20px 55px rgba(15, 23, 42, 0.08);
+            backdrop-filter: blur(22px);
+        }
+        nav .h-20 { height: 64px; }
+        nav a:not([href*="t.me"]) {
+            position: relative;
+            padding: 8px 0;
+        }
+        nav a:not([href*="t.me"])::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 3px;
+            height: 2px;
+            transform: scaleX(0);
+            transform-origin: center;
+            background: linear-gradient(90deg, var(--yiyu-cyan), var(--yiyu-blue));
+            transition: transform .25s ease;
+        }
+        nav a:not([href*="t.me"]):hover::after { transform: scaleX(1); }
+        .hero-bg {
+            background:
+                radial-gradient(circle at 74% 20%, rgba(6, 182, 212, 0.24) 0, transparent 32%),
+                radial-gradient(circle at 14% 18%, rgba(16, 185, 129, 0.14) 0, transparent 28%),
+                radial-gradient(circle at 52% 86%, rgba(245, 158, 11, 0.08) 0, transparent 34%),
+                linear-gradient(145deg, #07111f 0%, #0f172a 44%, #111827 100%) !important;
+            isolation: isolate;
+        }
+        .hero-bg::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            pointer-events: none;
+            background-image:
+                linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
+            background-size: 64px 64px;
+            mask-image: linear-gradient(to bottom, black 0%, black 66%, transparent 100%);
+        }
+        .hero-bg::after {
+            content: "";
+            position: absolute;
+            inset: auto 6% 34px 6%;
+            height: 1px;
+            z-index: 2;
+            pointer-events: none;
+            background: linear-gradient(90deg, transparent, rgba(125, 211, 252, .45), transparent);
+        }
+        #heroCanvas { display: none; }
+        #giantTextBack, #giantTextFront {
+            opacity: .42;
+            letter-spacing: -.08em;
+        }
+        .hero-bg h1 {
+            font-size: clamp(3.8rem, 6.8vw, 6.6rem) !important;
+        }
+        .glass-panel {
+            background: linear-gradient(145deg, rgba(15, 23, 42, .76), rgba(15, 23, 42, .42));
+            border-color: rgba(255, 255, 255, .12);
+            box-shadow: inset 0 1px 0 rgba(255,255,255,.12), 0 28px 90px rgba(2, 6, 23, .42);
+        }
+        .rounded-3xl,
+        .rounded-2xl {
+            border-radius: 8px !important;
+        }
+        .card-hover,
+        #features .group,
+        #painpoints .grid > div,
+        #advantages .relative.z-10,
+        section .bg-white,
+        section .bg-slate-50 {
+            box-shadow: 0 18px 50px rgba(15, 23, 42, 0.08);
+        }
+        .card-hover:hover,
+        #features .group:hover,
+        #painpoints .grid > div:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 26px 70px rgba(15, 23, 42, 0.14);
+        }
+        #platforms,
+        #features,
+        #advantages,
+        section.bg-white,
+        section.bg-slate-50 {
+            position: relative;
+            background:
+                linear-gradient(180deg, rgba(248, 251, 255, 0.96), rgba(255, 255, 255, 0.98)) !important;
+        }
+        #platforms::before,
+        #features::before,
+        #advantages::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            background:
+                radial-gradient(circle at 12% 18%, rgba(37, 99, 235, .08), transparent 30%),
+                radial-gradient(circle at 88% 12%, rgba(6, 182, 212, .1), transparent 28%);
+        }
+        #painpoints,
+        section.bg-slate-900 {
+            background:
+                radial-gradient(circle at 12% 10%, rgba(14, 165, 233, .16), transparent 30%),
+                radial-gradient(circle at 88% 34%, rgba(16, 185, 129, .1), transparent 26%),
+                linear-gradient(180deg, #07111f 0%, #0b1220 100%) !important;
+        }
+        #features .grid > div {
+            min-height: 100%;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid rgba(148, 163, 184, .18) !important;
+        }
+        #features .grid > div:not(:last-child) {
+            background: rgba(255, 255, 255, .78) !important;
+            backdrop-filter: blur(18px);
+        }
+        .animate-marquee span {
+            padding: 14px 18px;
+            border: 1px solid rgba(148, 163, 184, .2);
+            background: rgba(255,255,255,.68);
+            border-radius: 999px;
+            box-shadow: 0 8px 26px rgba(15, 23, 42, .06);
+        }
+        @media (max-width: 768px) {
+            nav {
+                padding: 8px 12px;
+            }
+            nav > div { border-radius: 18px; }
+            .hero-bg {
+                min-height: auto;
+                padding-top: 116px;
+            }
+            .hero-bg h1 {
+                font-size: clamp(2.8rem, 14vw, 4.6rem);
+            }
+            .hero-bg p {
+                font-size: 1rem;
+            }
+            .hero-bg .grid-cols-3 {
+                grid-template-columns: 1fr;
+            }
+            nav .flex-shrink-0 span {
+                font-size: 1.25rem;
+            }
+        }
     </style>
 </head>
 <body class="font-sans text-slate-900 antialiased bg-white">
@@ -113,7 +282,7 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="relative pt-32 pb-20 lg:pt-40 lg:pb-32 min-h-screen flex items-center overflow-hidden hero-bg">
+    <section class="relative pt-32 pb-20 lg:pt-40 lg:pb-28 min-h-screen flex items-center overflow-hidden hero-bg">
         
         
         <!-- Giant Background Text Layers -->
@@ -129,7 +298,7 @@
         <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full" style="perspective: 1000px;">
             
-            <div class="flex flex-col lg:flex-row items-center justify-center gap-16 relative w-full pointer-events-none" style="z-index: 10;">
+            <div class="flex flex-col lg:flex-row items-center justify-center gap-14 relative w-full pointer-events-none" style="z-index: 10;">
                 <div class="text-center lg:text-left flex-1 max-w-3xl">
                     <div class="inline-flex items-center justify-center lg:justify-start gap-2 px-5 py-2.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-sm font-bold mb-8 backdrop-blur-sm shadow-[0_0_15px_rgba(59,130,246,0.2)]">
                         <span class="w-2.5 h-2.5 rounded-full bg-blue-500 animate-pulse shadow-[0_0_10px_rgba(59,130,246,0.8)]"></span>
@@ -142,7 +311,7 @@
                     <p class="mt-8 text-xl md:text-2xl text-slate-300/90 mb-12 leading-relaxed max-w-2xl mx-auto lg:mx-0 font-medium backdrop-blur-sm drop-shadow-lg" x-text="t[lang].hero.subtitle">
                         专为出海企业打造的资金流转中枢。支持 Google, Meta, TikTok 等主流媒体，实现账户秒级开通、余额实时划转、预算灵活调配。
                     </p>
-                    <div class="flex flex-col sm:flex-row justify-center lg:justify-start gap-6 pointer-events-auto relative z-30">
+                    <div class="flex flex-col sm:flex-row justify-center lg:justify-start gap-5 pointer-events-auto relative z-30">
                         <a href="https://t.me/yiyiyiads" target="_blank" class="px-10 py-5 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-bold text-lg hover:from-blue-500 hover:to-indigo-500 transition-all shadow-[0_0_30px_rgba(79,70,229,0.4)] hover:shadow-[0_0_40px_rgba(79,70,229,0.6)] hover:-translate-y-1 flex items-center justify-center gap-3 border border-white/10">
                             <span x-text="t[lang].hero.cta_primary" class="tracking-wide">现在试用</span>
                             <i class="fas fa-arrow-right text-sm"></i>
@@ -151,19 +320,33 @@
                             <span x-text="t[lang].hero.cta_secondary" class="tracking-wide">联系我们</span>
                         </a>
                     </div>
+                    <div class="grid grid-cols-3 gap-3 mt-10 max-w-xl mx-auto lg:mx-0 pointer-events-auto">
+                        <div class="border border-white/10 bg-white/[0.04] backdrop-blur-md p-4 text-left">
+                            <div class="text-2xl font-black text-white">10+</div>
+                            <div class="text-xs text-slate-400 mt-1">Media Channels</div>
+                        </div>
+                        <div class="border border-white/10 bg-white/[0.04] backdrop-blur-md p-4 text-left">
+                            <div class="text-2xl font-black text-white">24h</div>
+                            <div class="text-xs text-slate-400 mt-1">Fund Flow</div>
+                        </div>
+                        <div class="border border-white/10 bg-white/[0.04] backdrop-blur-md p-4 text-left">
+                            <div class="text-2xl font-black text-white">API</div>
+                            <div class="text-xs text-slate-400 mt-1">System Sync</div>
+                        </div>
+                    </div>
                 </div>
                 
                 <!-- 3D Dashboard Mockup -->
                 <div class="relative hidden lg:block floating pointer-events-auto flex-1 max-w-2xl transform hover:scale-105 transition-transform duration-700">
                     <div class="absolute -inset-1 bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-600 rounded-3xl blur-2xl opacity-40 animate-pulse"></div>
-                    <div class="relative glass-panel rounded-3xl p-6 shadow-[0_0_50px_rgba(0,0,0,0.5)] border border-white/10 backdrop-blur-xl bg-slate-900/40">
+                    <div class="relative glass-panel rounded-3xl p-5 shadow-[0_0_50px_rgba(0,0,0,0.5)] border border-white/10 backdrop-blur-xl bg-slate-900/40">
                         <div class="flex items-center gap-2 mb-6 border-b border-white/10 pb-4">
                             <div class="w-3.5 h-3.5 rounded-full bg-red-500 shadow-[0_0_10px_rgba(239,68,68,0.5)]"></div>
                             <div class="w-3.5 h-3.5 rounded-full bg-yellow-500 shadow-[0_0_10px_rgba(234,179,8,0.5)]"></div>
                             <div class="w-3.5 h-3.5 rounded-full bg-green-500 shadow-[0_0_10px_rgba(34,197,94,0.5)]"></div>
                             <div class="text-xs text-slate-400/80 ml-4 font-mono tracking-wider">yiyu-dashboard.com</div>
                         </div>
-                        <div class="grid grid-cols-2 gap-6 mb-6">
+                        <div class="grid grid-cols-2 gap-4 mb-4">
                             <div class="bg-white/5 p-5 rounded-2xl border border-white/5 shadow-inner">
                                 <div class="text-slate-400 text-xs mb-2 uppercase tracking-wider font-bold">Total Balance</div>
                                 <div class="text-3xl font-black text-white drop-shadow-md">$12,450.00</div>
@@ -179,7 +362,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="bg-white/5 h-40 rounded-2xl border border-white/5 p-4 relative overflow-hidden shadow-inner">
+                        <div class="bg-white/5 h-44 rounded-2xl border border-white/5 p-4 relative overflow-hidden shadow-inner">
                              <!-- Fake Chart -->
                              <div class="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-blue-500/30 to-transparent"></div>
                              <svg class="absolute bottom-0 w-full h-full" preserveAspectRatio="none" viewBox="0 0 100 100">
@@ -192,6 +375,20 @@
                                     </linearGradient>
                                 </defs>
                              </svg>
+                        </div>
+                        <div class="grid grid-cols-3 gap-3 mt-4">
+                            <div class="bg-white/5 border border-white/5 p-3">
+                                <div class="text-[10px] uppercase tracking-widest text-slate-500">Meta</div>
+                                <div class="mt-2 h-1.5 bg-blue-400/80 w-4/5"></div>
+                            </div>
+                            <div class="bg-white/5 border border-white/5 p-3">
+                                <div class="text-[10px] uppercase tracking-widest text-slate-500">Google</div>
+                                <div class="mt-2 h-1.5 bg-emerald-400/80 w-3/5"></div>
+                            </div>
+                            <div class="bg-white/5 border border-white/5 p-3">
+                                <div class="text-[10px] uppercase tracking-widest text-slate-500">TikTok</div>
+                                <div class="mt-2 h-1.5 bg-amber-400/80 w-5/6"></div>
+                            </div>
                         </div>
                     </div>
                     
@@ -1054,59 +1251,6 @@ hero: {
                     
             
             
-            // GSAP Parallax for Hero Elements
-            if (typeof gsap !== 'undefined') {
-                const heroSection = document.querySelector('.hero-bg');
-                
-                // Text layers
-                const textFront = document.querySelector('.hero-bg .text-left h1');
-                const textMid = document.querySelector('.hero-bg .text-left p');
-                const buttons = document.querySelector('.hero-bg .text-left .flex');
-                
-                // 3D Mockup
-                const heroMockup = document.querySelector('.hero-bg .floating');
-                
-                // Giant Text
-                const giantTextBack = document.getElementById('giantTextBack');
-                const giantTextFront = document.getElementById('giantTextFront');
-                
-                if (heroSection) {
-                    heroSection.addEventListener('mousemove', (e) => {
-                        const rect = heroSection.getBoundingClientRect();
-                        const x = (e.clientX - rect.left) / rect.width - 0.5;
-                        const y = (e.clientY - rect.top) / rect.height - 0.5;
-                        
-                        // Text moves slightly opposite to mouse
-                        if (textFront) gsap.to(textFront, { x: x * -30, y: y * -30, duration: 1.5, ease: 'power2.out' });
-                        if (textMid) gsap.to(textMid, { x: x * -15, y: y * -15, duration: 1.5, ease: 'power2.out' });
-                        if (buttons) gsap.to(buttons, { x: x * -5, y: y * -5, duration: 1.5, ease: 'power2.out' });
-                        
-                        // Mockup rotates and moves with mouse
-                        if (heroMockup) gsap.to(heroMockup, {
-                            x: x * 40,
-                            y: y * 40,
-                            rotationY: x * 15,
-                            rotationX: y * -15,
-                            duration: 1.5,
-                            ease: 'power2.out'
-                        });
-                        
-                        // Giant Text Parallax Depth
-                        if (giantTextBack) gsap.to(giantTextBack, { x: x * 80, y: y * 40, duration: 2, ease: 'power2.out' });
-                        if (giantTextFront) gsap.to(giantTextFront, { x: x * 150, y: y * 80, duration: 2, ease: 'power2.out' });
-                    });
-                    
-                    // Reset on mouse leave
-                    heroSection.addEventListener('mouseleave', () => {
-                        if (textFront) gsap.to(textFront, { x: 0, y: 0, duration: 1.5, ease: 'power2.out' });
-                        if (textMid) gsap.to(textMid, { x: 0, y: 0, duration: 1.5, ease: 'power2.out' });
-                        if (buttons) gsap.to(buttons, { x: 0, y: 0, duration: 1.5, ease: 'power2.out' });
-                        if (heroMockup) gsap.to(heroMockup, { x: 0, y: 0, rotationY: 0, rotationX: 0, duration: 1.5, ease: 'power2.out' });
-                        if (giantTextBack) gsap.to(giantTextBack, { x: 0, y: 0, duration: 2, ease: 'power2.out' });
-                        if (giantTextFront) gsap.to(giantTextFront, { x: 0, y: 0, duration: 2, ease: 'power2.out' });
-                    });
-                }
-            }
             setTimeout(() => {
                         document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => {
                             observer.observe(el);
@@ -1116,167 +1260,6 @@ hero: {
             }
         }
     </script>
-
-    <script>
-        // Immersive 3D Data Particle Network Animation
-        (function() {
-            const canvas = document.getElementById('heroCanvas');
-            if (!canvas) return;
-            const ctx = canvas.getContext('2d');
-            let width, height;
-            let particles = [];
-            let time = 0;
-            const mouse = { x: window.innerWidth/2, y: window.innerHeight/2, radius: 300, targetX: window.innerWidth/2, targetY: window.innerHeight/2 };
-
-            function resize() {
-                const parent = canvas.parentElement;
-                width = canvas.width = parent.offsetWidth;
-                height = canvas.height = parent.offsetHeight;
-            }
-
-            window.addEventListener('resize', resize);
-            
-            canvas.parentElement.addEventListener('mousemove', (e) => {
-                const rect = canvas.getBoundingClientRect();
-                mouse.targetX = e.clientX - rect.left;
-                mouse.targetY = e.clientY - rect.top;
-            });
-            
-            class Particle {
-                constructor(isForeground) {
-                    this.x = Math.random() * width;
-                    this.y = Math.random() * height;
-                    this.z = Math.random() * 100; // Fake 3D depth
-                    this.isForeground = isForeground;
-                    this.size = isForeground ? (Math.random() * 3 + 2) : (Math.random() * 1.5 + 0.5);
-                    this.baseX = this.x;
-                    this.baseY = this.y;
-                    this.density = (Math.random() * 40) + 10;
-                    this.vx = (Math.random() - 0.5) * (isForeground ? 1 : 0.5);
-                    this.vy = (Math.random() - 0.5) * (isForeground ? 1 : 0.5);
-                    this.color = isForeground ? `rgba(96, 165, 250, ${Math.random() * 0.8 + 0.2})` : `rgba(167, 139, 250, ${Math.random() * 0.5 + 0.1})`;
-                }
-
-                draw() {
-                    let scale = 100 / (100 + this.z);
-                    let x2d = (this.x - width/2) * scale + width/2;
-                    let y2d = (this.y - height/2) * scale + height/2;
-                    let r2d = this.size * scale;
-
-                    ctx.shadowBlur = this.isForeground ? 15 : 5;
-                    ctx.shadowColor = this.isForeground ? '#3b82f6' : '#a855f7';
-                    ctx.fillStyle = this.color;
-                    ctx.beginPath();
-                    ctx.arc(x2d, y2d, Math.max(r2d, 0.1), 0, Math.PI * 2);
-                    ctx.closePath();
-                    ctx.fill();
-                    ctx.shadowBlur = 0; // reset
-                }
-
-                update() {
-                    // Smooth mouse follow
-                    mouse.x += (mouse.targetX - mouse.x) * 0.05;
-                    mouse.y += (mouse.targetY - mouse.y) * 0.05;
-
-                    this.x += this.vx + Math.sin(time * 0.001 + this.y * 0.01) * 0.5;
-                    this.y += this.vy + Math.cos(time * 0.001 + this.x * 0.01) * 0.5;
-                    this.z += Math.sin(time * 0.002) * 0.1;
-
-                    // Wrap around
-                    if (this.x < -100) this.x = width + 100;
-                    if (this.x > width + 100) this.x = -100;
-                    if (this.y < -100) this.y = height + 100;
-                    if (this.y > height + 100) this.y = -100;
-
-                    // Mouse interaction
-                    let dx = mouse.x - this.x;
-                    let dy = mouse.y - this.y;
-                    let distance = Math.sqrt(dx * dx + dy * dy);
-                    let forceDirectionX = dx / distance;
-                    let forceDirectionY = dy / distance;
-                    let maxDistance = mouse.radius;
-                    let force = (maxDistance - distance) / maxDistance;
-                    let directionX = forceDirectionX * force * this.density;
-                    let directionY = forceDirectionY * force * this.density;
-
-                    if (distance < mouse.radius) {
-                        this.x -= directionX * (this.isForeground ? 1.5 : 0.5);
-                        this.y -= directionY * (this.isForeground ? 1.5 : 0.5);
-                    }
-                }
-            }
-
-            function initParticles() {
-                resize();
-                particles = [];
-                let numberOfParticles = Math.min((width * height) / 4000, 250);
-                for (let i = 0; i < numberOfParticles; i++) {
-                    particles.push(new Particle(i < numberOfParticles * 0.3)); // 30% foreground
-                }
-            }
-
-            function animateParticles() {
-                time++;
-                // Dark background with slight trail
-                ctx.fillStyle = 'rgba(15, 23, 42, 0.4)';
-                ctx.fillRect(0, 0, width, height);
-                
-                // Draw background gradient to mimic deep space
-                let bgGradient = ctx.createRadialGradient(mouse.x, mouse.y, 0, width/2, height/2, width);
-                bgGradient.addColorStop(0, 'rgba(59, 130, 246, 0.05)');
-                bgGradient.addColorStop(1, 'rgba(15, 23, 42, 0)');
-                ctx.fillStyle = bgGradient;
-                ctx.fillRect(0, 0, width, height);
-                
-                for (let i = 0; i < particles.length; i++) {
-                    particles[i].update();
-                    particles[i].draw();
-                    
-                    // Connect nodes if they are close in 2D space
-                    if(particles[i].isForeground) {
-                        for (let j = i + 1; j < particles.length; j++) {
-                            if(!particles[j].isForeground) continue;
-                            
-                            let dx = particles[i].x - particles[j].x;
-                            let dy = particles[i].y - particles[j].y;
-                            let distance = Math.sqrt(dx * dx + dy * dy);
-                            
-                            if (distance < 120) {
-                                ctx.beginPath();
-                                let gradient = ctx.createLinearGradient(particles[i].x, particles[i].y, particles[j].x, particles[j].y);
-                                gradient.addColorStop(0, `rgba(96, 165, 250, ${0.5 - distance/240})`);
-                                gradient.addColorStop(1, `rgba(167, 139, 250, ${0.5 - distance/240})`);
-                                
-                                ctx.strokeStyle = gradient;
-                                ctx.lineWidth = 1.5;
-                                ctx.moveTo(particles[i].x, particles[i].y);
-                                ctx.lineTo(particles[j].x, particles[j].y);
-                                ctx.stroke();
-                                ctx.closePath();
-                            }
-                        }
-                    }
-                }
-
-                // Draw some abstract floating words
-                if(time % 60 === 0) {
-                    ctx.fillStyle = `rgba(255, 255, 255, 0.05)`;
-                    ctx.font = `bold ${Math.random() * 20 + 20}px sans-serif`;
-                    let text = ["FUNDS", "GLOBAL", "ADS", "ROI", "SPEED", "SECURE"][Math.floor(Math.random()*6)];
-                    ctx.fillText(text, Math.random() * width, Math.random() * height);
-                }
-
-                requestAnimationFrame(animateParticles);
-            }
-
-            setTimeout(() => {
-                initParticles();
-                animateParticles();
-            }, 100);
-        })();
-    </script>
-
-
 
 </body>
 </html>

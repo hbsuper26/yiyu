@@ -14,7 +14,6 @@ import time
 import sys
 import os
 sys.path.append(os.path.dirname(__file__))
-from agent import generate_daily_articles
 
 app.jinja_env.filters['markdown'] = lambda text: markdown.markdown(text, extensions=['extra', 'nl2br'])
 
@@ -57,6 +56,7 @@ def tools():
     return render_template('tools.html')
 
 @app.route('/')
+@app.route('/index')
 def index():
     return render_template('index.html')
 
@@ -119,6 +119,8 @@ def api_articles():
     })
 
 def scheduled_job():
+    from agent import generate_daily_articles
+
     print("Running scheduled daily article generation...")
     generate_daily_articles()
     
