@@ -142,6 +142,123 @@
                 <!-- Article Cards -->
                 
                     <article x-show="currentFilter === 'all' || currentFilter === 'insight'" x-transition
+                        class="article-card card-hover flex flex-col h-full group cursor-pointer" onclick="window.location.href = '/article/83'">
+                        <div class="relative h-56 overflow-hidden">
+                            <img src="https://picsum.photos/seed/yiyu7371/800/500" alt="TikTok Shop 新品冷启动：素材池这样搭，跑出第一周正向 ROI" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                            <div class="absolute top-4 left-4">
+                                <span class="px-3 py-1 bg-white/90 backdrop-blur-sm text-blue-600 text-xs font-bold rounded-lg shadow-sm">
+                                    <span x-show="lang === 'zh'">
+                                        行业洞察
+                                        
+                                    </span>
+                                    <span x-show="lang === 'en'" x-cloak>
+                                        Insights
+                                        
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <div class="flex items-center gap-3 text-xs text-slate-500 mb-3">
+                                <span class="flex items-center gap-1"><i class="far fa-calendar-alt"></i> <span>2026-05-23</span></span>
+                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span class="article-view-count" data-article-id="83" data-base-views="45">45</span></span>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
+                                <span x-show="lang === 'zh'">TikTok Shop 新品冷启动：素材池这样搭，跑出第一周正向 ROI</span>
+                                <span x-show="lang === 'en'" x-cloak>TikTok Shop Cold Launch: Build Your Creative Pool to Achieve Positive ROI in Week One</span>
+                            </h3>
+                            <p class="text-slate-600 text-sm line-clamp-2 mb-6 flex-grow">
+                                <span x-show="lang === 'zh'">本周 TikTok Shop 美国区多个类目出现新账号密集开售但素材复用率低的问题，导致冷启动期 CPM 虚高、跑量乏力。本文以周报观察视角，梳理新品冷启动阶段素材池搭建的核心逻辑，提供 4 个可直接落地的组品策略，并给出下周优化建议。</span>
+                                <span x-show="lang === 'en'" x-cloak>This week, multiple categories on TikTok Shop US saw new accounts launching aggressively but with low creative reuse rates, causing inflated CPMs and weak volume during cold start. This weekly commentary breaks down the core logic of building a creative pool for new product cold launches, offering 4 actionable strategies with optimization guidance for next week.</span>
+                            </p>
+                            
+                            <div class="flex items-center justify-between mt-auto pt-4 border-t border-slate-100">
+                                <span class="text-blue-600 font-medium text-sm flex items-center gap-1 group-hover:translate-x-1 transition-transform ml-auto">
+                                    <span x-text="t[lang].card.readMore">阅读全文</span> <i class="fas fa-arrow-right text-xs"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </article>
+                
+                    <article x-show="currentFilter === 'all' || currentFilter === 'insight'" x-transition
+                        class="article-card card-hover flex flex-col h-full group cursor-pointer" onclick="window.location.href = '/article/82'">
+                        <div class="relative h-56 overflow-hidden">
+                            <img src="https://picsum.photos/seed/yiyu8801/800/500" alt="多账户投放团队常见的账户管理困局：我是如何用分层策略解决的" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                            <div class="absolute top-4 left-4">
+                                <span class="px-3 py-1 bg-white/90 backdrop-blur-sm text-blue-600 text-xs font-bold rounded-lg shadow-sm">
+                                    <span x-show="lang === 'zh'">
+                                        行业洞察
+                                        
+                                    </span>
+                                    <span x-show="lang === 'en'" x-cloak>
+                                        Insights
+                                        
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <div class="flex items-center gap-3 text-xs text-slate-500 mb-3">
+                                <span class="flex items-center gap-1"><i class="far fa-calendar-alt"></i> <span>2026-05-23</span></span>
+                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span class="article-view-count" data-article-id="82" data-base-views="15">15</span></span>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
+                                <span x-show="lang === 'zh'">多账户投放团队常见的账户管理困局：我是如何用分层策略解决的</span>
+                                <span x-show="lang === 'en'" x-cloak>How I Solved the Account Management Chaos: A Layered Strategy for Multi-Account Teams</span>
+                            </h3>
+                            <p class="text-slate-600 text-sm line-clamp-2 mb-6 flex-grow">
+                                <span x-show="lang === 'zh'">一个三人投放团队管理12个Meta广告账户的真实案例。通过账户分层管理，从“每天救火”变成“主动调控”，月度ROI提升37%。本文拆解具体问题和解决步骤，适合日均预算1万-50万美元的出海团队参考。</span>
+                                <span x-show="lang === 'en'" x-cloak>A real case study of a three-person team managing 12 Meta ad accounts. Through account layering, they transformed from &#39;fighting fires daily&#39; to &#39;proactive optimization,&#39; achieving a 37% ROI improvement. This article dissects specific problems and solutions for teams with daily budgets of $10K-$500K.</span>
+                            </p>
+                            
+                            <div class="flex items-center justify-between mt-auto pt-4 border-t border-slate-100">
+                                <span class="text-blue-600 font-medium text-sm flex items-center gap-1 group-hover:translate-x-1 transition-transform ml-auto">
+                                    <span x-text="t[lang].card.readMore">阅读全文</span> <i class="fas fa-arrow-right text-xs"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </article>
+                
+                    <article x-show="currentFilter === 'all' || currentFilter === 'guide'" x-transition
+                        class="article-card card-hover flex flex-col h-full group cursor-pointer" onclick="window.location.href = '/article/81'">
+                        <div class="relative h-56 overflow-hidden">
+                            <img src="https://picsum.photos/seed/yiyu361/800/500" alt="出海广告合规巡检 SOP：运营必读的执行清单" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                            <div class="absolute top-4 left-4">
+                                <span class="px-3 py-1 bg-white/90 backdrop-blur-sm text-blue-600 text-xs font-bold rounded-lg shadow-sm">
+                                    <span x-show="lang === 'zh'">
+                                        投放指南
+                                        
+                                    </span>
+                                    <span x-show="lang === 'en'" x-cloak>
+                                        Ad Guide
+                                        
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <div class="flex items-center gap-3 text-xs text-slate-500 mb-3">
+                                <span class="flex items-center gap-1"><i class="far fa-calendar-alt"></i> <span>2026-05-23</span></span>
+                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span class="article-view-count" data-article-id="81" data-base-views="42">42</span></span>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
+                                <span x-show="lang === 'zh'">出海广告合规巡检 SOP：运营必读的执行清单</span>
+                                <span x-show="lang === 'en'" x-cloak>Ad Compliance Audit SOP for Overseas Advertising Operations</span>
+                            </h3>
+                            <p class="text-slate-600 text-sm line-clamp-2 mb-6 flex-grow">
+                                <span x-show="lang === 'zh'">本文提供一套完整的出海广告合规巡检标准操作流程，涵盖巡检前准备、账户状态核查、素材合规性检查、投放政策对照四大模块，帮助运营团队系统性排查风险点，降低账户封禁和资金冻结概率。</span>
+                                <span x-show="lang === 'en'" x-cloak>This article provides a complete standard operating procedure for overseas advertising compliance audits, covering four major modules: pre-audit preparation, account status verification, creative compliance check, and advertising policy alignment, helping operations teams systematically identify risks and reduce account bans and fund freezing.</span>
+                            </p>
+                            
+                            <div class="flex items-center justify-between mt-auto pt-4 border-t border-slate-100">
+                                <span class="text-blue-600 font-medium text-sm flex items-center gap-1 group-hover:translate-x-1 transition-transform ml-auto">
+                                    <span x-text="t[lang].card.readMore">阅读全文</span> <i class="fas fa-arrow-right text-xs"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </article>
+                
+                    <article x-show="currentFilter === 'all' || currentFilter === 'insight'" x-transition
                         class="article-card card-hover flex flex-col h-full group cursor-pointer" onclick="window.location.href = '/article/80'">
                         <div class="relative h-56 overflow-hidden">
                             <img src="https://picsum.photos/seed/yiyu9571/800/500" alt="广告账户余额预警如何避免放量中断？这套机制能救命" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
