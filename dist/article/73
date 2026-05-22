@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="zh-CN" x-data="appData()">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title x-text="t[lang].title">文章详情 - 以渔数媒</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        [x-cloak] { display: none !important; }
+        .prose img {
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+        }
+        .prose h2 {
+            color: #0f172a;
+            font-weight: 700;
+            font-size: 1.5rem;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .prose p {
+            color: #475569;
+            line-height: 1.8;
+            margin-bottom: 1.25rem;
+            font-size: 1.125rem;
+        }
+        .prose blockquote {
+            border-left: 4px solid #3b82f6;
+            padding-left: 1rem;
+            color: #334155;
+            font-style: italic;
+            background: #eff6ff;
+            padding: 1rem;
+            border-radius: 0 0.5rem 0.5rem 0;
+            margin: 2rem 0;
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #3B82F6 0%, #9333EA 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased bg-white">
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 transition-all duration-300 bg-white/90 backdrop-blur-md border-b border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <a href="/" class="flex-shrink-0 flex items-center gap-3 group">
+                    <img src="/static/images/logo.png" alt="Logo" class="w-10 h-10 rounded-lg object-cover shadow-sm group-hover:shadow-md transition-shadow duration-300" onerror="this.src='https://ui-avatars.com/api/?name=YY&background=0D8ABC&color=fff'">
+                    <span class="font-extrabold text-2xl tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-violet-600 drop-shadow-sm">以渔数媒</span>
+                </a>
+                
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="/" class="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors" x-text="t[lang].nav.home">首页</a>
+                    <a href="/articles" class="text-sm font-medium text-blue-600 transition-colors" x-text="t[lang].nav.articles">行业动态</a>
+                                        <a href="/tools" class="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors" x-text="t[lang].nav.tools">实用工具</a>
+<a href="/pricing" class="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors" x-text="t[lang].nav.pricing">产品定价</a>
+                    
+                    <button @click="toggleLang()" class="flex items-center space-x-1 px-3 py-1.5 rounded-md border border-slate-200 hover:border-blue-400 hover:bg-slate-50 transition-all">
+                        <i class="fas fa-globe text-slate-500 text-xs"></i>
+                        <span class="text-xs font-bold text-slate-600" x-text="lang === 'zh' ? 'EN' : '中'"></span>
+                    </button>
+                    
+                    <div class="flex items-center gap-3 pl-4 border-l border-slate-200">
+                        <a href="https://t.me/yiyiyiads" target="_blank" class="px-5 py-2.5 rounded-lg bg-blue-600 text-white text-sm font-medium hover:bg-blue-700 transition-all shadow-md shadow-blue-500/20" x-text="t[lang].nav.contact">联系我们</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Article Content -->
+    <main class="pt-32 pb-24">
+        <!-- Back Button & Breadcrumb -->
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 mb-8">
+            <a href="/articles" class="inline-flex items-center gap-2 text-sm font-medium text-slate-500 hover:text-blue-600 transition-colors group">
+                <div class="w-8 h-8 rounded-full border border-slate-200 flex items-center justify-center group-hover:border-blue-500 group-hover:bg-blue-50 transition-all">
+                    <i class="fas fa-arrow-left text-xs group-hover:-translate-x-0.5 transition-transform"></i>
+                </div>
+                <span x-text="t[lang].back">返回动态列表</span>
+            </a>
+        </div>
+
+        <article class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Article Header -->
+            <header class="mb-10 text-center">
+                <div class="mb-6">
+                    <span class="px-3 py-1 bg-blue-50 text-blue-600 text-xs font-bold rounded-lg uppercase tracking-wider">
+                        <span x-show="lang === 'zh'">
+                            投放指南
+                            
+                        </span>
+                        <span x-show="lang === 'en'" x-cloak>
+                            Ad Guide
+                            
+                        </span>
+                    </span>
+                </div>
+                <h1 class="text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-900 leading-tight mb-8">
+                    <span x-show="lang === 'zh'">海外广告充值、消耗和发票统一对账的6个常见问题</span>
+                    <span x-show="lang === 'en'" x-cloak>6 Common Questions About Reconciling Overseas Ad Spend, Recharges and Invoices</span>
+                </h1>
+                
+                <!-- Author Meta -->
+                <div class="flex items-center justify-center gap-6 text-sm text-slate-500 border-t border-b border-slate-100 py-4">
+                    <div class="flex items-center gap-2">
+                        <i class="far fa-calendar-alt"></i>
+                        <span>2026-05-22</span>
+                    </div>
+                    <div class="h-8 w-px bg-slate-200"></div>
+                    <div class="flex items-center gap-2">
+                        <i class="far fa-eye"></i>
+                        <span><span id="article-view-count" data-article-id="73" data-base-views="90">90</span> <span x-text="t[lang].reads">阅读</span></span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Featured Image -->
+            <div class="rounded-2xl overflow-hidden mb-12 shadow-2xl shadow-slate-200/50">
+                <img src="https://picsum.photos/seed/yiyu382/800/500" alt="Featured Image" class="w-full h-[400px] object-cover">
+            </div>
+
+            <!-- Rich Text Body -->
+            <div class="prose max-w-none" x-show="lang === 'zh'">
+                <h2>海外广告账户对账，为什么总是“差几块钱”？</h2>
+<p>在管理海外广告账户时，充值、消耗与发票之间的数字差异是运营和财务团队都会遇到的问题。这些差异并非错误，而是由时区、计费周期、汇率波动等因素共同造成的。以下6个问题覆盖了对账流程中最常见的困惑，答案直接给出判断和操作方法。</p>
+<hr />
+<h2>Q1：充值金额和平台显示的到账金额为什么总是不一致？</h2>
+<p><strong>判断：先确认是否有手续费，再排查汇率因素。</strong></p>
+<p>大多数广告平台不会对充值收取额外手续费，但如果通过代理商或第三方支付渠道充值，可能存在服务费。建议在充值时保留支付凭证，对比支付金额与平台到账金额是否匹配。如果使用信用卡或第三方支付工具，汇率由支付渠道决定，通常会略高于银行实时汇率。这种差异属于正常损耗，无需深究，但建议每次充值记录实际支付金额和实时汇率，便于后续对账。</p>
+<hr />
+<h2>Q2：多平台、多账户对账时，汇率差异怎么处理？</h2>
+<p><strong>判断：固定结算币种，记录实时汇率，按月汇总换算。</strong></p>
+<p>当同时运营Google、Meta、TikTok等多个广告平台时，建议统一使用人民币或美元作为结算基准币种。每次充值时记录实时汇率，按月汇总各平台消耗后统一换算。如果月初和月末汇率波动较大，会产生汇兑损益，建议在财务报表中单独列支这一项。某工具类App的出海团队采用这一方法后，月度对账误差从5%降至1%以内。</p>
+<hr />
+<h2>Q3：平台开具的发票金额和我的月消耗报表对不上怎么办？</h2>
+<p><strong>判断：确认开票周期，延迟可等待，差异大则提交核查。</strong></p>
+<p>广告平台的发票通常在次月初开具，有时会有3-5个工作日的延迟。如果发票金额与月消耗报表存在小幅差异，可能是由于时区划分造成的——平台按UTC时间结算，而你的报表按北京时间汇总，这种差异通常在1%以内可以接受。如果差异超过5%，建议向平台客服或代理商提交对账申请，附上消耗明细截图要求核实。</p>
+<hr />
+<h2>Q4：多广告账户的财务流水如何高效管理？</h2>
+<p><strong>判断：按平台和账户分别建台账，设置余额预警和定期对账周期。</strong></p>
+<p>如果管理超过5个广告账户，手动记录财务流水极易出错。建议按平台和账户分别建立财务台账，每笔充值记录充值时间、金额、汇率、账户ID等信息。每月固定日期导出各平台消耗报表，与充值记录进行交叉核对。余额预警是另一个关键动作——当账户余额低于日均消耗的3倍时，应及时安排充值，避免投放中断。</p>
+<hr />
+<h2>Q5：充值后长时间未消耗或消耗异常该找谁处理？</h2>
+<p><strong>判断：先确认账户状态和投放设置，再向平台或代理商提交核查。</strong></p>
+<p>充值后长时间未消耗通常有三种原因：账户被封禁、投放金额设置过低、投放时间与受众定向冲突。先登录平台后台检查账户状态和投放配置，排除自身操作问题。如果确认非自身原因，向平台官方支持渠道或你的代理商提交消耗核查申请，说明充值时间、账户ID和异常情况，等待平台处理结果。处理周期一般为3-7个工作日。</p>
+<hr />
+<h2>Q6：如何避免月底对账时手忙脚乱？</h2>
+<p><strong>判断：建立日常对账习惯，比月底一次性核查效率更高。</strong></p>
+<p>月底集中对账容易遗漏细节，日常化对账才是正解。每周固定时间导出各账户的充值记录和消耗报表，检查是否存在异常波动；每次充值后确认到账金额；建立充值-消耗-发票三者的闭环记录链条。财务合规的核心不是一次性做到完美，而是形成稳定的流程和可追溯的记录习惯。</p>
+<hr />
+<p><strong>总结：</strong> 海外广告账户的对账难点集中在多平台、多币种和多时间周期的交叉管理上。固定结算币种、记录实时汇率、日常化对账、设置余额预警，这四个动作能覆盖80%以上的对账问题。如遇发票与消耗不符，优先排查时区差异，小幅差异可接受，差异过大则提交平台核查。</p>
+            </div>
+            <div class="prose max-w-none" x-show="lang === 'en'" x-cloak>
+                <h2>Why Do Recharge Amounts Often Not Match Platform Records?</h2>
+<p><strong>Answer: Check for fees first, then investigate exchange rate factors.</strong></p>
+<p>Most ad platforms don't charge extra fees for recharges, but third-party payment channels or agents may apply service charges. Keep payment receipts and compare the amount paid with the amount credited to the account. If using credit cards or third-party payment tools, the exchange rate is usually slightly higher than the bank's spot rate—this is normal and should be recorded for reconciliation.</p>
+<h2>How to Handle Exchange Rate Differences in Multi-Platform Reconciliation?</h2>
+<p><strong>Answer: Fix a settlement currency, record real-time rates, and convert monthly.</strong></p>
+<p>When operating across Google, Meta, and TikTok simultaneously, settle all accounts in a single currency (CNY or USD). Record the real-time exchange rate at each recharge and convert monthly totals accordingly. Large fluctuations between the beginning and end of the month may create exchange gains or losses—record these separately in financial reports.</p>
+<h2>What to Do When Invoice Amounts Don't Match Monthly Spend Reports?</h2>
+<p><strong>Answer: Confirm the billing cycle, wait if delayed, and submit a dispute for large gaps.</strong></p>
+<p>Ad platform invoices are typically issued in the first few working days of the following month. Minor differences (within 1%) may be due to timezone divisions—platforms often bill in UTC while your reports may use local time. Differences exceeding 5% warrant a formal dispute with the platform or your agency, with supporting screenshots.</p>
+<h2>How to Efficiently Manage Financial Flows Across Multiple Ad Accounts?</h2>
+<p><strong>Answer: Build separate ledgers by platform and account, set balance alerts, and reconcile regularly.</strong></p>
+<p>For teams managing more than five accounts, manual tracking is error-prone. Create a dedicated ledger for each platform and account, recording recharge time, amount, exchange rate, and account ID. Conduct weekly balance checks and trigger recharge alerts when balance falls below three days of average daily spend.</p>
+<h2>Who to Contact When Recharged Funds Remain Unspent or Show Abnormal Spend?</h2>
+<p><strong>Answer: Verify account status and campaign settings first, then escalate to the platform or agency.</strong></p>
+<p>Unspent balances usually indicate account suspension, misconfigured budgets, or targeting issues. Check platform dashboards to rule out operational errors, then submit a spend investigation request with recharge details and account ID. Expect a 3-7 business day response.</p>
+<h2>How to Avoid Year-End Reconciliation Chaos?</h2>
+<p><strong>Answer: Daily reconciliation habits are far more efficient than monthly fire drills.</strong></p>
+<p>Fix weekly reconciliation sessions to export recharge records and spend reports. Verify each recharge upon arrival, maintain closed-loop records linking recharge-spend-invoice, and establish traceable documentation. Financial compliance isn't about perfection in one go—it's about stable, repeatable processes.</p>
+            </div>
+
+            <!-- Social Share (Mock) -->
+            <div class="mt-12 pt-8 border-t border-slate-100 flex items-center justify-between">
+                <div class="text-sm font-medium text-slate-500" x-text="t[lang].share">分享这篇文章：</div>
+                <div class="flex gap-3">
+                    <button class="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-600 hover:bg-[#1DA1F2] hover:text-white transition-colors">
+                        <i class="fab fa-twitter"></i>
+                    </button>
+                    <button class="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-600 hover:bg-[#0077B5] hover:text-white transition-colors">
+                        <i class="fab fa-linkedin-in"></i>
+                    </button>
+                    <button class="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-600 hover:bg-[#00B489] hover:text-white transition-colors">
+                        <i class="fas fa-link"></i>
+                    </button>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 py-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="text-slate-400 text-sm">
+                &copy; 2026 以渔数媒 (YiYu Ads). All rights reserved.
+            </p>
+        </div>
+    </footer>
+</body>
+<script>
+    const translations = {
+        zh: {
+            title: "文章详情 - 以渔数媒",
+            nav: {
+                home: "首页",
+                tools: "实用工具",
+                    pricing: "产品定价",
+                articles: "行业动态",
+                contact: "联系我们"
+            },
+            back: "返回动态列表",
+            share: "分享这篇文章：",
+            reads: "阅读"
+        },
+        en: {
+            title: "Article Detail - Yiyu Digital",
+            nav: {
+                home: "Home",
+                tools: "Tools",
+                    pricing: "Pricing",
+                articles: "Insights",
+                contact: "Contact Us"
+            },
+            back: "Back to Insights",
+            share: "Share this article:",
+            reads: "Reads"
+        }
+    };
+
+    function appData() {
+        return {
+            lang: localStorage.getItem('yiyu_lang') || 'zh',
+            t: translations,
+            toggleLang() {
+                this.lang = this.lang === 'zh' ? 'en' : 'zh';
+                localStorage.setItem('yiyu_lang', this.lang);
+            }
+        }
+    }
+
+    async function incrementArticleView() {
+        const counter = document.getElementById('article-view-count');
+        if (!counter) return;
+
+        const articleId = counter.dataset.articleId;
+        const baseViews = Number.parseInt(counter.dataset.baseViews || counter.textContent, 10) || 0;
+        if (!articleId) return;
+
+        try {
+            const response = await fetch(`/api/article-view/${encodeURIComponent(articleId)}`, {
+                method: 'POST',
+                headers: { 'content-type': 'application/json' },
+                body: JSON.stringify({ baseViews }),
+                cache: 'no-store'
+            });
+            if (!response.ok) return;
+            const payload = await response.json();
+            const views = Number.parseInt(payload.views, 10);
+            if (Number.isInteger(views) && views > baseViews) {
+                counter.textContent = views.toLocaleString();
+            }
+        } catch (error) {
+            console.debug('Article view increment skipped:', error);
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', incrementArticleView);
+</script>
+</html>
