@@ -39,37 +39,32 @@ def build():
         html_content = html_content.replace('href="/login"', 'href="login.html"')
         html_content = html_content.replace('href="/register"', 'href="login.html"')
         html_content = html_content.replace('href="/dashboard"', 'href="dashboard.html"')
+        html_content = html_content.replace('href="/pricing"', 'href="pricing.html"')
+        html_content = html_content.replace('href="/tools"', 'href="tools.html"')
+        html_content = html_content.replace('href="/tool_copywriting"', 'href="tool_copywriting.html"')
+        html_content = html_content.replace('href="/tool_douyin_video"', 'href="tool_douyin_video.html"')
         
         # Special case for logo redirect
         html_content = html_content.replace("window.location.href='/'", "window.location.href='index.html'")
         
         return html_content
 
+    def generate_page(route, template_name, output_name, **context):
+        with app.test_request_context(route):
+            output = render_template(template_name, **context)
+            output = fix_links(output)
+            with open(os.path.join(dist_dir, output_name), 'w', encoding='utf-8') as f:
+                f.write(output)
+            print(f"Generated {output_name}")
+
     # 3. Generate Pages
-    
-    # 3.1 Index -> index.html
-    with app.test_request_context('/'):
-        output = render_template('index.html')
-        output = fix_links(output)
-        with open(os.path.join(dist_dir, 'index.html'), 'w', encoding='utf-8') as f:
-            f.write(output)
-        print("Generated index.html")
-
-    # 3.2 Login -> login.html
-    with app.test_request_context('/login'):
-        output = render_template('login.html')
-        output = fix_links(output)
-        with open(os.path.join(dist_dir, 'login.html'), 'w', encoding='utf-8') as f:
-            f.write(output)
-        print("Generated login.html")
-
-    # 3.3 Dashboard -> dashboard.html
-    with app.test_request_context('/dashboard'):
-        output = render_template('dashboard.html')
-        output = fix_links(output)
-        with open(os.path.join(dist_dir, 'dashboard.html'), 'w', encoding='utf-8') as f:
-            f.write(output)
-        print("Generated dashboard.html")
+    generate_page('/', 'index.html', 'index.html')
+    generate_page('/login', 'login.html', 'login.html')
+    generate_page('/dashboard', 'dashboard.html', 'dashboard.html')
+    generate_page('/pricing', 'pricing.html', 'pricing.html')
+    generate_page('/tools', 'tools.html', 'tools.html')
+    generate_page('/tool_copywriting', 'tools/copywriting.html', 'tool_copywriting.html')
+    generate_page('/tool_douyin_video', 'tools/douyin_video.html', 'tool_douyin_video.html')
 
     # 4. Create ZIP archive
     zip_path = os.path.join(base_dir, 'dist')

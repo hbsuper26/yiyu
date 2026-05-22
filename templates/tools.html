@@ -101,6 +101,28 @@
                         </div>
                     </div>
                 </a>
+
+                <!-- Douyin Video Parser Tool Card -->
+                <a href="/tool_douyin_video" class="group block relative bg-white rounded-2xl shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-slate-100 overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-br from-slate-900/5 to-rose-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div class="h-48 overflow-hidden relative bg-slate-900">
+                        <img src="https://images.unsplash.com/photo-1611162616475-46b635cb6868?q=80&w=800&auto=format&fit=crop" alt="抖音视频解析" class="w-full h-full object-cover opacity-90 transform group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-rose-600 shadow-sm flex items-center gap-1">
+                            <i class="fas fa-chart-line"></i> <span x-text="t[lang].toolLabels.new">新品</span>
+                        </div>
+                    </div>
+                    <div class="p-6 relative">
+                        <div class="w-12 h-12 bg-slate-900 text-white rounded-xl flex items-center justify-center text-xl mb-4 -mt-12 relative z-10 shadow-sm border border-white">
+                            <i class="fa-brands fa-tiktok"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-2 group-hover:text-rose-600 transition-colors" x-text="t[lang].tools.douyin.title">抖音视频解析</h3>
+                        <p class="text-sm text-slate-500 leading-relaxed mb-4" x-text="t[lang].tools.douyin.desc">粘贴公开视频链接，解析播放、点赞、收藏、评论、分享、口播文字、摘要与关键词。</p>
+                        <div class="flex items-center text-rose-600 text-sm font-semibold">
+                            <span x-text="t[lang].useNow">立即使用</span>
+                            <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+                        </div>
+                    </div>
+                </a>
                 
                 <!-- Placeholder for future tools -->
                 <div class="group relative bg-slate-100/50 rounded-2xl border-2 border-dashed border-slate-200 flex flex-col items-center justify-center p-8 text-center h-[350px]">
@@ -127,11 +149,15 @@
                     contact: "联系我们"
                 },
                 hero: { badge: "高效赋能", title: "日常运营", titleHighlight: "实用工具库", subtitle: "聚合多维度核心能力，提供全面、高效的业务辅助方案，为您的每一次决策与执行赋能。" },
-                toolLabels: { hot: "热门" },
+                toolLabels: { hot: "热门", new: "新品" },
                 tools: {
                     copywriting: {
                         title: "文案裂变神器",
                         desc: "输入核心词汇，一键生成多平台（小红书、知乎、抖音等）爆款文案，支持变量裂变和情绪风格选择。"
+                    },
+                    douyin: {
+                        title: "抖音视频解析",
+                        desc: "粘贴公开视频链接，解析播放、点赞、收藏、评论、分享、口播文字、摘要与关键词。"
                     }
                 },
                 useNow: "立即使用",
@@ -148,11 +174,15 @@
                     contact: "Contact Us"
                 },
                 hero: { badge: "Empowerment", title: "Daily Operations ", titleHighlight: "Toolbox", subtitle: "Aggregating multi-dimensional core capabilities to provide comprehensive and efficient business assistance solutions, empowering every decision and execution." },
-                toolLabels: { hot: "Hot" },
+                toolLabels: { hot: "Hot", new: "New" },
                 tools: {
                     copywriting: {
                         title: "Copy Fission Tool",
                         desc: "Input keywords to instantly generate viral copy for multiple platforms (XHS, TikTok, etc.) with variables and emotional styles."
+                    },
+                    douyin: {
+                        title: "Douyin Video Parser",
+                        desc: "Paste a public video link to parse views, likes, saves, comments, shares, transcript, summary and keywords."
                     }
                 },
                 useNow: "Use Now",

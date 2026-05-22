@@ -1,6 +1,8 @@
-from flask import Flask, render_template, g, request
+from flask import Flask, render_template, g, request, jsonify, Response
 import os
 import sqlite3
+import re
+import requests
 
 app = Flask(__name__)
 # Disable template caching during development
@@ -15,6 +17,7 @@ import sys
 import os
 sys.path.append(os.path.dirname(__file__))
 from agent import generate_daily_articles
+from douyin_parser import DouyinParseError, parse_douyin_video
 
 app.jinja_env.filters['markdown'] = lambda text: markdown.markdown(text, extensions=['extra', 'nl2br'])
 
@@ -51,6 +54,10 @@ def add_header(response):
 @app.route('/tool_copywriting')
 def tools_copywriting():
     return render_template('tools/copywriting.html')
+
+@app.route('/tool_douyin_video')
+def tools_douyin_video():
+    return render_template('tools/douyin_video.html')
 
 @app.route('/tools')
 def tools():
@@ -122,6 +129,77 @@ def api_articles():
         "count": len(articles_list),
         "data": articles_list
     })
+
+@app.route('/api/tools/douyin-video/parse', methods=['POST'])
+def api_douyin_video_parse():
+    payload = request.get_json(silent=True) or {}
+    video_url = payload.get('url', '')
+
+    try:
+        data = parse_douyin_video(video_url)
+    except DouyinParseError as exc:
+        return jsonify({
+            "success": False,
+            "message": str(exc)
+        }), 400
+    except Exception as exc:
+        return jsonify({
+            "success": False,
+            "message": f"解析失败：{exc}"
+        }), 500
+
+    return jsonify({
+        "success": True,
+        "data": data
+    })
+
+@app.route('/api/tools/douyin-video/download', methods=['POST'])
+def api_douyin_video_download():
+    payload = request.get_json(silent=True) or {}
+    play_url = (payload.get('playUrl') or '').strip()
+    title = payload.get('title') or 'douyin-video'
+
+    if not play_url.startswith(('http://', 'https://')):
+        return jsonify({
+            "success": False,
+            "message": "缺少可下载的视频地址。"
+        }), 400
+
+    safe_title = re.sub(r'[\\/:*?"<>|\r\n]+', '_', title).strip('_')[:80] or 'douyin-video'
+
+    try:
+        upstream = requests.get(
+            play_url,
+            headers={
+                "User-Agent": (
+                    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+                    "AppleWebKit/537.36 (KHTML, like Gecko) "
+                    "Chrome/125.0.0.0 Safari/537.36"
+                ),
+                "Referer": "https://www.douyin.com/",
+            },
+            stream=True,
+            timeout=30,
+        )
+        upstream.raise_for_status()
+    except requests.RequestException as exc:
+        return jsonify({
+            "success": False,
+            "message": f"下载视频失败：{exc}"
+        }), 502
+
+    def generate():
+        for chunk in upstream.iter_content(chunk_size=1024 * 256):
+            if chunk:
+                yield chunk
+
+    response = Response(generate(), mimetype=upstream.headers.get('content-type') or 'video/mp4')
+    response.headers['Content-Disposition'] = f'attachment; filename="{safe_title}.mp4"'
+    response.headers['Cache-Control'] = 'no-store'
+    content_length = upstream.headers.get('content-length')
+    if content_length:
+        response.headers['Content-Length'] = content_length
+    return response
 
 def scheduled_job():
     print("Running scheduled daily article generation...")

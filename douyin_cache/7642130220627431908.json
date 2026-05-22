@@ -1,0 +1,58 @@
+{
+  "video": {
+    "id": "7642130220627431908",
+    "sourceUrl": "https://v.douyin.com/yUNMokccwqg/",
+    "resolvedUrl": "https://www.douyin.com/video/7642130220627431908",
+    "title": "“人民心疼人民”",
+    "author": {
+      "nickname": "君君说事",
+      "uniqueId": "souchajun666",
+      "avatar": "https://p3-pc.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_e469a6ea05658676c3d75af570395e83.jpeg?from=327834062"
+    },
+    "publishedAt": "2026-05-21 08:08:20",
+    "durationSeconds": 26.1,
+    "cover": "https://p3-pc-sign.douyinpic.com/image-cut-tos-priv/4c9261a8dc1c5616cb80777df6f763a1~tplv-dy-resize-origshort-autoq-75:330.jpeg?lk3s=138a59ce&x-expires=2094714000&x-signature=OJ8NvCSCVuBfn2BS8V1MOboT7Z0%3D&from=327834062&s=PackSourceEnum_AWEME_DETAIL&se=false&sc=cover&biz_tag=pcweb_cover&l=202605211716390AAE410765DCDAB2467E",
+    "playUrl": "https://v5-hl-mly-ov.zjcdn.com/e7959bda4c35021520f978de68ab63ba/6a0ef7c1/video/tos/cn/tos-cn-ve-15/osGBQf4hBA01i4nAgOiWyuI2BBDE2HigzQeXZA/?a=6383&ch=26&cr=3&dr=0&lr=all&cd=0%7C0%7C0%7C3&cv=1&br=2164&bt=2164&cs=0&ds=4&ft=CZcaELO_DDhNF5VQ9wJq98Hhd.gwR3fg3-ApQX&mime_type=video_mp4&qs=0&rc=NjM6ZTw5N2doNzM1NGY5N0BpanJ4O205cmo3OzMzNGkzM0BiXzE2NC82NV4xLmIwXzZhYSMwMmBvMmRjbTRhLS1kLTBzcw%3D%3D&btag=c0000e00010000&cquery=100z_100o_100w_100B_100x&dy_q=1779354999&feature_id=37f92ebd2877ae8e7eba995d406c5150&l=202605211716390AAE410765DCDAB2467E",
+    "counts": {
+      "play": 0,
+      "like": 66859,
+      "favorite": 3679,
+      "comment": 707,
+      "share": 7476
+    }
+  },
+  "metrics": {
+    "likeRate": {
+      "value": null,
+      "label": "暂无播放量"
+    },
+    "favoriteRate": {
+      "value": null,
+      "label": "暂无播放量"
+    },
+    "commentRate": {
+      "value": null,
+      "label": "暂无播放量"
+    },
+    "shareRate": {
+      "value": null,
+      "label": "暂无播放量"
+    },
+    "engagementRate": {
+      "value": null,
+      "label": "暂无播放量"
+    }
+  },
+  "transcript": {
+    "status": "not_configured",
+    "message": "语音转文字服务未配置。配置 DOUYIN_TRANSCRIBE_ENDPOINT 后，可自动提取视频讲话文字。",
+    "text": "",
+    "segments": []
+  },
+  "analysis": {
+    "summary": "基于视频文案的摘要：“人民心疼人民”",
+    "keywords": [
+      "人民心疼人民"
+    ]
+  }
+}
