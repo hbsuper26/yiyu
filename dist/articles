@@ -142,6 +142,123 @@
                 <!-- Article Cards -->
                 
                     <article x-show="currentFilter === 'all' || currentFilter === 'insight'" x-transition
+                        class="article-card card-hover flex flex-col h-full group cursor-pointer" onclick="window.location.href = '/article/77'">
+                        <div class="relative h-56 overflow-hidden">
+                            <img src="https://picsum.photos/seed/yiyu4675/800/500" alt="本周 TikTok Shop 新品冷启动观察：素材池储备多少才够用？" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                            <div class="absolute top-4 left-4">
+                                <span class="px-3 py-1 bg-white/90 backdrop-blur-sm text-blue-600 text-xs font-bold rounded-lg shadow-sm">
+                                    <span x-show="lang === 'zh'">
+                                        行业洞察
+                                        
+                                    </span>
+                                    <span x-show="lang === 'en'" x-cloak>
+                                        Insights
+                                        
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <div class="flex items-center gap-3 text-xs text-slate-500 mb-3">
+                                <span class="flex items-center gap-1"><i class="far fa-calendar-alt"></i> <span>2026-05-22</span></span>
+                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span class="article-view-count" data-article-id="77" data-base-views="61">61</span></span>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
+                                <span x-show="lang === 'zh'">本周 TikTok Shop 新品冷启动观察：素材池储备多少才够用？</span>
+                                <span x-show="lang === 'en'" x-cloak>This Week&#39;s TikTok Shop Cold Launch Observations: How Much Creative Inventory Is Enough?</span>
+                            </h3>
+                            <p class="text-slate-600 text-sm line-clamp-2 mb-6 flex-grow">
+                                <span x-show="lang === 'zh'">本周 TikTok Shop 平台流量分发机制出现微妙调整，多个类目新品冷启动期从原来的 5-7 天延长至 7-10 天。素材池储备不足成为新品冷启动失败的首要原因。本文观察本周变化，分析素材池与冷启动节奏的匹配关系，给出具体储备建议。</span>
+                                <span x-show="lang === 'en'" x-cloak>This week, TikTok Shop&#39;s traffic distribution mechanism showed subtle adjustments, with the cold launch period for new products in multiple categories extending from 5-7 days to 7-10 days. Insufficient creative inventory has become the primary reason for cold launch failures. This article observes this week&#39;s changes, analyzes the relationship between creative pool size and cold launch rhythm, and provides specific inventory recommendations.</span>
+                            </p>
+                            
+                            <div class="flex items-center justify-between mt-auto pt-4 border-t border-slate-100">
+                                <span class="text-blue-600 font-medium text-sm flex items-center gap-1 group-hover:translate-x-1 transition-transform ml-auto">
+                                    <span x-text="t[lang].card.readMore">阅读全文</span> <i class="fas fa-arrow-right text-xs"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </article>
+                
+                    <article x-show="currentFilter === 'all' || currentFilter === 'insight'" x-transition
+                        class="article-card card-hover flex flex-col h-full group cursor-pointer" onclick="window.location.href = '/article/76'">
+                        <div class="relative h-56 overflow-hidden">
+                            <img src="https://picsum.photos/seed/yiyu862/800/500" alt="代理开户为什么必须上系统看板？三个运营事故说清楚" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                            <div class="absolute top-4 left-4">
+                                <span class="px-3 py-1 bg-white/90 backdrop-blur-sm text-blue-600 text-xs font-bold rounded-lg shadow-sm">
+                                    <span x-show="lang === 'zh'">
+                                        行业洞察
+                                        
+                                    </span>
+                                    <span x-show="lang === 'en'" x-cloak>
+                                        Insights
+                                        
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <div class="flex items-center gap-3 text-xs text-slate-500 mb-3">
+                                <span class="flex items-center gap-1"><i class="far fa-calendar-alt"></i> <span>2026-05-22</span></span>
+                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span class="article-view-count" data-article-id="76" data-base-views="50">50</span></span>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
+                                <span x-show="lang === 'zh'">代理开户为什么必须上系统看板？三个运营事故说清楚</span>
+                                <span x-show="lang === 'en'" x-cloak>Why Agency Account Opening Services Must Go Digital: Three Real Operational Incidents Explained</span>
+                            </h3>
+                            <p class="text-slate-600 text-sm line-clamp-2 mb-6 flex-grow">
+                                <span x-show="lang === 'zh'">代理开户服务如果还在靠表格加人工记忆管理，出问题是迟早的事。本文通过三个真实运营场景，分析人工管理的致命缺陷，以及系统化看板如何解决开户追踪、余额对账、异常预警三大核心痛点。</span>
+                                <span x-show="lang === 'en'" x-cloak>If your agency account opening service still relies on spreadsheets and manual tracking, problems are inevitable. This article analyzes three real operational scenarios to reveal the critical flaws of manual management and how a systematic dashboard solves the core pain points of account tracking, balance reconciliation, and anomaly alerts.</span>
+                            </p>
+                            
+                            <div class="flex items-center justify-between mt-auto pt-4 border-t border-slate-100">
+                                <span class="text-blue-600 font-medium text-sm flex items-center gap-1 group-hover:translate-x-1 transition-transform ml-auto">
+                                    <span x-text="t[lang].card.readMore">阅读全文</span> <i class="fas fa-arrow-right text-xs"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </article>
+                
+                    <article x-show="currentFilter === 'all' || currentFilter === 'guide'" x-transition
+                        class="article-card card-hover flex flex-col h-full group cursor-pointer" onclick="window.location.href = '/article/75'">
+                        <div class="relative h-56 overflow-hidden">
+                            <img src="https://picsum.photos/seed/yiyu3645/800/500" alt="Meta广告素材复盘：如何区分“能跑”和“能卖”？" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                            <div class="absolute top-4 left-4">
+                                <span class="px-3 py-1 bg-white/90 backdrop-blur-sm text-blue-600 text-xs font-bold rounded-lg shadow-sm">
+                                    <span x-show="lang === 'zh'">
+                                        投放指南
+                                        
+                                    </span>
+                                    <span x-show="lang === 'en'" x-cloak>
+                                        Ad Guide
+                                        
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <div class="flex items-center gap-3 text-xs text-slate-500 mb-3">
+                                <span class="flex items-center gap-1"><i class="far fa-calendar-alt"></i> <span>2026-05-22</span></span>
+                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span class="article-view-count" data-article-id="75" data-base-views="65">65</span></span>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
+                                <span x-show="lang === 'zh'">Meta广告素材复盘：如何区分“能跑”和“能卖”？</span>
+                                <span x-show="lang === 'en'" x-cloak>Meta Ad Creative Review: How to Distinguish &#39;High-Volume&#39; from &#39;High-Converting&#39; Ads</span>
+                            </h3>
+                            <p class="text-slate-600 text-sm line-clamp-2 mb-6 flex-grow">
+                                <span x-show="lang === 'zh'">很多出海团队会遇到这样的困惑：素材CTR很高、消耗很快，但付费转化一塌糊涂。这就是“能跑不能卖”的典型症状。本文用6个真实问题帮你建立素材复盘的核心判断框架，学会区分流量指标和变现指标，避免把预算浪费在“好看但不赚钱”的素材上。</span>
+                                <span x-show="lang === 'en'" x-cloak>Many overseas marketing teams face a common dilemma: ad creatives with high CTR and fast spending but poor conversion rates. This is the classic &#39;high-volume, low-converting&#39; symptom. This article uses 6 practical Q&amp;As to help you build a core framework for creative review, distinguishing between traffic metrics and monetization metrics to avoid wasting budget on creatives that look good but don&#39;t sell.</span>
+                            </p>
+                            
+                            <div class="flex items-center justify-between mt-auto pt-4 border-t border-slate-100">
+                                <span class="text-blue-600 font-medium text-sm flex items-center gap-1 group-hover:translate-x-1 transition-transform ml-auto">
+                                    <span x-text="t[lang].card.readMore">阅读全文</span> <i class="fas fa-arrow-right text-xs"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </article>
+                
+                    <article x-show="currentFilter === 'all' || currentFilter === 'insight'" x-transition
                         class="article-card card-hover flex flex-col h-full group cursor-pointer" onclick="window.location.href = '/article/74'">
                         <div class="relative h-56 overflow-hidden">
                             <img src="https://picsum.photos/seed/yiyu1756/800/500" alt="东南亚和拉美广告跑不动？八成问题出在本地化思路" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
