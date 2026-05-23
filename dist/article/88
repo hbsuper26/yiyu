@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="zh-CN" x-data="appData()">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title x-text="t[lang].title">文章详情 - 以渔数媒</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        [x-cloak] { display: none !important; }
+        .prose img {
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+        }
+        .prose h2 {
+            color: #0f172a;
+            font-weight: 700;
+            font-size: 1.5rem;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .prose p {
+            color: #475569;
+            line-height: 1.8;
+            margin-bottom: 1.25rem;
+            font-size: 1.125rem;
+        }
+        .prose blockquote {
+            border-left: 4px solid #3b82f6;
+            padding-left: 1rem;
+            color: #334155;
+            font-style: italic;
+            background: #eff6ff;
+            padding: 1rem;
+            border-radius: 0 0.5rem 0.5rem 0;
+            margin: 2rem 0;
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #3B82F6 0%, #9333EA 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased bg-white">
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 transition-all duration-300 bg-white/90 backdrop-blur-md border-b border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <a href="/" class="flex-shrink-0 flex items-center gap-3 group">
+                    <img src="/static/images/logo.png" alt="Logo" class="w-10 h-10 rounded-lg object-cover shadow-sm group-hover:shadow-md transition-shadow duration-300" onerror="this.src='https://ui-avatars.com/api/?name=YY&background=0D8ABC&color=fff'">
+                    <span class="font-extrabold text-2xl tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-violet-600 drop-shadow-sm">以渔数媒</span>
+                </a>
+                
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="/" class="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors" x-text="t[lang].nav.home">首页</a>
+                    <a href="/articles" class="text-sm font-medium text-blue-600 transition-colors" x-text="t[lang].nav.articles">行业动态</a>
+                                        <a href="/tools" class="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors" x-text="t[lang].nav.tools">实用工具</a>
+<a href="/pricing" class="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors" x-text="t[lang].nav.pricing">产品定价</a>
+                    
+                    <button @click="toggleLang()" class="flex items-center space-x-1 px-3 py-1.5 rounded-md border border-slate-200 hover:border-blue-400 hover:bg-slate-50 transition-all">
+                        <i class="fas fa-globe text-slate-500 text-xs"></i>
+                        <span class="text-xs font-bold text-slate-600" x-text="lang === 'zh' ? 'EN' : '中'"></span>
+                    </button>
+                    
+                    <div class="flex items-center gap-3 pl-4 border-l border-slate-200">
+                        <a href="https://t.me/yiyiyiads" target="_blank" class="px-5 py-2.5 rounded-lg bg-blue-600 text-white text-sm font-medium hover:bg-blue-700 transition-all shadow-md shadow-blue-500/20" x-text="t[lang].nav.contact">联系我们</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Article Content -->
+    <main class="pt-32 pb-24">
+        <!-- Back Button & Breadcrumb -->
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 mb-8">
+            <a href="/articles" class="inline-flex items-center gap-2 text-sm font-medium text-slate-500 hover:text-blue-600 transition-colors group">
+                <div class="w-8 h-8 rounded-full border border-slate-200 flex items-center justify-center group-hover:border-blue-500 group-hover:bg-blue-50 transition-all">
+                    <i class="fas fa-arrow-left text-xs group-hover:-translate-x-0.5 transition-transform"></i>
+                </div>
+                <span x-text="t[lang].back">返回动态列表</span>
+            </a>
+        </div>
+
+        <article class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Article Header -->
+            <header class="mb-10 text-center">
+                <div class="mb-6">
+                    <span class="px-3 py-1 bg-blue-50 text-blue-600 text-xs font-bold rounded-lg uppercase tracking-wider">
+                        <span x-show="lang === 'zh'">
+                            投放指南
+                            
+                        </span>
+                        <span x-show="lang === 'en'" x-cloak>
+                            Ad Guide
+                            
+                        </span>
+                    </span>
+                </div>
+                <h1 class="text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-900 leading-tight mb-8">
+                    <span x-show="lang === 'zh'">海外广告合规巡检怎么做？这套 SOP 把账户风险关进笼子</span>
+                    <span x-show="lang === 'en'" x-cloak>How to Conduct Overseas Ad Compliance Inspections: A Practical SOP Framework</span>
+                </h1>
+                
+                <!-- Author Meta -->
+                <div class="flex items-center justify-center gap-6 text-sm text-slate-500 border-t border-b border-slate-100 py-4">
+                    <div class="flex items-center gap-2">
+                        <i class="far fa-calendar-alt"></i>
+                        <span>2026-05-23</span>
+                    </div>
+                    <div class="h-8 w-px bg-slate-200"></div>
+                    <div class="flex items-center gap-2">
+                        <i class="far fa-eye"></i>
+                        <span><span id="article-view-count" data-article-id="88" data-base-views="47">47</span> <span x-text="t[lang].reads">阅读</span></span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Featured Image -->
+            <div class="rounded-2xl overflow-hidden mb-12 shadow-2xl shadow-slate-200/50">
+                <img src="https://picsum.photos/seed/yiyu6829/800/500" alt="Featured Image" class="w-full h-[400px] object-cover">
+            </div>
+
+            <!-- Rich Text Body -->
+            <div class="prose max-w-none" x-show="lang === 'zh'">
+                <h2>先给结论：合规巡检是出海投放的生死线</h2>
+<p>很多团队把合规巡检当成“出了问题再查”的补救手段，这是最大的认知误区。以渔数媒服务过大量出海企业后发现，<strong>账户封停的 80% 风险其实在封停前 48 小时内就有预警信号</strong>，只是团队没有建立标准化的巡检动作，错失了干预窗口。</p>
+<p>合规巡检的核心价值不是“事后灭火”，而是“事前排雷”。一套有效的巡检 SOP，能让运营团队在问题发酵成账户级别风险之前主动处理。</p>
+<h2>合规巡检的四个核心节点</h2>
+<h3>节点一：账户权限与管理员状态</h3>
+<p>这是最容易忽略、但影响最致命的环节。运营经验表明，<strong>管理员权限异常是账户被暂停的高频前兆</strong>，常见场景包括：</p>
+<ul>
+<li>新增管理员后未完成双重验证绑定</li>
+<li>离职员工账号未及时移除权限</li>
+<li>多人共用同一登录凭证</li>
+</ul>
+<p>建议每周一执行权限健康度检查：确认所有管理员账号处于“活跃且验证完成”状态，及时清理非必要账号。某工具类 App 团队曾在巡检中发现一个离职 3 个月的渠道商账号仍保留编辑权限，及时关闭后避免了一次潜在的账户滥用风险。</p>
+<h3>节点二：素材内容合规性抽查</h3>
+<p>素材是广告系统的审核对象，也是违规封停的直接触发点。巡检时不要只看“有没有违规内容”，更要关注：</p>
+<ul>
+<li><strong>文案禁区词</strong>：涉及健康功效、金融承诺、隐私数据的表述是否出现</li>
+<li><strong>素材版权风险</strong>：配图、音乐、名人肖像是否在平台授权范围内</li>
+<li><strong>落地页一致性</strong>：广告素材与落地页内容是否存在夸大或矛盾</li>
+</ul>
+<p>建议每批次新素材上线前做一轮内部过审，巡检时重点抽查“上线超过 7 天但未积累足够转化数据”的素材包。</p>
+<h3>节点三：投放设置与定向合规</h3>
+<p>不同地区、不同平台对定向设置有不同的合规要求。巡检时需确认：</p>
+<ul>
+<li>受众定向是否触达未成年人群体（多数平台明确禁止）</li>
+<li>敏感类别（金融、医疗、健康）的广告是否完成前置资质审核</li>
+<li>投放时间与预算设置是否符合平台单账户日预算上限要求</li>
+</ul>
+<h3>节点四：财务状态与余额预警</h3>
+<p>账户余额耗尽导致的投放中断，会造成历史数据断档，影响后续优化判断。更严重的是，某些平台在余额不足时会对账户进行“准封停”处理，恢复充值后需要重新通过审核。</p>
+<p>建立余额预警机制非常重要：建议设置“账户余额低于 3 天平均消耗量”的红色预警，以及“低于 7 天平均消耗量”的黄色预警。</p>
+<h2>巡检 SOP 的落地建议</h2>
+<table>
+<thead>
+<tr>
+<th>巡检频率</th>
+<th>检查节点</th>
+<th>执行人</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>每日</td>
+<td>余额预警状态、投放异常告警</td>
+<td>运营专员</td>
+</tr>
+<tr>
+<td>每周一</td>
+<td>权限健康度、素材合规抽查</td>
+<td>运营组长</td>
+</tr>
+<tr>
+<td>每月</td>
+<td>全量素材合规复审、资质文件有效期检查</td>
+<td>风控/运营负责人</td>
+</tr>
+</tbody>
+</table>
+<p>这套 SOP 的核心逻辑是：<strong>高频检查轻量节点，低频检查重量节点</strong>。日常巡检不要变成“填表表演”，宁可把 5 分钟的日检做到位，也不要用 30 分钟的周检走过场。</p>
+<p>合规巡检的本质是把“不确定性”变成“可管理的风险”。建立 SOP 不是目的，能在问题爆发前发现问题，才是这套机制真正的价值所在。</p>
+            </div>
+            <div class="prose max-w-none" x-show="lang === 'en'" x-cloak>
+                <h2>Conclusion First: Compliance Inspection is the Lifeline of Overseas Advertising</h2>
+<p>Many teams treat compliance inspection as a remedial measure after problems occur—this is the biggest misconception. Based on our experience serving numerous overseas enterprises, <strong>80% of account suspension risks actually show warning signals within 48 hours before suspension</strong>, but teams lack standardized inspection procedures, missing the intervention window.</p>
+<p>The core value of compliance inspection is not "firefighting after the fact" but "clearing mines in advance." An effective inspection SOP enables operations teams to proactively address issues before they escalate into account-level risks.</p>
+<h2>Four Core Nodes of Compliance Inspection</h2>
+<h3>Node 1: Account Permissions and Admin Status</h3>
+<p>This is the most overlooked yet critical node. Operational experience shows that <strong>admin permission anomalies are a high-frequency precursor to account suspension</strong>. Common scenarios include:</p>
+<ul>
+<li>New admins added without completing two-factor authentication</li>
+<li>Departed employee accounts not removed promptly</li>
+<li>Multiple users sharing the same login credentials</li>
+</ul>
+<p>Recommended action: Perform a permission health check every Monday. Ensure all admin accounts are "active with verification complete" and remove unnecessary accounts promptly. A certain utility app team discovered during inspection that a departed channel partner's account still retained editing permissions three months after leaving—closing it immediately avoided potential account misuse.</p>
+<h3>Node 2: Creative Content Compliance Spot Check</h3>
+<p>Creatives are the primary review targets of ad systems and direct triggers for compliance violations. During inspection, don't just check "whether there's violating content"—also focus on:</p>
+<ul>
+<li><strong>Copy restriction keywords</strong>: Whether expressions involving health claims, financial promises, or private data appear</li>
+<li><strong>Material copyright risks</strong>: Whether images, music, or celebrity likenesses are within platform authorization scope</li>
+<li><strong>Landing page consistency</strong>: Whether ad creatives and landing page content have exaggerations or contradictions</li>
+</ul>
+<p>Recommended action: Conduct internal review before each batch of new materials goes live. During inspection, focus on spot-checking materials "online for over 7 days but lacking sufficient conversion data."</p>
+<h3>Node 3: Campaign Settings and Targeting Compliance</h3>
+<p>Different regions and platforms have varying compliance requirements for targeting settings. During inspection, confirm:</p>
+<ul>
+<li>Whether audience targeting reaches minors (most platforms explicitly prohibit this)</li>
+<li>Whether ads in sensitive categories (finance, healthcare, wellness) have completed prerequisite qualification reviews</li>
+<li>Whether scheduling and budget settings comply with platform daily budget limits per account</li>
+</ul>
+<h3>Node 4: Financial Status and Balance Alerts</h3>
+<p>Running out of account balance causes campaign interruption, leading to historical data gaps that affect optimization decisions. More seriously, some platforms implement "quasi-suspension" when balance is insufficient—recovery requires re-passing review after recharge.</p>
+<p>Establishing a balance warning mechanism is crucial: Set a <strong>red alert for balance below 3 days' average spend</strong> and a <strong>yellow alert for balance below 7 days' average spend</strong>.</p>
+<h2>SOP Implementation Recommendations</h2>
+<table>
+<thead>
+<tr>
+<th>Inspection Frequency</th>
+<th>Check Nodes</th>
+<th>Assignee</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Daily</td>
+<td>Balance alert status, campaign anomaly alerts</td>
+<td>Operations Specialist</td>
+</tr>
+<tr>
+<td>Every Monday</td>
+<td>Permission health, creative compliance spot check</td>
+<td>Operations Supervisor</td>
+</tr>
+<tr>
+<td>Monthly</td>
+<td>Full creative compliance review, qualification document validity</td>
+<td>Compliance/Ops Lead</td>
+</tr>
+</tbody>
+</table>
+<p>The core logic of this SOP: <strong>High-frequency checks for lightweight nodes, low-frequency checks for heavyweight nodes</strong>. Daily inspection shouldn't become "form-filling theater." Better to do a solid 5-minute daily check than a 30-minute weekly inspection that goes through the motions.</p>
+<p>The essence of compliance inspection is transforming "uncertainty" into "manageable risk." Establishing an SOP is not the goal—detecting problems before they escalate is the true value of this mechanism.</p>
+            </div>
+
+            <!-- Social Share (Mock) -->
+            <div class="mt-12 pt-8 border-t border-slate-100 flex items-center justify-between">
+                <div class="text-sm font-medium text-slate-500" x-text="t[lang].share">分享这篇文章：</div>
+                <div class="flex gap-3">
+                    <button class="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-600 hover:bg-[#1DA1F2] hover:text-white transition-colors">
+                        <i class="fab fa-twitter"></i>
+                    </button>
+                    <button class="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-600 hover:bg-[#0077B5] hover:text-white transition-colors">
+                        <i class="fab fa-linkedin-in"></i>
+                    </button>
+                    <button class="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-600 hover:bg-[#00B489] hover:text-white transition-colors">
+                        <i class="fas fa-link"></i>
+                    </button>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 py-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="text-slate-400 text-sm">
+                &copy; 2026 以渔数媒 (YiYu Ads). All rights reserved.
+            </p>
+        </div>
+    </footer>
+</body>
+<script>
+    const translations = {
+        zh: {
+            title: "文章详情 - 以渔数媒",
+            nav: {
+                home: "首页",
+                tools: "实用工具",
+                    pricing: "产品定价",
+                articles: "行业动态",
+                contact: "联系我们"
+            },
+            back: "返回动态列表",
+            share: "分享这篇文章：",
+            reads: "阅读"
+        },
+        en: {
+            title: "Article Detail - Yiyu Digital",
+            nav: {
+                home: "Home",
+                tools: "Tools",
+                    pricing: "Pricing",
+                articles: "Insights",
+                contact: "Contact Us"
+            },
+            back: "Back to Insights",
+            share: "Share this article:",
+            reads: "Reads"
+        }
+    };
+
+    function appData() {
+        return {
+            lang: localStorage.getItem('yiyu_lang') || 'zh',
+            t: translations,
+            toggleLang() {
+                this.lang = this.lang === 'zh' ? 'en' : 'zh';
+                localStorage.setItem('yiyu_lang', this.lang);
+            }
+        }
+    }
+
+    async function incrementArticleView() {
+        const counter = document.getElementById('article-view-count');
+        if (!counter) return;
+
+        const articleId = counter.dataset.articleId;
+        const baseViews = Number.parseInt(counter.dataset.baseViews || counter.textContent, 10) || 0;
+        if (!articleId) return;
+
+        try {
+            const response = await fetch(`/api/article-view/${encodeURIComponent(articleId)}`, {
+                method: 'POST',
+                headers: { 'content-type': 'application/json' },
+                body: JSON.stringify({ baseViews }),
+                cache: 'no-store'
+            });
+            if (!response.ok) return;
+            const payload = await response.json();
+            const views = Number.parseInt(payload.views, 10);
+            if (Number.isInteger(views) && views > baseViews) {
+                counter.textContent = views.toLocaleString();
+            }
+        } catch (error) {
+            console.debug('Article view increment skipped:', error);
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', incrementArticleView);
+</script>
+</html>
