@@ -142,6 +142,123 @@
                 <!-- Article Cards -->
                 
                     <article x-show="currentFilter === 'all' || currentFilter === 'guide'" x-transition
+                        class="article-card card-hover flex flex-col h-full group cursor-pointer" onclick="window.location.href = '/article/95'">
+                        <div class="relative h-56 overflow-hidden">
+                            <img src="https://picsum.photos/seed/yiyu1107/800/500" alt="海外广告充值、消耗与发票统一对账清单" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                            <div class="absolute top-4 left-4">
+                                <span class="px-3 py-1 bg-white/90 backdrop-blur-sm text-blue-600 text-xs font-bold rounded-lg shadow-sm">
+                                    <span x-show="lang === 'zh'">
+                                        投放指南
+                                        
+                                    </span>
+                                    <span x-show="lang === 'en'" x-cloak>
+                                        Ad Guide
+                                        
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <div class="flex items-center gap-3 text-xs text-slate-500 mb-3">
+                                <span class="flex items-center gap-1"><i class="far fa-calendar-alt"></i> <span>2026-05-25</span></span>
+                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span class="article-view-count" data-article-id="95" data-base-views="62">62</span></span>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
+                                <span x-show="lang === 'zh'">海外广告充值、消耗与发票统一对账清单</span>
+                                <span x-show="lang === 'en'" x-cloak>Unified Reconciliation Checklist for Overseas Ad Spend: Top-ups, Consumption &amp; Invoices</span>
+                            </h3>
+                            <p class="text-slate-600 text-sm line-clamp-2 mb-6 flex-grow">
+                                <span x-show="lang === 'zh'">海外广告投放涉及多平台充值、消耗追踪与发票核验，财务对账混乱是团队的常见痛点。本文以运营清单形式，拆解充值核验、消耗核对、发票核验三大环节的检查项，帮助出海团队快速建立规范的对账 SOP，避免资金风险。</span>
+                                <span x-show="lang === 'en'" x-cloak>Managing overseas ad spend across multiple platforms involves reconciling top-ups, consumption tracking, and invoice verification. Financial reconciliation chaos is a common pain point for teams. This article breaks down the three core areas—top-up verification, consumption reconciliation, and invoice validation—into actionable checklists to help overseas teams establish standardized reconciliation SOPs and avoid capital risks.</span>
+                            </p>
+                            
+                            <div class="flex items-center justify-between mt-auto pt-4 border-t border-slate-100">
+                                <span class="text-blue-600 font-medium text-sm flex items-center gap-1 group-hover:translate-x-1 transition-transform ml-auto">
+                                    <span x-text="t[lang].card.readMore">阅读全文</span> <i class="fas fa-arrow-right text-xs"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </article>
+                
+                    <article x-show="currentFilter === 'all' || currentFilter === 'insight'" x-transition
+                        class="article-card card-hover flex flex-col h-full group cursor-pointer" onclick="window.location.href = '/article/94'">
+                        <div class="relative h-56 overflow-hidden">
+                            <img src="https://picsum.photos/seed/yiyu9131/800/500" alt="跨境独立站投放预算怎么分配？这3个原则先搞懂" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                            <div class="absolute top-4 left-4">
+                                <span class="px-3 py-1 bg-white/90 backdrop-blur-sm text-blue-600 text-xs font-bold rounded-lg shadow-sm">
+                                    <span x-show="lang === 'zh'">
+                                        行业洞察
+                                        
+                                    </span>
+                                    <span x-show="lang === 'en'" x-cloak>
+                                        Insights
+                                        
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <div class="flex items-center gap-3 text-xs text-slate-500 mb-3">
+                                <span class="flex items-center gap-1"><i class="far fa-calendar-alt"></i> <span>2026-05-25</span></span>
+                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span class="article-view-count" data-article-id="94" data-base-views="61">61</span></span>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
+                                <span x-show="lang === 'zh'">跨境独立站投放预算怎么分配？这3个原则先搞懂</span>
+                                <span x-show="lang === 'en'" x-cloak>How to Allocate Cross-border E-commerce Store Advertising Budget? 3 Principles You Must Know</span>
+                            </h3>
+                            <p class="text-slate-600 text-sm line-clamp-2 mb-6 flex-grow">
+                                <span x-show="lang === 'zh'">独立站预算分配没有万能公式，但有可以遵循的底层逻辑。核心结论是：测试期集中火力测素材、成长期按渠道效果动态分配、成熟期追求投入产出最大化。具体比例因品类而异，但测试预算不低于总预算的20%、主力渠道不超过50%，这两条红线是多数独立站卖家踩过坑后才总结出来的经验。</span>
+                                <span x-show="lang === 'en'" x-cloak>There&#39;s no universal formula for store advertising budget allocation, but there are underlying principles worth following. The core approach: concentrate budget on creative testing during the learning phase, dynamically allocate based on channel performance during growth, and maximize ROI during maturity. Specific ratios vary by category, but allocating at least 20% for testing and capping any single channel at 50% are two red lines most cross-border sellers have learned through trial and error.</span>
+                            </p>
+                            
+                            <div class="flex items-center justify-between mt-auto pt-4 border-t border-slate-100">
+                                <span class="text-blue-600 font-medium text-sm flex items-center gap-1 group-hover:translate-x-1 transition-transform ml-auto">
+                                    <span x-text="t[lang].card.readMore">阅读全文</span> <i class="fas fa-arrow-right text-xs"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </article>
+                
+                    <article x-show="currentFilter === 'all' || currentFilter === 'insight'" x-transition
+                        class="article-card card-hover flex flex-col h-full group cursor-pointer" onclick="window.location.href = '/article/93'">
+                        <div class="relative h-56 overflow-hidden">
+                            <img src="https://picsum.photos/seed/yiyu4431/800/500" alt="本周 Google Ads 账户封禁事件频发，申诉材料准备清单与应对建议" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                            <div class="absolute top-4 left-4">
+                                <span class="px-3 py-1 bg-white/90 backdrop-blur-sm text-blue-600 text-xs font-bold rounded-lg shadow-sm">
+                                    <span x-show="lang === 'zh'">
+                                        行业洞察
+                                        
+                                    </span>
+                                    <span x-show="lang === 'en'" x-cloak>
+                                        Insights
+                                        
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <div class="flex items-center gap-3 text-xs text-slate-500 mb-3">
+                                <span class="flex items-center gap-1"><i class="far fa-calendar-alt"></i> <span>2026-05-25</span></span>
+                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span class="article-view-count" data-article-id="93" data-base-views="11">11</span></span>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
+                                <span x-show="lang === 'zh'">本周 Google Ads 账户封禁事件频发，申诉材料准备清单与应对建议</span>
+                                <span x-show="lang === 'en'" x-cloak>This Week&#39;s Google Ads Account Suspensions: How to Prepare Your Appeal Materials</span>
+                            </h3>
+                            <p class="text-slate-600 text-sm line-clamp-2 mb-6 flex-grow">
+                                <span x-show="lang === 'zh'">本周多家出海企业的 Google Ads 账户遭遇临时封禁或永久封号，主要集中在落地页违规和付款问题两类。账户被封直接影响广告投放节奏和业务转化，本文整理了申诉材料准备的核心要点和本周最新的封禁趋势，供出海营销人员参考。</span>
+                                <span x-show="lang === 'en'" x-cloak>This week, multiple overseas businesses experienced temporary suspensions or permanent bans on their Google Ads accounts, mainly concentrated in landing page violations and payment issues. Account suspensions directly impact ad delivery and business conversions. This article outlines key points for preparing appeal materials and the latest suspension trends.</span>
+                            </p>
+                            
+                            <div class="flex items-center justify-between mt-auto pt-4 border-t border-slate-100">
+                                <span class="text-blue-600 font-medium text-sm flex items-center gap-1 group-hover:translate-x-1 transition-transform ml-auto">
+                                    <span x-text="t[lang].card.readMore">阅读全文</span> <i class="fas fa-arrow-right text-xs"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </article>
+                
+                    <article x-show="currentFilter === 'all' || currentFilter === 'guide'" x-transition
                         class="article-card card-hover flex flex-col h-full group cursor-pointer" onclick="window.location.href = '/article/92'">
                         <div class="relative h-56 overflow-hidden">
                             <img src="https://picsum.photos/seed/yiyu9087/800/500" alt="独立站广告预算怎么分配？一张清单帮你理清思路" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
