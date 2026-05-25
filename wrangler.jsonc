@@ -1,13 +1,8 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "yiyuwebsite",
+  "pages_build_output_dir": "./dist",
   "compatibility_date": "2026-05-15",
-  "observability": {
-    "enabled": true
-  },
-  "assets": {
-    "directory": "."
-  },
   "compatibility_flags": [
     "nodejs_compat"
   ]
