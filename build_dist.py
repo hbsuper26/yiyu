@@ -10,6 +10,19 @@ app.config['FREEZER_REMOVE_EXTRA_FILES'] = False
 
 freezer = Freezer(app)
 
+
+def write_cloudflare_headers():
+    headers_path = os.path.join(app.config['FREEZER_DESTINATION'], '_headers')
+    with open(headers_path, 'w', encoding='utf-8') as f:
+        f.write(
+            "/articles\n"
+            "  Cache-Control: no-store, no-cache, must-revalidate, max-age=0\n"
+            "/article/*\n"
+            "  Cache-Control: no-store, no-cache, must-revalidate, max-age=0\n"
+            "/api/articles.json\n"
+            "  Cache-Control: no-store, no-cache, must-revalidate, max-age=0\n"
+        )
+
 @freezer.register_generator
 def article_detail():
     with app.app_context():
@@ -23,4 +36,5 @@ def article_detail():
 if __name__ == '__main__':
     print(f"Building static site to: {app.config['FREEZER_DESTINATION']}")
     freezer.freeze()
+    write_cloudflare_headers()
     print("Build complete!")
