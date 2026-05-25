@@ -141,6 +141,123 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Article Cards -->
                 
+                    <article x-show="currentFilter === 'all' || currentFilter === 'news'" x-transition
+                        class="article-card card-hover flex flex-col h-full group cursor-pointer" onclick="window.location.href = '/article/98'">
+                        <div class="relative h-56 overflow-hidden">
+                            <img src="https://picsum.photos/seed/yiyu9580/800/500" alt="周报观察 | TikTok Shop新品冷启动：本周素材策略的3个关键变化" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                            <div class="absolute top-4 left-4">
+                                <span class="px-3 py-1 bg-white/90 backdrop-blur-sm text-blue-600 text-xs font-bold rounded-lg shadow-sm">
+                                    <span x-show="lang === 'zh'">
+                                        官方公告
+                                        
+                                    </span>
+                                    <span x-show="lang === 'en'" x-cloak>
+                                        Official News
+                                        
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <div class="flex items-center gap-3 text-xs text-slate-500 mb-3">
+                                <span class="flex items-center gap-1"><i class="far fa-calendar-alt"></i> <span>2026-05-26</span></span>
+                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span class="article-view-count" data-article-id="98" data-base-views="32">32</span></span>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
+                                <span x-show="lang === 'zh'">周报观察 | TikTok Shop新品冷启动：本周素材策略的3个关键变化</span>
+                                <span x-show="lang === 'en'" x-cloak>Weekly Insights: 3 Key Creative Strategy Shifts for TikTok Shop Cold Launch</span>
+                            </h3>
+                            <p class="text-slate-600 text-sm line-clamp-2 mb-6 flex-grow">
+                                <span x-show="lang === 'zh'">本周TikTok Shop新品冷启动的素材环境出现明显调整，审核机制收紧、爆款生命周期缩短、多账号素材差异化成为新趋势。本文梳理这三个核心变化，并给出对应的素材池搭建建议，帮助出海团队快速调整冷启动节奏。</span>
+                                <span x-show="lang === 'en'" x-cloak>This week&#39;s TikTok Shop cold launch environment shows notable shifts: stricter creative review, shortened viral lifespan, and growing need for multi-account creative differentiation. This article breaks down three core changes with actionable recommendations for building your creative pool.</span>
+                            </p>
+                            
+                            <div class="flex items-center justify-between mt-auto pt-4 border-t border-slate-100">
+                                <span class="text-blue-600 font-medium text-sm flex items-center gap-1 group-hover:translate-x-1 transition-transform ml-auto">
+                                    <span x-text="t[lang].card.readMore">阅读全文</span> <i class="fas fa-arrow-right text-xs"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </article>
+                
+                    <article x-show="currentFilter === 'all' || currentFilter === 'insight'" x-transition
+                        class="article-card card-hover flex flex-col h-full group cursor-pointer" onclick="window.location.href = '/article/97'">
+                        <div class="relative h-56 overflow-hidden">
+                            <img src="https://picsum.photos/seed/yiyu9803/800/500" alt="Meta广告素材复盘：为什么你的素材能跑量却不能卖货？" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                            <div class="absolute top-4 left-4">
+                                <span class="px-3 py-1 bg-white/90 backdrop-blur-sm text-blue-600 text-xs font-bold rounded-lg shadow-sm">
+                                    <span x-show="lang === 'zh'">
+                                        行业洞察
+                                        
+                                    </span>
+                                    <span x-show="lang === 'en'" x-cloak>
+                                        Insights
+                                        
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <div class="flex items-center gap-3 text-xs text-slate-500 mb-3">
+                                <span class="flex items-center gap-1"><i class="far fa-calendar-alt"></i> <span>2026-05-26</span></span>
+                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span class="article-view-count" data-article-id="97" data-base-views="31">31</span></span>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
+                                <span x-show="lang === 'zh'">Meta广告素材复盘：为什么你的素材能跑量却不能卖货？</span>
+                                <span x-show="lang === 'en'" x-cloak>Meta Ad Creative Review: Why Your Ads Run But Don&#39;t Convert</span>
+                            </h3>
+                            <p class="text-slate-600 text-sm line-clamp-2 mb-6 flex-grow">
+                                <span x-show="lang === 'zh'">本文通过一个真实案例拆解，揭示Meta广告投放中“能跑”与“能卖”的本质区别。从点击率、转化成本、用户行为路径等维度，教你快速判断素材真实价值，避免无效消耗，提升ROI。</span>
+                                <span x-show="lang === 'en'" x-cloak>This article uses a real case study to reveal the fundamental difference between ads that &#39;run&#39; and ads that &#39;sell&#39; in Meta advertising. Learn to quickly identify the true value of your creatives and avoid wasteful spending.</span>
+                            </p>
+                            
+                            <div class="flex items-center justify-between mt-auto pt-4 border-t border-slate-100">
+                                <span class="text-blue-600 font-medium text-sm flex items-center gap-1 group-hover:translate-x-1 transition-transform ml-auto">
+                                    <span x-text="t[lang].card.readMore">阅读全文</span> <i class="fas fa-arrow-right text-xs"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </article>
+                
+                    <article x-show="currentFilter === 'all' || currentFilter === 'guide'" x-transition
+                        class="article-card card-hover flex flex-col h-full group cursor-pointer" onclick="window.location.href = '/article/96'">
+                        <div class="relative h-56 overflow-hidden">
+                            <img src="https://picsum.photos/seed/yiyu8536/800/500" alt="Google Ads账户申诉材料怎么准备？先搞清封号原因再行动" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                            <div class="absolute top-4 left-4">
+                                <span class="px-3 py-1 bg-white/90 backdrop-blur-sm text-blue-600 text-xs font-bold rounded-lg shadow-sm">
+                                    <span x-show="lang === 'zh'">
+                                        投放指南
+                                        
+                                    </span>
+                                    <span x-show="lang === 'en'" x-cloak>
+                                        Ad Guide
+                                        
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <div class="flex items-center gap-3 text-xs text-slate-500 mb-3">
+                                <span class="flex items-center gap-1"><i class="far fa-calendar-alt"></i> <span>2026-05-26</span></span>
+                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span class="article-view-count" data-article-id="96" data-base-views="58">58</span></span>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
+                                <span x-show="lang === 'zh'">Google Ads账户申诉材料怎么准备？先搞清封号原因再行动</span>
+                                <span x-show="lang === 'en'" x-cloak>How to Prepare Google Ads Account Appeal Materials: Identify the Root Cause First</span>
+                            </h3>
+                            <p class="text-slate-600 text-sm line-clamp-2 mb-6 flex-grow">
+                                <span x-show="lang === 'zh'">账户被封后，申诉能否成功的关键不在于材料堆砌，而在于你是否精准定位封号原因并提供针对性证据。以渔数媒建议先自查账户问题类型，再准备差异化申诉材料，大幅提升解封效率。</span>
+                                <span x-show="lang === 'en'" x-cloak>When an account is suspended, the key to successful appeal is not about providing extensive documentation, but identifying the exact reason for suspension and supplying targeted evidence. Our team recommends first diagnosing the account issue type, then preparing differentiated appeal materials to significantly improve reinstatement efficiency.</span>
+                            </p>
+                            
+                            <div class="flex items-center justify-between mt-auto pt-4 border-t border-slate-100">
+                                <span class="text-blue-600 font-medium text-sm flex items-center gap-1 group-hover:translate-x-1 transition-transform ml-auto">
+                                    <span x-text="t[lang].card.readMore">阅读全文</span> <i class="fas fa-arrow-right text-xs"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </article>
+                
                     <article x-show="currentFilter === 'all' || currentFilter === 'guide'" x-transition
                         class="article-card card-hover flex flex-col h-full group cursor-pointer" onclick="window.location.href = '/article/95'">
                         <div class="relative h-56 overflow-hidden">
