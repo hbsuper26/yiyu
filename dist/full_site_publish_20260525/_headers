@@ -1,0 +1,6 @@
+/articles
+  Cache-Control: no-store, no-cache, must-revalidate, max-age=0
+/article/*
+  Cache-Control: no-store, no-cache, must-revalidate, max-age=0
+/api/articles.json
+  Cache-Control: no-store, no-cache, must-revalidate, max-age=0

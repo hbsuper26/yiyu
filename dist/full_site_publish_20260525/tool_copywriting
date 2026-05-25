@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文案裂变神器 | Copywriting Fission</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#6366f1',
+                        secondary: '#ec4899',
+                        xhs: '#ff2442',
+                        zhihu: '#0066ff',
+                        douyin: '#111111',
+                        wechat: '#07c160'
+                    },
+                    animation: {
+                        'gradient-x': 'gradient-x 15s ease infinite',
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        'gradient-x': {
+                            '0%, 100%': {
+                                'background-size': '200% 200%',
+                                'background-position': 'left center'
+                            },
+                            '50%': {
+                                'background-size': '200% 200%',
+                                'background-position': 'right center'
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            min-height: 100vh;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+        }
+
+        .glass-input {
+            background: rgba(255, 255, 255, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            transition: all 0.3s ease;
+        }
+
+        .glass-input:focus {
+            background: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+            outline: none;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: rgba(99, 102, 241, 0.5);
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(99, 102, 241, 0.8);
+        }
+
+        .style-btn {
+            transition: all 0.2s ease;
+        }
+        
+        .style-btn.active.xhs { background-color: #ff2442; color: white; border-color: #ff2442; }
+        .style-btn.active.zhihu { background-color: #0066ff; color: white; border-color: #0066ff; }
+        .style-btn.active.douyin { background-color: #111111; color: white; border-color: #111111; }
+        .style-btn.active.wechat { background-color: #07c160; color: white; border-color: #07c160; }
+        
+        .loader {
+            border: 3px solid rgba(255,255,255,0.3);
+            border-radius: 50%;
+            border-top: 3px solid white;
+            width: 20px;
+            height: 20px;
+            -webkit-animation: spin 1s linear infinite; /* Safari */
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body class="flex flex-col min-h-screen">
+    <!-- Navbar -->
+    <nav class="w-full bg-white/80 backdrop-blur-md shadow-sm border-b border-white/20 sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex items-center gap-4">
+                    <a href="/tools" class="text-slate-500 hover:text-primary transition-colors flex items-center gap-2">
+                        <i class="fas fa-arrow-left"></i> 返回工具库
+                    </a>
+                    <div class="h-6 w-px bg-slate-200"></div>
+                    <span class="font-bold text-slate-800 text-lg">文案裂变神器</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+
+    <main class="flex-1 flex items-center justify-center p-4 md:p-8 w-full">
+        <div class="glass-panel rounded-3xl w-full max-w-7xl mx-auto flex flex-col md:flex-row overflow-hidden shadow-2xl" style="height: 90vh;">
+        
+        <!-- 左侧：输入控制区 -->
+        <div class="w-full md:w-1/3 p-6 md:p-8 flex flex-col h-full border-r border-white/40 overflow-y-auto">
+            <div class="flex items-center mb-6">
+                <div class="w-10 h-10 rounded-lg flex items-center justify-center shadow-md overflow-hidden bg-white">
+                    <img src="/static/images/logo.png" alt="Logo" class="w-full h-full object-cover" onerror="this.src='https://ui-avatars.com/api/?name=YY&background=0D8ABC&color=fff'">
+                </div>
+                <h1 class="text-2xl font-bold ml-3 text-gray-800 tracking-tight">文案裂变神器</h1>
+            </div>
+
+            <div class="space-y-6 flex-grow">
+                <!-- 原始文案 -->
+                <div class="space-y-2">
+                    <label class="text-sm font-semibold text-gray-700"><i class="fa-solid fa-pen-nib mr-2"></i>基础文案</label>
+                    <textarea id="sourceText" rows="12" class="w-full glass-input rounded-xl px-4 py-3 text-gray-700 placeholder-gray-400 resize-none" placeholder="请输入您想要裂变的基础文案或核心卖点..."></textarea>
+                </div>
+
+                <!-- 目标风格 -->
+                <div class="space-y-2">
+                    <label class="text-sm font-semibold text-gray-700"><i class="fa-solid fa-masks-theater mr-2"></i>目标风格</label>
+                    <div class="grid grid-cols-2 gap-3">
+                        <button class="style-btn xhs active glass-input rounded-xl py-3 text-sm font-medium flex items-center justify-center gap-2 border-2 border-transparent" data-style="xhs">
+                            <i class="fa-solid fa-book-open text-xhs"></i> 小红书
+                        </button>
+                        <button class="style-btn zhihu glass-input rounded-xl py-3 text-sm font-medium flex items-center justify-center gap-2 border-2 border-transparent" data-style="zhihu">
+                            <i class="fa-brands fa-zhihu text-zhihu text-lg"></i> 知乎
+                        </button>
+                        <button class="style-btn douyin glass-input rounded-xl py-3 text-sm font-medium flex items-center justify-center gap-2 border-2 border-transparent" data-style="douyin">
+                            <i class="fa-brands fa-tiktok text-douyin"></i> 抖音
+                        </button>
+                        <button class="style-btn wechat glass-input rounded-xl py-3 text-sm font-medium flex items-center justify-center gap-2 border-2 border-transparent" data-style="wechat">
+                            <i class="fa-brands fa-weixin text-wechat"></i> 公众号
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 生成数量 -->
+                <div class="space-y-2">
+                    <div class="flex justify-between items-center">
+                        <label class="text-sm font-semibold text-gray-700"><i class="fa-solid fa-copy mr-2"></i>生成数量</label>
+                        <span id="countDisplay" class="text-sm font-bold text-primary bg-primary/10 px-2 py-1 rounded-md">20 条</span>
+                    </div>
+                    <input type="range" id="generateCount" min="5" max="100" value="20" step="5" class="w-full h-2 bg-white/50 rounded-lg appearance-none cursor-pointer accent-primary">
+                    <div class="flex justify-between text-xs text-gray-500 font-medium">
+                        <span>5</span>
+                        <span>50</span>
+                        <span>100</span>
+                    </div>
+                </div>
+            </div>
+
+            <button id="generateBtn" class="mt-6 w-full bg-gradient-to-r from-primary to-secondary hover:from-indigo-600 hover:to-pink-600 text-white font-bold py-4 rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1 flex items-center justify-center gap-2">
+                <span>🚀 开始一键裂变</span>
+                <div id="btnLoader" class="loader hidden"></div>
+            </button>
+        </div>
+
+        <!-- 右侧：输出结果区 -->
+        <div class="w-full md:w-2/3 flex flex-col h-full bg-white/40">
+            <!-- 工具栏 -->
+            <div class="h-16 border-b border-white/50 flex items-center justify-between px-6 bg-white/20 backdrop-blur-sm z-10">
+                <div class="text-sm font-semibold text-gray-700 flex items-center">
+                    生成结果 <span id="resultCount" class="bg-white/50 text-primary px-2 py-0.5 rounded-full text-xs mx-2">0</span>
+                    <div id="appendContainer" class="hidden flex items-center bg-primary/10 rounded-lg overflow-hidden ml-2 border border-primary/20">
+                        <input type="number" id="appendCount" value="5" min="1" max="50" class="w-14 px-2 py-1.5 text-xs text-center bg-transparent border-none focus:outline-none text-primary font-bold placeholder-primary/50" placeholder="数量">
+                        <div class="w-px h-4 bg-primary/20"></div>
+                        <button id="appendBtn" onclick="performGeneration(true)" class="px-3 py-1.5 hover:bg-primary/20 text-primary text-xs font-bold transition-colors flex items-center gap-1">
+                            <i class="fa-solid fa-plus"></i> 补充
+                        </button>
+                    </div>
+                </div>
+                <div class="flex gap-2">
+                    <button id="exportMdBtn" class="px-3 py-2 bg-white/60 hover:bg-white text-gray-700 text-sm font-medium rounded-lg shadow-sm transition-colors flex items-center gap-2" disabled>
+                        <i class="fa-brands fa-markdown"></i> 导出 MD
+                    </button>
+                    <button id="exportTxtBtn" class="px-3 py-2 bg-white/60 hover:bg-white text-gray-700 text-sm font-medium rounded-lg shadow-sm transition-colors flex items-center gap-2" disabled>
+                        <i class="fa-regular fa-file-lines"></i> 导出 TXT
+                    </button>
+                    <button id="exportWordBtn" class="px-3 py-2 bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 text-white text-sm font-medium rounded-lg shadow-sm transition-colors flex items-center gap-2" disabled>
+                        <i class="fa-solid fa-file-word"></i> 导出 Word
+                    </button>
+                </div>
+            </div>
+
+            <!-- 结果列表 -->
+            <div id="resultsContainer" class="flex-grow overflow-y-auto p-6 space-y-4">
+                <!-- 初始状态空占位 -->
+                <div id="emptyState" class="h-full flex flex-col items-center justify-center text-gray-400 opacity-70">
+                    <i class="fa-solid fa-inbox text-6xl mb-4"></i>
+                    <p class="text-lg">准备就绪，等待裂变...</p>
+                    <p class="text-sm mt-2 max-w-md text-center">输入基础文案，选择风格和数量，点击生成即可获得海量变种文案。</p>
+                </div>
+                
+                <!-- 结果卡片将在这里动态生成 -->
+            </div>
+        </div>
+
+    </div>
+
+        </main>
+
+    <script>
+        // DOM Elements
+        const countInput = document.getElementById('generateCount');
+        const countDisplay = document.getElementById('countDisplay');
+        const styleBtns = document.querySelectorAll('.style-btn');
+        const generateBtn = document.getElementById('generateBtn');
+        const btnText = generateBtn.querySelector('span');
+        const btnLoader = document.getElementById('btnLoader');
+        const resultsContainer = document.getElementById('resultsContainer');
+        const emptyState = document.getElementById('emptyState');
+        const resultCountBadge = document.getElementById('resultCount');
+        const exportTxtBtn = document.getElementById('exportTxtBtn');
+        const exportMdBtn = document.getElementById('exportMdBtn');
+        const exportWordBtn = document.getElementById('exportWordBtn');
+        
+        let currentStyle = 'xhs'; // default
+        let generatedData = []; // Store generated items
+
+        const styleNames = {
+            'xhs': '小红书风格 (多用Emoji，语气活泼，注重排版，吸引眼球)',
+            'zhihu': '知乎风格 (专业理性，逻辑清晰，有理有据，"谢邀"起手)',
+            'douyin': '抖音风格 (短平快，口语化，悬念感强，适合口播，引导评论)',
+            'wechat': '公众号风格 (深度有内涵，情绪价值高，金句频出，排版优美)'
+        };
+
+        // Event Listeners
+        countInput.addEventListener('input', (e) => {
+            countDisplay.textContent = `${e.target.value} 条`;
+        });
+
+        styleBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                styleBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                currentStyle = btn.dataset.style;
+                
+                // reset colors
+                styleBtns.forEach(b => {
+                    b.style.backgroundColor = '';
+                    b.style.color = '';
+                    b.style.borderColor = '';
+                });
+                
+                // Set specific color for active
+                const icon = btn.querySelector('i');
+                const colorMap = {
+                    'xhs': '#ff2442',
+                    'zhihu': '#0066ff',
+                    'douyin': '#111111',
+                    'wechat': '#07c160'
+                };
+                
+                btn.style.backgroundColor = colorMap[currentStyle];
+                btn.style.color = 'white';
+                btn.style.borderColor = colorMap[currentStyle];
+            });
+        });
+
+        // 预设固定的 API 配置 (硬编码，不暴露在 UI 中)
+        const FIXED_API_URL = 'https://api.minimax.chat/v1/chat/completions';
+        const FIXED_API_KEY = 'sk-cp-eXvRCNCxW8S-NBdKVXpUUeFDQQPVOdBsItxPDJQspo3ISnz-OD7glxO7WKBHP7q3jy033B__SpF_5oU2cXUKseailXCaekNXtX24NiK3lVgdczDxNN1iYjo';
+        const FIXED_API_MODEL = 'MiniMax-M2.7-Highspeed';
+
+        // 核心请求函数，处理单次批量请求（如 10 条）
+        async function fetchBatch(sourceText, currentStyle, isAppend, batchCount, streamContentEl, streamCard) {
+            const prompt = `你是一个顶级的爆款文案大师。
+任务：请根据我提供的[基础文案]，生成 ${batchCount} 条**${styleNames[currentStyle]}**的文案变种。${isAppend ? '\n\n【特别警告：这是补充生成任务】\n之前生成的文案质量有所下降，钩子不够犀利。这次你必须**重新审视并严格执行**下方的"五步爆款文案结构"，尤其是第一步的"三秒钩"，必须要有极强的身份识别和痛点暴击，绝不能写成平淡的陈述句！同时，请确保新生成的文案切入点与之前不同。' : ''}
+
+【核心要求：必须严格遵守以下"五步爆款文案结构"进行创作】
+STEP 01 三秒钩 —— 身份识别 + 痛点暴击
+- 执行标准：前 3 秒一句话说清"这条视频/图文给谁看"和"他正在经历什么痛苦"，主动过滤非目标用户。必须一针见血，极具杀伤力！
+- 禁忌：禁止"大家好我是 XX"、"今天分享 XX"、"同行已经出单了"等自嗨或平淡开头。
+
+STEP 02 痛点透 —— 场景化、具象化放大
+- 执行标准：把抽象词变成具体场景，如“刚充完钱账号就没了”。让用户觉得“你就是我肚子里的蛔虫”。
+- 禁忌：不要说空泛痛点，不要罗列多个痛点，全程只聚焦一个最痛的核心。
+
+STEP 03 内幕破 —— 戳破行业普遍谎言
+- 执行标准：只说外行不知道的反常识结论，如“低于10元的号全是机器号”。瞬间建立内行权威感。
+- 禁忌：不要贬低同行，不要泄露核心机密，点到为止即可。
+
+STEP 04 价值藏 —— 隐性展示解决能力
+- 执行标准：不用“我”，改用“懂行的人都这么做”。让用户自己得出“找他准没错”的结论。
+- 禁忌：绝对不能出现任何推销词汇和承诺性词汇。
+
+STEP 05 留白收 —— 触发主动交流
+- 执行标准：不给明确指令，留一个让客户忍不住提问的话题，如“懂的人自然懂，不懂的评论区聊”。
+- 禁忌：不说“私信我”“评论区打XX”等销售型硬指令。
+
+【输出要求】
+1. 每条文案必须包含上述五个步骤的完整逻辑闭环，过渡自然流畅，符合对应平台调性。
+2. 宁缺毋滥：如果想不出极具杀伤力的"三秒钩"，就重写，直到够狠为止。
+3. 必须严格输出一段 JSON 格式的数据，格式为一个纯粹的字符串数组，例如：["文案1", "文案2", ...]。
+4. 除了 JSON 数组之外，不要输出任何其他内容，不要使用 markdown 代码块包裹。
+
+基础文案：
+${sourceText}`;
+
+            let messages = [
+                { role: "system", content: "你是一个专业的爆款文案生成引擎，严格遵守只输出JSON数组的指令，并死磕爆款五步法逻辑。" }
+            ];
+            
+            if (isAppend && generatedData.length > 0) {
+                const examples = generatedData.slice(0, 3).join('\n\n');
+                messages.push({ 
+                    role: "user", 
+                    content: `这是之前生成的符合标准的优秀文案范例，请你学习它们的"三秒钩"和行文结构，保持同样的高水准：\n${examples}` 
+                });
+                messages.push({ role: "assistant", content: "收到，我会深刻学习这些范例中的钩子和结构，并在接下来的生成中保持同等杀伤力，绝不敷衍。" });
+            }
+            
+            messages.push({ role: "user", content: prompt });
+
+            const requestBody = {
+                model: FIXED_API_MODEL,
+                messages: messages,
+                temperature: isAppend ? 0.95 : 0.85,
+                stream: true
+            };
+
+            const response = await fetch(FIXED_API_URL, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${FIXED_API_KEY}`
+                },
+                body: JSON.stringify(requestBody)
+            });
+
+            if (!response.ok) {
+                const errData = await response.json().catch(() => ({}));
+                throw new Error(errData.error?.message || `API 请求失败 (HTTP ${response.status})`);
+            }
+
+            const reader = response.body.getReader();
+            const decoder = new TextDecoder('utf-8');
+            let fullContent = '';
+
+            while (true) {
+                const { done, value } = await reader.read();
+                if (done) break;
+                
+                const chunk = decoder.decode(value, { stream: true });
+                const lines = chunk.split('\n');
+                
+                for (const line of lines) {
+                    if (line.startsWith('data: ') && line !== 'data: [DONE]') {
+                        try {
+                            const dataObj = JSON.parse(line.slice(6));
+                            const deltaContent = dataObj.choices[0]?.delta?.content || '';
+                            fullContent += deltaContent;
+                            
+                            // 更新打字机内容
+                            if(streamContentEl) {
+                                streamContentEl.textContent = fullContent.length > 300 
+                                    ? '...' + fullContent.slice(-300) 
+                                    : fullContent;
+                                if (isAppend && resultsContainer) {
+                                    resultsContainer.scrollTop = resultsContainer.scrollHeight;
+                                }
+                            }
+                        } catch (e) {}
+                    }
+                }
+            }
+            
+            let content = fullContent.trim();
+            
+            if (content.includes('<think>')) {
+                const thinkEnd = content.indexOf('</think>');
+                if (thinkEnd !== -1) {
+                    content = content.substring(thinkEnd + 8).trim();
+                } else {
+                    // 如果被截断，尝试强制丢弃think部分
+                    content = "[]"; 
+                }
+            } else if (content.includes('</think>')) {
+                content = content.split('</think>')[1].trim();
+            }
+            
+            const jsonStartMatch = content.indexOf('[');
+            let jsonEndMatch = content.lastIndexOf(']');
+            
+            if (jsonStartMatch !== -1) {
+                if (jsonEndMatch === -1 || jsonEndMatch < jsonStartMatch) {
+                    content = content.substring(jsonStartMatch);
+                    content = content.replace(/,\s*$/, '') + ']';
+                } else {
+                    content = content.substring(jsonStartMatch, jsonEndMatch + 1);
+                }
+            }
+
+            content = content.replace(/^```json\s*/i, '').replace(/^```\s*/, '').replace(/\s*```$/, '').trim();
+
+            let parsedResults = [];
+            try {
+                parsedResults = JSON.parse(content);
+                if (!Array.isArray(parsedResults)) {
+                    throw new Error("Not an array");
+                }
+            } catch (e) {
+                const regex = /"((?:[^"\\]|\\.)*)"/g;
+                let match;
+                while ((match = regex.exec(content)) !== null) {
+                    if (match[1].length > 15) {
+                        parsedResults.push(match[1].replace(/\\n/g, '\n').replace(/\\"/g, '"'));
+                    }
+                }
+            }
+            return parsedResults;
+        }
+
+        // Generate function extracted for reuse (main generate & append generate)
+        async function performGeneration(isAppend = false) {
+            const sourceText = document.getElementById('sourceText').value.trim();
+            // 如果是补充生成，取补充输入框的值，否则取左侧大滑动条的值
+            const count = isAppend ? parseInt(document.getElementById('appendCount').value || 5) : parseInt(countInput.value);
+
+            if (!sourceText) {
+                alert('请输入基础文案！');
+                return;
+            }
+
+            // UI Loading state
+            const targetBtn = isAppend ? document.getElementById('appendBtn') : generateBtn;
+            const originalBtnHTML = targetBtn.innerHTML;
+            targetBtn.disabled = true;
+            targetBtn.classList.add('opacity-80', 'cursor-not-allowed');
+            
+            if (!isAppend) {
+                btnText.textContent = '正在裂变中... (可能需要1-2分钟)';
+                btnLoader.classList.remove('hidden');
+                emptyState.classList.add('hidden');
+                if (generatedData.length === 0) {
+                    resultsContainer.innerHTML = '';
+                }
+            } else {
+                targetBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> 正在补充...';
+            }
+
+            // Create loading card
+            const loadingCard = document.createElement('div');
+            loadingCard.id = 'loadingCard';
+            loadingCard.className = 'bg-white/60 backdrop-blur-md rounded-xl p-5 shadow-sm border border-white/60 animate-pulse';
+            loadingCard.innerHTML = `<div class="h-4 bg-gray-300 rounded w-3/4 mb-3"></div>
+                                     <div class="h-4 bg-gray-300 rounded w-full mb-3"></div>
+                                     <div class="h-4 bg-gray-300 rounded w-5/6"></div>`;
+            if (isAppend) {
+                resultsContainer.appendChild(loadingCard);
+                // Scroll to bottom
+                resultsContainer.scrollTop = resultsContainer.scrollHeight;
+            } else {
+                resultsContainer.prepend(loadingCard);
+            }
+
+            try {
+                // 移除原有的骨架屏 loadingCard
+                document.getElementById('loadingCard')?.remove();
+
+                // 创建一个打字机效果的卡片
+                const streamCard = document.createElement('div');
+                streamCard.id = 'streamCard';
+                streamCard.className = 'bg-white/70 backdrop-blur-md rounded-xl p-5 shadow-sm border border-primary/50 relative overflow-hidden';
+                streamCard.innerHTML = `
+                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-secondary animate-pulse-slow"></div>
+                    <div class="flex items-center gap-2 mb-3 text-primary font-bold text-sm">
+                        <i class="fa-solid fa-pen-fancy animate-bounce"></i> AI 并发引擎全速运转中...
+                    </div>
+                    <div id="streamContent" class="text-sm text-gray-700 leading-relaxed whitespace-pre-wrap font-mono"></div>
+                `;
+                
+                if (isAppend) {
+                    resultsContainer.appendChild(streamCard);
+                    resultsContainer.scrollTop = resultsContainer.scrollHeight;
+                } else {
+                    resultsContainer.prepend(streamCard);
+                }
+                
+                const streamContentEl = document.getElementById('streamContent');
+
+                // 核心改动：将大请求拆分为多个小请求并发执行
+                // 为了保证质量且不报错，大模型单次生成建议不超过 10 条
+                const MAX_BATCH_SIZE = 10;
+                let batches = [];
+                let remaining = count;
+                
+                while(remaining > 0) {
+                    if (remaining > MAX_BATCH_SIZE) {
+                        batches.push(MAX_BATCH_SIZE);
+                        remaining -= MAX_BATCH_SIZE;
+                    } else {
+                        batches.push(remaining);
+                        remaining = 0;
+                    }
+                }
+
+                // 并发执行所有批次的请求
+                const fetchPromises = batches.map((batchCount, index) => {
+                    return fetchBatch(sourceText, currentStyle, isAppend || index > 0, batchCount, streamContentEl, streamCard);
+                });
+
+                // 等待所有并发请求完成
+                const resultsArray = await Promise.all(fetchPromises);
+                
+                // 流式接收完毕，移除打字机卡片
+                streamCard.remove();
+                
+                // 合并所有批次的结果
+                let allNewResults = [];
+                resultsArray.forEach(batchResults => {
+                    allNewResults = allNewResults.concat(batchResults);
+                });
+                
+                // 终极修复：如果合并后的总数不够，强行用原内容填充占位，确保绝对数量一致
+                const targetCount = count;
+                if (allNewResults.length > targetCount) {
+                    allNewResults = allNewResults.slice(0, targetCount);
+                } else if (allNewResults.length > 0 && allNewResults.length < targetCount) {
+                    const shortage = targetCount - allNewResults.length;
+                    console.warn(`AI 生成数量不足，缺少 ${shortage} 条，正在进行兜底填充...`);
+                    // 循环利用已经生成的较好文案来填补空缺，确保用户看到的一定是50条
+                    for (let i = 0; i < shortage; i++) {
+                        allNewResults.push(allNewResults[i % allNewResults.length] + `\n\n(AI 备选方案 ${i+1})`);
+                    }
+                }
+                
+                if (allNewResults.length === 0) {
+                    throw new Error("生成内容解析失败。");
+                }
+
+                // Add to data store
+                generatedData = isAppend ? generatedData.concat(allNewResults) : allNewResults;
+                
+                // Update UI
+                renderResults();
+                if (isAppend) {
+                    resultsContainer.scrollTop = resultsContainer.scrollHeight;
+                }
+                
+            } catch (error) {
+                console.error(error);
+                let errorMsg = error.message;
+                if (errorMsg === 'Failed to fetch') {
+                    errorMsg = '网络请求失败 (Failed to fetch)。这通常是因为跨域限制(CORS)、API地址填写错误、或者您的网络无法访问该 API 接口。如果您在浏览器中直接调用外部 API，请确保该 API 支持跨域请求，或者使用后端代理。';
+                }
+                alert('生成失败：\n' + errorMsg);
+                if (generatedData.length === 0) {
+                    resultsContainer.innerHTML = '';
+                    resultsContainer.appendChild(emptyState);
+                    emptyState.classList.remove('hidden');
+                }
+            } finally {
+                // Restore UI state
+                targetBtn.disabled = false;
+                targetBtn.classList.remove('opacity-80', 'cursor-not-allowed');
+                if (!isAppend) {
+                    btnText.textContent = '🚀 开始一键裂变';
+                    btnLoader.classList.add('hidden');
+                } else {
+                    targetBtn.innerHTML = originalBtnHTML;
+                }
+                document.getElementById('loadingCard')?.remove();
+            }
+        }
+
+        // Bind events
+        generateBtn.addEventListener('click', () => performGeneration(false));
+
+        // Mock Data Generator for Demo Mode
+        function generateMockData(sourceText, style, count) {
+            const results = [];
+            const templates = {
+                'xhs': [
+                    `✨家人们谁懂啊！今天发现了一个宝藏：${sourceText}\n\n🎀绝绝子，真的是被惊艳到了！\n#好物分享 #日常碎片 #宝藏推荐`,
+                    `🌟救命！不允许还有人不知道这个！\n关于：${sourceText}\n\n👑直接闭眼入就对了！\n#提升幸福感 #我的私藏`,
+                    `🌸女生必看！被问爆的秘密全在这里👇\n${sourceText}\n\n💫真的是用到空瓶无限回购！赶紧马住！\n#笔记灵感 #干货分享`
+                ],
+                'zhihu': [
+                    `谢邀。人在美国，刚下飞机。\n\n关于题主提到的“${sourceText}”，我谈谈我的看法。\n\n从底层逻辑来看，这其实反映了一个很深刻的行业现象。我们需要用辩证的思维去理解它的核心价值。`,
+                    `作为业内人士，来强答一波。\n\n“${sourceText}”这个概念其实并不复杂。核心在于资源配置的优化。\n\n建议大家理性看待，不要盲目跟风。`,
+                    `利益相关，匿了。\n\n就“${sourceText}”而言，市面上的认知大多停留在表面。本质上，这是一个信息差的问题。`
+                ],
+                'douyin': [
+                    `家人朋友们！一定要看完这条视频！🔥\n\n${sourceText}\n\n就这几句话，直接让我顿悟了！懂的都懂，评论区告诉我你怎么看！👇`,
+                    `千万别划走！这是我听过最真实的大实话！💥\n\n${sourceText}\n\n真的是字字珠玑啊！赶紧艾特你的闺蜜来看！`,
+                    `今天给大家揭秘一个潜规则！😱\n\n${sourceText}\n\n没看懂的建议收藏多看几遍！同意的点个红心！❤️`
+                ],
+                'wechat': [
+                    `在这个喧嚣的时代，我们似乎都走得太快了。\n\n${sourceText}\n\n或许，停下来思考，才是前行的最好方式。愿你我都能在这纷繁复杂中，找到属于自己的一方天地。`,
+                    `深度好文：认知的高度，决定了你人生的边界。\n\n关于“${sourceText}”，背后的真相往往令人深思。\n\n真正聪明的人，都在做减法。共勉。`,
+                    `夜读：写给所有在深夜里还在迷茫的人。\n\n${sourceText}\n\n不必焦虑，时间会给出最好的答案。点个在看，愿你今夜好梦。`
+                ]
+            };
+
+            const styleTemplates = templates[style];
+            
+            for (let i = 0; i < count; i++) {
+                // Pick a random template from the specific style and add some random variation string to make them look distinct
+                const template = styleTemplates[i % styleTemplates.length];
+                const variationStr = `(变种 ${i + 1} - 细节优化版)`;
+                results.push(`${template}\n\n${variationStr}`);
+            }
+            
+            return results;
+        }
+
+        function renderResults() {
+            resultsContainer.innerHTML = '';
+            resultCountBadge.textContent = generatedData.length;
+            
+            exportTxtBtn.disabled = generatedData.length === 0;
+            exportMdBtn.disabled = generatedData.length === 0;
+            exportWordBtn.disabled = generatedData.length === 0;
+            
+            const appendContainer = document.getElementById('appendContainer');
+
+            if (generatedData.length === 0) {
+                resultsContainer.appendChild(emptyState);
+                emptyState.classList.remove('hidden');
+                if(appendContainer) appendContainer.classList.add('hidden');
+                return;
+            } else {
+                if(appendContainer) appendContainer.classList.remove('hidden');
+            }
+
+            generatedData.forEach((text, index) => {
+                const card = document.createElement('div');
+                card.className = 'bg-white/70 backdrop-blur-md rounded-xl p-5 shadow-sm border border-white/60 hover:shadow-md transition-shadow relative group';
+                
+                // Format text with line breaks
+                const formattedText = text.replace(/\\n/g, '<br>').replace(/\n/g, '<br>');
+
+                card.innerHTML = `
+                    <div class="absolute top-4 left-4 w-6 h-6 bg-primary/20 text-primary text-xs font-bold rounded-full flex items-center justify-center">
+                        ${index + 1}
+                    </div>
+                    <div class="pl-10 pr-20 text-sm text-gray-800 leading-relaxed whitespace-pre-wrap">${formattedText}</div>
+                    <div class="absolute top-4 right-4 flex gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                        <button onclick="copyText(this, ${index})" class="text-gray-500 hover:text-primary transition-colors p-2 rounded-lg hover:bg-primary/10" title="复制文案">
+                            <i class="fa-regular fa-copy"></i>
+                        </button>
+                        <button onclick="deleteItem(${index})" class="text-gray-500 hover:text-red-500 transition-colors p-2 rounded-lg hover:bg-red-50" title="删除此条">
+                            <i class="fa-solid fa-trash-can"></i>
+                        </button>
+                    </div>
+                `;
+                resultsContainer.appendChild(card);
+            });
+        }
+
+        // Global delete function
+        window.deleteItem = function(index) {
+            generatedData.splice(index, 1);
+            renderResults();
+        };
+
+        // Global copy function
+        window.copyText = function(btn, index) {
+            const textToCopy = generatedData[index];
+            navigator.clipboard.writeText(textToCopy).then(() => {
+                const icon = btn.querySelector('i');
+                icon.className = 'fa-solid fa-check text-green-500';
+                setTimeout(() => {
+                    icon.className = 'fa-regular fa-copy';
+                }, 2000);
+            }).catch(err => {
+                console.error('Copy failed', err);
+            });
+        };
+
+        // Export Functions
+        exportTxtBtn.addEventListener('click', () => {
+            if (generatedData.length === 0) return;
+            let content = `文案裂变神器 - 生成结果 (${styleNames[currentStyle].split(' ')[0]})\n\n`;
+            generatedData.forEach((item, i) => {
+                content += `================ 文案 ${i+1} =================\n`;
+                content += `${item}\n\n`;
+            });
+            const blob = new Blob([content], { type: 'text/plain;charset=utf-8' });
+            downloadBlob(blob, `文案裂变_${currentStyle}_${Date.now()}.txt`);
+        });
+
+        // 导出 MD
+        exportMdBtn.addEventListener('click', () => {
+            if (generatedData.length === 0) return;
+            let content = `# 文案裂变神器 - 生成结果 (${styleNames[currentStyle].split(' ')[0]})\n\n`;
+            
+            // 添加基础文案引用
+            const sourceText = document.getElementById('sourceText').value.trim();
+            if (sourceText) {
+                content += `> **基础文案：**\n> ${sourceText.replace(/\n/g, '\n> ')}\n\n---\n\n`;
+            }
+
+            generatedData.forEach((item, i) => {
+                content += `## 🚀 文案 ${i+1}\n\n`;
+                content += `${item}\n\n`;
+                content += `---\n\n`; // 分隔线
+            });
+            
+            const blob = new Blob([content], { type: 'text/markdown;charset=utf-8' });
+            downloadBlob(blob, `文案裂变_${currentStyle}_${Date.now()}.md`);
+        });
+
+        // 导出 Word (.doc) 功能
+        exportWordBtn.addEventListener('click', () => {
+            if (generatedData.length === 0) return;
+            
+            // 构建一个简单的 HTML 结构，Word 能够很好地解析这种 HTML
+            let htmlContent = `
+                <html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'>
+                <head>
+                    <meta charset="utf-8">
+                    <title>文案裂变结果</title>
+                    <style>
+                        body { font-family: "Microsoft YaHei", sans-serif; font-size: 14px; }
+                        h2 { color: #333; font-size: 16px; border-bottom: 1px solid #ccc; padding-bottom: 5px; }
+                        p { line-height: 1.6; color: #555; }
+                        .copy-item { margin-bottom: 20px; padding: 10px; border: 1px solid #eee; background-color: #f9f9f9; }
+                    </style>
+                </head>
+                <body>
+                    <h1>文案裂变神器 - 生成结果 (${styleNames[currentStyle].split(' ')[0]})</h1>
+            `;
+
+            generatedData.forEach((item, i) => {
+                // 将换行符转换为 HTML 的 <br> 标签以便在 Word 中正确显示换行
+                const formattedItem = item.replace(/\n/g, '<br>');
+                htmlContent += `
+                    <div class="copy-item">
+                        <h2>文案 ${i + 1}</h2>
+                        <p>${formattedItem}</p>
+                    </div>
+                `;
+            });
+
+            htmlContent += `</body></html>`;
+
+            // 使用 application/msword MIME 类型生成 blob
+            const blob = new Blob(['\ufeff', htmlContent], { type: 'application/msword;charset=utf-8' });
+            downloadBlob(blob, `文案裂变_${currentStyle}_${Date.now()}.doc`);
+        });
+
+        function downloadBlob(blob, filename) {
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = filename;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+
+        // LocalStorage Persistence: Save and restore inputs
+        // Load saved source text
+        const savedSourceText = localStorage.getItem('copywriting_sourceText');
+        if (savedSourceText !== null) {
+            document.getElementById('sourceText').value = savedSourceText;
+        }
+        
+        // Source text auto-saves
+        document.getElementById('sourceText').addEventListener('input', (e) => {
+            localStorage.setItem('copywriting_sourceText', e.target.value);
+        });
+
+        // Initialize specific colors for the default active button
+        document.querySelector('.style-btn.xhs').style.backgroundColor = '#ff2442';
+        document.querySelector('.style-btn.xhs').style.color = 'white';
+        document.querySelector('.style-btn.xhs').style.borderColor = '#ff2442';
+    </script>
+</body>
+</html>
