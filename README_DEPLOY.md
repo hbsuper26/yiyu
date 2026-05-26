@@ -1,6 +1,6 @@
 # Yiyu Digital Media - Deployment Guide
 
-This project is a Flask application designed for deployment on standard Python hosting environments (e.g., Heroku, AWS, Google Cloud, DigitalOcean, Render).
+This project is a Flask application that can be exported as a static site for Cloudflare Pages.
 
 ## Prerequisites
 - Python 3.8+
@@ -8,14 +8,27 @@ This project is a Flask application designed for deployment on standard Python h
 
 ## Deployment Instructions
 
-### Option 1: Heroku / Render (PaaS)
+### Option 1: Cloudflare Pages
+1. In Cloudflare, use the Pages deploy command instead of the Workers deploy command.
+2. Set the deploy command to:
+   ```bash
+   npm run deploy
+   ```
+3. The deploy script installs Python dependencies, builds the static site into `dist`, and runs:
+   ```bash
+   npx wrangler pages deploy
+   ```
+
+Do not use `npx wrangler deploy` for this project. That command targets Workers and requires a Worker entry point or Workers assets configuration.
+
+### Option 2: Heroku / Render (PaaS)
 1. **Login** to your platform.
 2. **Create a new app**.
 3. **Connect** your repository or upload the files.
 4. The platform will detect `requirements.txt` and `Procfile`.
 5. **Deploy**.
 
-### Option 2: Traditional Server (VPS/Dedicated)
+### Option 3: Traditional Server (VPS/Dedicated)
 1. **Install Python & Dependencies**:
    ```bash
    pip install -r requirements.txt
