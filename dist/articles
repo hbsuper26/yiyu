@@ -142,6 +142,123 @@
                 <!-- Article Cards -->
                 
                     <article x-show="currentFilter === 'all' || currentFilter === 'insight'" x-transition
+                        class="article-card card-hover flex flex-col h-full group cursor-pointer" onclick="window.location.href = '/article/103'">
+                        <div class="relative h-56 overflow-hidden">
+                            <img src="https://picsum.photos/seed/yiyu4044/800/500" alt="代理开户服务看板化：多账户管理混乱的破解之道" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                            <div class="absolute top-4 left-4">
+                                <span class="px-3 py-1 bg-white/90 backdrop-blur-sm text-blue-600 text-xs font-bold rounded-lg shadow-sm">
+                                    <span x-show="lang === 'zh'">
+                                        行业洞察
+                                        
+                                    </span>
+                                    <span x-show="lang === 'en'" x-cloak>
+                                        Insights
+                                        
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <div class="flex items-center gap-3 text-xs text-slate-500 mb-3">
+                                <span class="flex items-center gap-1"><i class="far fa-calendar-alt"></i> <span>2026-05-27</span></span>
+                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span class="article-view-count" data-article-id="103" data-base-views="41">41</span></span>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
+                                <span x-show="lang === 'zh'">代理开户服务看板化：多账户管理混乱的破解之道</span>
+                                <span x-show="lang === 'en'" x-cloak>Why Kanban Systems Are Essential for Agency Account Management</span>
+                            </h3>
+                            <p class="text-slate-600 text-sm line-clamp-2 mb-6 flex-grow">
+                                <span x-show="lang === 'zh'">代理开户服务如果不看板化管理，多账户运营必然陷入混乱。本文从实际运营场景出发，分析表格+聊天工具管理开户流程的三大致命缺陷，并给出看板落地的核心要素。系统化看板能解决信息不对称、进度不透明、协作低效三大痛点，让开户管理从手忙脚乱到井井有条。</span>
+                                <span x-show="lang === 'en'" x-cloak>Without systematic kanban management, multi-account agency operations inevitably fall into chaos. This article analyzes three critical pain points of managing account setup via spreadsheets and chat tools, providing key elements for effective kanban implementation. A well-designed kanban system resolves information asymmetry, progress opacity, and collaboration inefficiency.</span>
+                            </p>
+                            
+                            <div class="flex items-center justify-between mt-auto pt-4 border-t border-slate-100">
+                                <span class="text-blue-600 font-medium text-sm flex items-center gap-1 group-hover:translate-x-1 transition-transform ml-auto">
+                                    <span x-text="t[lang].card.readMore">阅读全文</span> <i class="fas fa-arrow-right text-xs"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </article>
+                
+                    <article x-show="currentFilter === 'all' || currentFilter === 'insight'" x-transition
+                        class="article-card card-hover flex flex-col h-full group cursor-pointer" onclick="window.location.href = '/article/102'">
+                        <div class="relative h-56 overflow-hidden">
+                            <img src="https://picsum.photos/seed/yiyu3478/800/500" alt="Meta广告素材复盘：为什么你的素材“能跑”却“不能卖”？" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                            <div class="absolute top-4 left-4">
+                                <span class="px-3 py-1 bg-white/90 backdrop-blur-sm text-blue-600 text-xs font-bold rounded-lg shadow-sm">
+                                    <span x-show="lang === 'zh'">
+                                        行业洞察
+                                        
+                                    </span>
+                                    <span x-show="lang === 'en'" x-cloak>
+                                        Insights
+                                        
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <div class="flex items-center gap-3 text-xs text-slate-500 mb-3">
+                                <span class="flex items-center gap-1"><i class="far fa-calendar-alt"></i> <span>2026-05-27</span></span>
+                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span class="article-view-count" data-article-id="102" data-base-views="26">26</span></span>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
+                                <span x-show="lang === 'zh'">Meta广告素材复盘：为什么你的素材“能跑”却“不能卖”？</span>
+                                <span x-show="lang === 'en'" x-cloak>Meta Ad Creative Review: Why Your Ads Get Clicks But Can&#39;t Sell</span>
+                            </h3>
+                            <p class="text-slate-600 text-sm line-clamp-2 mb-6 flex-grow">
+                                <span x-show="lang === 'zh'">素材复盘是广告优化的核心环节，但很多优化师容易陷入“点击率陷阱”——素材数据漂亮，实际转化却惨不忍睹。本文通过一个工具类App的真实案例，拆解如何区分“能跑”和“能卖”的素材，并给出针对性的优化动作。</span>
+                                <span x-show="lang === 'en'" x-cloak>Creative review is the core of ad optimization, but many advertisers fall into the CTR trap—impressive metrics that fail to convert. This article uses a real tool App case to break down how to distinguish high-performing creatives from high-converting ones.</span>
+                            </p>
+                            
+                            <div class="flex items-center justify-between mt-auto pt-4 border-t border-slate-100">
+                                <span class="text-blue-600 font-medium text-sm flex items-center gap-1 group-hover:translate-x-1 transition-transform ml-auto">
+                                    <span x-text="t[lang].card.readMore">阅读全文</span> <i class="fas fa-arrow-right text-xs"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </article>
+                
+                    <article x-show="currentFilter === 'all' || currentFilter === 'guide'" x-transition
+                        class="article-card card-hover flex flex-col h-full group cursor-pointer" onclick="window.location.href = '/article/101'">
+                        <div class="relative h-56 overflow-hidden">
+                            <img src="https://picsum.photos/seed/yiyu6157/800/500" alt="出海广告账户合规巡检 SOP 手册 | 7 步完成每周例行检查" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                            <div class="absolute top-4 left-4">
+                                <span class="px-3 py-1 bg-white/90 backdrop-blur-sm text-blue-600 text-xs font-bold rounded-lg shadow-sm">
+                                    <span x-show="lang === 'zh'">
+                                        投放指南
+                                        
+                                    </span>
+                                    <span x-show="lang === 'en'" x-cloak>
+                                        Ad Guide
+                                        
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <div class="flex items-center gap-3 text-xs text-slate-500 mb-3">
+                                <span class="flex items-center gap-1"><i class="far fa-calendar-alt"></i> <span>2026-05-27</span></span>
+                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span class="article-view-count" data-article-id="101" data-base-views="33">33</span></span>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
+                                <span x-show="lang === 'zh'">出海广告账户合规巡检 SOP 手册 | 7 步完成每周例行检查</span>
+                                <span x-show="lang === 'en'" x-cloak>Weekly Compliance Audit SOP for Overseas Ad Accounts | 7 Steps to Complete Routine Checks</span>
+                            </h3>
+                            <p class="text-slate-600 text-sm line-clamp-2 mb-6 flex-grow">
+                                <span x-show="lang === 'zh'">本文提供一套完整的出海广告合规巡检标准操作流程，包含巡检前准备、7 个核心检查步骤、常见违规问题清单及修复指引。通过每周 30 分钟的系统化巡检，可有效规避账户封禁风险，降低无效消耗，提升广告投放稳定性。</span>
+                                <span x-show="lang === 'en'" x-cloak>This SOP provides a complete standard operating procedure for overseas advertising compliance audits, including pre-audit preparation, 7 core inspection steps, common violation checklists, and remediation guidelines. Through 30 minutes of weekly systematic audits, you can effectively avoid account bans and reduce invalid spending.</span>
+                            </p>
+                            
+                            <div class="flex items-center justify-between mt-auto pt-4 border-t border-slate-100">
+                                <span class="text-blue-600 font-medium text-sm flex items-center gap-1 group-hover:translate-x-1 transition-transform ml-auto">
+                                    <span x-text="t[lang].card.readMore">阅读全文</span> <i class="fas fa-arrow-right text-xs"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </article>
+                
+                    <article x-show="currentFilter === 'all' || currentFilter === 'insight'" x-transition
                         class="article-card card-hover flex flex-col h-full group cursor-pointer" onclick="window.location.href = '/article/100'">
                         <div class="relative h-56 overflow-hidden">
                             <img src="https://picsum.photos/seed/yiyu9525/800/500" alt="独立站月预算花不出去也亏？一位家居卖家踩过的预算分配坑" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
