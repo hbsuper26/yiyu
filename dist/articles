@@ -141,6 +141,123 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Article Cards -->
                 
+                    <article x-show="currentFilter === 'all' || currentFilter === 'guide'" x-transition
+                        class="article-card card-hover flex flex-col h-full group cursor-pointer" onclick="window.location.href = '/article/106'">
+                        <div class="relative h-56 overflow-hidden">
+                            <img src="https://picsum.photos/seed/yiyu8916/800/500" alt="素材能跑≠能卖：Meta广告复盘判断标准与实操流程" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                            <div class="absolute top-4 left-4">
+                                <span class="px-3 py-1 bg-white/90 backdrop-blur-sm text-blue-600 text-xs font-bold rounded-lg shadow-sm">
+                                    <span x-show="lang === 'zh'">
+                                        投放指南
+                                        
+                                    </span>
+                                    <span x-show="lang === 'en'" x-cloak>
+                                        Ad Guide
+                                        
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <div class="flex items-center gap-3 text-xs text-slate-500 mb-3">
+                                <span class="flex items-center gap-1"><i class="far fa-calendar-alt"></i> <span>2026-05-27</span></span>
+                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span class="article-view-count" data-article-id="106" data-base-views="64">64</span></span>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
+                                <span x-show="lang === 'zh'">素材能跑≠能卖：Meta广告复盘判断标准与实操流程</span>
+                                <span x-show="lang === 'en'" x-cloak>Meta Ad Creative Review SOP: How to Differentiate High-Traffic from High-Converting Ads</span>
+                            </h3>
+                            <p class="text-slate-600 text-sm line-clamp-2 mb-6 flex-grow">
+                                <span x-show="lang === 'zh'">本文提供Meta广告素材复盘的标准化操作流程，帮助运营人员快速判断素材是“能跑”还是“能卖”。通过建立清晰的判断标准、数据分析步骤和决策矩阵，解决高CTR低转化、低成本低ROI等常见素材判断难题。</span>
+                                <span x-show="lang === 'en'" x-cloak>This article provides a standardized workflow for Meta ad creative review, helping marketers quickly identify whether an ad is &#39;high-traffic&#39; or &#39;high-converting&#39;. Through clear evaluation criteria, data analysis steps, and decision matrices, it addresses common creative assessment challenges like high CTR with low conversion or low cost with poor ROI.</span>
+                            </p>
+                            
+                            <div class="flex items-center justify-between mt-auto pt-4 border-t border-slate-100">
+                                <span class="text-blue-600 font-medium text-sm flex items-center gap-1 group-hover:translate-x-1 transition-transform ml-auto">
+                                    <span x-text="t[lang].card.readMore">阅读全文</span> <i class="fas fa-arrow-right text-xs"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </article>
+                
+                    <article x-show="currentFilter === 'all' || currentFilter === 'insight'" x-transition
+                        class="article-card card-hover flex flex-col h-full group cursor-pointer" onclick="window.location.href = '/article/105'">
+                        <div class="relative h-56 overflow-hidden">
+                            <img src="https://picsum.photos/seed/yiyu139/800/500" alt="周报观察：东南亚与拉美市场投放本地化，踩过这三个坑的团队都后悔了" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                            <div class="absolute top-4 left-4">
+                                <span class="px-3 py-1 bg-white/90 backdrop-blur-sm text-blue-600 text-xs font-bold rounded-lg shadow-sm">
+                                    <span x-show="lang === 'zh'">
+                                        行业洞察
+                                        
+                                    </span>
+                                    <span x-show="lang === 'en'" x-cloak>
+                                        Insights
+                                        
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <div class="flex items-center gap-3 text-xs text-slate-500 mb-3">
+                                <span class="flex items-center gap-1"><i class="far fa-calendar-alt"></i> <span>2026-05-27</span></span>
+                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span class="article-view-count" data-article-id="105" data-base-views="13">13</span></span>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
+                                <span x-show="lang === 'zh'">周报观察：东南亚与拉美市场投放本地化，踩过这三个坑的团队都后悔了</span>
+                                <span x-show="lang === 'en'" x-cloak>Weekly Watch: Why Most Teams Regret These 3 Localization Mistakes in SEA and LATAM Markets</span>
+                            </h3>
+                            <p class="text-slate-600 text-sm line-clamp-2 mb-6 flex-grow">
+                                <span x-show="lang === 'zh'">本地化不是简单的语言翻译。本周我们观察到许多出海团队在东南亚和拉美市场的投放中，因为文化适配、支付习惯和合规理解上的偏差，导致广告账户被封、素材跑偏、CAC虚高。本文梳理三个高发误区，并给出可落地的调整方向。</span>
+                                <span x-show="lang === 'en'" x-cloak>Localization goes beyond translation. This week we noticed many overseas teams made cultural missteps, payment habit misreads, and compliance errors in SEA and LATAM markets, resulting in suspended ad accounts, off-target creatives, and inflated CAC. We break down three common pitfalls and offer actionable fixes.</span>
+                            </p>
+                            
+                            <div class="flex items-center justify-between mt-auto pt-4 border-t border-slate-100">
+                                <span class="text-blue-600 font-medium text-sm flex items-center gap-1 group-hover:translate-x-1 transition-transform ml-auto">
+                                    <span x-text="t[lang].card.readMore">阅读全文</span> <i class="fas fa-arrow-right text-xs"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </article>
+                
+                    <article x-show="currentFilter === 'all' || currentFilter === 'guide'" x-transition
+                        class="article-card card-hover flex flex-col h-full group cursor-pointer" onclick="window.location.href = '/article/104'">
+                        <div class="relative h-56 overflow-hidden">
+                            <img src="https://picsum.photos/seed/yiyu1171/800/500" alt="海外广告充值、消耗与发票统一对账清单（附实操步骤）" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                            <div class="absolute top-4 left-4">
+                                <span class="px-3 py-1 bg-white/90 backdrop-blur-sm text-blue-600 text-xs font-bold rounded-lg shadow-sm">
+                                    <span x-show="lang === 'zh'">
+                                        投放指南
+                                        
+                                    </span>
+                                    <span x-show="lang === 'en'" x-cloak>
+                                        Ad Guide
+                                        
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <div class="flex items-center gap-3 text-xs text-slate-500 mb-3">
+                                <span class="flex items-center gap-1"><i class="far fa-calendar-alt"></i> <span>2026-05-27</span></span>
+                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span class="article-view-count" data-article-id="104" data-base-views="28">28</span></span>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
+                                <span x-show="lang === 'zh'">海外广告充值、消耗与发票统一对账清单（附实操步骤）</span>
+                                <span x-show="lang === 'en'" x-cloak>Overseas Ad Spend Reconciliation Checklist:充值、消耗、发票三位一体对账指南</span>
+                            </h3>
+                            <p class="text-slate-600 text-sm line-clamp-2 mb-6 flex-grow">
+                                <span x-show="lang === 'zh'">出海企业常面临多平台广告账户充值到账慢、消耗数据对不上、发票获取周期长等对账难题。本文提供可落地的对账清单，涵盖充值核查、消耗核对、发票匹配三大核心环节，帮助财务和运营团队快速定位差异，提升对账效率。</span>
+                                <span x-show="lang === 'en'" x-cloak>Overseas advertising teams often struggle with reconciling ad spend across multiple platforms—delayed充值 confirmations, mismatched消耗 data, and slow发票 delivery. This checklist provides actionable steps for充值 verification,消耗 reconciliation, and发票 matching to help finance and ops teams close gaps faster.</span>
+                            </p>
+                            
+                            <div class="flex items-center justify-between mt-auto pt-4 border-t border-slate-100">
+                                <span class="text-blue-600 font-medium text-sm flex items-center gap-1 group-hover:translate-x-1 transition-transform ml-auto">
+                                    <span x-text="t[lang].card.readMore">阅读全文</span> <i class="fas fa-arrow-right text-xs"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </article>
+                
                     <article x-show="currentFilter === 'all' || currentFilter === 'insight'" x-transition
                         class="article-card card-hover flex flex-col h-full group cursor-pointer" onclick="window.location.href = '/article/103'">
                         <div class="relative h-56 overflow-hidden">
