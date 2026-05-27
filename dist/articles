@@ -142,6 +142,123 @@
                 <!-- Article Cards -->
                 
                     <article x-show="currentFilter === 'all' || currentFilter === 'guide'" x-transition
+                        class="article-card card-hover flex flex-col h-full group cursor-pointer" onclick="window.location.href = '/article/109'">
+                        <div class="relative h-56 overflow-hidden">
+                            <img src="https://picsum.photos/seed/yiyu8063/800/500" alt="出海企业广告账户资金管理：这6个运营指标没盯紧，财务迟早对不上账" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                            <div class="absolute top-4 left-4">
+                                <span class="px-3 py-1 bg-white/90 backdrop-blur-sm text-blue-600 text-xs font-bold rounded-lg shadow-sm">
+                                    <span x-show="lang === 'zh'">
+                                        投放指南
+                                        
+                                    </span>
+                                    <span x-show="lang === 'en'" x-cloak>
+                                        Ad Guide
+                                        
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <div class="flex items-center gap-3 text-xs text-slate-500 mb-3">
+                                <span class="flex items-center gap-1"><i class="far fa-calendar-alt"></i> <span>2026-05-27</span></span>
+                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span class="article-view-count" data-article-id="109" data-base-views="88">88</span></span>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
+                                <span x-show="lang === 'zh'">出海企业广告账户资金管理：这6个运营指标没盯紧，财务迟早对不上账</span>
+                                <span x-show="lang === 'en'" x-cloak>6 Key Financial Metrics for Enterprise-Level Overseas Ad Account Management</span>
+                            </h3>
+                            <p class="text-slate-600 text-sm line-clamp-2 mb-6 flex-grow">
+                                <span x-show="lang === 'zh'">海外广告投放的资金管理远比想象中复杂。账户充值节奏混乱、余额预警缺失、多账户对账困难，是出海企业财务团队最常踩的坑。本文以6个真实业务问题展开，直接给出判断标准与操作建议，帮助运营和财务人员建立统一的资金管理框架。</span>
+                                <span x-show="lang === 'en'" x-cloak>Managing overseas ad spend is more complex than it appears. Chaotic recharge timing, missing balance alerts, and multi-account reconciliation difficulties are the most common pitfalls for finance teams. This article addresses 6 real business questions with direct answers and actionable recommendations.</span>
+                            </p>
+                            
+                            <div class="flex items-center justify-between mt-auto pt-4 border-t border-slate-100">
+                                <span class="text-blue-600 font-medium text-sm flex items-center gap-1 group-hover:translate-x-1 transition-transform ml-auto">
+                                    <span x-text="t[lang].card.readMore">阅读全文</span> <i class="fas fa-arrow-right text-xs"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </article>
+                
+                    <article x-show="currentFilter === 'all' || currentFilter === 'guide'" x-transition
+                        class="article-card card-hover flex flex-col h-full group cursor-pointer" onclick="window.location.href = '/article/108'">
+                        <div class="relative h-56 overflow-hidden">
+                            <img src="https://picsum.photos/seed/yiyu8451/800/500" alt="跨境电商独立站广告预算怎么分？运营清单来了" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                            <div class="absolute top-4 left-4">
+                                <span class="px-3 py-1 bg-white/90 backdrop-blur-sm text-blue-600 text-xs font-bold rounded-lg shadow-sm">
+                                    <span x-show="lang === 'zh'">
+                                        投放指南
+                                        
+                                    </span>
+                                    <span x-show="lang === 'en'" x-cloak>
+                                        Ad Guide
+                                        
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <div class="flex items-center gap-3 text-xs text-slate-500 mb-3">
+                                <span class="flex items-center gap-1"><i class="far fa-calendar-alt"></i> <span>2026-05-27</span></span>
+                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span class="article-view-count" data-article-id="108" data-base-views="51">51</span></span>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
+                                <span x-show="lang === 'zh'">跨境电商独立站广告预算怎么分？运营清单来了</span>
+                                <span x-show="lang === 'en'" x-cloak>Budget Allocation Checklist for Cross-Border E-commerce Landing Pages</span>
+                            </h3>
+                            <p class="text-slate-600 text-sm line-clamp-2 mb-6 flex-grow">
+                                <span x-show="lang === 'zh'">独立站引流预算分配不是拍脑袋决定，而是基于数据、渠道特性和阶段目标的系统性决策。本文提供可操作的预算分配运营清单，帮助出海团队在 Google Ads、Meta、TikTok 等渠道间合理配比预算，减少无效消耗，提升 ROI。</span>
+                                <span x-show="lang === 'en'" x-cloak>Allocating budgets for independent e-commerce sites is not a random decision but a systematic approach based on data, channel characteristics, and stage-specific goals. This article provides an actionable budget allocation checklist to help cross-border teams distribute budgets reasonably across Google Ads, Meta, and TikTok, reducing waste and improving ROI.</span>
+                            </p>
+                            
+                            <div class="flex items-center justify-between mt-auto pt-4 border-t border-slate-100">
+                                <span class="text-blue-600 font-medium text-sm flex items-center gap-1 group-hover:translate-x-1 transition-transform ml-auto">
+                                    <span x-text="t[lang].card.readMore">阅读全文</span> <i class="fas fa-arrow-right text-xs"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </article>
+                
+                    <article x-show="currentFilter === 'all' || currentFilter === 'insight'" x-transition
+                        class="article-card card-hover flex flex-col h-full group cursor-pointer" onclick="window.location.href = '/article/107'">
+                        <div class="relative h-56 overflow-hidden">
+                            <img src="https://picsum.photos/seed/yiyu255/800/500" alt="周报观察 | 多账户投放团队账户分层管理三个关键逻辑" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                            <div class="absolute top-4 left-4">
+                                <span class="px-3 py-1 bg-white/90 backdrop-blur-sm text-blue-600 text-xs font-bold rounded-lg shadow-sm">
+                                    <span x-show="lang === 'zh'">
+                                        行业洞察
+                                        
+                                    </span>
+                                    <span x-show="lang === 'en'" x-cloak>
+                                        Insights
+                                        
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <div class="flex items-center gap-3 text-xs text-slate-500 mb-3">
+                                <span class="flex items-center gap-1"><i class="far fa-calendar-alt"></i> <span>2026-05-27</span></span>
+                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span class="article-view-count" data-article-id="107" data-base-views="68">68</span></span>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
+                                <span x-show="lang === 'zh'">周报观察 | 多账户投放团队账户分层管理三个关键逻辑</span>
+                                <span x-show="lang === 'en'" x-cloak>Weekly Watch: 3 Key Logics for Multi-Account Tiered Management</span>
+                            </h3>
+                            <p class="text-slate-600 text-sm line-clamp-2 mb-6 flex-grow">
+                                <span x-show="lang === 'zh'">本周Meta、Google、TikTok等主流平台相继更新广告政策，违规判定趋严。多账户投放团队面临的管理复杂度上升，本周周报聚焦账户分层管理方法，从风险隔离、预算分配、素材复用三个维度拆解实操思路。</span>
+                                <span x-show="lang === 'en'" x-cloak>This week Meta, Google, and TikTok updated ad policies with stricter violation detection. Multi-account teams face increasing management complexity. This weekly watch focuses on tiered account management, analyzing practical approaches from three dimensions: risk isolation, budget allocation, and creative asset reuse.</span>
+                            </p>
+                            
+                            <div class="flex items-center justify-between mt-auto pt-4 border-t border-slate-100">
+                                <span class="text-blue-600 font-medium text-sm flex items-center gap-1 group-hover:translate-x-1 transition-transform ml-auto">
+                                    <span x-text="t[lang].card.readMore">阅读全文</span> <i class="fas fa-arrow-right text-xs"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </article>
+                
+                    <article x-show="currentFilter === 'all' || currentFilter === 'guide'" x-transition
                         class="article-card card-hover flex flex-col h-full group cursor-pointer" onclick="window.location.href = '/article/106'">
                         <div class="relative h-56 overflow-hidden">
                             <img src="https://picsum.photos/seed/yiyu8916/800/500" alt="素材能跑≠能卖：Meta广告复盘判断标准与实操流程" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
