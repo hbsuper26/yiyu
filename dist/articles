@@ -142,6 +142,123 @@
                 <!-- Article Cards -->
                 
                     <article x-show="currentFilter === 'all' || currentFilter === 'guide'" x-transition
+                        class="article-card card-hover flex flex-col h-full group cursor-pointer" onclick="window.location.href = '/article/115'">
+                        <div class="relative h-56 overflow-hidden">
+                            <img src="https://picsum.photos/seed/yiyu3545/800/500" alt="代理开户服务为什么需要系统化看板？" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                            <div class="absolute top-4 left-4">
+                                <span class="px-3 py-1 bg-white/90 backdrop-blur-sm text-blue-600 text-xs font-bold rounded-lg shadow-sm">
+                                    <span x-show="lang === 'zh'">
+                                        投放指南
+                                        
+                                    </span>
+                                    <span x-show="lang === 'en'" x-cloak>
+                                        Ad Guide
+                                        
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <div class="flex items-center gap-3 text-xs text-slate-500 mb-3">
+                                <span class="flex items-center gap-1"><i class="far fa-calendar-alt"></i> <span>2026-05-27</span></span>
+                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span class="article-view-count" data-article-id="115" data-base-views="70">70</span></span>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
+                                <span x-show="lang === 'zh'">代理开户服务为什么需要系统化看板？</span>
+                                <span x-show="lang === 'en'" x-cloak>Why Agency Account Opening Services Need a Systematic Dashboard</span>
+                            </h3>
+                            <p class="text-slate-600 text-sm line-clamp-2 mb-6 flex-grow">
+                                <span x-show="lang === 'zh'">出海企业面对多平台、多账户的开户管理时，流程混乱、状态不透明、跟进滞后是常见痛点。本文提供一套可落地的系统化看板运营清单，涵盖账户状态追踪、审批节点管理、信息同步三大核心场景，帮助运营团队把开户效率提升一个量级。</span>
+                                <span x-show="lang === 'en'" x-cloak>When出海 enterprises manage multi-platform and multi-account onboarding, chaotic processes, opaque status, and delayed follow-ups are common pain points. This article provides a practical systematic dashboard checklist covering three core scenarios: account status tracking, approval node management, and information synchronization.</span>
+                            </p>
+                            
+                            <div class="flex items-center justify-between mt-auto pt-4 border-t border-slate-100">
+                                <span class="text-blue-600 font-medium text-sm flex items-center gap-1 group-hover:translate-x-1 transition-transform ml-auto">
+                                    <span x-text="t[lang].card.readMore">阅读全文</span> <i class="fas fa-arrow-right text-xs"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </article>
+                
+                    <article x-show="currentFilter === 'all' || currentFilter === 'insight'" x-transition
+                        class="article-card card-hover flex flex-col h-full group cursor-pointer" onclick="window.location.href = '/article/114'">
+                        <div class="relative h-56 overflow-hidden">
+                            <img src="https://picsum.photos/seed/yiyu7484/800/500" alt="账户被封前72小时：我们帮客户准备Google Ads申诉的真实记录" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                            <div class="absolute top-4 left-4">
+                                <span class="px-3 py-1 bg-white/90 backdrop-blur-sm text-blue-600 text-xs font-bold rounded-lg shadow-sm">
+                                    <span x-show="lang === 'zh'">
+                                        行业洞察
+                                        
+                                    </span>
+                                    <span x-show="lang === 'en'" x-cloak>
+                                        Insights
+                                        
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <div class="flex items-center gap-3 text-xs text-slate-500 mb-3">
+                                <span class="flex items-center gap-1"><i class="far fa-calendar-alt"></i> <span>2026-05-27</span></span>
+                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span class="article-view-count" data-article-id="114" data-base-views="18">18</span></span>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
+                                <span x-show="lang === 'zh'">账户被封前72小时：我们帮客户准备Google Ads申诉的真实记录</span>
+                                <span x-show="lang === 'en'" x-cloak>72 Hours Before Account Suspension: A Real Google Ads Appeal Preparation Case</span>
+                            </h3>
+                            <p class="text-slate-600 text-sm line-clamp-2 mb-6 flex-grow">
+                                <span x-show="lang === 'zh'">本文通过一个工具类App账户被封的真实案例，拆解Google Ads申诉材料准备的全流程。从问题诊断、材料整理到申诉提交，详解每个环节的关键动作与注意事项，帮助出海营销人员掌握账户申诉的核心方法。</span>
+                                <span x-show="lang === 'en'" x-cloak>This article breaks down the complete process of preparing Google Ads appeal materials through a real case of a utility app account suspension. From problem diagnosis to material preparation and appeal submission, we detail key actions and considerations at each stage to help overseas marketers master account appeal methods.</span>
+                            </p>
+                            
+                            <div class="flex items-center justify-between mt-auto pt-4 border-t border-slate-100">
+                                <span class="text-blue-600 font-medium text-sm flex items-center gap-1 group-hover:translate-x-1 transition-transform ml-auto">
+                                    <span x-text="t[lang].card.readMore">阅读全文</span> <i class="fas fa-arrow-right text-xs"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </article>
+                
+                    <article x-show="currentFilter === 'all' || currentFilter === 'insight'" x-transition
+                        class="article-card card-hover flex flex-col h-full group cursor-pointer" onclick="window.location.href = '/article/113'">
+                        <div class="relative h-56 overflow-hidden">
+                            <img src="https://picsum.photos/seed/yiyu3042/800/500" alt="Meta广告素材复盘：能跑和能卖，根本是两回事" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                            <div class="absolute top-4 left-4">
+                                <span class="px-3 py-1 bg-white/90 backdrop-blur-sm text-blue-600 text-xs font-bold rounded-lg shadow-sm">
+                                    <span x-show="lang === 'zh'">
+                                        行业洞察
+                                        
+                                    </span>
+                                    <span x-show="lang === 'en'" x-cloak>
+                                        Insights
+                                        
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <div class="flex items-center gap-3 text-xs text-slate-500 mb-3">
+                                <span class="flex items-center gap-1"><i class="far fa-calendar-alt"></i> <span>2026-05-27</span></span>
+                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span class="article-view-count" data-article-id="113" data-base-views="18">18</span></span>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
+                                <span x-show="lang === 'zh'">Meta广告素材复盘：能跑和能卖，根本是两回事</span>
+                                <span x-show="lang === 'en'" x-cloak>Meta Ad Creative Review: High CTR Doesn&#39;t Equal High Conversions</span>
+                            </h3>
+                            <p class="text-slate-600 text-sm line-clamp-2 mb-6 flex-grow">
+                                <span x-show="lang === 'zh'">很多优化师踩过这个坑：素材跑出了3%以上的CTR，兴奋之余追加预算，结果ROAS不到1。问题出在哪？本文直接说结论，再给出实操判断方法。</span>
+                                <span x-show="lang === 'en'" x-cloak>Many advertisers have faced this: a 3%+ CTR creative gets budget scaled, only to deliver a ROAS below 1. Here&#39;s the direct answer and practical framework to distinguish traffic-generating creatives from revenue-generating ones.</span>
+                            </p>
+                            
+                            <div class="flex items-center justify-between mt-auto pt-4 border-t border-slate-100">
+                                <span class="text-blue-600 font-medium text-sm flex items-center gap-1 group-hover:translate-x-1 transition-transform ml-auto">
+                                    <span x-text="t[lang].card.readMore">阅读全文</span> <i class="fas fa-arrow-right text-xs"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </article>
+                
+                    <article x-show="currentFilter === 'all' || currentFilter === 'guide'" x-transition
                         class="article-card card-hover flex flex-col h-full group cursor-pointer" onclick="window.location.href = '/article/112'">
                         <div class="relative h-56 overflow-hidden">
                             <img src="https://picsum.photos/seed/yiyu852/800/500" alt="Google Ads 账户申诉材料怎么准备？5步清单+检查项" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
