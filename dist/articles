@@ -142,6 +142,123 @@
                 <!-- Article Cards -->
                 
                     <article x-show="currentFilter === 'all' || currentFilter === 'guide'" x-transition
+                        class="article-card card-hover flex flex-col h-full group cursor-pointer" onclick="window.location.href = '/article/112'">
+                        <div class="relative h-56 overflow-hidden">
+                            <img src="https://picsum.photos/seed/yiyu852/800/500" alt="Google Ads 账户申诉材料怎么准备？5步清单+检查项" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                            <div class="absolute top-4 left-4">
+                                <span class="px-3 py-1 bg-white/90 backdrop-blur-sm text-blue-600 text-xs font-bold rounded-lg shadow-sm">
+                                    <span x-show="lang === 'zh'">
+                                        投放指南
+                                        
+                                    </span>
+                                    <span x-show="lang === 'en'" x-cloak>
+                                        Ad Guide
+                                        
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <div class="flex items-center gap-3 text-xs text-slate-500 mb-3">
+                                <span class="flex items-center gap-1"><i class="far fa-calendar-alt"></i> <span>2026-05-27</span></span>
+                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span class="article-view-count" data-article-id="112" data-base-views="75">75</span></span>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
+                                <span x-show="lang === 'zh'">Google Ads 账户申诉材料怎么准备？5步清单+检查项</span>
+                                <span x-show="lang === 'en'" x-cloak>Google Ads Account Suspension: Your 5-Step Appeal Materials Checklist</span>
+                            </h3>
+                            <p class="text-slate-600 text-sm line-clamp-2 mb-6 flex-grow">
+                                <span x-show="lang === 'zh'">账户被封、广告被拒登是出海投放中最让运营头疼的问题。本文用运营清单形式，整理了从确认封号原因、收集证据材料到提交申诉的完整步骤。每个步骤后附检查项，帮你一次准备到位，避免反复申诉浪费时间。</span>
+                                <span x-show="lang === 'en'" x-cloak>Account suspension and ad disapprovals are among the most frustrating issues in overseas advertising. This checklist-style guide walks you through the complete process—from identifying the suspension reason to submitting your appeal—with actionable items for each step to help you resolve issues efficiently.</span>
+                            </p>
+                            
+                            <div class="flex items-center justify-between mt-auto pt-4 border-t border-slate-100">
+                                <span class="text-blue-600 font-medium text-sm flex items-center gap-1 group-hover:translate-x-1 transition-transform ml-auto">
+                                    <span x-text="t[lang].card.readMore">阅读全文</span> <i class="fas fa-arrow-right text-xs"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </article>
+                
+                    <article x-show="currentFilter === 'all' || currentFilter === 'insight'" x-transition
+                        class="article-card card-hover flex flex-col h-full group cursor-pointer" onclick="window.location.href = '/article/111'">
+                        <div class="relative h-56 overflow-hidden">
+                            <img src="https://picsum.photos/seed/yiyu9024/800/500" alt="东南亚与拉美投放本地化避坑指南：我们从3个失败案例中学了什么" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                            <div class="absolute top-4 left-4">
+                                <span class="px-3 py-1 bg-white/90 backdrop-blur-sm text-blue-600 text-xs font-bold rounded-lg shadow-sm">
+                                    <span x-show="lang === 'zh'">
+                                        行业洞察
+                                        
+                                    </span>
+                                    <span x-show="lang === 'en'" x-cloak>
+                                        Insights
+                                        
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <div class="flex items-center gap-3 text-xs text-slate-500 mb-3">
+                                <span class="flex items-center gap-1"><i class="far fa-calendar-alt"></i> <span>2026-05-27</span></span>
+                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span class="article-view-count" data-article-id="111" data-base-views="20">20</span></span>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
+                                <span x-show="lang === 'zh'">东南亚与拉美投放本地化避坑指南：我们从3个失败案例中学了什么</span>
+                                <span x-show="lang === 'en'" x-cloak>Localizing Ads for Southeast Asia &amp; Latin America: 3 Failure Cases We Learned From</span>
+                            </h3>
+                            <p class="text-slate-600 text-sm line-clamp-2 mb-6 flex-grow">
+                                <span x-show="lang === 'zh'">出海投放本地化不是简单的语言翻译。本文通过3个真实投放案例，拆解东南亚与拉美市场的常见误区：从广告素材触雷文化禁忌，到忽略本地支付习惯导致转化断层，再到节日营销踩错节点。帮助出海团队绕过这些坑，提升投放效率。</span>
+                                <span x-show="lang === 'en'" x-cloak>Going global isn&#39;t just about translating your ad copy. This article breaks down 3 real campaign failures in SEA and LatAm markets—from cultural missteps in creatives to payment method gaps killing conversions. Learn what went wrong and how to fix it.</span>
+                            </p>
+                            
+                            <div class="flex items-center justify-between mt-auto pt-4 border-t border-slate-100">
+                                <span class="text-blue-600 font-medium text-sm flex items-center gap-1 group-hover:translate-x-1 transition-transform ml-auto">
+                                    <span x-text="t[lang].card.readMore">阅读全文</span> <i class="fas fa-arrow-right text-xs"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </article>
+                
+                    <article x-show="currentFilter === 'all' || currentFilter === 'insight'" x-transition
+                        class="article-card card-hover flex flex-col h-full group cursor-pointer" onclick="window.location.href = '/article/110'">
+                        <div class="relative h-56 overflow-hidden">
+                            <img src="https://picsum.photos/seed/yiyu2149/800/500" alt="多账户管理混乱频发，本周聊聊代理开户服务的看板化为什么突然重要了" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                            <div class="absolute top-4 left-4">
+                                <span class="px-3 py-1 bg-white/90 backdrop-blur-sm text-blue-600 text-xs font-bold rounded-lg shadow-sm">
+                                    <span x-show="lang === 'zh'">
+                                        行业洞察
+                                        
+                                    </span>
+                                    <span x-show="lang === 'en'" x-cloak>
+                                        Insights
+                                        
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <div class="flex items-center gap-3 text-xs text-slate-500 mb-3">
+                                <span class="flex items-center gap-1"><i class="far fa-calendar-alt"></i> <span>2026-05-27</span></span>
+                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span class="article-view-count" data-article-id="110" data-base-views="20">20</span></span>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
+                                <span x-show="lang === 'zh'">多账户管理混乱频发，本周聊聊代理开户服务的看板化为什么突然重要了</span>
+                                <span x-show="lang === 'en'" x-cloak>Why Systematic Dashboards Are Becoming Essential for Agent Account Opening Services</span>
+                            </h3>
+                            <p class="text-slate-600 text-sm line-clamp-2 mb-6 flex-grow">
+                                <span x-show="lang === 'zh'">本周多个出海团队反馈广告账户管理效率下降，核心问题是缺乏统一的看板工具导致信息孤岛。代理开户服务若停留在人工跟进状态，已难以满足多账户、高并发的运营节奏。本文观察这一变化，分析看板化系统的实际价值，并给出迁移建议。</span>
+                                <span x-show="lang === 'en'" x-cloak>This week, multiple overseas teams reported declining efficiency in ad account management, with the core issue being information silos caused by the lack of unified dashboard tools. Agent account opening services that remain manual are struggling to meet the demands of multi-account, high-concurrency operations. This article observes this shift and provides migration recommendations.</span>
+                            </p>
+                            
+                            <div class="flex items-center justify-between mt-auto pt-4 border-t border-slate-100">
+                                <span class="text-blue-600 font-medium text-sm flex items-center gap-1 group-hover:translate-x-1 transition-transform ml-auto">
+                                    <span x-text="t[lang].card.readMore">阅读全文</span> <i class="fas fa-arrow-right text-xs"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </article>
+                
+                    <article x-show="currentFilter === 'all' || currentFilter === 'guide'" x-transition
                         class="article-card card-hover flex flex-col h-full group cursor-pointer" onclick="window.location.href = '/article/109'">
                         <div class="relative h-56 overflow-hidden">
                             <img src="https://picsum.photos/seed/yiyu8063/800/500" alt="出海企业广告账户资金管理：这6个运营指标没盯紧，财务迟早对不上账" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
