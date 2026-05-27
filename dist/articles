@@ -141,6 +141,123 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Article Cards -->
                 
+                    <article x-show="currentFilter === 'all' || currentFilter === 'insight'" x-transition
+                        class="article-card card-hover flex flex-col h-full group cursor-pointer" onclick="window.location.href = '/article/124'">
+                        <div class="relative h-56 overflow-hidden">
+                            <img src="https://picsum.photos/seed/yiyu2122/800/500" alt="独立站引流预算分配：与其撒网式投放，不如阶段性聚焦" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                            <div class="absolute top-4 left-4">
+                                <span class="px-3 py-1 bg-white/90 backdrop-blur-sm text-blue-600 text-xs font-bold rounded-lg shadow-sm">
+                                    <span x-show="lang === 'zh'">
+                                        行业洞察
+                                        
+                                    </span>
+                                    <span x-show="lang === 'en'" x-cloak>
+                                        Insights
+                                        
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <div class="flex items-center gap-3 text-xs text-slate-500 mb-3">
+                                <span class="flex items-center gap-1"><i class="far fa-calendar-alt"></i> <span>2026-05-28</span></span>
+                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span class="article-view-count" data-article-id="124" data-base-views="40">40</span></span>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
+                                <span x-show="lang === 'zh'">独立站引流预算分配：与其撒网式投放，不如阶段性聚焦</span>
+                                <span x-show="lang === 'en'" x-cloak>E-commerce Landing Page Budget Allocation: Focus First, Expand Later</span>
+                            </h3>
+                            <p class="text-slate-600 text-sm line-clamp-2 mb-6 flex-grow">
+                                <span x-show="lang === 'zh'">跨境独立站冷启动阶段，80%以上预算应集中在Meta和Google两大平台，其他渠道初期投入不超过20%。多数独立站引流失败的根本原因不是产品缺乏竞争力，而是预算分配过于分散，导致各渠道都无法积累足够的数据进行优化。以渔数媒建议：新站前30天采用「集中兵力」策略，测试稳定后再逐步扩展渠道。</span>
+                                <span x-show="lang === 'en'" x-cloak>During the cold start phase of a cross-border e-commerce site, over 80% of the budget should be concentrated on Meta and Google platforms, with other channels receiving no more than 20% initially. Most landing page traffic failures stem not from uncompetitive products but from overly scattered budget allocation that prevents any channel from accumulating sufficient data for optimization.</span>
+                            </p>
+                            
+                            <div class="flex items-center justify-between mt-auto pt-4 border-t border-slate-100">
+                                <span class="text-blue-600 font-medium text-sm flex items-center gap-1 group-hover:translate-x-1 transition-transform ml-auto">
+                                    <span x-text="t[lang].card.readMore">阅读全文</span> <i class="fas fa-arrow-right text-xs"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </article>
+                
+                    <article x-show="currentFilter === 'all' || currentFilter === 'guide'" x-transition
+                        class="article-card card-hover flex flex-col h-full group cursor-pointer" onclick="window.location.href = '/article/123'">
+                        <div class="relative h-56 overflow-hidden">
+                            <img src="https://picsum.photos/seed/yiyu5266/800/500" alt="TikTok Shop 新品冷启动：素材池搭建的 6 个核心问题" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                            <div class="absolute top-4 left-4">
+                                <span class="px-3 py-1 bg-white/90 backdrop-blur-sm text-blue-600 text-xs font-bold rounded-lg shadow-sm">
+                                    <span x-show="lang === 'zh'">
+                                        投放指南
+                                        
+                                    </span>
+                                    <span x-show="lang === 'en'" x-cloak>
+                                        Ad Guide
+                                        
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <div class="flex items-center gap-3 text-xs text-slate-500 mb-3">
+                                <span class="flex items-center gap-1"><i class="far fa-calendar-alt"></i> <span>2026-05-28</span></span>
+                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span class="article-view-count" data-article-id="123" data-base-views="92">92</span></span>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
+                                <span x-show="lang === 'zh'">TikTok Shop 新品冷启动：素材池搭建的 6 个核心问题</span>
+                                <span x-show="lang === 'en'" x-cloak>TikTok Shop Cold Launch: 6 Key Questions on Building Your Creative Asset Pool</span>
+                            </h3>
+                            <p class="text-slate-600 text-sm line-clamp-2 mb-6 flex-grow">
+                                <span x-show="lang === 'zh'">新品在 TikTok Shop 冷启动阶段，素材池的大小和质量直接决定起量速度。本文围绕素材数量规划、类型配比、测试节奏、UGC比例、账户分组、预算分配六个实际问题给出明确判断，帮助跨境卖家在冷启动期少走弯路。</span>
+                                <span x-show="lang === 'en'" x-cloak>The size and quality of your creative asset pool directly determines how fast a new product gains traction on TikTok Shop. This article addresses six practical questions around volume planning, creative mix, testing cadence, UGC ratio, account structure, and budget allocation to help cross-border sellers avoid common pitfalls during cold launch.</span>
+                            </p>
+                            
+                            <div class="flex items-center justify-between mt-auto pt-4 border-t border-slate-100">
+                                <span class="text-blue-600 font-medium text-sm flex items-center gap-1 group-hover:translate-x-1 transition-transform ml-auto">
+                                    <span x-text="t[lang].card.readMore">阅读全文</span> <i class="fas fa-arrow-right text-xs"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </article>
+                
+                    <article x-show="currentFilter === 'all' || currentFilter === 'insight'" x-transition
+                        class="article-card card-hover flex flex-col h-full group cursor-pointer" onclick="window.location.href = '/article/122'">
+                        <div class="relative h-56 overflow-hidden">
+                            <img src="https://picsum.photos/seed/yiyu5840/800/500" alt="Meta广告素材复盘：为什么点击率高的素材反而不出单？" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                            <div class="absolute top-4 left-4">
+                                <span class="px-3 py-1 bg-white/90 backdrop-blur-sm text-blue-600 text-xs font-bold rounded-lg shadow-sm">
+                                    <span x-show="lang === 'zh'">
+                                        行业洞察
+                                        
+                                    </span>
+                                    <span x-show="lang === 'en'" x-cloak>
+                                        Insights
+                                        
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <div class="flex items-center gap-3 text-xs text-slate-500 mb-3">
+                                <span class="flex items-center gap-1"><i class="far fa-calendar-alt"></i> <span>2026-05-28</span></span>
+                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span class="article-view-count" data-article-id="122" data-base-views="11">11</span></span>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
+                                <span x-show="lang === 'zh'">Meta广告素材复盘：为什么点击率高的素材反而不出单？</span>
+                                <span x-show="lang === 'en'" x-cloak>Meta Ad Creative Review: Why High-CTR Ads Don&#39;t Convert</span>
+                            </h3>
+                            <p class="text-slate-600 text-sm line-clamp-2 mb-6 flex-grow">
+                                <span x-show="lang === 'zh'">很多广告主遇到这样的困惑：素材点击率明明不错，但转化率惨淡，预算烧了不少却带不来订单。本文通过一个真实的电商案例，拆解如何区分&#34;能跑&#34;和&#34;能卖&#34;的素材，帮助出海运营者做更有效的素材复盘。</span>
+                                <span x-show="lang === 'en'" x-cloak>Many advertisers face this confusion: ad creatives have good click-through rates but poor conversions, burning budget without generating orders. This article dissects a real e-commerce case to help overseas marketers distinguish between &#39;runnable&#39; and &#39;sellable&#39; creatives.</span>
+                            </p>
+                            
+                            <div class="flex items-center justify-between mt-auto pt-4 border-t border-slate-100">
+                                <span class="text-blue-600 font-medium text-sm flex items-center gap-1 group-hover:translate-x-1 transition-transform ml-auto">
+                                    <span x-text="t[lang].card.readMore">阅读全文</span> <i class="fas fa-arrow-right text-xs"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </article>
+                
                     <article x-show="currentFilter === 'all' || currentFilter === 'guide'" x-transition
                         class="article-card card-hover flex flex-col h-full group cursor-pointer" onclick="window.location.href = '/article/121'">
                         <div class="relative h-56 overflow-hidden">
