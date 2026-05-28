@@ -1,3 +1,5 @@
-name = "yiyu"
-pages_build_output_dir = "./dist"
-compatibility_date = "2026-05-26"
+name = "yiyuwebsite"
+compatibility_date = "2026-05-28"
+
+[assets]
+directory = "./dist"

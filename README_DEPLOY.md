@@ -1,6 +1,6 @@
 # Yiyu Digital Media - Deployment Guide
 
-This project is a Flask application that can be exported as a static site for Cloudflare Pages.
+This project is a Flask application that can be exported as static assets for Cloudflare Workers.
 
 ## Prerequisites
 - Python 3.8+
@@ -8,18 +8,18 @@ This project is a Flask application that can be exported as a static site for Cl
 
 ## Deployment Instructions
 
-### Option 1: Cloudflare Pages
-1. In Cloudflare, use the Pages deploy command instead of the Workers deploy command.
+### Option 1: Cloudflare Workers Static Assets
+1. In Cloudflare, use the Workers deploy command.
 2. Set the deploy command to:
    ```bash
    npm run deploy
    ```
 3. The deploy script installs Python dependencies, builds the static site into `dist`, and runs:
    ```bash
-   npx wrangler pages deploy
+   npx wrangler deploy
    ```
 
-Do not use `npx wrangler deploy` for this project. That command targets Workers and requires a Worker entry point or Workers assets configuration.
+The `wrangler.toml` file configures `dist` as the Workers static assets directory.
 
 ### Option 2: Heroku / Render (PaaS)
 1. **Login** to your platform.
