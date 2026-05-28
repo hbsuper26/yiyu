@@ -141,6 +141,123 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Article Cards -->
                 
+                    <article x-show="currentFilter === 'all' || currentFilter === 'insight'" x-transition
+                        class="article-card card-hover flex flex-col h-full group cursor-pointer" onclick="window.location.href = '/article/130'">
+                        <div class="relative h-56 overflow-hidden">
+                            <img src="https://picsum.photos/seed/yiyu8244/800/500" alt="月底对账发现10万差价：海外广告充值与消耗的账不平怎么查" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                            <div class="absolute top-4 left-4">
+                                <span class="px-3 py-1 bg-white/90 backdrop-blur-sm text-blue-600 text-xs font-bold rounded-lg shadow-sm">
+                                    <span x-show="lang === 'zh'">
+                                        行业洞察
+                                        
+                                    </span>
+                                    <span x-show="lang === 'en'" x-cloak>
+                                        Insights
+                                        
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <div class="flex items-center gap-3 text-xs text-slate-500 mb-3">
+                                <span class="flex items-center gap-1"><i class="far fa-calendar-alt"></i> <span>2026-05-28</span></span>
+                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span class="article-view-count" data-article-id="130" data-base-views="59">59</span></span>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
+                                <span x-show="lang === 'zh'">月底对账发现10万差价：海外广告充值与消耗的账不平怎么查</span>
+                                <span x-show="lang === 'en'" x-cloak>How to Handle $100K Discrepancy Found During Monthly Reconciliation: Recharge vs. Spend vs. Invoice Alignment</span>
+                            </h3>
+                            <p class="text-slate-600 text-sm line-clamp-2 mb-6 flex-grow">
+                                <span x-show="lang === 'zh'">海外广告账户充值、平台消耗与发票金额三者经常出现账不平的问题。本文通过一个真实场景还原，拆解账务差异的常见原因、排查步骤和处理方式，帮助出海团队快速定位问题、减少财务风险。</span>
+                                <span x-show="lang === 'en'" x-cloak>Reconciliation discrepancies between overseas ad account recharges, platform spend, and invoices are common pain points. This article walks through a real scenario, breaking down root causes, troubleshooting steps, and resolution approaches to help overseas teams quickly identify issues and reduce financial risk.</span>
+                            </p>
+                            
+                            <div class="flex items-center justify-between mt-auto pt-4 border-t border-slate-100">
+                                <span class="text-blue-600 font-medium text-sm flex items-center gap-1 group-hover:translate-x-1 transition-transform ml-auto">
+                                    <span x-text="t[lang].card.readMore">阅读全文</span> <i class="fas fa-arrow-right text-xs"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </article>
+                
+                    <article x-show="currentFilter === 'all' || currentFilter === 'insight'" x-transition
+                        class="article-card card-hover flex flex-col h-full group cursor-pointer" onclick="window.location.href = '/article/129'">
+                        <div class="relative h-56 overflow-hidden">
+                            <img src="https://picsum.photos/seed/yiyu2191/800/500" alt="TikTok Shop 新品冷启动素材池搭建 | 本周平台变化与投放观察" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                            <div class="absolute top-4 left-4">
+                                <span class="px-3 py-1 bg-white/90 backdrop-blur-sm text-blue-600 text-xs font-bold rounded-lg shadow-sm">
+                                    <span x-show="lang === 'zh'">
+                                        行业洞察
+                                        
+                                    </span>
+                                    <span x-show="lang === 'en'" x-cloak>
+                                        Insights
+                                        
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <div class="flex items-center gap-3 text-xs text-slate-500 mb-3">
+                                <span class="flex items-center gap-1"><i class="far fa-calendar-alt"></i> <span>2026-05-28</span></span>
+                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span class="article-view-count" data-article-id="129" data-base-views="73">73</span></span>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
+                                <span x-show="lang === 'zh'">TikTok Shop 新品冷启动素材池搭建 | 本周平台变化与投放观察</span>
+                                <span x-show="lang === 'en'" x-cloak>TikTok Shop Cold Launch Creative Library: Platform Updates &amp;投放策略建议 This Week</span>
+                            </h3>
+                            <p class="text-slate-600 text-sm line-clamp-2 mb-6 flex-grow">
+                                <span x-show="lang === 'zh'">本周 TikTok Shop 流量分发机制出现调整，素材审核标准趋严，新品冷启动难度明显上升。以渔数媒本周观察到多个账户在新计划激活阶段遭遇素材被拒或流量分配异常的情况。本文聚焦本周平台变化，为出海团队提供素材池搭建的具体应对建议。</span>
+                                <span x-show="lang === 'en'" x-cloak>This week, TikTok Shop&#39;s traffic distribution mechanism saw adjustments and content review standards tightened, making cold launches notably harder. Yiyu Digital observed multiple accounts experiencing creative rejections and irregular流量分配 during new campaign activation. This article focuses on this week&#39;s platform changes and provides actionable recommendations for building a creative library for cold launches.</span>
+                            </p>
+                            
+                            <div class="flex items-center justify-between mt-auto pt-4 border-t border-slate-100">
+                                <span class="text-blue-600 font-medium text-sm flex items-center gap-1 group-hover:translate-x-1 transition-transform ml-auto">
+                                    <span x-text="t[lang].card.readMore">阅读全文</span> <i class="fas fa-arrow-right text-xs"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </article>
+                
+                    <article x-show="currentFilter === 'all' || currentFilter === 'guide'" x-transition
+                        class="article-card card-hover flex flex-col h-full group cursor-pointer" onclick="window.location.href = '/article/128'">
+                        <div class="relative h-56 overflow-hidden">
+                            <img src="https://picsum.photos/seed/yiyu5432/800/500" alt="独立站广告预算分配SOP：按阶段和平台设置投放计划" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                            <div class="absolute top-4 left-4">
+                                <span class="px-3 py-1 bg-white/90 backdrop-blur-sm text-blue-600 text-xs font-bold rounded-lg shadow-sm">
+                                    <span x-show="lang === 'zh'">
+                                        投放指南
+                                        
+                                    </span>
+                                    <span x-show="lang === 'en'" x-cloak>
+                                        Ad Guide
+                                        
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <div class="flex items-center gap-3 text-xs text-slate-500 mb-3">
+                                <span class="flex items-center gap-1"><i class="far fa-calendar-alt"></i> <span>2026-05-28</span></span>
+                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span class="article-view-count" data-article-id="128" data-base-views="92">92</span></span>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
+                                <span x-show="lang === 'zh'">独立站广告预算分配SOP：按阶段和平台设置投放计划</span>
+                                <span x-show="lang === 'en'" x-cloak>Ad Budget Allocation SOP for E-commerce Sites: Set Up Campaigns by Growth Phase</span>
+                            </h3>
+                            <p class="text-slate-600 text-sm line-clamp-2 mb-6 flex-grow">
+                                <span x-show="lang === 'zh'">本文提供一套可直接执行的独立站广告预算分配流程，涵盖冷启动期、成长期、活动大促三个阶段的预算比例建议，以及 Google、Meta、TikTok 三大主流平台的具体分配逻辑。通过明确的步骤和检查节点，帮助运营人员快速搭建合理的投放结构，避免预算浪费。</span>
+                                <span x-show="lang === 'en'" x-cloak>This article provides a step-by-step SOP for e-commerce site ad budget allocation, covering budget ratios for cold start, growth, and promotional phases, along with specific distribution logic across Google, Meta, and TikTok platforms. The process helps operators build a rational campaign structure and avoid budget waste.</span>
+                            </p>
+                            
+                            <div class="flex items-center justify-between mt-auto pt-4 border-t border-slate-100">
+                                <span class="text-blue-600 font-medium text-sm flex items-center gap-1 group-hover:translate-x-1 transition-transform ml-auto">
+                                    <span x-text="t[lang].card.readMore">阅读全文</span> <i class="fas fa-arrow-right text-xs"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </article>
+                
                     <article x-show="currentFilter === 'all' || currentFilter === 'guide'" x-transition
                         class="article-card card-hover flex flex-col h-full group cursor-pointer" onclick="window.location.href = '/article/127'">
                         <div class="relative h-56 overflow-hidden">
