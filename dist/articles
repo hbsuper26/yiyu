@@ -141,6 +141,123 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Article Cards -->
                 
+                    <article x-show="currentFilter === 'all' || currentFilter === 'guide'" x-transition
+                        class="article-card card-hover flex flex-col h-full group cursor-pointer" onclick="window.location.href = '/article/139'">
+                        <div class="relative h-56 overflow-hidden">
+                            <img src="https://picsum.photos/seed/yiyu2527/800/500" alt="账户被封申诉屡次失败？三个真实案例教你准备有效的Google Ads申诉材料" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                            <div class="absolute top-4 left-4">
+                                <span class="px-3 py-1 bg-white/90 backdrop-blur-sm text-blue-600 text-xs font-bold rounded-lg shadow-sm">
+                                    <span x-show="lang === 'zh'">
+                                        投放指南
+                                        
+                                    </span>
+                                    <span x-show="lang === 'en'" x-cloak>
+                                        Ad Guide
+                                        
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <div class="flex items-center gap-3 text-xs text-slate-500 mb-3">
+                                <span class="flex items-center gap-1"><i class="far fa-calendar-alt"></i> <span>2026-05-30</span></span>
+                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span class="article-view-count" data-article-id="139" data-base-views="27">27</span></span>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
+                                <span x-show="lang === 'zh'">账户被封申诉屡次失败？三个真实案例教你准备有效的Google Ads申诉材料</span>
+                                <span x-show="lang === 'en'" x-cloak>Google Ads Account Suspension Appeals: Three Real Cases Show You How to Prepare Winning Documentation</span>
+                            </h3>
+                            <p class="text-slate-600 text-sm line-clamp-2 mb-6 flex-grow">
+                                <span x-show="lang === 'zh'">本文通过三个真实案例场景，详细拆解Google Ads账户被封后的申诉流程、常见被拒原因、以及高效申诉材料的准备方法，帮助出海营销人员快速定位问题并提交一次性通过的申诉材料。</span>
+                                <span x-show="lang === 'en'" x-cloak>This article breaks down three real cases of Google Ads account suspensions, detailing the appeal process, common rejection reasons, and how to prepare effective appeal documentation that gets approved on the first try.</span>
+                            </p>
+                            
+                            <div class="flex items-center justify-between mt-auto pt-4 border-t border-slate-100">
+                                <span class="text-blue-600 font-medium text-sm flex items-center gap-1 group-hover:translate-x-1 transition-transform ml-auto">
+                                    <span x-text="t[lang].card.readMore">阅读全文</span> <i class="fas fa-arrow-right text-xs"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </article>
+                
+                    <article x-show="currentFilter === 'all' || currentFilter === 'guide'" x-transition
+                        class="article-card card-hover flex flex-col h-full group cursor-pointer" onclick="window.location.href = '/article/138'">
+                        <div class="relative h-56 overflow-hidden">
+                            <img src="https://picsum.photos/seed/yiyu7636/800/500" alt="海外广告充值、消耗和发票对账难？这三个数据必须统一管" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                            <div class="absolute top-4 left-4">
+                                <span class="px-3 py-1 bg-white/90 backdrop-blur-sm text-blue-600 text-xs font-bold rounded-lg shadow-sm">
+                                    <span x-show="lang === 'zh'">
+                                        投放指南
+                                        
+                                    </span>
+                                    <span x-show="lang === 'en'" x-cloak>
+                                        Ad Guide
+                                        
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <div class="flex items-center gap-3 text-xs text-slate-500 mb-3">
+                                <span class="flex items-center gap-1"><i class="far fa-calendar-alt"></i> <span>2026-05-30</span></span>
+                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span class="article-view-count" data-article-id="138" data-base-views="23">23</span></span>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
+                                <span x-show="lang === 'zh'">海外广告充值、消耗和发票对账难？这三个数据必须统一管</span>
+                                <span x-show="lang === 'en'" x-cloak>Why Unified Reconciliation of Overseas Ad Spend, Recharges, and Invoices Matters</span>
+                            </h3>
+                            <p class="text-slate-600 text-sm line-clamp-2 mb-6 flex-grow">
+                                <span x-show="lang === 'zh'">海外广告账户的对账核心在于将充值记录、平台消耗数据和发票三张单据统一核对。多数团队对账混乱的根源是把“平台余额”当终点，却忽略了充值时差、消耗延迟和发票周期三个关键变量。以渔的运营经验表明，做好这三个数据源的实时追踪，能减少80%以上的财务对账误差。</span>
+                                <span x-show="lang === 'en'" x-cloak>The key to reconciling overseas ad accounts lies in cross-checking recharge records, platform spend data, and invoices together. Most teams lose track because they treat the &#39;platform balance&#39; as the final number, ignoring three critical variables: recharge timing gaps, spend reporting delays, and invoice cycles. Our operational experience shows that tracking these three data sources in real time can reduce financial reconciliation errors by over 80%.</span>
+                            </p>
+                            
+                            <div class="flex items-center justify-between mt-auto pt-4 border-t border-slate-100">
+                                <span class="text-blue-600 font-medium text-sm flex items-center gap-1 group-hover:translate-x-1 transition-transform ml-auto">
+                                    <span x-text="t[lang].card.readMore">阅读全文</span> <i class="fas fa-arrow-right text-xs"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </article>
+                
+                    <article x-show="currentFilter === 'all' || currentFilter === 'guide'" x-transition
+                        class="article-card card-hover flex flex-col h-full group cursor-pointer" onclick="window.location.href = '/article/137'">
+                        <div class="relative h-56 overflow-hidden">
+                            <img src="https://picsum.photos/seed/yiyu3208/800/500" alt="出海投放本地化避坑清单：东南亚与拉美的5类高频误区" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                            <div class="absolute top-4 left-4">
+                                <span class="px-3 py-1 bg-white/90 backdrop-blur-sm text-blue-600 text-xs font-bold rounded-lg shadow-sm">
+                                    <span x-show="lang === 'zh'">
+                                        投放指南
+                                        
+                                    </span>
+                                    <span x-show="lang === 'en'" x-cloak>
+                                        Ad Guide
+                                        
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <div class="flex items-center gap-3 text-xs text-slate-500 mb-3">
+                                <span class="flex items-center gap-1"><i class="far fa-calendar-alt"></i> <span>2026-05-30</span></span>
+                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span class="article-view-count" data-article-id="137" data-base-views="62">62</span></span>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
+                                <span x-show="lang === 'zh'">出海投放本地化避坑清单：东南亚与拉美的5类高频误区</span>
+                                <span x-show="lang === 'en'" x-cloak>Localizaiton Pitfalls in SEA &amp; LATAM: 5 High-Frequency Mistakes to Avoid</span>
+                            </h3>
+                            <p class="text-slate-600 text-sm line-clamp-2 mb-6 flex-grow">
+                                <span x-show="lang === 'zh'">东南亚与拉美市场是出海投放的热门增量市场，但本地化失败导致的预算浪费、封号、风控问题频发。本文整理了两大市场5类高频本地化误区，提供可直接落地的检查清单与应对步骤，帮助投放团队少走弯路。</span>
+                                <span x-show="lang === 'en'" x-cloak>Southeast Asia and Latin America are hot markets for overseas advertising, but localization failures frequently cause budget waste, account bans, and compliance issues. This article identifies 5 high-frequency localization mistakes across both regions with actionable checklists.</span>
+                            </p>
+                            
+                            <div class="flex items-center justify-between mt-auto pt-4 border-t border-slate-100">
+                                <span class="text-blue-600 font-medium text-sm flex items-center gap-1 group-hover:translate-x-1 transition-transform ml-auto">
+                                    <span x-text="t[lang].card.readMore">阅读全文</span> <i class="fas fa-arrow-right text-xs"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </article>
+                
                     <article x-show="currentFilter === 'all' || currentFilter === 'insight'" x-transition
                         class="article-card card-hover flex flex-col h-full group cursor-pointer" onclick="window.location.href = '/article/136'">
                         <div class="relative h-56 overflow-hidden">
