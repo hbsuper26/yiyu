@@ -142,6 +142,123 @@
                 <!-- Article Cards -->
                 
                     <article x-show="currentFilter === 'all' || currentFilter === 'guide'" x-transition
+                        class="article-card card-hover flex flex-col h-full group cursor-pointer" onclick="window.location.href = '/article/142'">
+                        <div class="relative h-56 overflow-hidden">
+                            <img src="https://picsum.photos/seed/yiyu339/800/500" alt="Meta 广告素材复盘：3 步区分“能跑”和“能卖”" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                            <div class="absolute top-4 left-4">
+                                <span class="px-3 py-1 bg-white/90 backdrop-blur-sm text-blue-600 text-xs font-bold rounded-lg shadow-sm">
+                                    <span x-show="lang === 'zh'">
+                                        投放指南
+                                        
+                                    </span>
+                                    <span x-show="lang === 'en'" x-cloak>
+                                        Ad Guide
+                                        
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <div class="flex items-center gap-3 text-xs text-slate-500 mb-3">
+                                <span class="flex items-center gap-1"><i class="far fa-calendar-alt"></i> <span>2026-05-31</span></span>
+                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span class="article-view-count" data-article-id="142" data-base-views="53">53</span></span>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
+                                <span x-show="lang === 'zh'">Meta 广告素材复盘：3 步区分“能跑”和“能卖”</span>
+                                <span x-show="lang === 'en'" x-cloak>Meta Ads Creative Review: 3 Steps to Distinguish &#39;High-Performing&#39; from &#39;High-Converting&#39; Materials</span>
+                            </h3>
+                            <p class="text-slate-600 text-sm line-clamp-2 mb-6 flex-grow">
+                                <span x-show="lang === 'zh'">很多优化师头疼一个问题：素材明明 CTR 很高，为什么转化差、ROI 低？本文提供一套可操作的复盘清单，帮助你在 Meta 广告后台快速判断素材是“能跑”还是“能卖”，避免把预算浪费在虚假繁荣的数据上。</span>
+                                <span x-show="lang === 'en'" x-cloak>Many advertisers struggle with high-CTR creatives that fail to convert. This article provides an actionable checklist to help you quickly identify whether your Meta ad creative can generate impressions or drive actual sales during creative review.</span>
+                            </p>
+                            
+                            <div class="flex items-center justify-between mt-auto pt-4 border-t border-slate-100">
+                                <span class="text-blue-600 font-medium text-sm flex items-center gap-1 group-hover:translate-x-1 transition-transform ml-auto">
+                                    <span x-text="t[lang].card.readMore">阅读全文</span> <i class="fas fa-arrow-right text-xs"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </article>
+                
+                    <article x-show="currentFilter === 'all' || currentFilter === 'guide'" x-transition
+                        class="article-card card-hover flex flex-col h-full group cursor-pointer" onclick="window.location.href = '/article/141'">
+                        <div class="relative h-56 overflow-hidden">
+                            <img src="https://picsum.photos/seed/yiyu6774/800/500" alt="代理开户服务系统化看板搭建SOP | 以渔数媒运营手册" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                            <div class="absolute top-4 left-4">
+                                <span class="px-3 py-1 bg-white/90 backdrop-blur-sm text-blue-600 text-xs font-bold rounded-lg shadow-sm">
+                                    <span x-show="lang === 'zh'">
+                                        投放指南
+                                        
+                                    </span>
+                                    <span x-show="lang === 'en'" x-cloak>
+                                        Ad Guide
+                                        
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <div class="flex items-center gap-3 text-xs text-slate-500 mb-3">
+                                <span class="flex items-center gap-1"><i class="far fa-calendar-alt"></i> <span>2026-05-31</span></span>
+                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span class="article-view-count" data-article-id="141" data-base-views="85">85</span></span>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
+                                <span x-show="lang === 'zh'">代理开户服务系统化看板搭建SOP | 以渔数媒运营手册</span>
+                                <span x-show="lang === 'en'" x-cloak>Systematic Dashboard SOP for Agency Account Opening Services</span>
+                            </h3>
+                            <p class="text-slate-600 text-sm line-clamp-2 mb-6 flex-grow">
+                                <span x-show="lang === 'zh'">本文以渔数媒实际运营经验，总结代理开户服务系统化看板搭建的完整步骤。通过看板机制实现多账户状态实时追踪、超额预警、任务流转可视化，帮助运营团队将开户周期从平均5-7天压缩至3天内，大幅降低客户流失与财务风险。</span>
+                                <span x-show="lang === 'en'" x-cloak>This article summarizes the complete steps for building a systematic dashboard for agency account opening services based on Yiyu Digital Media&#39;s operational experience. Through the kanban mechanism, real-time tracking of multi-account status, quota alerts, and task flow visualization are achieved, helping operations teams shorten the average account opening cycle from 5-7 days to within 3 days, significantly reducing customer churn and financial risks.</span>
+                            </p>
+                            
+                            <div class="flex items-center justify-between mt-auto pt-4 border-t border-slate-100">
+                                <span class="text-blue-600 font-medium text-sm flex items-center gap-1 group-hover:translate-x-1 transition-transform ml-auto">
+                                    <span x-text="t[lang].card.readMore">阅读全文</span> <i class="fas fa-arrow-right text-xs"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </article>
+                
+                    <article x-show="currentFilter === 'all' || currentFilter === 'insight'" x-transition
+                        class="article-card card-hover flex flex-col h-full group cursor-pointer" onclick="window.location.href = '/article/140'">
+                        <div class="relative h-56 overflow-hidden">
+                            <img src="https://picsum.photos/seed/yiyu3463/800/500" alt="跨境团队的广告账务之痛：一次充值消耗核销的全流程拆解" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                            <div class="absolute top-4 left-4">
+                                <span class="px-3 py-1 bg-white/90 backdrop-blur-sm text-blue-600 text-xs font-bold rounded-lg shadow-sm">
+                                    <span x-show="lang === 'zh'">
+                                        行业洞察
+                                        
+                                    </span>
+                                    <span x-show="lang === 'en'" x-cloak>
+                                        Insights
+                                        
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <div class="flex items-center gap-3 text-xs text-slate-500 mb-3">
+                                <span class="flex items-center gap-1"><i class="far fa-calendar-alt"></i> <span>2026-05-31</span></span>
+                                <span class="flex items-center gap-1"><i class="far fa-eye"></i> <span class="article-view-count" data-article-id="140" data-base-views="31">31</span></span>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
+                                <span x-show="lang === 'zh'">跨境团队的广告账务之痛：一次充值消耗核销的全流程拆解</span>
+                                <span x-show="lang === 'en'" x-cloak>Cross-Border Advertising Reconciliation: A Complete Case Study on Charging, Spending, and Invoice Verification</span>
+                            </h3>
+                            <p class="text-slate-600 text-sm line-clamp-2 mb-6 flex-grow">
+                                <span x-show="lang === 'zh'">本文通过一个真实场景拆解海外广告账户充值、消耗与发票核销的典型问题。从充值到对账全流程，分析平台账期差异、汇率换算、消耗滞后等常见坑，并给出可落地的处理动作与风控建议，帮助跨境团队建立清晰的广告财务闭环。</span>
+                                <span x-show="lang === 'en'" x-cloak>This article dissects a real scenario of overseas advertising account charging, spending, and invoice verification. From the full process of top-up to reconciliation, it analyzes common issues like platform billing cycle differences, exchange rate conversions, and spending delays, providing actionable steps and risk control recommendations to help cross-border teams build a clear advertising financial closed loop.</span>
+                            </p>
+                            
+                            <div class="flex items-center justify-between mt-auto pt-4 border-t border-slate-100">
+                                <span class="text-blue-600 font-medium text-sm flex items-center gap-1 group-hover:translate-x-1 transition-transform ml-auto">
+                                    <span x-text="t[lang].card.readMore">阅读全文</span> <i class="fas fa-arrow-right text-xs"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </article>
+                
+                    <article x-show="currentFilter === 'all' || currentFilter === 'guide'" x-transition
                         class="article-card card-hover flex flex-col h-full group cursor-pointer" onclick="window.location.href = '/article/139'">
                         <div class="relative h-56 overflow-hidden">
                             <img src="https://picsum.photos/seed/yiyu2527/800/500" alt="账户被封申诉屡次失败？三个真实案例教你准备有效的Google Ads申诉材料" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
